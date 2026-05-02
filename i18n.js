@@ -90,6 +90,14 @@
       about_snippet_html: 'Do ActionScript ao TypeScript — <em>arte, sistemas e impacto</em> numa narrativa só.',
       about_btn: 'Sobre mim',
 
+      nav_testimonials: 'Recomendações',
+
+      tm_eyebrow: 'Pares e líderes',
+      tm_heading_html: 'Recomendações <span>profissionais</span>',
+      tm_sub: 'Trechos do que colegas publicaram no LinkedIn ao longo da trajetória.',
+      tm_note_html:
+        'Trechos publicados como recomendações no <a href="https://www.linkedin.com/in/marcuscunha-dev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.',
+
       tl_heading: 'Trajetória <span>profissional</span>',
       tl_sub: 'Mais recente primeiro — até o estágio no INSS (2004) e o período freelance anterior.',
       tl_dir_top: '↑ Mais recente',
@@ -320,6 +328,14 @@
         'The full story: from Flash to government and large-scale products, architecture mindset, studies at PUC-Rio and what frontend means to me today.',
       about_snippet_html: 'From ActionScript to TypeScript — <em>craft, systems and impact</em> in one thread.',
       about_btn: 'About me',
+
+      nav_testimonials: 'Recommendations',
+
+      tm_eyebrow: 'Peers & leaders',
+      tm_heading_html: 'Professional <span>recommendations</span>',
+      tm_sub: 'Excerpts colleagues wrote on LinkedIn over the years.',
+      tm_note_html:
+        'Published as recommendations on <a href="https://www.linkedin.com/in/marcuscunha-dev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.',
 
       tl_heading: 'Professional <span>timeline</span>',
       tl_sub: 'Newest first — through the INSS internship (2004) and earlier freelance work.',
