@@ -44,7 +44,7 @@
 
       nav_id: 'MC · Portfolio',
 
-      hero_label: 'Engenheiro frontend · UX/UI designer · Produtos potencializados por IA',
+      hero_label: 'Engenheiro Frontend · UX/UI Designer · IA aplicada (LLMs & automação)',
       hero_cred_heading: 'Formação acadêmica',
       hero_cred1_title: 'Bacharelado — Universidade Estácio de Sá',
       hero_cred1_level: 'Graduação',
@@ -275,7 +275,7 @@
 
       nav_id: 'MC · Portfolio',
 
-      hero_label: 'Frontend Engineer · UX/UI Designer · AI-Enhanced Products',
+      hero_label: 'Frontend Engineer · UX/UI Designer · Applied AI (LLMs & automation)',
       hero_cred_heading: 'Education',
       hero_cred1_title: "Bachelor's — Universidade Estácio de Sá",
       hero_cred1_level: "Bachelor's",
