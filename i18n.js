@@ -49,6 +49,9 @@
       hero_cred3_school: 'PUC-Rio',
       hero_cred3_course: 'Especialista em TI · Full Stack',
 
+      hero_puc_affil: 'Pós-graduação lato sensu · PUC-Rio',
+      hero_puc_link_title: 'PUC-Rio — site institucional',
+
       hero_role_html:
         '<strong>+15 anos</strong> construindo interfaces que fazem sentido — do código à experiência, da startup à multinacional.',
       stat_exp: 'Anos de exp.',
@@ -266,6 +269,9 @@
       hero_cred3_level: 'Specialization',
       hero_cred3_school: 'PUC-Rio',
       hero_cred3_course: 'IT Specialist · Full Stack',
+
+      hero_puc_affil: 'Graduate specialization · PUC-Rio',
+      hero_puc_link_title: 'PUC-Rio — official website',
 
       hero_role_html:
         '<strong>15+ years</strong> building interfaces that make sense — from code to experience, from startups to multinationals.',

@@ -542,6 +542,76 @@
       color: rgba(255,255,255,.88);
     }
 
+    .hero-affiliation {
+      display: flex;
+      align-items: center;
+      margin: -1.5rem 0 2.35rem;
+      max-width: min(100%, 40rem);
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeSlideY 0.68s 0.34s var(--ease) forwards;
+    }
+    .hero-affiliation-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.9);
+      transition: color 0.22s var(--ease);
+    }
+    .hero-affiliation-link:hover {
+      color: #fff;
+    }
+    .hero-affiliation-link:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+    .hero-affiliation-crest {
+      flex-shrink: 0;
+      height: clamp(3.5rem, 5.5vw, 4.35rem);
+      width: auto;
+      max-width: clamp(2.75rem, 4.2vw, 3.45rem);
+      object-fit: contain;
+      object-position: center top;
+      filter: invert(1) brightness(1.12);
+      opacity: 0.94;
+      transition: opacity 0.22s var(--ease), filter 0.22s var(--ease);
+    }
+    .hero-affiliation-link:hover .hero-affiliation-crest {
+      opacity: 1;
+      filter: invert(1) brightness(1.2) drop-shadow(0 0 16px rgba(224, 91, 26, 0.28));
+    }
+    .hero-affiliation-text {
+      font-family: var(--font-disp);
+      font-size: clamp(0.72rem, 1.65vw, 0.88rem);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1.4;
+      padding-left: 0.95rem;
+      border-left: 3px solid rgba(224, 91, 26, 0.5);
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+    }
+    .hero-affiliation-link:hover .hero-affiliation-text {
+      color: #fff;
+    }
+    @media (max-width: 520px) {
+      .hero-affiliation {
+        margin-top: -0.5rem;
+        margin-bottom: 1.85rem;
+      }
+      .hero-affiliation-crest {
+        height: 3.15rem;
+        max-width: 2.55rem;
+      }
+      .hero-affiliation-text {
+        font-size: clamp(0.66rem, 3.2vw, 0.78rem);
+        padding-left: 0.8rem;
+      }
+    }
+
     .hero-name {
       font-family: var(--font-disp);
       font-size: clamp(4rem, 11vw, 9rem);
@@ -1595,6 +1665,13 @@
         <span class="cred-tag" data-i18n-title="hero_cred3_title" title="Pós-graduação lato sensu — PUC-Rio (Pontifícia Universidade Católica do Rio de Janeiro)">
           <span class="cred-level" data-i18n="hero_cred3_level">Pós-graduação lato sensu</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-school" data-i18n="hero_cred3_school">PUC-Rio</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-course" data-i18n="hero_cred3_course">Especialista em TI · Full Stack</span>
         </span>
+      </div>
+
+      <div class="hero-affiliation">
+        <a class="hero-affiliation-link" href="https://www.puc-rio.br" target="_blank" rel="noopener noreferrer" data-i18n-title="hero_puc_link_title" title="PUC-Rio — site institucional">
+          <img class="hero-affiliation-crest" src="imagens/logos/brasao_preto_vertical_PUCRIO.svg" alt="Brasão da Pontifícia Universidade Católica do Rio de Janeiro" width="72" height="120" decoding="async">
+          <span class="hero-affiliation-text" data-i18n="hero_puc_affil">Pós-graduação lato sensu · PUC-Rio</span>
+        </a>
       </div>
 
       <div class="hero-meta">
