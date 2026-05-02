@@ -37,22 +37,45 @@
       --line: #ddd9d1;
       --font-disp: 'Nunito', system-ui, sans-serif;
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --a11y-bar-h: 2.35rem;
     }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      scroll-padding-top: calc(var(--a11y-bar-h) + 4.5rem);
+    }
+    html[data-a11y-fs="0"] { font-size: 87.5%; }
+    html[data-a11y-fs="1"] { font-size: 100%; }
+    html[data-a11y-fs="2"] { font-size: 112.5%; }
+    html[data-a11y-fs="3"] { font-size: 125%; }
+    html[data-a11y-hc="1"] {
+      --ink: #0a0a0c;
+      --muted: #4b4844;
+    }
+    html[data-a11y-hc="1"] a:not(.a11y-bar *) {
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+      text-decoration-thickness: 0.08em;
+    }
+    html[data-a11y-hc="1"] *:focus-visible {
+      outline-width: 3px !important;
+      outline-offset: 3px !important;
+    }
     body {
       font-family: var(--font-disp);
       background: var(--page);
       color: var(--ink);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      padding-top: var(--a11y-bar-h);
     }
 
     .skip-link {
       position: absolute;
       left: -9999px;
-      top: 0.75rem;
-      z-index: 200;
+      top: 0;
+      z-index: 10060;
       padding: 0.6rem 1rem;
       font-size: 0.75rem;
       font-weight: 800;
@@ -66,12 +89,98 @@
     }
     .skip-link:focus {
       left: 0.75rem;
+      top: calc(var(--a11y-bar-h) + 0.35rem);
       outline: none;
+    }
+
+    .a11y-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10050;
+      min-height: var(--a11y-bar-h);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.2rem 0.65rem;
+      background: rgba(10, 10, 12, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .a11y-bar-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem 0.65rem;
+      max-width: 72rem;
+      width: 100%;
+    }
+    .a11y-bar-label {
+      font-family: var(--font-disp);
+      font-size: 0.52rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.38);
+      margin-right: 0.25rem;
+    }
+    .a11y-bar-tools {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.28rem;
+    }
+    .a11y-bar-btn {
+      font-family: var(--font-disp);
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 100px;
+      padding: 0.28rem 0.55rem;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+    .a11y-bar-btn:hover {
+      color: #fff;
+      border-color: rgba(224, 91, 26, 0.45);
+      background: rgba(224, 91, 26, 0.12);
+    }
+    .a11y-bar-btn:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
+    }
+    .a11y-bar-btn[aria-pressed="true"] {
+      color: var(--void);
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    .a11y-bar-btn--font {
+      min-width: 2rem;
+      padding-left: 0.45rem;
+      padding-right: 0.45rem;
+    }
+    .a11y-bar-btn--libras {
+      border-color: rgba(59, 130, 246, 0.35);
+      background: rgba(59, 130, 246, 0.08);
+    }
+    .a11y-bar-btn--libras:hover {
+      border-color: rgba(59, 130, 246, 0.55);
+      background: rgba(59, 130, 246, 0.18);
+    }
+    @media (max-width: 520px) {
+      :root { --a11y-bar-h: 2.85rem; }
     }
 
     .sobre-bar {
       position: sticky;
-      top: 0;
+      top: var(--a11y-bar-h);
       z-index: 100;
       background: rgba(12, 12, 15, 0.94);
       backdrop-filter: blur(12px);
@@ -310,6 +419,18 @@
 </head>
 <body>
   <a class="skip-link" href="#conteudo" data-i18n="sobre_skip">Pular para o conteúdo</a>
+  <div class="a11y-bar" role="region" data-i18n-aria="a11y_region" aria-label="Ferramentas de acessibilidade">
+    <div class="a11y-bar-inner">
+      <span class="a11y-bar-label" data-i18n="a11y_label">Acessibilidade</span>
+      <div class="a11y-bar-tools">
+        <button type="button" class="a11y-bar-btn a11y-bar-btn--font" id="a11y-font-down" data-i18n-aria="a11y_font_down" aria-label="Diminuir tamanho da fonte">A−</button>
+        <button type="button" class="a11y-bar-btn a11y-bar-btn--font" id="a11y-font-reset" data-i18n-aria="a11y_font_reset" aria-label="Restaurar tamanho da fonte">A</button>
+        <button type="button" class="a11y-bar-btn a11y-bar-btn--font" id="a11y-font-up" data-i18n-aria="a11y_font_up" aria-label="Aumentar tamanho da fonte">A+</button>
+        <button type="button" class="a11y-bar-btn" id="a11y-contrast" aria-pressed="false" data-i18n-aria="a11y_contrast" aria-label="Contraste"><span data-i18n="a11y_contrast">Contraste</span></button>
+        <button type="button" class="a11y-bar-btn a11y-bar-btn--libras" id="a11y-libras" data-i18n-aria="a11y_libras_aria" aria-label="Abrir o tradutor VLibras (Libras)"><span data-i18n="a11y_libras">Libras</span></button>
+      </div>
+    </div>
+  </div>
   <header class="sobre-bar">
     <div class="sobre-bar-inner">
       <a class="sobre-voltar" href="index.html">
@@ -398,6 +519,7 @@
     <a href="index.html" data-i18n="sobre_foot">← Voltar ao portfólio</a>
   </footer>
 
+  <script src="a11y.js"></script>
   <script src="i18n.js"></script>
   <script>
     (function () {
@@ -407,6 +529,18 @@
         feather.replace({ 'stroke-width': 1.75 });
       }
     })();
+  </script>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    if (window.VLibras && window.VLibras.Widget) {
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    }
   </script>
 </body>
 </html>

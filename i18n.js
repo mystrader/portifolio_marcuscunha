@@ -27,6 +27,16 @@
       lang_intl_tooltip:
         'Aberto a vagas internacionais. Site em inglês: use o toggle EN.',
 
+      a11y_skip: 'Pular para o conteúdo',
+      a11y_region: 'Ferramentas de acessibilidade',
+      a11y_label: 'Acessibilidade',
+      a11y_font_down: 'Diminuir tamanho da fonte',
+      a11y_font_reset: 'Restaurar tamanho da fonte',
+      a11y_font_up: 'Aumentar tamanho da fonte',
+      a11y_contrast: 'Contraste',
+      a11y_libras: 'Libras',
+      a11y_libras_aria: 'Abrir o tradutor VLibras (Libras)',
+
       nav_sobre: 'Sobre',
       nav_timeline: 'Trajetória',
       nav_skills: 'Arquitetura',
@@ -247,6 +257,16 @@
       lang_switch_aria: 'Site language',
       lang_intl_tooltip:
         'Open to international roles. English site: use the EN toggle.',
+
+      a11y_skip: 'Skip to content',
+      a11y_region: 'Accessibility tools',
+      a11y_label: 'Accessibility',
+      a11y_font_down: 'Decrease font size',
+      a11y_font_reset: 'Reset font size',
+      a11y_font_up: 'Increase font size',
+      a11y_contrast: 'Contrast',
+      a11y_libras: 'Sign language',
+      a11y_libras_aria: 'Open VLibras (Brazilian Sign Language)',
 
       nav_sobre: 'About',
       nav_timeline: 'Career',
