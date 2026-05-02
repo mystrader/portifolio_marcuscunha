@@ -389,7 +389,8 @@
     }
 
     .hero-name-wrap {
-      margin-bottom: 1.35rem;
+      margin-bottom: 6rem;
+      margin-top: 1rem;
     }
 
     .hero-credentials {
@@ -458,7 +459,7 @@
 
     .hero-name {
       font-family: var(--font-disp);
-      font-size: clamp(4rem, 11vw, 10.5rem);
+      font-size: clamp(4rem, 11vw, 9rem);
       font-weight: 200;
       line-height: .88;
       letter-spacing: -.02em;
@@ -564,6 +565,52 @@
     }
 
 
+    /* canto sup. esq.: ícone outline translúcido, sangrado (cortado) */
+    .sec-glyph {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: clamp(220px, 36vw, 400px);
+      height: clamp(220px, 36vw, 400px);
+      transform: translate(-44%, -44%);
+      pointer-events: none;
+      z-index: 0;
+      color: var(--sec-glyph-c, rgba(26, 26, 32, 0.14));
+      opacity: var(--sec-glyph-o, 1);
+    }
+    .sec-glyph svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.25px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+    }
+    .sec-glyph--wash {
+      --sec-glyph-c: rgba(255, 255, 255, 0.22);
+      --sec-glyph-o: 0.95;
+    }
+    .sec-glyph--ink {
+      --sec-glyph-c: rgba(26, 26, 32, 0.1);
+    }
+    .sec-glyph--mist {
+      --sec-glyph-c: rgba(255, 255, 255, 0.12);
+    }
+    .s-tl,
+    .s-cta {
+      position: relative;
+      overflow: hidden;
+    }
+    .s-tl > :not(.sec-glyph),
+    .s-cta > :not(.sec-glyph),
+    .s-sk > :not(.sec-glyph) {
+      position: relative;
+      z-index: 1;
+    }
+
     /* ════════════════════════════════
        ABOUT — orange accent band
     ════════════════════════════════ */
@@ -573,8 +620,12 @@
       position: relative;
       overflow: hidden;
     }
+    .about > :not(.sec-glyph) {
+      position: relative;
+      z-index: 1;
+    }
     .about::before {
-      content: 'UX - UI - Frontend - I.A - Design - Gestão';
+      content: '';
       position: absolute; right: -1rem; top: 50%;
       transform: translateY(-50%);
       font-family: var(--font-disp);
@@ -773,8 +824,30 @@
     .entry:last-child .e-node { background: var(--blue); }
 
     .e-right {
-      padding-left: 2.5rem; padding-bottom: 5rem;
-      position: relative; z-index: 1;
+      padding-left: 2.5rem;
+      padding-bottom: 5rem;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .e-right--with-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: clamp(1.25rem, 3.5vw, 2.5rem);
+    }
+    .e-right-body {
+      min-width: 0;
+    }
+    .e-right-cta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .e-right-cta .e-detail-btn {
+      margin-top: 0;
     }
 
     /* current tag */
@@ -869,6 +942,7 @@
     }
 
     .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+
     .chip {
       font-family: var(--font-disp);
       font-size: clamp(.62rem, 1.15vw, .72rem);
@@ -891,19 +965,44 @@
 
     /* ─── Entry detail link ─── */
     .e-detail-btn {
-      display: inline-flex; align-items: center; gap: .45rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
       margin-top: 1.1rem;
       font-family: var(--font-disp);
-      font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-      text-decoration: none; color: var(--orange);
-      padding: .42rem .88rem .42rem .72rem;
-      border: 1px solid rgba(224,91,26,.3); border-radius: 100px;
-      background: var(--orange-s);
-      transition: background .2s, border-color .2s, color .2s, gap .2s var(--ease);
+      font-size: clamp(0.8rem, 1.15vw, 0.9rem);
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--orange-d);
+      padding: 0.68rem 1.45rem 0.68rem 1.25rem;
+      border: 1.5px solid rgba(224, 91, 26, 0.5);
+      border-radius: 100px;
+      background: linear-gradient(165deg, #fff 0%, var(--orange-s) 100%);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.65) inset,
+        0 4px 18px rgba(224, 91, 26, 0.14),
+        0 8px 28px rgba(26, 26, 32, 0.06);
+      transition: background 0.2s, border-color 0.2s, color 0.2s, gap 0.2s var(--ease), box-shadow 0.2s, transform 0.2s var(--ease);
     }
-    .e-detail-btn:hover { background: var(--orange); border-color: var(--orange); color: #fff; gap: .7rem; }
-    .e-detail-btn:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
-    .e-detail-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .e-detail-btn:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+      gap: 0.72rem;
+      box-shadow: 0 6px 28px rgba(224, 91, 26, 0.35);
+      transform: translateY(-1px);
+    }
+    .e-detail-btn:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 3px;
+    }
+    .e-detail-btn svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
 
 
     /* ════════════════════════════════
@@ -913,6 +1012,7 @@
       background: var(--void);
       padding: clamp(4.5rem, 8vw, 7.5rem) clamp(1.5rem, 5vw, 5rem);
       position: relative;
+      overflow: hidden;
     }
     .s-sk::before {
       content: '';
@@ -1017,13 +1117,13 @@
 
     .sk-comp-label {
       font-family: var(--font-disp);
-      font-size: clamp(0.58rem, 1vw, 0.66rem);
+      font-size: clamp(0.78rem, 1.35vw, 0.95rem);
       font-weight: 800;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.38);
+      color: rgba(255, 255, 255, 0.52);
       text-align: center;
-      margin: 0 auto 1.25rem;
+      margin: 0 auto 1.45rem;
       max-width: 1080px;
     }
 
@@ -1047,13 +1147,44 @@
       border-color: rgba(224, 91, 26, 0.32);
       transform: translateY(-2px);
     }
+    .sk-headline {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      margin-bottom: 0.55rem;
+    }
+    .sk-ico {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.48);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .sk-ico svg {
+      width: 17px;
+      height: 17px;
+    }
+    .sk:hover .sk-ico {
+      border-color: rgba(224, 91, 26, 0.4);
+      color: var(--orange);
+      background: rgba(224, 91, 26, 0.08);
+    }
     .sk-name {
       font-family: var(--font-disp);
       font-size: 0.74rem;
       font-weight: 600;
       color: rgba(255, 255, 255, 0.72);
-      margin-bottom: 0.55rem;
+      margin: 0;
+      padding-top: 0.15rem;
       letter-spacing: 0.03em;
+      line-height: 1.35;
+      flex: 1;
+      min-width: 0;
     }
     .sk-bar {
       height: 3px;
@@ -1065,10 +1196,13 @@
       height: 100%;
       width: 0;
       border-radius: 2px;
-      background: linear-gradient(90deg, var(--orange), var(--blue));
+      background-color: var(--sk-bar-fill, var(--orange));
       transition: width 1.15s var(--ease);
     }
     .sk.vis .sk-fill { width: var(--w); }
+    .sk--fill-blue {
+      --sk-bar-fill: var(--blue);
+    }
     .sk-pct {
       font-family: var(--font-disp);
       font-size: 0.54rem;
@@ -1232,6 +1366,9 @@
       .sk.vis .sk-fill {
         width: var(--w);
       }
+      .e-detail-btn:hover {
+        transform: none;
+      }
     }
 
     /* icon sizing in .cl links */
@@ -1274,6 +1411,14 @@
       .track { padding-left: 80px; }
       .track-line { left: 80px; }
       .entry { grid-template-columns: 80px 1fr; margin-left: -80px; }
+      .e-right--with-cta {
+        grid-template-columns: 1fr;
+        justify-items: stretch;
+      }
+      .e-right-cta {
+        justify-content: center;
+        padding-top: 0.25rem;
+      }
     }
     @media (max-width: 480px) {
       .hero-meta { flex-direction: column; gap: 1.5rem; }
@@ -1386,6 +1531,9 @@
 
 <!-- ══════════════ ABOUT ══════════════ -->
 <div class="about rev" id="sobre-cta">
+  <div class="sec-glyph sec-glyph--wash" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+  </div>
   <div class="about-inner">
     <p class="about-eyebrow">
       <i data-feather="book-open" aria-hidden="true"></i>
@@ -1406,6 +1554,9 @@
 
 <!-- ══════════════ TIMELINE ══════════════ -->
 <section class="s-tl" id="timeline">
+  <div class="sec-glyph sec-glyph--ink" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+  </div>
   <div class="section-header rev">
     <h2>Trajetória <span>profissional</span></h2>
     <p>Mais recente primeiro — de 2025 até os primeiros passos em 2007.</p>
@@ -1423,7 +1574,8 @@
     <div class="entry is-now" data-year="2024">
       <div class="entry-yr" aria-hidden="true">2024</div>
       <div class="e-left"><span class="e-period">2024<br>→ agora</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <span class="now-tag">● Posição atual</span><br>
         <div class="e-logos">
           <img src="imagens/logos/logo_almaviva.svg" alt="AlmaViva" class="e-logo">
@@ -1432,7 +1584,10 @@
         <span class="e-level">Sênior</span>
         <p class="e-body">Liderança técnica de frontend em projeto internacional Brasil–Itália. Decisões de arquitetura, identidade visual digital e gestão de squads. Empresa global — escala real.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Tech Lead</span><span class="chip">Design System</span><span class="chip">Agile</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="almaviva.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
 
@@ -1440,7 +1595,8 @@
     <div class="entry" data-year="2024">
       <div class="entry-yr" aria-hidden="true">2024</div>
       <div class="e-left"><span class="e-period">2024<br>2025</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <div class="e-logos">
           <img src="imagens/logos/logo_engineering.svg" alt="Kaki Engineering" class="e-logo">
         </div>
@@ -1448,7 +1604,10 @@
         <span class="e-level">Especialista</span>
         <p class="e-body">Sistemas de alto impacto em São Paulo. Arquitetura de componentes, integrações críticas e foco em performance em plataformas com grande volume de dados.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Figma</span><span class="chip">Performance</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="engineering.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
 
@@ -1456,7 +1615,8 @@
     <div class="entry" data-year="2020">
       <div class="entry-yr" aria-hidden="true">2020</div>
       <div class="e-left"><span class="e-period">2020<br>2024</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <div class="e-logos">
           <img src="imagens/logos/logo_eds.svg" alt="Extreme Digital" class="e-logo e-logo--xl">
           <img src="imagens/logos/logo_pje.svg" alt="PJe — Processo Judicial Eletrônico" class="e-logo e-logo--pje">
@@ -1465,7 +1625,10 @@
         <span class="e-level">Sênior → Especialista · Atuação simultânea</span>
         <p class="e-body">No PJE, sistemas críticos do Judiciário — zero tolerância a falhas. Na Extreme Digital, liderança de biblioteca de componentes e plataforma de saúde digital nacional de alto volume.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Angular</span><span class="chip">Micro-frontends</span><span class="chip">Design System</span><span class="chip">GraphQL</span><span class="chip">Performance</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="tjrj-pje.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
 
@@ -1473,7 +1636,8 @@
     <div class="entry" data-year="2020">
       <div class="entry-yr" aria-hidden="true">2020</div>
       <div class="e-left"><span class="e-period">2020<br>2021</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <div class="e-logos">
           <img src="imagens/logos/logo_spassu.svg" alt="SPASSU" class="e-logo e-logo--xl">
           <img src="imagens/logos/logo_Petrobras.svg" alt="Petrobras" class="e-logo e-logo--petrobras">
@@ -1482,7 +1646,10 @@
         <span class="e-level">Esteira ágil · Projeto interno Petrobras pela SPASSU</span>
         <p class="e-body">Contrato pela SPASSU atuando em projeto interno da Petrobras: interface, consistência visual e entregas em ritmo ágil junto ao time.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">UI Design</span><span class="chip">Esteira ágil</span><span class="chip">Figma</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="spassu.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
 
@@ -1490,7 +1657,8 @@
     <div class="entry" data-year="2019">
       <div class="entry-yr" aria-hidden="true">2019</div>
       <div class="e-left"><span class="e-period">2019<br>2020</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <div class="e-logos">
           <img src="imagens/logos/logo_instant_solutions.svg" alt="Instant Solutions" class="e-logo">
         </div>
@@ -1498,7 +1666,10 @@
         <span class="e-level">Sênior</span>
         <p class="e-body">Foco em análise e construção de interface, qualidade de UI e alinhamento com produto — UX com o mesmo peso que o código.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Redux</span><span class="chip">Design System</span><span class="chip">Figma</span><span class="chip">UX</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="instant-solutions.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
 
@@ -1506,7 +1677,8 @@
     <div class="entry" data-year="2018">
       <div class="entry-yr" aria-hidden="true">2018</div>
       <div class="e-left"><span class="e-period">2018<br>2019</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <div class="e-logos">
           <img src="imagens/logos/logo_estado_SEFAZRJ.svg" alt="Secretaria de Estado da Fazenda — RJ" class="e-logo e-logo--xl">
         </div>
@@ -1514,7 +1686,10 @@
         <span class="e-level">Pleno → Sênior · Secretaria de Estado da Fazenda (RJ)</span>
         <p class="e-body">Portais e sistemas da fazenda estadual — escala estadual, impacto direto no cidadão. Margem de erro mínima.</p>
         <div class="chips"><span class="chip">Angular</span><span class="chip">HTML/SCSS</span><span class="chip">Git</span><span class="chip">Acessibilidade</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="sefaz-rj.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
 
@@ -1522,7 +1697,8 @@
     <div class="entry" data-year="2015">
       <div class="entry-yr" aria-hidden="true">2015</div>
       <div class="e-left"><span class="e-period">2015<br>2018</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <div class="e-logos">
           <img src="imagens/logos/logo_parperfeito.svg" alt="Par Perfeito" class="e-logo e-logo--xxl">
         </div>
@@ -1530,7 +1706,10 @@
         <span class="e-level">Pleno · Freelance</span>
         <p class="e-body">Produtos de relacionamento em alto tráfego — incluindo <strong>Tinder</strong> e o ecossistema Par Perfeito — além de e-commerce, campanhas (Globo, GE, Americanas) e e-mail marketing em escala.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Vue.js</span><span class="chip">SASS</span><span class="chip">Produto</span><span class="chip">Figma</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="par-perfeito.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
 
@@ -1538,7 +1717,8 @@
     <div class="entry" data-year="2011">
       <div class="entry-yr" aria-hidden="true">2011</div>
       <div class="e-left"><span class="e-period">2011<br>2015</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <div class="e-logos">
           <img src="imagens/logos/loco_casadigital.svg" alt="Casa Digital" class="e-logo e-logo--casa">
         </div>
@@ -1546,7 +1726,10 @@
         <span class="e-level">Pleno · Agência</span>
         <p class="e-body">Agência full-service: análise de sistemas, prototipação e entrega de interface para vários clientes. Treinamentos internos em desenvolvimento rápido de UI.</p>
         <div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">jQuery</span><span class="chip">WordPress</span><span class="chip">UX/UI</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="casa-digital.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
 
@@ -1569,7 +1752,8 @@
     <div class="entry" data-year="2009">
       <div class="entry-yr" aria-hidden="true">2009</div>
       <div class="e-left"><span class="e-period">2009<br>2010</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <div class="e-logos">
           <img src="imagens/logos/logo_record.svg" alt="Rede Record" class="e-logo">
         </div>
@@ -1577,7 +1761,10 @@
         <span class="e-level">Rede Record</span>
         <p class="e-body">Sites e interfaces em ASP.NET em um dos maiores veículos do país — primeira experiência com escala e prazo de verdade.</p>
         <div class="chips"><span class="chip">ASP.Net</span><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="record.html">Ver trajetória <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
 
@@ -1585,7 +1772,8 @@
     <div class="entry" data-year="2007">
       <div class="entry-yr" aria-hidden="true">2007</div>
       <div class="e-left"><span class="e-period">2007<br>2012</span><div class="e-node"></div></div>
-      <div class="e-right">
+      <div class="e-right e-right--with-cta">
+        <div class="e-right-body">
         <div class="e-logos">
           <img src="imagens/logos/logo_CECIERJ.svg" alt="Fundação CECIERJ" class="e-logo e-logo--lg">
         </div>
@@ -1593,7 +1781,10 @@
         <span class="e-level">Início de carreira · CECIERJ</span>
         <p class="e-body">Interfaces com forte preocupação com acessibilidade — e animação 2D quando o projeto pedia — aprendizado cedo de que interface tem impacto real nas pessoas.</p>
         <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Flash</span><span class="chip">Motion 2D</span></div>
+        </div>
+        <div class="e-right-cta">
         <a class="e-detail-btn" href="cecierj.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
   </div>
@@ -1601,6 +1792,9 @@
 
 <!-- ══════════════ SKILLS ══════════════ -->
 <section class="s-sk" id="skills" aria-labelledby="skills-heading">
+  <div class="sec-glyph sec-glyph--mist" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12l10 4.5L22 12"/><path d="M2 17l10 4.5L22 17"/></svg>
+  </div>
   <div class="sk-head rev">
     <h2 id="skills-heading">Arquitetura & <span>engenharia</span></h2>
     <p class="sk-tagline">Como penso <em>sistemas</em>, não só <em>telas</em>.</p>
@@ -1627,23 +1821,28 @@
 
   <h3 class="sk-comp-label rev">Prática, produto & stack</h3>
   <div class="sk-grid rev">
-    <div class="sk" style="--w:91%"><p class="sk-name">Design System</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">91%</span></div>
-    <div class="sk" style="--w:88%"><p class="sk-name">Acessibilidade (WCAG)</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">88%</span></div>
-    <div class="sk" style="--w:92%"><p class="sk-name">TypeScript</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">92%</span></div>
-    <div class="sk" style="--w:85%"><p class="sk-name">Web performance</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">85%</span></div>
-    <div class="sk" style="--w:82%"><p class="sk-name">Testes & qualidade</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">82%</span></div>
-    <div class="sk" style="--w:93%"><p class="sk-name">React / Next.js</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">93%</span></div>
-    <div class="sk" style="--w:74%"><p class="sk-name">Angular</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">74%</span></div>
-    <div class="sk" style="--w:78%"><p class="sk-name">Vue.js</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">78%</span></div>
-    <div class="sk" style="--w:87%"><p class="sk-name">UX / pesquisa</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">87%</span></div>
-    <div class="sk" style="--w:90%"><p class="sk-name">Figma & handoff</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">90%</span></div>
-    <div class="sk" style="--w:84%"><p class="sk-name">Git / CI/CD</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">84%</span></div>
-    <div class="sk" style="--w:68%"><p class="sk-name">Node.js & APIs</p><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">68%</span></div>
+    <div class="sk" style="--w:91%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="layers"></i></span><p class="sk-name">Design System</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">91%</span></div>
+    <div class="sk" style="--w:88%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="eye"></i></span><p class="sk-name">Acessibilidade (WCAG)</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">88%</span></div>
+    <div class="sk" style="--w:92%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="code"></i></span><p class="sk-name">TypeScript</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">92%</span></div>
+    <div class="sk" style="--w:85%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="zap"></i></span><p class="sk-name">Web performance</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">85%</span></div>
+    <div class="sk" style="--w:82%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="check-square"></i></span><p class="sk-name">Testes & qualidade</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">82%</span></div>
+    <div class="sk sk--fill-blue" style="--w:86%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="cpu"></i></span><p class="sk-name">LLMs & engenharia assistida</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">86%</span></div>
+    <div class="sk sk--fill-blue" style="--w:84%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="message-square"></i></span><p class="sk-name">Claude & fluxos com contexto</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">84%</span></div>
+    <div class="sk" style="--w:93%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="box"></i></span><p class="sk-name">React / Next.js</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">93%</span></div>
+    <div class="sk" style="--w:74%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="sidebar"></i></span><p class="sk-name">Angular</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">74%</span></div>
+    <div class="sk" style="--w:78%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="triangle"></i></span><p class="sk-name">Vue.js</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">78%</span></div>
+    <div class="sk" style="--w:87%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="search"></i></span><p class="sk-name">UX / pesquisa</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">87%</span></div>
+    <div class="sk" style="--w:90%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="pen-tool"></i></span><p class="sk-name">Figma & handoff</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">90%</span></div>
+    <div class="sk" style="--w:84%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="git-branch"></i></span><p class="sk-name">Git / CI/CD</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">84%</span></div>
+    <div class="sk" style="--w:68%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="server"></i></span><p class="sk-name">Node.js & APIs</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">68%</span></div>
   </div>
 </section>
 
 <!-- ══════════════ CTA ══════════════ -->
 <section class="s-cta" id="contato">
+  <div class="sec-glyph sec-glyph--ink" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  </div>
   <div class="rev">
     <h2 class="cta-h">Vamos construir<br><span>algo juntos?</span></h2>
     <p class="cta-sub">Disponível para CLT, PJ ou freelance · remoto.</p>
