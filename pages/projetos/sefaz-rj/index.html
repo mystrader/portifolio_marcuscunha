@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Governo RJ · SEPLAG · SEFAZ — Frontend Sênior · Marcus Cunha">
+  <title>SEFAZ · SEPLAG RJ · Marcus Cunha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <style>
+    :root{--void:#0c0c0f;--page:#f6f3ee;--ink:#1a1a20;--muted:#918d88;--orange:#e05b1a;--orange-d:#b34714;--orange-s:#fbf0e9;--line:#ddd9d1;--blue:#1a5cc8;--warm:#ede9e2;--font-disp:'Nunito',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-disp);background:var(--page);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+    .skip-link{position:absolute;left:-9999px;top:.75rem;z-index:200;padding:.6rem 1rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--void);background:#fff;border:2px solid var(--orange);border-radius:6px}
+    .skip-link:focus{left:.75rem;outline:none}
+    .page-bar{position:sticky;top:0;z-index:100;background:rgba(12,12,15,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);padding:.85rem clamp(1.25rem,4vw,2.75rem);display:flex;align-items:center;justify-content:space-between}
+    .page-voltar{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff;padding:.55rem .85rem .55rem .35rem;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);transition:background .2s,border-color .2s,color .2s}
+    .page-voltar svg{width:18px;height:18px;flex-shrink:0}
+    .page-voltar:hover{background:rgba(224,91,26,.25);border-color:rgba(224,91,26,.55);color:#fff}
+    .page-voltar:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+    .page-period{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+    .page-hero{background:var(--orange);padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,3rem);position:relative;overflow:hidden}
+    .page-hero::before{content:'Governo RJ';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-size:clamp(4rem,11vw,8rem);font-weight:300;line-height:1;color:rgba(255,255,255,.07);letter-spacing:-.04em;pointer-events:none;white-space:nowrap}
+    .page-hero-inner{position:relative;z-index:1;max-width:720px}
+    .page-hero-tag{display:inline-block;margin-bottom:.7rem;font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.88);background:rgba(255,255,255,.18);padding:.22rem .7rem;border-radius:100px}
+    .page-hero h1{font-weight:300;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em;color:#fff;line-height:1.1;text-wrap:balance}
+    .page-hero h1 strong{font-weight:800}
+    .page-hero-role{margin-top:.65rem;font-size:clamp(.88rem,1.2vw,1rem);color:rgba(255,255,255,.88);font-weight:600}
+    .page-band{background:var(--void);padding:clamp(2rem,4vw,3rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .page-band-inner{max-width:720px;margin:0 auto}
+    .page-quote{margin:0;padding:0 0 0 clamp(1rem,3vw,1.35rem);border-left:3px solid rgba(255,255,255,.28)}
+    .page-quote p{font-size:clamp(1rem,2vw,1.35rem);font-weight:500;line-height:1.5;letter-spacing:-.02em;color:rgba(255,255,255,.92)}
+    .page-main{max-width:720px;margin:0 auto;padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,2rem) clamp(4rem,10vw,6rem)}
+    .sec-label{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;margin-top:2.5rem;font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+    .sec-label:first-child{margin-top:0}
+    .sec-label svg{width:16px;height:16px;flex-shrink:0}
+    .page-main h2{font-size:clamp(1.2rem,2.5vw,1.55rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.25;margin-bottom:.75rem}
+    .page-main p{font-size:clamp(.92rem,1.1vw,1.02rem);margin-bottom:1.2rem;color:#5c5854}
+    .page-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0 1.5rem}
+    .page-chip{font-size:.7rem;font-weight:600;letter-spacing:.03em;padding:.28rem .72rem;border-radius:100px;background:var(--warm);color:var(--muted);border:1px solid var(--line)}
+    .page-divider{display:flex;align-items:center;gap:1rem;margin:2rem 0;color:var(--orange)}
+    .page-divider__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(224,91,26,.4),transparent)}
+    .page-divider svg{width:20px;height:20px;flex-shrink:0}
+    .work-list{display:flex;flex-direction:column;gap:.85rem;margin-top:1rem}
+    .work-card{display:flex;align-items:flex-start;gap:1rem;padding:1.15rem 1.25rem;border:1px solid var(--line);border-radius:10px;background:#fff;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s,transform .18s var(--ease)}
+    .work-card:hover{border-color:rgba(224,91,26,.45);box-shadow:0 4px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
+    .work-card:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    .work-card-ico{flex-shrink:0;width:38px;height:38px;border-radius:8px;background:var(--orange-s);display:flex;align-items:center;justify-content:center;color:var(--orange)}
+    .work-card-ico svg{width:18px;height:18px}
+    .work-card-body{flex:1;min-width:0}
+    .work-card-title{font-size:.95rem;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:.28rem}
+    .work-card-desc{font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:.5rem}
+    .work-card-link{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:.3rem}
+    .work-card-link svg{width:12px;height:12px}
+    .page-foot{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--line);background:var(--page)}
+    .page-foot a{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);text-decoration:none}
+    .page-foot a:hover{text-decoration:underline}
+    .page-foot a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="page-bar">
+    <a class="page-voltar" href="../../../index.html#timeline">
+      <i data-feather="arrow-left" aria-hidden="true"></i>
+      Portfólio
+    </a>
+    <span class="page-period">2015 → 2019</span>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-hero-tag">Pleno → Sênior</span>
+      <h1>SEFAZ · <strong>Governo RJ</strong></h1>
+      <p class="page-hero-role">Analista Desenvolvedor Frontend · SEPLAG + Secretaria da Fazenda · Escala estadual</p>
+    </div>
+  </div>
+
+  <div class="page-band">
+    <div class="page-band-inner">
+      <blockquote class="page-quote">
+        <p lang="pt-BR">"Portais e sistemas da fazenda estadual com escala estadual e impacto direto no cidadão — o SCOMEX tornou-se referência nacional pela SEFAZ."</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <main class="page-main" id="conteudo">
+
+    <div class="sec-label"><i data-feather="briefcase" aria-hidden="true"></i> O contexto</div>
+    <h2>Governo do Estado do Rio de Janeiro — SEPLAG e SEFAZ</h2>
+    <p>Atuação em dois órgãos do governo estadual do Rio de Janeiro. Na SEPLAG (Secretaria de Planejamento): portais de compras (licitação), portal do servidor, intranet, mídia indoor e portal de remuneração. Na SEFAZ (Secretaria da Fazenda): portais institucionais, sistemas de incentivos fiscais e o SCOMEX — projeto que se tornou referência nacional.</p>
+
+    <div class="page-divider" aria-hidden="true">
+      <span class="page-divider__line"></span><i data-feather="globe"></i><span class="page-divider__line"></span>
+    </div>
+
+    <div class="sec-label"><i data-feather="code" aria-hidden="true"></i> Minha atuação</div>
+    <h2>Frontend sênior em sistemas de impacto para o cidadão</h2>
+    <p>Manutenção e gestão dos portais da Fazenda (HTML, CSS, JS, ADF Oracle, UX). Refatoração de arquitetura frontend com automatizadores (Gulp, Grunt, Sass) e geração de protótipos com Jekyll e Hexo.js. Todos os projetos com ênfase em responsividade, usabilidade e design moderno. Implantação de automatizadores de tarefas em toda a stack.</p>
+
+    <div class="page-chips">
+      <span class="page-chip">Angular</span>
+      <span class="page-chip">HTML/SCSS</span>
+      <span class="page-chip">JavaScript</span>
+      <span class="page-chip">Gulp</span>
+      <span class="page-chip">Grunt</span>
+      <span class="page-chip">Sass</span>
+      <span class="page-chip">Jekyll</span>
+      <span class="page-chip">Git</span>
+      <span class="page-chip">Acessibilidade</span>
+      <span class="page-chip">Oracle ADF</span>
+    </div>
+
+    <div class="page-divider" aria-hidden="true">
+      <span class="page-divider__line"></span><i data-feather="folder"></i><span class="page-divider__line"></span>
+    </div>
+
+    <div class="sec-label"><i data-feather="layers" aria-hidden="true"></i> Projetos & trabalhos</div>
+    <h2>Cases publicados — SEPLAG & SEFAZ</h2>
+
+    <div class="work-list">
+      <a class="work-card" href="https://www.behance.net/gallery/57531311/Portal-do-Servidores-RJ" target="_blank" rel="noopener">
+        <div class="work-card-ico"><i data-feather="users" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">Portal do Servidor RJ</p>
+          <p class="work-card-desc">Portal com contra-cheque digital e principais serviços para todos os servidores do Estado do Rio de Janeiro.</p>
+          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.behance.net/gallery/57532165/projeto-Intranet-Servidores-RJ-(seplag-e-fazenda-)" target="_blank" rel="noopener">
+        <div class="work-card-ico"><i data-feather="server" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">Intranet Estado do RJ</p>
+          <p class="work-card-desc">Nova intranet da SEPLAG e Fazenda — acesso unificado para servidores estaduais com interface moderna e responsiva.</p>
+          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.behance.net/gallery/63992773/Projeto-Midia-indoor" target="_blank" rel="noopener">
+        <div class="work-card-ico"><i data-feather="tv" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">Projeto Mídia Indoor</p>
+          <p class="work-card-desc">Sistema de sinalização digital interna para a Secretaria de Planejamento — exibição de conteúdo institucional em displays internos.</p>
+          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.behance.net/gallery/57531603/Novo-Portal-Fazenda-e-Planejamento-RJ" target="_blank" rel="noopener">
+        <div class="work-card-ico"><i data-feather="home" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">Novo Portal SEFAZ RJ</p>
+          <p class="work-card-desc">Redesign completo do portal da Secretaria da Fazenda e Planejamento do Rio de Janeiro — referência estadual de 2015 a 2020.</p>
+          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.behance.net/gallery/57530875/Novo-Tesouro-RJ" target="_blank" rel="noopener">
+        <div class="work-card-ico"><i data-feather="dollar-sign" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">Novo Portal do Tesouro RJ</p>
+          <p class="work-card-desc">Portal institucional do Tesouro do Estado do Rio de Janeiro com foco em transparência pública e acesso à informação.</p>
+          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.behance.net/gallery/57532101/Portal-do-SEIRJ-Fazenda-e-Planejamento-RJ" target="_blank" rel="noopener">
+        <div class="work-card-ico"><i data-feather="file-text" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">Portal SEIRJ</p>
+          <p class="work-card-desc">Portal do Sistema Estadual de Incentivos da Fazenda e Planejamento RJ — interface para gestão de benefícios fiscais.</p>
+          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.behance.net/gallery/57543107/Consulta-Remuneracao-RJ" target="_blank" rel="noopener">
+        <div class="work-card-ico"><i data-feather="bar-chart-2" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">Consulta Remuneração RJ</p>
+          <p class="work-card-desc">Portal público de transparência para consulta de remuneração de servidores do Estado do Rio de Janeiro.</p>
+          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://www.behance.net/gallery/57545553/Bastidores-scrum-designThinking-sketch" target="_blank" rel="noopener">
+        <div class="work-card-ico"><i data-feather="compass" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">Bastidores — Scrum & Design Thinking</p>
+          <p class="work-card-desc">Documentação do processo: como aconteceu o planejamento de grandes sistemas do Estado do RJ — do Scrum ao Design Thinking.</p>
+          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="page-foot">
+    <a href="../../../index.html#timeline">← Voltar ao portfólio</a>
+  </footer>
+
+  <script>
+    (function(){
+      'use strict';
+      if(typeof feather!=='undefined') feather.replace({'stroke-width':1.75});
+    })();
+  </script>
+</body>
+</html>

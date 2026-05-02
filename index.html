@@ -1955,38 +1955,36 @@
       gap: 0.55rem;
       margin-top: 1.1rem;
       font-family: var(--font-disp);
-      font-size: clamp(0.8rem, 1.15vw, 0.9rem);
-      font-weight: 800;
-      letter-spacing: 0.13em;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .14em;
       text-transform: uppercase;
       text-decoration: none;
-      color: var(--orange-d);
-      padding: 0.68rem 1.45rem 0.68rem 1.25rem;
-      border: 1.5px solid rgba(224, 91, 26, 0.5);
+      color: var(--orange);
+      padding: 0.65rem 1.25rem;
+      border: 1.5px solid rgba(224, 91, 26, 0.45);
       border-radius: 100px;
-      background: linear-gradient(165deg, #fff 0%, var(--orange-s) 100%);
-      box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.65) inset,
-        0 4px 18px rgba(224, 91, 26, 0.14),
-        0 8px 28px rgba(26, 26, 32, 0.06);
-      transition: background 0.2s, border-color 0.2s, color 0.2s, gap 0.2s var(--ease), box-shadow 0.2s, transform 0.2s var(--ease);
+      background: #fff;
+      white-space: nowrap;
+      transition: background .18s, border-color .18s, color .18s, transform .22s var(--ease);
     }
     .e-detail-btn:hover {
       background: var(--orange);
       border-color: var(--orange);
       color: #fff;
-      gap: 0.72rem;
-      box-shadow: 0 6px 28px rgba(224, 91, 26, 0.35);
-      transform: translateY(-1px);
+      transform: translateX(5px);
     }
     .e-detail-btn:focus-visible {
       outline: 2px solid var(--orange);
       outline-offset: 3px;
     }
     .e-detail-btn svg {
-      width: 17px;
-      height: 17px;
+      width: 15px;
+      height: 15px;
       flex-shrink: 0;
+    }
+    .e-detail-btn span {
+      display: inline;
     }
 
 
@@ -2412,8 +2410,11 @@
         justify-items: stretch;
       }
       .e-right-cta {
-        justify-content: center;
+        justify-content: flex-start;
         padding-top: 0.25rem;
+      }
+      .e-detail-btn {
+        margin-top: 0;
       }
     }
     @media (max-width: 480px) {
@@ -2460,7 +2461,7 @@
   <nav class="hero-nav">
     <span class="nav-id" data-i18n="nav_id">Portfólio</span>
     <ul class="nav-links">
-      <li><a href="sobre.html" data-i18n="nav_sobre">Sobre</a></li>
+      <li><a href="pages/sobre.html" data-i18n="nav_sobre">Sobre</a></li>
       <li><a href="#recomendacoes" data-i18n="nav_testimonials">Recomendações</a></li>
       <li><a href="#timeline" data-i18n="nav_timeline">Trajetória</a></li>
       <li><a href="#skills" data-i18n="nav_skills">Arquitetura</a></li>
@@ -2637,7 +2638,7 @@
       </p>
     </div>
     <div class="about-cta">
-      <a class="about-btn" href="sobre.html">
+      <a class="about-btn" href="pages/sobre.html">
         <i data-feather="user" aria-hidden="true"></i>
         <span data-i18n="about_btn">Sobre mim</span>
       </a>
@@ -2748,7 +2749,7 @@
         <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Tech Lead</span><span class="chip">Design System</span><span class="chip">Agile</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="almaviva.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/almaviva/"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2768,7 +2769,7 @@
         <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Figma</span><span class="chip">Performance</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="engineering.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/engineering/"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2789,7 +2790,7 @@
         <div class="chips"><span class="chip">React</span><span class="chip">Angular</span><span class="chip">Micro-frontends</span><span class="chip">Design System</span><span class="chip">GraphQL</span><span class="chip">Performance</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="tjrj-pje.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/eds/tjrj-pje/"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2810,7 +2811,7 @@
         <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">UI Design</span><span class="chip" data-i18n="chip_agile_flow">Esteira ágil</span><span class="chip">Figma</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="spassu.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/spassu/"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2830,7 +2831,7 @@
         <div class="chips"><span class="chip">React</span><span class="chip">Redux</span><span class="chip">Design System</span><span class="chip">Figma</span><span class="chip">UX</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="instant-solutions.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/instant-solutions/"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2850,7 +2851,7 @@
         <div class="chips"><span class="chip">Angular</span><span class="chip">HTML/SCSS</span><span class="chip">Git</span><span class="chip" data-i18n="chip_accessibility">Acessibilidade</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="sefaz-rj.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/sefaz-rj/"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2870,7 +2871,7 @@
         <div class="chips"><span class="chip">React</span><span class="chip">Vue.js</span><span class="chip">SASS</span><span class="chip" data-i18n="chip_product">Produto</span><span class="chip">Figma</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="par-perfeito.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/par-perfeito/"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2890,7 +2891,7 @@
         <div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">jQuery</span><span class="chip">WordPress</span><span class="chip">UX/UI</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="casa-digital.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/casa-digital/"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2925,7 +2926,7 @@
         <div class="chips"><span class="chip">ASP.Net</span><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="record.html"><span data-i18n="tl_cta_journey">Ver trajetória</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/record/"><span data-i18n="tl_cta_journey">Ver trajetória</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -2945,7 +2946,7 @@
         <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Flash</span><span class="chip">Motion 2D</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="cecierj.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="pages/projetos/cecierj/"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>

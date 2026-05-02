@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TJRJ & PJe — Frontend Master / UI/UX · Marcus Cunha">
+  <title>TJRJ · PJe · Marcus Cunha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <style>
+    :root{--void:#0c0c0f;--page:#f6f3ee;--ink:#1a1a20;--muted:#918d88;--orange:#e05b1a;--orange-d:#b34714;--orange-s:#fbf0e9;--line:#ddd9d1;--blue:#1a5cc8;--warm:#ede9e2;--font-disp:'Nunito',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-disp);background:var(--page);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+    .skip-link{position:absolute;left:-9999px;top:.75rem;z-index:200;padding:.6rem 1rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--void);background:#fff;border:2px solid var(--orange);border-radius:6px}
+    .skip-link:focus{left:.75rem;outline:none}
+    .page-bar{position:sticky;top:0;z-index:100;background:rgba(12,12,15,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);padding:.85rem clamp(1.25rem,4vw,2.75rem);display:flex;align-items:center;justify-content:space-between}
+    .page-voltar{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff;padding:.55rem .85rem .55rem .35rem;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);transition:background .2s,border-color .2s,color .2s}
+    .page-voltar svg{width:18px;height:18px;flex-shrink:0}
+    .page-voltar:hover{background:rgba(224,91,26,.25);border-color:rgba(224,91,26,.55);color:#fff}
+    .page-voltar:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+    .page-period{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+    .page-hero{background:var(--orange);padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,3rem);position:relative;overflow:hidden}
+    .page-hero::before{content:'TJRJ · PJe';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-size:clamp(5rem,12vw,9rem);font-weight:300;line-height:1;color:rgba(255,255,255,.07);letter-spacing:-.04em;pointer-events:none;white-space:nowrap}
+    .page-hero-inner{position:relative;z-index:1;max-width:720px}
+    .page-hero-tag{display:inline-block;margin-bottom:.7rem;font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.88);background:rgba(255,255,255,.18);padding:.22rem .7rem;border-radius:100px}
+    .page-hero h1{font-weight:300;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em;color:#fff;line-height:1.1;text-wrap:balance}
+    .page-hero h1 strong{font-weight:800}
+    .page-hero-role{margin-top:.65rem;font-size:clamp(.88rem,1.2vw,1rem);color:rgba(255,255,255,.88);font-weight:600}
+    .page-band{background:var(--void);padding:clamp(2rem,4vw,3rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .page-band-inner{max-width:720px;margin:0 auto}
+    .page-quote{margin:0;padding:0 0 0 clamp(1rem,3vw,1.35rem);border-left:3px solid rgba(255,255,255,.28)}
+    .page-quote p{font-size:clamp(1rem,2vw,1.35rem);font-weight:500;line-height:1.5;letter-spacing:-.02em;color:rgba(255,255,255,.92)}
+    .page-main{max-width:720px;margin:0 auto;padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,2rem) clamp(4rem,10vw,6rem)}
+    .sec-label{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;margin-top:2.5rem;font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+    .sec-label:first-child{margin-top:0}
+    .sec-label svg{width:16px;height:16px;flex-shrink:0}
+    .page-main h2{font-size:clamp(1.2rem,2.5vw,1.55rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.25;margin-bottom:.75rem}
+    .page-main p{font-size:clamp(.92rem,1.1vw,1.02rem);margin-bottom:1.2rem;color:#5c5854}
+    .page-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0 1.5rem}
+    .page-chip{font-size:.7rem;font-weight:600;letter-spacing:.03em;padding:.28rem .72rem;border-radius:100px;background:var(--warm);color:var(--muted);border:1px solid var(--line)}
+    .page-divider{display:flex;align-items:center;gap:1rem;margin:2rem 0;color:var(--orange)}
+    .page-divider__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(224,91,26,.4),transparent)}
+    .page-divider svg{width:20px;height:20px;flex-shrink:0}
+    .work-list{display:flex;flex-direction:column;gap:.85rem;margin-top:1rem}
+    .work-card{display:flex;align-items:flex-start;gap:1rem;padding:1.15rem 1.25rem;border:1px solid var(--line);border-radius:10px;background:#fff;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s,transform .18s var(--ease)}
+    .work-card:hover{border-color:rgba(224,91,26,.45);box-shadow:0 4px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
+    .work-card:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    .work-card-ico{flex-shrink:0;width:38px;height:38px;border-radius:8px;background:var(--orange-s);display:flex;align-items:center;justify-content:center;color:var(--orange)}
+    .work-card-ico svg{width:18px;height:18px}
+    .work-card-body{flex:1;min-width:0}
+    .work-card-title{font-size:.95rem;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:.28rem}
+    .work-card-desc{font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:.5rem}
+    .work-card-link{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:.3rem}
+    .work-card-link svg{width:12px;height:12px}
+    .page-foot{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--line);background:var(--page)}
+    .page-foot a{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);text-decoration:none}
+    .page-foot a:hover{text-decoration:underline}
+    .page-foot a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    .page-embed-shell{width:min(1280px,calc(100vw - 1.5rem));margin:1.25rem auto 0;position:relative;left:50%;transform:translateX(-50%)}
+    .page-embed{margin:0;width:100%;max-width:none;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.06);aspect-ratio:800/450;position:relative}
+    .page-embed iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:none}
+
+    .proj-gallery-section{background:#080810;padding:clamp(2.5rem,6vw,4.5rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid rgba(255,255,255,.06)}
+    .proj-gallery-inner{max-width:720px;margin:0 auto}
+    .proj-gallery-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+    .proj-gallery-eyebrow{display:flex;align-items:center;gap:.55rem;font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+    .proj-gallery-eyebrow svg{width:14px;height:14px;flex-shrink:0}
+    .proj-gallery-head h2{font-size:clamp(1.1rem,2.2vw,1.35rem);font-weight:700;color:rgba(255,255,255,.9);letter-spacing:-.02em;line-height:1.2;margin-top:.35rem}
+    .proj-gallery-count{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.22);flex-shrink:0;align-self:flex-end;padding-bottom:.15rem}
+    .proj-frame{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#14141e;box-shadow:0 24px 64px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.04) inset;transition:transform .35s var(--ease),box-shadow .35s var(--ease);cursor:pointer}
+    .proj-frame:hover{transform:translateY(-5px);box-shadow:0 36px 80px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.07) inset,0 0 0 2px rgba(224,91,26,.18)}
+    .proj-frame:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    .proj-frame-chrome{background:#1e1e2a;padding:.6rem .85rem;display:flex;align-items:center;gap:.65rem;border-bottom:1px solid rgba(255,255,255,.06);user-select:none}
+    .proj-frame-dots{display:flex;gap:.32rem;flex-shrink:0}
+    .proj-frame-dot{width:9px;height:9px;border-radius:50%}
+    .proj-frame-dot:nth-child(1){background:#ff5f57}
+    .proj-frame-dot:nth-child(2){background:#febc2e}
+    .proj-frame-dot:nth-child(3){background:#28c840}
+    .proj-frame-url{flex:1;min-width:0;background:rgba(255,255,255,.05);border-radius:5px;height:22px;display:flex;align-items:center;padding:0 .6rem;font-size:.58rem;font-family:'SF Mono','Fira Code',monospace;color:rgba(255,255,255,.28);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+    .proj-frame-screen-wrap{overflow:hidden;line-height:0;position:relative}
+    .proj-frame-screen-wrap::after{content:'';position:absolute;inset:0;background:rgba(224,91,26,0);transition:background .3s;pointer-events:none}
+    .proj-frame:hover .proj-frame-screen-wrap::after{background:rgba(224,91,26,.04)}
+    .proj-frame-screen-wrap--contain{background:#0a0a12;height:clamp(200px,34vw,340px);width:100%;display:flex;align-items:center;justify-content:center}
+    .proj-frame-img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:top;transition:transform .5s var(--ease)}
+    .proj-frame-img--contain{width:auto;max-width:100%;height:auto;max-height:100%;aspect-ratio:unset;object-fit:contain;object-position:top center}
+    .proj-frame:hover .proj-frame-img{transform:scale(1.03)}
+    .proj-frame:hover .proj-frame-img--contain{transform:none}
+    .proj-frame-hint{position:absolute;bottom:.5rem;right:.55rem;z-index:2;font-size:.52rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);pointer-events:none}
+    .proj-frame-caption{padding:.75rem .9rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;background:#14141e;border-top:1px solid rgba(255,255,255,.06)}
+    .proj-frame-caption-info{min-width:0}
+    .proj-frame-caption-title{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:rgba(255,255,255,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .proj-frame-caption-type{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.28);margin-top:.1rem}
+    .proj-frame-caption-link{flex-shrink:0;display:inline-flex;align-items:center;gap:.35rem;font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--orange);padding:.35rem .75rem;border-radius:6px;border:1px solid rgba(224,91,26,.35);background:rgba(224,91,26,.08);transition:background .18s,border-color .18s,color .18s;white-space:nowrap}
+    .proj-frame-caption-link svg{width:11px;height:11px}
+    .proj-frame-caption-link:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+    .proj-frame-caption-link:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+    .proj-frame{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease),box-shadow .35s var(--ease)}
+    .proj-frame.vis{opacity:1;transform:translateY(0)}
+    .proj-frame:hover{transform:translateY(-5px)!important}
+
+    .proj-lightbox{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:rgba(0,0,0,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+    .proj-lightbox.is-open{opacity:1;pointer-events:auto}
+    .proj-lightbox-stage{position:relative;display:flex;align-items:center;justify-content:center;max-width:min(94vw,1180px);max-height:calc(85vh - 3rem)}
+    .proj-lightbox-img{max-width:min(92vw,1120px);max-height:calc(85vh - 3rem);width:auto;height:auto;object-fit:contain;border-radius:8px;box-shadow:0 40px 100px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.08);transform:scale(.94);transition:transform .4s var(--ease);display:block}
+    .proj-lightbox.is-open .proj-lightbox-img{transform:scale(1)}
+    .proj-lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(12,12,18,.75);color:rgba(255,255,255,.9);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s}
+    .proj-lightbox-nav svg{width:20px;height:20px}
+    .proj-lightbox-nav:hover{background:rgba(224,91,26,.4);border-color:rgba(224,91,26,.65);color:#fff}
+    .proj-lightbox-nav:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    .proj-lightbox-nav--prev{left:.35rem}
+    .proj-lightbox-nav--next{right:.35rem}
+    @media(max-width:720px){.proj-lightbox-nav{width:40px;height:40px}}
+    .proj-lightbox-close{position:absolute;top:1.25rem;right:1.25rem;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.85);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+    .proj-lightbox-close svg{width:18px;height:18px}
+    .proj-lightbox-close:hover{background:rgba(224,91,26,.35);border-color:rgba(224,91,26,.55);color:#fff}
+    .proj-lightbox-close:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+    .proj-lightbox-caption{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);text-align:center;max-width:90vw}
+    .proj-lightbox-caption-title{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+    .proj-lightbox-caption-count{display:block;margin-top:.35rem;font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.proj-frame,.proj-lightbox-img{transition:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="page-bar">
+    <a class="page-voltar" href="../../../index.html#timeline">
+      <i data-feather="arrow-left" aria-hidden="true"></i>
+      Portfólio
+    </a>
+    <span class="page-period">2020 → 2024</span>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-hero-tag">Sênior → Especialista</span>
+      <h1>TJRJ · <strong>PJe</strong></h1>
+      <p class="page-hero-role">Analista Desenvolvedor Frontend Master / UI·UX · Atuação simultânea</p>
+    </div>
+  </div>
+
+  <div class="page-band">
+    <div class="page-band-inner">
+      <blockquote class="page-quote">
+        <p lang="pt-BR">"Sistemas críticos do Judiciário — zero tolerância a falhas. Concepção do PJe, estruturando fluxos e criando a base visual que orientou equipes inteiras."</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <main id="conteudo">
+
+    <div class="page-main">
+
+    <div class="sec-label"><i data-feather="briefcase" aria-hidden="true"></i> O contexto</div>
+    <h2>Tribunal de Justiça do Rio de Janeiro — sistemas públicos de alta criticidade</h2>
+    <p>Atuação no TJRJ via parceiro, desenvolvendo o PJe (Processo Judicial Eletrônico). Sistemas sem margem de erro, usados por magistrados, advogados e servidores em todo o estado do Rio de Janeiro.</p>
+    <p>Paralelamente, atuação na Extreme Digital liderando biblioteca de componentes e plataforma de saúde digital nacional de alto volume — dois contextos distintos que exigiram adaptação constante de ritmo e exigência.</p>
+
+    <div class="page-divider" aria-hidden="true">
+      <span class="page-divider__line"></span><i data-feather="shield"></i><span class="page-divider__line"></span>
+    </div>
+
+    <div class="sec-label"><i data-feather="code" aria-hidden="true"></i> Minha atuação</div>
+    <h2>Do design à arquitetura — usuário no centro do processo</h2>
+    <p>No PJe, participei da concepção do sistema, estruturando fluxos e criando a base visual que orientou equipes inteiras de desenvolvimento. Atuação com Angular, PHP (PoC) e JavaScript vanilla, usando Figma para design e arquitetura limpa como diretriz técnica.</p>
+    <p>Na Extreme Digital, foco em microfrontends, Design System e GraphQL para uma plataforma de saúde com exigências severas de performance e acessibilidade.</p>
+
+    <div class="page-chips">
+      <span class="page-chip">React</span>
+      <span class="page-chip">Angular</span>
+      <span class="page-chip">Microfrontends</span>
+      <span class="page-chip">Design System</span>
+      <span class="page-chip">GraphQL</span>
+      <span class="page-chip">Figma</span>
+      <span class="page-chip">SOLID</span>
+      <span class="page-chip">Clean Architecture</span>
+      <span class="page-chip">Performance</span>
+      <span class="page-chip">Acessibilidade</span>
+    </div>
+
+    <div class="page-divider" aria-hidden="true">
+      <span class="page-divider__line"></span><i data-feather="git-branch"></i><span class="page-divider__line"></span>
+    </div>
+
+    <div class="sec-label"><i data-feather="layout" aria-hidden="true"></i> Diagrama</div>
+    <h2>Fluxo — Whimsical</h2>
+    <div class="page-embed-shell">
+      <div class="page-embed">
+        <iframe title="Diagrama TJRJ PJe — Whimsical" style="border:none" width="800" height="450" loading="lazy" allow="fullscreen" src="https://whimsical.com/embed/PXhXobBzkbbQappbFB7bTn"></iframe>
+      </div>
+    </div>
+
+    </div>
+
+    <section class="proj-gallery-section" aria-label="Telas e interface PJe TJRJ">
+      <div class="proj-gallery-inner">
+        <div class="proj-gallery-head">
+          <div>
+            <div class="proj-gallery-eyebrow">
+              <i data-feather="monitor" aria-hidden="true"></i>
+              Frontend &amp; design
+            </div>
+            <h2>PJe — usuário externo (TJRJ)</h2>
+          </div>
+          <span class="proj-gallery-count">7 imagens</span>
+        </div>
+        <div class="proj-gallery-hero">
+          <div class="proj-frame"
+               tabindex="0"
+               role="button"
+               aria-label="Abrir galeria PJe TJRJ, 7 imagens"
+               data-src="frontend-design/236cfe116440829.6062240da8605.webp"
+               data-title="PJe · Portal do usuário externo"
+               data-gallery="tjrj">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots">
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+              </div>
+              <div class="proj-frame-url">pje.tjrj.jus.br / usuário externo</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="frontend-design/236cfe116440829.6062240da8605.webp" width="1400" height="596" alt="Telas do portal PJe — usuário externo TJRJ" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title">Portal do usuário externo</div>
+                <div class="proj-frame-caption-type">Fluxos · interface · TJRJ</div>
+              </div>
+              <a class="proj-frame-caption-link"
+                 href="https://www.behance.net/gallery/116440829/Portal-do-Usuario-Externo"
+                 target="_blank" rel="noopener"
+                 onclick="event.stopPropagation()">
+                Behance <i data-feather="external-link" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-main">
+
+    <div class="page-divider" aria-hidden="true">
+      <span class="page-divider__line"></span><i data-feather="folder"></i><span class="page-divider__line"></span>
+    </div>
+
+    <div class="sec-label"><i data-feather="layers" aria-hidden="true"></i> Projetos & trabalhos</div>
+    <h2>Cases publicados</h2>
+
+    <div class="work-list">
+      <a class="work-card" href="https://www.behance.net/gallery/116440829/Portal-do-Usuario-Externo" target="_blank" rel="noopener">
+        <div class="work-card-ico"><i data-feather="book-open" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">PJe — Portal do Usuário Externo</p>
+          <p class="work-card-desc">Portal judicial eletrônico do TJRJ — concepção de UX, arquitetura de interface e Design System orientando o desenvolvimento de múltiplas equipes.</p>
+          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+      <a class="work-card" href="https://pjxternal.surge.sh/" target="_blank" rel="noopener noreferrer">
+        <div class="work-card-ico"><i data-feather="monitor" aria-hidden="true"></i></div>
+        <div class="work-card-body">
+          <p class="work-card-title">Demo online — usuário externo</p>
+          <p class="work-card-desc">Protótipo do portal ainda publicado (Surge): referência de fluxos e interface para consulta.</p>
+          <span class="work-card-link">Abrir pjxternal.surge.sh <i data-feather="external-link" aria-hidden="true"></i></span>
+        </div>
+      </a>
+    </div>
+
+    </div>
+
+  </main>
+
+  <div class="proj-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeria PJe TJRJ">
+    <button type="button" class="proj-lightbox-close" id="lightboxClose" aria-label="Fechar galeria">
+      <i data-feather="x" aria-hidden="true"></i>
+    </button>
+    <div class="proj-lightbox-stage">
+      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--prev" id="lightboxPrev" aria-label="Imagem anterior">
+        <i data-feather="chevron-left" aria-hidden="true"></i>
+      </button>
+      <img class="proj-lightbox-img" id="lightboxImg" src="" alt="" />
+      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--next" id="lightboxNext" aria-label="Próxima imagem">
+        <i data-feather="chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="proj-lightbox-caption" id="lightboxCaption">
+      <span class="proj-lightbox-caption-title" id="lightboxCaptionTitle"></span>
+      <span class="proj-lightbox-caption-count" id="lightboxCaptionCount"></span>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <a href="../../../index.html#timeline">← Voltar ao portfólio</a>
+  </footer>
+
+  <script>
+    (function(){
+      'use strict';
+      if(typeof feather!=='undefined') feather.replace({'stroke-width':1.75});
+
+      const TJRJ_COVER = 'frontend-design/236cfe116440829.6062240da8605.webp';
+      const TJRJ_GALLERY = [TJRJ_COVER].concat([
+        'frontend-design/28beb6116440829.6062240daad74.webp',
+        'frontend-design/3a7fc8116440829.6062240da9b3f.webp',
+        'frontend-design/47bd27116440829.6062240daa727.webp',
+        'frontend-design/60ff15116440829.6062240da8b3e.webp',
+        'frontend-design/66df2f116440829.6062240da9666.webp',
+        'frontend-design/8b93f7116440829.6062240da7f29.webp',
+      ].sort());
+
+      const frames = document.querySelectorAll('.proj-frame');
+      const io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); }
+        });
+      },{threshold:.15});
+      frames.forEach(function(f){ io.observe(f); });
+
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      const lbTitle = document.getElementById('lightboxCaptionTitle');
+      const lbCount = document.getElementById('lightboxCaptionCount');
+      const lbClose = document.getElementById('lightboxClose');
+      const lbPrev = document.getElementById('lightboxPrev');
+      const lbNext = document.getElementById('lightboxNext');
+      var lbSources = [];
+      var lbIndex = 0;
+      var lbCaseTitle = '';
+
+      function syncLbUi(){
+        var src = lbSources[lbIndex];
+        if(!src) return;
+        lbImg.src = src;
+        lbImg.alt = (lbCaseTitle ? lbCaseTitle + ' — ' : '') + 'Imagem ' + (lbIndex + 1) + ' de ' + lbSources.length;
+        lbTitle.textContent = lbCaseTitle || 'Galeria';
+        lbCount.textContent = (lbIndex + 1) + ' / ' + lbSources.length;
+        lb.setAttribute('aria-label', 'Galeria PJe · imagem ' + (lbIndex + 1) + ' de ' + lbSources.length);
+      }
+
+      function openLbFromFrame(frame){
+        var src = frame.dataset.src;
+        var title = frame.dataset.title || '';
+        if(frame.dataset.gallery === 'tjrj'){
+          lbSources = TJRJ_GALLERY.slice();
+          var i = lbSources.indexOf(src);
+          lbIndex = i >= 0 ? i : 0;
+        } else {
+          lbSources = src ? [src] : [];
+          lbIndex = 0;
+        }
+        lbCaseTitle = title;
+        if(!lbSources.length) return;
+        syncLbUi();
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+        lbPrev.hidden = lbSources.length < 2;
+        lbNext.hidden = lbSources.length < 2;
+      }
+
+      function closeLb(){
+        lb.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+        lbSources = [];
+      }
+
+      function stepLb(delta){
+        if(lbSources.length < 2) return;
+        lbIndex = (lbIndex + delta + lbSources.length) % lbSources.length;
+        syncLbUi();
+      }
+
+      frames.forEach(function(f){
+        f.addEventListener('click', function(){ openLbFromFrame(f); });
+        f.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLbFromFrame(f); }
+        });
+      });
+      lbClose.addEventListener('click', closeLb);
+      lbPrev.addEventListener('click', function(e){ e.stopPropagation(); stepLb(-1); });
+      lbNext.addEventListener('click', function(e){ e.stopPropagation(); stepLb(1); });
+      lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+      document.addEventListener('keydown', function(e){
+        if(!lb.classList.contains('is-open')) return;
+        if(e.key === 'Escape') closeLb();
+        else if(e.key === 'ArrowLeft'){ e.preventDefault(); stepLb(-1); }
+        else if(e.key === 'ArrowRight'){ e.preventDefault(); stepLb(1); }
+      });
+    })();
+  </script>
+</body>
+</html>
