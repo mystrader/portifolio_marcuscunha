@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-i18n-page="sobre">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sobre Marcus Cunha — trajetória, arquitetura front-end, setor público e privado, formação e visão profissional.">
-  <title>Sobre mim · Marcus Cunha</title>
+  <meta name="description" content="Trajetória completa de Marcus Cunha: Flash ao TypeScript, setor público e privado, arquitetura frontend, PJe, Petrobras, design systems e estudos em IA na PUC-Rio.">
+  <meta name="keywords" content="Marcus Cunha biografia, desenvolvedor frontend história, arquitetura front-end, PJe, Petrobras, PUC-Rio, inteligência artificial desenvolvimento, carreira UX engineer">
+  <meta name="author" content="Marcus Cunha">
+  <link rel="canonical" href="">
+  <link rel="alternate" hreflang="pt-BR" href="">
+  <link rel="alternate" hreflang="en" href="">
+  <link rel="alternate" hreflang="x-default" href="">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Marcus Cunha — Portfolio">
+  <meta property="og:title" content="Sobre mim · Marcus Cunha — trajetória, arquitetura front-end e IA">
+  <meta property="og:description" content="Trajetória completa de Marcus Cunha: Flash ao TypeScript, setor público e privado, arquitetura frontend, PJe, Petrobras, design systems e estudos em IA na PUC-Rio.">
+  <meta property="og:url" content="">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sobre mim · Marcus Cunha — trajetória, arquitetura front-end e IA">
+  <meta name="twitter:description" content="Trajetória completa de Marcus Cunha: Flash ao TypeScript, setor público e privado, arquitetura frontend, PJe, Petrobras, design systems e estudos em IA na PUC-Rio.">
+  <title>Sobre mim · Marcus Cunha — trajetória, arquitetura front-end e IA</title>
+  <script type="application/ld+json" id="jsonld-person"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -98,6 +115,9 @@
       padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 3rem);
       position: relative;
       overflow: hidden;
+    }
+    html[data-lang="en"] .sobre-hero::before {
+      content: 'Career · Architecture · Product';
     }
     .sobre-hero::before {
       content: 'Trajetória · Arquitetura · Produto';
@@ -220,6 +240,67 @@
       outline-offset: 4px;
     }
 
+    .sobre-bar-inner {
+      max-width: 72rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .sobre-lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.2rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(0, 0, 0, 0.2);
+      cursor: help;
+    }
+    .sobre-lang-btn {
+      font-family: var(--font-disp);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      background: transparent;
+      border: none;
+      border-radius: 100px;
+      padding: 0.32rem 0.55rem 0.32rem 0.45rem;
+      cursor: pointer;
+      transition: color 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.38rem;
+    }
+    .sobre-lang .lang-flag {
+      flex-shrink: 0;
+      display: block;
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+      line-height: 0;
+    }
+    .sobre-lang .lang-flag svg {
+      display: block;
+      width: 1.05rem;
+      height: 0.72rem;
+    }
+    .sobre-lang-btn:hover {
+      color: #fff;
+    }
+    .sobre-lang-btn:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
+    }
+    .sobre-lang-btn.is-active {
+      color: var(--void);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -228,35 +309,47 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="skip-link" href="#conteudo" data-i18n="sobre_skip">Pular para o conteúdo</a>
   <header class="sobre-bar">
-    <a class="sobre-voltar" href="index.html">
-      <i data-feather="arrow-left" aria-hidden="true"></i>
-      Voltar ao portfólio
-    </a>
+    <div class="sobre-bar-inner">
+      <a class="sobre-voltar" href="index.html">
+        <i data-feather="arrow-left" aria-hidden="true"></i>
+        <span data-i18n="sobre_back">Voltar ao portfólio</span>
+      </a>
+      <div class="sobre-lang" role="group" data-i18n-aria="lang_switch_aria" data-i18n-title="lang_intl_tooltip" aria-label="Idioma do site" title="Aberto a vagas internacionais. Site em inglês: use o toggle EN.">
+        <button type="button" class="sobre-lang-btn" data-lang-btn="pt" aria-pressed="true" aria-label="Português">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.2 17.8 7 10 12.8 2.2 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="2.6" fill="#002776"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_pt_label">PT</span>
+        </button>
+        <button type="button" class="sobre-lang-btn" data-lang-btn="en" aria-pressed="false" aria-label="English">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10"><rect width="19" height="10" fill="#b22234"/><path fill="#fff" d="M0 1.54h19v1.54H0zm0 3.08h19v1.54H0zm0 3.08h12.35v1.54H0z"/><rect width="7.65" height="5.38" fill="#3c3b6e"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_en_label">EN</span>
+        </button>
+      </div>
+    </div>
   </header>
 
   <div class="sobre-hero">
     <div class="sobre-hero-inner">
-      <h1>Sobre <span>mim</span></h1>
-      <p class="sobre-hero-lead">Texto completo da trajetória — do primeiro freelance ao que construo hoje em arquitetura, produto e experiência.</p>
+      <h1 data-i18n-html="sobre_h1">Sobre <span>mim</span></h1>
+      <p class="sobre-hero-lead" data-i18n="sobre_lead">Texto completo da trajetória — do primeiro freelance ao que construo hoje em arquitetura, produto e experiência.</p>
     </div>
   </div>
 
   <div class="sobre-quote-band">
     <div class="sobre-quote-inner">
       <blockquote class="sobre-quote">
-        <p lang="pt-BR">“Tecnologia muda, ferramentas mudam — mas construir algo que faça sentido para as pessoas continua sendo o que me move.”</p>
+        <p lang="pt-BR" data-i18n="sobre_quote">“Tecnologia muda, ferramentas mudam — mas construir algo que faça sentido para as pessoas continua sendo o que me move.”</p>
       </blockquote>
     </div>
   </div>
 
   <main class="sobre-main" id="conteudo">
-    <p>Comecei minha trajetória em 2003, criando sites animados em Flash com ActionScript como freelancer para empresas como Fisk e White Martins. Desde cedo, unir arte e tecnologia sempre fez parte de quem eu sou — música, pintura e fotografia estão no meu DNA criativo. Foi isso que me levou naturalmente ao Front-End, onde encontrei o ponto de equilíbrio entre estética, usabilidade e impacto real.</p>
+    <p data-i18n="sobre_p1">Comecei minha trajetória em 2003, criando sites animados em Flash com ActionScript como freelancer para empresas como Fisk e White Martins. Desde cedo, unir arte e tecnologia sempre fez parte de quem eu sou — música, pintura e fotografia estão no meu DNA criativo. Foi isso que me levou naturalmente ao Front-End, onde encontrei o ponto de equilíbrio entre estética, usabilidade e impacto real.</p>
 
-    <p>Em 2007, iniciei oficialmente minha carreira como desenvolvedor, sem imaginar que estava construindo uma jornada tão consistente. Hoje, mais de 15 anos depois, continuo escrevendo código com a mesma curiosidade — mas com uma visão muito mais ampla de arquitetura, produto e experiência.</p>
+    <p data-i18n="sobre_p2">Em 2007, iniciei oficialmente minha carreira como desenvolvedor, sem imaginar que estava construindo uma jornada tão consistente. Hoje, mais de 15 anos depois, continuo escrevendo código com a mesma curiosidade — mas com uma visão muito mais ampla de arquitetura, produto e experiência.</p>
 
-    <p>Ao longo da minha carreira, atuei em diferentes contextos: TV aberta, governo, fintechs, startups e multinacionais.</p>
+    <p data-i18n="sobre_p3">Ao longo da minha carreira, atuei em diferentes contextos: TV aberta, governo, fintechs, startups e multinacionais.</p>
 
     <div class="sobre-divider" aria-hidden="true">
       <span class="sobre-divider__line"></span>
@@ -264,9 +357,9 @@
       <span class="sobre-divider__line"></span>
     </div>
 
-    <p>No setor público, participei de projetos de grande escala, como na Fundação CECIERJ, contribuindo para tornar o ensino a distância acessível com práticas de acessibilidade em parceria com a UFRJ (COPPE).</p>
+    <p data-i18n="sobre_p4">No setor público, participei de projetos de grande escala, como na Fundação CECIERJ, contribuindo para tornar o ensino a distância acessível com práticas de acessibilidade em parceria com a UFRJ (COPPE).</p>
 
-    <p>Também estive envolvido na transformação digital de diversos sistemas governamentais, sempre trazendo uma visão integrada entre UX, arquitetura e desenvolvimento — da concepção até a validação com usuários.</p>
+    <p data-i18n="sobre_p5">Também estive envolvido na transformação digital de diversos sistemas governamentais, sempre trazendo uma visão integrada entre UX, arquitetura e desenvolvimento — da concepção até a validação com usuários.</p>
 
     <div class="sobre-divider" aria-hidden="true">
       <span class="sobre-divider__line"></span>
@@ -274,11 +367,11 @@
       <span class="sobre-divider__line"></span>
     </div>
 
-    <p>Na iniciativa privada, trabalhei em plataformas internacionais, incluindo projetos ligados ao Tinder e outros produtos do segmento de relacionamento, o que ampliou minha visão de produto, escala e tomada de decisão.</p>
+    <p data-i18n="sobre_p6">Na iniciativa privada, trabalhei em plataformas internacionais, incluindo projetos ligados ao Tinder e outros produtos do segmento de relacionamento, o que ampliou minha visão de produto, escala e tomada de decisão.</p>
 
-    <p>Na Spassu, em projetos para a Petrobras, consolidei minha experiência em design e Front-End avançado. No Tribunal de Justiça do RJ, participei da concepção do PJe, estruturando fluxos e criando a base visual que orientou equipes inteiras de desenvolvimento.</p>
+    <p data-i18n="sobre_p7">Na Spassu, em projetos para a Petrobras, consolidei minha experiência em design e Front-End avançado. No Tribunal de Justiça do RJ, participei da concepção do PJe, estruturando fluxos e criando a base visual que orientou equipes inteiras de desenvolvimento.</p>
 
-    <p>Na Engineering, atuei na construção de componentes e arquitetura para um sistema global (API Gateway), tendo a TIM como principal cliente. Já no SCOMEX do Estado do Rio de Janeiro, atuei como especialista de Front-End e analista, em um projeto que se tornou referência nacional pela SEFAZ.</p>
+    <p data-i18n="sobre_p8">Na Engineering, atuei na construção de componentes e arquitetura para um sistema global (API Gateway), tendo a TIM como principal cliente. Já no SCOMEX do Estado do Rio de Janeiro, atuei como especialista de Front-End e analista, em um projeto que se tornou referência nacional pela SEFAZ.</p>
 
     <div class="sobre-divider" aria-hidden="true">
       <span class="sobre-divider__line"></span>
@@ -286,7 +379,7 @@
       <span class="sobre-divider__line"></span>
     </div>
 
-    <p>Mais recentemente, participei da construção de um CMS responsável por mais de 80 portais principais do estado de São Paulo, além de liderar a concepção e engenharia de um MVP para o setor portuário paulista.</p>
+    <p data-i18n="sobre_p9">Mais recentemente, participei da construção de um CMS responsável por mais de 80 portais principais do estado de São Paulo, além de liderar a concepção e engenharia de um MVP para o setor portuário paulista.</p>
 
     <div class="sobre-divider" aria-hidden="true">
       <span class="sobre-divider__line"></span>
@@ -294,20 +387,22 @@
       <span class="sobre-divider__line"></span>
     </div>
 
-    <p>Paralelamente à prática, sempre mantive uma base forte de estudo. Atualmente, estou em pós-graduação na PUC-Rio e tenho aprofundado cada vez mais meus conhecimentos em Inteligência Artificial, especialmente no uso de LLMs, automação e aplicações práticas no desenvolvimento de software.</p>
+    <p data-i18n="sobre_p10">Paralelamente à prática, sempre mantive uma base forte de estudo. Atualmente, estou em pós-graduação na PUC-Rio e tenho aprofundado cada vez mais meus conhecimentos em Inteligência Artificial, especialmente no uso de LLMs, automação e aplicações práticas no desenvolvimento de software.</p>
 
-    <p>No lado pessoal, sou casado e pai — experiências que reforçam ainda mais meu senso de responsabilidade, equilíbrio e visão de longo prazo.</p>
+    <p data-i18n="sobre_p11">No lado pessoal, sou casado e pai — experiências que reforçam ainda mais meu senso de responsabilidade, equilíbrio e visão de longo prazo.</p>
 
-    <p>Hoje, não vejo o Front-End apenas como código, mas como uma forma de conectar pessoas, sistemas e decisões através de experiências bem construídas.</p>
+    <p data-i18n="sobre_p12">Hoje, não vejo o Front-End apenas como código, mas como uma forma de conectar pessoas, sistemas e decisões através de experiências bem construídas.</p>
   </main>
 
   <footer class="sobre-foot">
-    <a href="index.html">← Voltar ao portfólio</a>
+    <a href="index.html" data-i18n="sobre_foot">← Voltar ao portfólio</a>
   </footer>
 
+  <script src="i18n.js"></script>
   <script>
     (function () {
       'use strict';
+      if (window.MCI18N) MCI18N.init();
       if (typeof feather !== 'undefined') {
         feather.replace({ 'stroke-width': 1.75 });
       }

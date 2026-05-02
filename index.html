@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-i18n-page="index">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Marcus Cunha — Frontend Engineer & UX/UI Designer · +20 anos de experiência">
-  <title>Marcus Cunha</title>
+  <meta name="description" content="Marcus Cunha: engenheiro frontend sênior, tech lead e UX/UI com 20+ anos. React, Next.js, TypeScript, design systems, micro-frontends, performance, acessibilidade e engenharia assistida por IA (LLMs). Rio, SP, remoto internacional.">
+  <meta name="keywords" content="Marcus Cunha, senior frontend engineer, tech lead, React, Next.js, TypeScript, UX UI, design system, micro-frontends, acessibilidade WCAG, web performance, engenheiro frontend sênior, inteligência artificial, LLM, Claude, desenvolvedor frontend Brasil, remoto internacional">
+  <meta name="author" content="Marcus Cunha">
+  <link rel="canonical" href="">
+  <link rel="alternate" hreflang="pt-BR" href="">
+  <link rel="alternate" hreflang="en" href="">
+  <link rel="alternate" hreflang="x-default" href="">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Marcus Cunha — Portfolio">
+  <meta property="og:title" content="Marcus Cunha — Senior Frontend Engineer, UX/UI & IA aplicada ao produto">
+  <meta property="og:description" content="Marcus Cunha: engenheiro frontend sênior, tech lead e UX/UI com 20+ anos. React, Next.js, TypeScript, design systems, micro-frontends, performance, acessibilidade e engenharia assistida por IA (LLMs). Rio, SP, remoto internacional.">
+  <meta property="og:url" content="">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Marcus Cunha — Senior Frontend Engineer, UX/UI & IA aplicada ao produto">
+  <meta name="twitter:description" content="Marcus Cunha: engenheiro frontend sênior, tech lead e UX/UI com 20+ anos. React, Next.js, TypeScript, design systems, micro-frontends, performance, acessibilidade e engenharia assistida por IA (LLMs). Rio, SP, remoto internacional.">
+  <title>Marcus Cunha — Senior Frontend Engineer, UX/UI & IA aplicada ao produto</title>
+  <script type="application/ld+json" id="jsonld-person"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -93,7 +110,7 @@
       background-size: auto, cover;
       background-position: center, 48% 24%;
       background-repeat: no-repeat;
-      opacity: 0.3;
+      opacity: 0.8;
       mix-blend-mode: soft-light;
     }
 
@@ -166,6 +183,59 @@
     .nav-links a:focus-visible {
       outline: 2px solid var(--orange);
       outline-offset: 3px;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      margin-left: 0.35rem;
+      padding: 0.2rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(0, 0, 0, 0.2);
+      list-style: none;
+      cursor: help;
+    }
+    .lang-switch[aria-label] { padding: 0.2rem; }
+    .lang-btn {
+      font-family: var(--font-disp);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      background: transparent;
+      border: none;
+      border-radius: 100px;
+      padding: 0.32rem 0.55rem 0.32rem 0.45rem;
+      cursor: pointer;
+      transition: color 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.38rem;
+    }
+    .lang-flag {
+      flex-shrink: 0;
+      display: block;
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+      line-height: 0;
+    }
+    .lang-flag svg {
+      display: block;
+      width: 1.05rem;
+      height: 0.72rem;
+    }
+    .lang-btn:hover { color: #fff; }
+    .lang-btn:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
+    }
+    .lang-btn.is-active {
+      color: var(--void);
+      background: rgba(255, 255, 255, 0.92);
     }
 
     /* hero body: name left, foto circular à direita (alinhada ao topo) */
@@ -1486,54 +1556,64 @@
 <!-- ══════════════ HERO ══════════════ -->
 <header class="hero" id="top">
   <nav class="hero-nav">
-    <span class="nav-id">MC · Portfolio</span>
+    <span class="nav-id" data-i18n="nav_id">MC · Portfolio</span>
     <ul class="nav-links">
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="#timeline">Trajetória</a></li>
-      <li><a href="#skills">Arquitetura</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="sobre.html" data-i18n="nav_sobre">Sobre</a></li>
+      <li><a href="#timeline" data-i18n="nav_timeline">Trajetória</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">Arquitetura</a></li>
+      <li><a href="#contato" data-i18n="nav_contato">Contato</a></li>
+      <li class="lang-switch" role="group" data-i18n-aria="lang_switch_aria" data-i18n-title="lang_intl_tooltip" aria-label="Idioma do site" title="Aberto a vagas internacionais. Site em inglês: use o toggle EN.">
+        <button type="button" class="lang-btn" data-lang-btn="pt" aria-pressed="true" aria-label="Português">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.2 17.8 7 10 12.8 2.2 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="2.6" fill="#002776"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_pt_label">PT</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false" aria-label="English">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10"><rect width="19" height="10" fill="#b22234"/><path fill="#fff" d="M0 1.54h19v1.54H0zm0 3.08h19v1.54H0zm0 3.08h12.35v1.54H0z"/><rect width="7.65" height="5.38" fill="#3c3b6e"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_en_label">EN</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
   <div class="hero-body">
     <div class="hero-left">
-      <div class="hero-label">Frontend Engineer · UX/UI Designer</div>
+      <div class="hero-label" data-i18n="hero_label">Engenheiro frontend · UX/UI designer · Produtos potencializados por IA</div>
 
       <div class="hero-name-wrap">
         <span class="hero-name">Marcus</span>
         <span class="hero-name ln2">Cunha</span>
       </div>
 
-      <p class="hero-cred-heading" id="hero-formacao">Formação acadêmica</p>
+      <p class="hero-cred-heading" id="hero-formacao" data-i18n="hero_cred_heading">Formação acadêmica</p>
       <div class="hero-credentials" role="group" aria-labelledby="hero-formacao">
-        <span class="cred-tag" title="Bacharelado — Universidade Estácio de Sá">
-          <span class="cred-level">Graduação</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-school">Estácio</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-course">Ciência da Computação</span>
+        <span class="cred-tag" data-i18n-title="hero_cred1_title" title="Bacharelado — Universidade Estácio de Sá">
+          <span class="cred-level" data-i18n="hero_cred1_level">Graduação</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-school" data-i18n="hero_cred1_school">Estácio</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-course" data-i18n="hero_cred1_course">Ciência da Computação</span>
         </span>
-        <span class="cred-tag" title="Pós-graduação — Universidade Estácio de Sá">
-          <span class="cred-level">Pós-graduação</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-school">Estácio</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-course">Análise, Projeto e Gerência de Sistemas</span>
+        <span class="cred-tag" data-i18n-title="hero_cred2_title" title="Pós-graduação — Universidade Estácio de Sá">
+          <span class="cred-level" data-i18n="hero_cred2_level">Pós-graduação</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-school" data-i18n="hero_cred2_school">Estácio</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-course" data-i18n="hero_cred2_course">Análise, Projeto e Gerência de Sistemas</span>
         </span>
-        <span class="cred-tag" title="Pós-graduação lato sensu — PUC-Rio (Pontifícia Universidade Católica do Rio de Janeiro)">
-          <span class="cred-level">Pós-graduação lato sensu</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-school">PUC-Rio</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-course">Especialista em TI · Full Stack</span>
+        <span class="cred-tag" data-i18n-title="hero_cred3_title" title="Pós-graduação lato sensu — PUC-Rio (Pontifícia Universidade Católica do Rio de Janeiro)">
+          <span class="cred-level" data-i18n="hero_cred3_level">Pós-graduação lato sensu</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-school" data-i18n="hero_cred3_school">PUC-Rio</span><span class="cred-sep" aria-hidden="true">·</span><span class="cred-course" data-i18n="hero_cred3_course">Especialista em TI · Full Stack</span>
         </span>
       </div>
 
       <div class="hero-meta">
-        <p class="hero-role">
+        <p class="hero-role" data-i18n-html="hero_role_html">
           <strong>+15 anos</strong> construindo interfaces que fazem sentido —
           do código à experiência, da startup à multinacional.
         </p>
         <div class="hero-stats">
           <div>
             <span class="stat-n">20+</span>
-            <span class="stat-l">Anos de exp.</span>
+            <span class="stat-l" data-i18n="stat_exp">Anos de exp.</span>
           </div>
           <div>
             <span class="stat-n">11+</span>
-            <span class="stat-l">Empresas</span>
+            <span class="stat-l" data-i18n="stat_companies">Empresas</span>
           </div>
           <div>
             <span class="stat-n">30+</span>
-            <span class="stat-l">Projetos</span>
+            <span class="stat-l" data-i18n="stat_projects">Projetos</span>
           </div>
         </div>
       </div>
@@ -1541,7 +1621,7 @@
       <div class="hero-cta">
         <a class="hero-aside-btn hero-aside-btn--primary" href="https://www.behance.net/mystrader" target="_blank" rel="noopener">
           <i data-feather="layers" aria-hidden="true"></i>
-          Principais projetos
+          <span data-i18n="cta_behance">Principais projetos</span>
         </a>
         <a class="hero-aside-btn hero-aside-btn--linkedin" href="https://www.linkedin.com/in/marcuscunha-dev/" target="_blank" rel="noopener">
           <i data-feather="linkedin" aria-hidden="true"></i>
@@ -1565,7 +1645,7 @@
           <div class="hero-aside-dl">
             <a class="hero-aside-btn hero-aside-btn--primary" href="https://www.behance.net/mystrader" target="_blank" rel="noopener">
               <i data-feather="layers" aria-hidden="true"></i>
-              Principais projetos
+              <span data-i18n="cta_behance">Principais projetos</span>
             </a>
             <a class="hero-aside-btn hero-aside-btn--linkedin" href="https://www.linkedin.com/in/marcuscunha-dev/" target="_blank" rel="noopener">
               <i data-feather="linkedin" aria-hidden="true"></i>
@@ -1575,13 +1655,13 @@
               <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.16 1.18a10.9 10.9 0 013.02-.41c1.02.01 2.05.14 3.02.41 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.12 3.06.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.38-5.25 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.68.8.56A10.48 10.48 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
               GitHub
             </a>
-            <a class="hero-aside-btn" href="docs/curriculo_marcus_cunha_senior.pdf" download="curriculo_marcus_cunha_senior.pdf" aria-label="Baixar currículo em PDF">
+            <a class="hero-aside-btn" href="docs/curriculo_marcus_cunha_senior.pdf" download="curriculo_marcus_cunha_senior.pdf" data-i18n-aria="aria_cv" aria-label="Baixar currículo em PDF">
               <i data-feather="download" aria-hidden="true"></i>
-              Currículo PDF
+              <span data-i18n="cta_cv">Currículo PDF</span>
             </a>
-            <a class="hero-aside-btn" href="docs/timelineMarcus.pdf" download="timelineMarcus.pdf" aria-label="Baixar linha do tempo em PDF">
+            <a class="hero-aside-btn" href="docs/timelineMarcus.pdf" download="timelineMarcus.pdf" data-i18n-aria="aria_timeline_pdf" aria-label="Baixar linha do tempo em PDF">
               <i data-feather="download" aria-hidden="true"></i>
-              Linha do tempo
+              <span data-i18n="cta_timeline_pdf">Linha do tempo</span>
             </a>
           </div>
         </aside>
@@ -1590,8 +1670,8 @@
   </div>
 
   <div class="hero-foot">
-    <div class="open-badge" role="status" aria-label="Status profissional: disponível para novas oportunidades"><span class="dot" aria-hidden="true"></span><span><strong>Disponível</strong> para novas oportunidades Nacionais e Internacionais (português e Espanhol)</span></div>
-    <span class="hero-location">Rio de janeiro · São Paulo · Brasil · Internacional · Remoto</span>
+    <div class="open-badge" role="status" data-i18n-aria="badge_aria" aria-label="Status profissional: disponível para novas oportunidades" data-i18n-html="badge_html"><span class="dot" aria-hidden="true"></span><span><strong>Disponível</strong> para novas oportunidades Nacionais e Internacionais (português e Espanhol)</span></div>
+    <span class="hero-location" data-i18n="hero_location">Rio de janeiro · São Paulo · Brasil · Internacional · Remoto</span>
   </div>
 </header>
 
@@ -1604,19 +1684,19 @@
     <div class="about-copy">
       <p class="about-eyebrow">
         <i data-feather="book-open" aria-hidden="true"></i>
-        Narrativa profissional
+        <span data-i18n="about_eyebrow">Narrativa profissional</span>
       </p>
-      <p class="about-lead">
+      <p class="about-lead" data-i18n="about_lead">
         Aqui você encontra a história completa: origens no Flash, passagens por governo e grandes produtos, visão de arquitetura, estudos na PUC-Rio e o que o front-end representa para mim hoje.
       </p>
-      <p class="about-snippet">
+      <p class="about-snippet" data-i18n-html="about_snippet_html">
         Do ActionScript ao TypeScript — <em>arte, sistemas e impacto</em> no mesmo fio narrativo.
       </p>
     </div>
     <div class="about-cta">
       <a class="about-btn" href="sobre.html">
         <i data-feather="user" aria-hidden="true"></i>
-        Sobre mim
+        <span data-i18n="about_btn">Sobre mim</span>
       </a>
     </div>
   </div>
@@ -1628,13 +1708,13 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
   </div>
   <div class="section-header rev">
-    <h2>Trajetória <span>profissional</span></h2>
-    <p>Mais recente primeiro — até o estágio no INSS (2004) e o período freelance anterior.</p>
+    <h2 data-i18n-html="tl_heading">Trajetória <span>profissional</span></h2>
+    <p data-i18n="tl_sub">Mais recente primeiro — até o estágio no INSS (2004) e o período freelance anterior.</p>
   </div>
 
   <div class="dir-row rev">
-    <span class="dir-tag top">↑ Mais recente</span>
-    <span class="dir-tag bot">Início de carreira ↓</span>
+    <span class="dir-tag top" data-i18n="tl_dir_top">↑ Mais recente</span>
+    <span class="dir-tag bot" data-i18n="tl_dir_bot">Início de carreira ↓</span>
   </div>
 
   <div class="track">
@@ -1643,20 +1723,20 @@
     <!-- AlmaViva -->
     <div class="entry is-now" data-year="2024">
       <div class="entry-yr" aria-hidden="true">2024</div>
-      <div class="e-left"><span class="e-period">2024<br>→ agora</span><div class="e-node"></div></div>
+      <div class="e-left"><span class="e-period" data-i18n-html="entry_almaviva_period">2024<br>→ agora</span><div class="e-node"></div></div>
       <div class="e-right e-right--with-cta">
         <div class="e-right-body">
-        <span class="now-tag">● Posição atual</span><br>
+        <span class="now-tag" data-i18n="tl_now_tag">● Posição atual</span><br>
         <div class="e-logos">
           <img src="imagens/logos/logo_almaviva.svg" alt="AlmaViva" class="e-logo">
         </div>
-        <h3 class="e-title">Senior Frontend Engineer</h3>
-        <span class="e-level">Sênior</span>
-        <p class="e-body">Liderança técnica de frontend em projeto internacional Brasil–Itália: arquitetura, identidade visual digital e coordenação de squads em escala global. Atuação também em <strong>entregas que conversam com o ecossistema do portal da Prodesp</strong> — integrações, consistência de interface e requisitos de produto no contexto de serviços públicos digitais.</p>
+        <h3 class="e-title" data-i18n="entry_almaviva_title">Senior Frontend Engineer</h3>
+        <span class="e-level" data-i18n="entry_almaviva_level">Sênior</span>
+        <p class="e-body" data-i18n-html="entry_almaviva_body">Liderança técnica de frontend em projeto internacional Brasil–Itália: arquitetura, identidade visual digital e coordenação de squads em escala global. Atuação também em <strong>entregas que conversam com o ecossistema do portal da Prodesp</strong> — integrações, consistência de interface e requisitos de produto no contexto de serviços públicos digitais.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Tech Lead</span><span class="chip">Design System</span><span class="chip">Agile</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="almaviva.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="almaviva.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1670,13 +1750,13 @@
         <div class="e-logos">
           <img src="imagens/logos/logo_engineering.svg" alt="Kaki Engineering" class="e-logo">
         </div>
-        <h3 class="e-title">Especialista Front-end Engineer</h3>
-        <span class="e-level">Especialista</span>
-        <p class="e-body">Sistemas de alto impacto em São Paulo. Arquitetura de componentes, integrações críticas e foco em performance em plataformas com grande volume de dados.</p>
+        <h3 class="e-title" data-i18n="entry_kaki_title">Especialista Front-end Engineer</h3>
+        <span class="e-level" data-i18n="entry_kaki_level">Especialista</span>
+        <p class="e-body" data-i18n="entry_kaki_body">Sistemas de alto impacto em São Paulo. Arquitetura de componentes, integrações críticas e foco em performance em plataformas com grande volume de dados.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Figma</span><span class="chip">Performance</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="engineering.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="engineering.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1691,13 +1771,13 @@
           <img src="imagens/logos/logo_eds.svg" alt="Extreme Digital" class="e-logo e-logo--xl">
           <img src="imagens/logos/logo_pje.svg" alt="PJe — Processo Judicial Eletrônico" class="e-logo e-logo--pje">
         </div>
-        <h3 class="e-title">Analista Desenvolvedor Frontend Master / UI/UX</h3>
-        <span class="e-level">Sênior → Especialista · Atuação simultânea</span>
-        <p class="e-body">No PJE, sistemas críticos do Judiciário — zero tolerância a falhas. Na Extreme Digital, liderança de biblioteca de componentes e plataforma de saúde digital nacional de alto volume.</p>
+        <h3 class="e-title" data-i18n="entry_pje_title">Analista Desenvolvedor Frontend Master / UI/UX</h3>
+        <span class="e-level" data-i18n="entry_pje_level">Sênior → Especialista · Atuação simultânea</span>
+        <p class="e-body" data-i18n="entry_pje_body">No PJE, sistemas críticos do Judiciário — zero tolerância a falhas. Na Extreme Digital, liderança de biblioteca de componentes e plataforma de saúde digital nacional de alto volume.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Angular</span><span class="chip">Micro-frontends</span><span class="chip">Design System</span><span class="chip">GraphQL</span><span class="chip">Performance</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="tjrj-pje.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="tjrj-pje.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1712,13 +1792,13 @@
           <img src="imagens/logos/logo_spassu.svg" alt="SPASSU" class="e-logo e-logo--xl">
           <img src="imagens/logos/logo_Petrobras.svg" alt="Petrobras" class="e-logo e-logo--petrobras">
         </div>
-        <h3 class="e-title">Desenvolvedor Front-end · UI Designer</h3>
-        <span class="e-level">Esteira ágil · Projeto interno Petrobras pela SPASSU</span>
-        <p class="e-body">Contrato pela SPASSU atuando em projeto interno da Petrobras: interface, consistência visual e entregas em ritmo ágil junto ao time.</p>
-        <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">UI Design</span><span class="chip">Esteira ágil</span><span class="chip">Figma</span></div>
+        <h3 class="e-title" data-i18n="entry_spassu_title">Desenvolvedor Front-end · UI Designer</h3>
+        <span class="e-level" data-i18n="entry_spassu_level">Esteira ágil · Projeto interno Petrobras pela SPASSU</span>
+        <p class="e-body" data-i18n="entry_spassu_body">Contrato pela SPASSU atuando em projeto interno da Petrobras: interface, consistência visual e entregas em ritmo ágil junto ao time.</p>
+        <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">UI Design</span><span class="chip" data-i18n="chip_agile_flow">Esteira ágil</span><span class="chip">Figma</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="spassu.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="spassu.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1732,13 +1812,13 @@
         <div class="e-logos">
           <img src="imagens/logos/logo_instant_solutions.svg" alt="Instant Solutions" class="e-logo">
         </div>
-        <h3 class="e-title">Analista Frontend UI</h3>
-        <span class="e-level">Sênior</span>
-        <p class="e-body">Foco em análise e construção de interface, qualidade de UI e alinhamento com produto — UX com o mesmo peso que o código.</p>
+        <h3 class="e-title" data-i18n="entry_instant_title">Analista Frontend UI</h3>
+        <span class="e-level" data-i18n="entry_instant_level">Sênior</span>
+        <p class="e-body" data-i18n="entry_instant_body">Foco em análise e construção de interface, qualidade de UI e alinhamento com produto — UX com o mesmo peso que o código.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Redux</span><span class="chip">Design System</span><span class="chip">Figma</span><span class="chip">UX</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="instant-solutions.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="instant-solutions.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1752,13 +1832,13 @@
         <div class="e-logos">
           <img src="imagens/logos/logo_estado_SEFAZRJ.svg" alt="Secretaria de Estado da Fazenda — RJ" class="e-logo e-logo--xl">
         </div>
-        <h3 class="e-title">Analista Desenvolvedor Front-End</h3>
-        <span class="e-level">Pleno → Sênior · Secretaria de Estado da Fazenda (RJ)</span>
-        <p class="e-body">Portais e sistemas da fazenda estadual — escala estadual, impacto direto no cidadão. Margem de erro mínima.</p>
-        <div class="chips"><span class="chip">Angular</span><span class="chip">HTML/SCSS</span><span class="chip">Git</span><span class="chip">Acessibilidade</span></div>
+        <h3 class="e-title" data-i18n="entry_sefaz_title">Analista Desenvolvedor Front-End</h3>
+        <span class="e-level" data-i18n="entry_sefaz_level">Pleno → Sênior · Secretaria de Estado da Fazenda (RJ)</span>
+        <p class="e-body" data-i18n="entry_sefaz_body">Portais e sistemas da fazenda estadual — escala estadual, impacto direto no cidadão. Margem de erro mínima.</p>
+        <div class="chips"><span class="chip">Angular</span><span class="chip">HTML/SCSS</span><span class="chip">Git</span><span class="chip" data-i18n="chip_accessibility">Acessibilidade</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="sefaz-rj.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="sefaz-rj.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1772,13 +1852,13 @@
         <div class="e-logos">
           <img src="imagens/logos/logo_parperfeito.svg" alt="Par Perfeito" class="e-logo e-logo--xxl">
         </div>
-        <h3 class="e-title">Analista Desenvolvedor Front-End</h3>
-        <span class="e-level">Pleno · Freelance</span>
-        <p class="e-body">Produtos de relacionamento em alto tráfego — incluindo <strong>Tinder</strong> e o ecossistema Par Perfeito — além de e-commerce, campanhas (Globo, GE, Americanas) e e-mail marketing em escala.</p>
-        <div class="chips"><span class="chip">React</span><span class="chip">Vue.js</span><span class="chip">SASS</span><span class="chip">Produto</span><span class="chip">Figma</span></div>
+        <h3 class="e-title" data-i18n="entry_par_title">Analista Desenvolvedor Front-End</h3>
+        <span class="e-level" data-i18n="entry_par_level">Pleno · Freelance</span>
+        <p class="e-body" data-i18n-html="entry_par_body">Produtos de relacionamento em alto tráfego — incluindo <strong>Tinder</strong> e o ecossistema Par Perfeito — além de e-commerce, campanhas (Globo, GE, Americanas) e e-mail marketing em escala.</p>
+        <div class="chips"><span class="chip">React</span><span class="chip">Vue.js</span><span class="chip">SASS</span><span class="chip" data-i18n="chip_product">Produto</span><span class="chip">Figma</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="par-perfeito.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="par-perfeito.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1792,13 +1872,13 @@
         <div class="e-logos">
           <img src="imagens/logos/loco_casadigital.svg" alt="Casa Digital" class="e-logo e-logo--casa">
         </div>
-        <h3 class="e-title">Analista Desenvolvedor Front-end</h3>
-        <span class="e-level">Pleno · Agência</span>
-        <p class="e-body">Agência full-service: análise de sistemas, prototipação e entrega de interface para vários clientes. Treinamentos internos em desenvolvimento rápido de UI.</p>
+        <h3 class="e-title" data-i18n="entry_casa_title">Analista Desenvolvedor Front-end</h3>
+        <span class="e-level" data-i18n="entry_casa_level">Pleno · Agência</span>
+        <p class="e-body" data-i18n="entry_casa_body">Agência full-service: análise de sistemas, prototipação e entrega de interface para vários clientes. Treinamentos internos em desenvolvimento rápido de UI.</p>
         <div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">jQuery</span><span class="chip">WordPress</span><span class="chip">UX/UI</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="casa-digital.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="casa-digital.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1811,9 +1891,9 @@
         <div class="e-logos">
           <img src="imagens/logos/logo_Arcon.svg" alt="Arcon" class="e-logo">
         </div>
-        <h3 class="e-title">Analista Desenvolvedor .NET / C# · UI</h3>
-        <span class="e-level">Pleno</span>
-        <p class="e-body">Plataforma proprietária de seguros: camada de interface, telas e fluxos em cima do stack .NET — requisitos alinhados ao negócio.</p>
+        <h3 class="e-title" data-i18n="entry_arcon_title">Analista Desenvolvedor .NET / C# · UI</h3>
+        <span class="e-level" data-i18n="entry_arcon_level">Pleno</span>
+        <p class="e-body" data-i18n="entry_arcon_body">Plataforma proprietária de seguros: camada de interface, telas e fluxos em cima do stack .NET — requisitos alinhados ao negócio.</p>
         <div class="chips"><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">UI</span><span class="chip">JavaScript</span></div>
       </div>
     </div>
@@ -1827,13 +1907,13 @@
         <div class="e-logos">
           <img src="imagens/logos/logo_record.svg" alt="Rede Record" class="e-logo">
         </div>
-        <h3 class="e-title">WebMaster</h3>
-        <span class="e-level">Rede Record</span>
-        <p class="e-body">Sites e interfaces em ASP.NET em um dos maiores veículos do país — primeira experiência com escala e prazo de verdade.</p>
+        <h3 class="e-title" data-i18n="entry_record_title">WebMaster</h3>
+        <span class="e-level" data-i18n="entry_record_level">Rede Record</span>
+        <p class="e-body" data-i18n="entry_record_body">Sites e interfaces em ASP.NET em um dos maiores veículos do país — primeira experiência com escala e prazo de verdade.</p>
         <div class="chips"><span class="chip">ASP.Net</span><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="record.html">Ver trajetória <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="record.html"><span data-i18n="tl_cta_journey">Ver trajetória</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1847,13 +1927,13 @@
         <div class="e-logos">
           <img src="imagens/logos/logo_CECIERJ.svg" alt="Fundação CECIERJ" class="e-logo e-logo--lg">
         </div>
-        <h3 class="e-title">Desenvolvedor Web · UI · Animador 2D</h3>
-        <span class="e-level">CECIERJ · Web educacional & acessibilidade</span>
-        <p class="e-body">Interfaces com forte preocupação com acessibilidade — e animação 2D quando o projeto pedia — aprendizado cedo de que interface tem impacto real nas pessoas.</p>
+        <h3 class="e-title" data-i18n="entry_ceci_title">Desenvolvedor Web · UI · Animador 2D</h3>
+        <span class="e-level" data-i18n="entry_ceci_level">CECIERJ · Web educacional & acessibilidade</span>
+        <p class="e-body" data-i18n="entry_ceci_body">Interfaces com forte preocupação com acessibilidade — e animação 2D quando o projeto pedia — aprendizado cedo de que interface tem impacto real nas pessoas.</p>
         <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Flash</span><span class="chip">Motion 2D</span></div>
         </div>
         <div class="e-right-cta">
-        <a class="e-detail-btn" href="cecierj.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
+        <a class="e-detail-btn" href="cecierj.html"><span data-i18n="tl_cta_projects">Ver projetos</span> <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -1866,21 +1946,21 @@
         <div class="e-logos">
           <img src="imagens/logos/logo-inss-30.svg" alt="INSS — Instituto Nacional do Seguro Social" class="e-logo e-logo--lg">
         </div>
-        <h3 class="e-title">Estágio · Desenvolvimento web & suporte técnico</h3>
-        <span class="e-level">INSS · Portais internos & infraestrutura</span>
-        <p class="e-body">Primeira experiência formal na Previdência Social: sites e ferramentas internas em <strong>WordPress</strong> e <strong>PHP</strong>, convivência com <strong>Linux</strong> em servidores e manutenção de microcomputadores — web, servidor e atendimento a usuários internos no mesmo desafio diário.</p>
-        <div class="chips"><span class="chip">WordPress</span><span class="chip">PHP</span><span class="chip">Linux</span><span class="chip">HTML/CSS</span><span class="chip">Suporte TI</span></div>
+        <h3 class="e-title" data-i18n="entry_inss_title">Estágio · Desenvolvimento web & suporte técnico</h3>
+        <span class="e-level" data-i18n="entry_inss_level">INSS · Portais internos & infraestrutura</span>
+        <p class="e-body" data-i18n-html="entry_inss_body">Primeira experiência formal na Previdência Social: sites e ferramentas internas em <strong>WordPress</strong> e <strong>PHP</strong>, convivência com <strong>Linux</strong> em servidores e manutenção de microcomputadores — web, servidor e atendimento a usuários internos no mesmo desafio diário.</p>
+        <div class="chips"><span class="chip">WordPress</span><span class="chip">PHP</span><span class="chip">Linux</span><span class="chip">HTML/CSS</span><span class="chip" data-i18n="chip_it_support">Suporte TI</span></div>
       </div>
     </div>
 
     <!-- Freelance — origem (sem marca) -->
     <div class="entry entry--seed" data-year="2003">
       <div class="entry-yr" aria-hidden="true">2003</div>
-      <div class="e-left"><span class="e-period">Freelance<br>até 2004</span><div class="e-node"></div></div>
+      <div class="e-left"><span class="e-period" data-i18n-html="entry_seed_period">Freelance<br>até 2004</span><div class="e-node"></div></div>
       <div class="e-right">
-        <h3 class="e-title">Autônomo · Web & TI</h3>
-        <span class="e-level">Antes do INSS · projetos sob demanda</span>
-        <p class="e-body">Trabalhos avulsos — páginas e pequenos sites, ajustes em <strong>HTML/CSS</strong> e suporte a hardware — o ponto zero da linha do tempo, sem logo de empresa: só prática, curiosidade e cliente direto.</p>
+        <h3 class="e-title" data-i18n="entry_seed_title">Autônomo · Web & TI</h3>
+        <span class="e-level" data-i18n="entry_seed_level">Antes do INSS · projetos sob demanda</span>
+        <p class="e-body" data-i18n-html="entry_seed_body">Trabalhos avulsos — páginas e pequenos sites, ajustes em <strong>HTML/CSS</strong> e suporte a hardware — o ponto zero da linha do tempo, sem logo de empresa: só prática, curiosidade e cliente direto.</p>
         <div class="chips"><span class="chip">HTML/CSS</span><span class="chip">Freelance</span></div>
       </div>
     </div>
@@ -1893,45 +1973,45 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12l10 4.5L22 12"/><path d="M2 17l10 4.5L22 17"/></svg>
   </div>
   <div class="sk-head rev">
-    <h2 id="skills-heading">Arquitetura & <span>engenharia</span></h2>
-    <p class="sk-tagline">Como penso <em>sistemas</em>, não só <em>telas</em>.</p>
+    <h2 id="skills-heading" data-i18n-html="sk_heading">Arquitetura & <span>engenharia</span></h2>
+    <p class="sk-tagline" data-i18n-html="sk_tagline_html">Como penso <em>sistemas</em>, não só <em>telas</em>.</p>
   </div>
-  <p class="sk-intro rev">Além do framework do momento: limites de módulos, contratos entre times, domínio estável e como o front se integra ao restante da plataforma.</p>
+  <p class="sk-intro rev" data-i18n="sk_intro">Além do framework do momento: limites de módulos, contratos entre times, domínio estável e como o front se integra ao restante da plataforma.</p>
 
   <div class="sk-arch-grid">
     <article class="sk-arch-card rev">
       <div class="sk-arch-ico" aria-hidden="true"><i data-feather="anchor"></i></div>
-      <h3>SOLID & código sustentável</h3>
-      <p>Coesão, baixo acoplamento e decisões que sobrevivem troca de lib — testabilidade e evolução sem medo.</p>
+      <h3 data-i18n="sk_card1_h">SOLID & código sustentável</h3>
+      <p data-i18n="sk_card1_p">Coesão, baixo acoplamento e decisões que sobrevivem troca de lib — testabilidade e evolução sem medo.</p>
     </article>
     <article class="sk-arch-card rev">
       <div class="sk-arch-ico" aria-hidden="true"><i data-feather="layers"></i></div>
-      <h3>Micro-frontends</h3>
-      <p>Módulos autônomos, shell e orquestração, versionamento e acordos claros entre squads para escalar entrega.</p>
+      <h3 data-i18n="sk_card2_h">Micro-frontends</h3>
+      <p data-i18n="sk_card2_p">Módulos autônomos, shell e orquestração, versionamento e acordos claros entre squads para escalar entrega.</p>
     </article>
     <article class="sk-arch-card rev">
       <div class="sk-arch-ico" aria-hidden="true"><i data-feather="box"></i></div>
-      <h3>Hexagonal & portas/adapters</h3>
-      <p>Domínio no centro; UI, API e infra como adaptadores — útil em libs compartilhadas, BFF e integrações.</p>
+      <h3 data-i18n="sk_card3_h">Hexagonal & portas/adapters</h3>
+      <p data-i18n="sk_card3_p">Domínio no centro; UI, API e infra como adaptadores — útil em libs compartilhadas, BFF e integrações.</p>
     </article>
   </div>
 
-  <h3 class="sk-comp-label rev">Prática, produto & stack</h3>
+  <h3 class="sk-comp-label rev" data-i18n="sk_comp_label">Prática, produto & stack</h3>
   <div class="sk-grid rev">
-    <div class="sk" style="--w:91%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="layers"></i></span><p class="sk-name">Design System</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">91%</span></div>
-    <div class="sk" style="--w:88%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="eye"></i></span><p class="sk-name">Acessibilidade (WCAG)</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">88%</span></div>
-    <div class="sk" style="--w:92%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="code"></i></span><p class="sk-name">TypeScript</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">92%</span></div>
-    <div class="sk" style="--w:85%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="zap"></i></span><p class="sk-name">Web performance</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">85%</span></div>
-    <div class="sk" style="--w:82%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="check-square"></i></span><p class="sk-name">Testes & qualidade</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">82%</span></div>
-    <div class="sk sk--fill-blue" style="--w:86%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="cpu"></i></span><p class="sk-name">LLMs & engenharia assistida</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">86%</span></div>
-    <div class="sk sk--fill-blue" style="--w:84%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="message-square"></i></span><p class="sk-name">Claude & fluxos com contexto</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">84%</span></div>
-    <div class="sk" style="--w:93%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="box"></i></span><p class="sk-name">React / Next.js</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">93%</span></div>
-    <div class="sk" style="--w:74%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="sidebar"></i></span><p class="sk-name">Angular</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">74%</span></div>
-    <div class="sk" style="--w:78%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="triangle"></i></span><p class="sk-name">Vue.js</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">78%</span></div>
-    <div class="sk" style="--w:87%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="search"></i></span><p class="sk-name">UX / pesquisa</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">87%</span></div>
-    <div class="sk" style="--w:90%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="pen-tool"></i></span><p class="sk-name">Figma & handoff</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">90%</span></div>
-    <div class="sk" style="--w:84%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="git-branch"></i></span><p class="sk-name">Git / CI/CD</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">84%</span></div>
-    <div class="sk" style="--w:68%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="server"></i></span><p class="sk-name">Node.js & APIs</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">68%</span></div>
+    <div class="sk" style="--w:91%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="layers"></i></span><p class="sk-name" data-i18n="sk_name_ds">Design System</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">91%</span></div>
+    <div class="sk" style="--w:88%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="eye"></i></span><p class="sk-name" data-i18n="sk_name_a11y">Acessibilidade (WCAG)</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">88%</span></div>
+    <div class="sk" style="--w:92%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="code"></i></span><p class="sk-name" data-i18n="sk_name_ts">TypeScript</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">92%</span></div>
+    <div class="sk" style="--w:85%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="zap"></i></span><p class="sk-name" data-i18n="sk_name_perf">Web performance</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">85%</span></div>
+    <div class="sk" style="--w:82%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="check-square"></i></span><p class="sk-name" data-i18n="sk_name_test">Testes & qualidade</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">82%</span></div>
+    <div class="sk sk--fill-blue" style="--w:86%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="cpu"></i></span><p class="sk-name" data-i18n="sk_name_llm">LLMs & engenharia assistida</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">86%</span></div>
+    <div class="sk sk--fill-blue" style="--w:84%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="message-square"></i></span><p class="sk-name" data-i18n="sk_name_claude">Claude & fluxos com contexto</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">84%</span></div>
+    <div class="sk" style="--w:93%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="box"></i></span><p class="sk-name" data-i18n="sk_name_react">React / Next.js</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">93%</span></div>
+    <div class="sk" style="--w:74%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="sidebar"></i></span><p class="sk-name" data-i18n="sk_name_ng">Angular</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">74%</span></div>
+    <div class="sk" style="--w:78%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="triangle"></i></span><p class="sk-name" data-i18n="sk_name_vue">Vue.js</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">78%</span></div>
+    <div class="sk" style="--w:87%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="search"></i></span><p class="sk-name" data-i18n="sk_name_ux">UX / pesquisa</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">87%</span></div>
+    <div class="sk" style="--w:90%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="pen-tool"></i></span><p class="sk-name" data-i18n="sk_name_figma">Figma & handoff</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">90%</span></div>
+    <div class="sk" style="--w:84%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="git-branch"></i></span><p class="sk-name" data-i18n="sk_name_git">Git / CI/CD</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">84%</span></div>
+    <div class="sk" style="--w:68%"><div class="sk-headline"><span class="sk-ico" aria-hidden="true"><i data-feather="server"></i></span><p class="sk-name" data-i18n="sk_name_node">Node.js & APIs</p></div><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-pct">68%</span></div>
   </div>
 </section>
 
@@ -1941,8 +2021,8 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
   </div>
   <div class="rev">
-    <h2 class="cta-h">Vamos construir<br><span>algo juntos?</span></h2>
-    <p class="cta-sub">🚨 Disponível para CLT, PJ ou freelance · remoto.</p>
+    <h2 class="cta-h" data-i18n-html="cta_h">Vamos construir<br><span>algo juntos?</span></h2>
+    <p class="cta-sub" data-i18n="cta_sub">🚨 Disponível para CLT, PJ ou freelance · remoto.</p>
   </div>
   <div class="cta-links rev">
     <a class="cl" href="https://www.linkedin.com/in/marcuscunha-dev/" target="_blank" rel="noopener">
@@ -1957,28 +2037,54 @@
       <i data-feather="mail"></i>
       mystrader@gmail.com
     </a>
-    <span class="cta-dl-label">Downloads · PDF</span>
-    <a class="cl cl-dl" href="docs/curriculo_marcus_cunha_senior.pdf" download="curriculo_marcus_cunha_senior.pdf" aria-label="Baixar currículo em PDF">
+    <span class="cta-dl-label" data-i18n="cta_dl_label">Downloads · PDF</span>
+    <a class="cl cl-dl" href="docs/curriculo_marcus_cunha_senior.pdf" download="curriculo_marcus_cunha_senior.pdf" data-i18n-aria="aria_cv" aria-label="Baixar currículo em PDF">
       <i data-feather="download" aria-hidden="true"></i>
-      Currículo (sênior)
+      <span data-i18n="cta_cv_file">Currículo (sênior)</span>
     </a>
-    <a class="cl cl-dl" href="docs/timelineMarcus.pdf" download="timelineMarcus.pdf" aria-label="Baixar linha do tempo em PDF">
+    <a class="cl cl-dl" href="docs/timelineMarcus.pdf" download="timelineMarcus.pdf" data-i18n-aria="aria_timeline_pdf" aria-label="Baixar linha do tempo em PDF">
       <i data-feather="download" aria-hidden="true"></i>
-      Linha do tempo
+      <span data-i18n="cta_timeline_pdf">Linha do tempo</span>
     </a>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 Marcus Cunha</p>
-  <p>Frontend · UX/UI · Brasil · Feito sem template.</p>
+  <p data-i18n="foot_line1">© 2026 Marcus Cunha</p>
+  <p data-i18n="foot_line2">Frontend · UX/UI · Brasil · Feito sem template.</p>
 </footer>
 
+<script src="i18n.js"></script>
 <script>
 (function(){
   'use strict';
 
-  /* ── feather icons ── */
+  function paintChips(){
+    var chipMap={
+      'React':'chip-blue','Next.js':'chip-slate','TypeScript':'chip-blue',
+      'Vue.js':'chip-green','Angular':'chip-red','Figma':'chip-violet',
+      'Design System':'chip-indigo','GraphQL':'chip-rose','Redux':'chip-violet',
+      'Node.js':'chip-green','Performance':'chip-amber','Web Performance':'chip-amber',
+      'Git / CI/CD':'chip-slate','UX / Pesquisa':'chip-teal','UX Research':'chip-teal',
+      'UX':'chip-teal','UX/UI':'chip-teal','HTML / CSS':'chip-orange','HTML5':'chip-orange',
+      'HTML/CSS':'chip-orange','CSS3':'chip-blue','SASS':'chip-rose',
+      'Tech Lead':'chip-orange','Agile':'chip-green','Esteira ágil':'chip-green','Agile delivery':'chip-green',
+      'Acessibilidade':'chip-teal','Accessibility':'chip-teal','Micro-frontends':'chip-blue','Design Tokens':'chip-violet','UI Design':'chip-violet',
+      'Styled Components':'chip-violet','E-mail Marketing':'chip-amber','Produto':'chip-amber','Product':'chip-amber',
+      'jQuery':'chip-slate','WordPress':'chip-slate','SQL':'chip-slate',
+      'ASP.Net':'chip-slate','Flash':'chip-slate','Análise de Requisitos':'chip-slate',
+      'C#':'chip-slate','.NET':'chip-slate','UI':'chip-teal','Motion 2D':'chip-violet',
+      'PHP':'chip-green','Linux':'chip-slate','Suporte TI':'chip-teal','IT support':'chip-teal','Freelance':'chip-amber',
+    };
+    document.querySelectorAll('.chip').forEach(function(el){
+      var cls=chipMap[el.textContent.trim()];
+      el.className='chip'+(cls?' '+cls:'');
+    });
+  }
+  document.addEventListener('i18n:applied',paintChips);
+
+  if(window.MCI18N) MCI18N.init();
+
   if(typeof feather !== 'undefined') feather.replace({ 'stroke-width': 1.75 });
 
 
@@ -2003,27 +2109,7 @@
     update();
   }
 
-  /* ── chip colors ── */
-  const chipMap = {
-    'React':'chip-blue','Next.js':'chip-slate','TypeScript':'chip-blue',
-    'Vue.js':'chip-green','Angular':'chip-red','Figma':'chip-violet',
-    'Design System':'chip-indigo','GraphQL':'chip-rose','Redux':'chip-violet',
-    'Node.js':'chip-green','Performance':'chip-amber','Web Performance':'chip-amber',
-    'Git / CI/CD':'chip-slate','UX / Pesquisa':'chip-teal','UX Research':'chip-teal',
-    'UX':'chip-teal','UX/UI':'chip-teal','HTML / CSS':'chip-orange','HTML5':'chip-orange',
-    'HTML/CSS':'chip-orange','CSS3':'chip-blue','SASS':'chip-rose',
-    'Tech Lead':'chip-orange','Agile':'chip-green','Esteira ágil':'chip-green','Acessibilidade':'chip-teal',
-    'Micro-frontends':'chip-blue','Design Tokens':'chip-violet','UI Design':'chip-violet',
-    'Styled Components':'chip-violet','E-mail Marketing':'chip-amber','Produto':'chip-amber',
-    'jQuery':'chip-slate','WordPress':'chip-slate','SQL':'chip-slate',
-    'ASP.Net':'chip-slate','Flash':'chip-slate','Análise de Requisitos':'chip-slate',
-    'C#':'chip-slate','.NET':'chip-slate','UI':'chip-teal','Motion 2D':'chip-violet',
-    'PHP':'chip-green','Linux':'chip-slate','Suporte TI':'chip-teal','Freelance':'chip-amber',
-  };
-  document.querySelectorAll('.chip').forEach(el=>{
-    const cls = chipMap[el.textContent.trim()];
-    if(cls) el.classList.add(cls);
-  });
+  paintChips();
 
   /* ── year pill ── */
   const pill=document.getElementById('pill');
