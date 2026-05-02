@@ -889,6 +889,22 @@
     .chip-orange { background:#FFEDD5; color:#9A3412; border-color:#FED7AA; }
     .chip-slate  { background:#F1F5F9; color:#334155; border-color:#CBD5E1; }
 
+    /* ─── Entry detail link ─── */
+    .e-detail-btn {
+      display: inline-flex; align-items: center; gap: .45rem;
+      margin-top: 1.1rem;
+      font-family: var(--font-disp);
+      font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+      text-decoration: none; color: var(--orange);
+      padding: .42rem .88rem .42rem .72rem;
+      border: 1px solid rgba(224,91,26,.3); border-radius: 100px;
+      background: var(--orange-s);
+      transition: background .2s, border-color .2s, color .2s, gap .2s var(--ease);
+    }
+    .e-detail-btn:hover { background: var(--orange); border-color: var(--orange); color: #fff; gap: .7rem; }
+    .e-detail-btn:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+    .e-detail-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+
 
     /* ════════════════════════════════
        SKILLS — arquitetura + competências
@@ -1416,6 +1432,7 @@
         <span class="e-level">Sênior</span>
         <p class="e-body">Liderança técnica de frontend em projeto internacional Brasil–Itália. Decisões de arquitetura, identidade visual digital e gestão de squads. Empresa global — escala real.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Tech Lead</span><span class="chip">Design System</span><span class="chip">Agile</span></div>
+        <a class="e-detail-btn" href="almaviva.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 
@@ -1431,6 +1448,7 @@
         <span class="e-level">Especialista</span>
         <p class="e-body">Sistemas de alto impacto em São Paulo. Arquitetura de componentes, integrações críticas e foco em performance em plataformas com grande volume de dados.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Figma</span><span class="chip">Performance</span></div>
+        <a class="e-detail-btn" href="engineering.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 
@@ -1447,6 +1465,7 @@
         <span class="e-level">Sênior → Especialista · Atuação simultânea</span>
         <p class="e-body">No PJE, sistemas críticos do Judiciário — zero tolerância a falhas. Na Extreme Digital, liderança de biblioteca de componentes e plataforma de saúde digital nacional de alto volume.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Angular</span><span class="chip">Micro-frontends</span><span class="chip">Design System</span><span class="chip">GraphQL</span><span class="chip">Performance</span></div>
+        <a class="e-detail-btn" href="tjrj-pje.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 
@@ -1463,6 +1482,7 @@
         <span class="e-level">Esteira ágil · Projeto interno Petrobras pela SPASSU</span>
         <p class="e-body">Contrato pela SPASSU atuando em projeto interno da Petrobras: interface, consistência visual e entregas em ritmo ágil junto ao time.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">UI Design</span><span class="chip">Esteira ágil</span><span class="chip">Figma</span></div>
+        <a class="e-detail-btn" href="spassu.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 
@@ -1478,6 +1498,7 @@
         <span class="e-level">Sênior</span>
         <p class="e-body">Foco em análise e construção de interface, qualidade de UI e alinhamento com produto — UX com o mesmo peso que o código.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Redux</span><span class="chip">Design System</span><span class="chip">Figma</span><span class="chip">UX</span></div>
+        <a class="e-detail-btn" href="instant-solutions.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 
@@ -1493,6 +1514,7 @@
         <span class="e-level">Pleno → Sênior · Secretaria de Estado da Fazenda (RJ)</span>
         <p class="e-body">Portais e sistemas da fazenda estadual — escala estadual, impacto direto no cidadão. Margem de erro mínima.</p>
         <div class="chips"><span class="chip">Angular</span><span class="chip">HTML/SCSS</span><span class="chip">Git</span><span class="chip">Acessibilidade</span></div>
+        <a class="e-detail-btn" href="sefaz-rj.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 
@@ -1508,6 +1530,7 @@
         <span class="e-level">Pleno · Freelance</span>
         <p class="e-body">Produtos de relacionamento em alto tráfego — incluindo <strong>Tinder</strong> e o ecossistema Par Perfeito — além de e-commerce, campanhas (Globo, GE, Americanas) e e-mail marketing em escala.</p>
         <div class="chips"><span class="chip">React</span><span class="chip">Vue.js</span><span class="chip">SASS</span><span class="chip">Produto</span><span class="chip">Figma</span></div>
+        <a class="e-detail-btn" href="par-perfeito.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 
@@ -1523,6 +1546,7 @@
         <span class="e-level">Pleno · Agência</span>
         <p class="e-body">Agência full-service: análise de sistemas, prototipação e entrega de interface para vários clientes. Treinamentos internos em desenvolvimento rápido de UI.</p>
         <div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">jQuery</span><span class="chip">WordPress</span><span class="chip">UX/UI</span></div>
+        <a class="e-detail-btn" href="casa-digital.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 
@@ -1553,6 +1577,7 @@
         <span class="e-level">Rede Record</span>
         <p class="e-body">Sites e interfaces em ASP.NET em um dos maiores veículos do país — primeira experiência com escala e prazo de verdade.</p>
         <div class="chips"><span class="chip">ASP.Net</span><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div>
+        <a class="e-detail-btn" href="record.html">Ver trajetória <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 
@@ -1568,6 +1593,7 @@
         <span class="e-level">Início de carreira · CECIERJ</span>
         <p class="e-body">Interfaces com forte preocupação com acessibilidade — e animação 2D quando o projeto pedia — aprendizado cedo de que interface tem impacto real nas pessoas.</p>
         <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Flash</span><span class="chip">Motion 2D</span></div>
+        <a class="e-detail-btn" href="cecierj.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
