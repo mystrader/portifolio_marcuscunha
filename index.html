@@ -383,7 +383,7 @@
     .hero-body {
       flex: 1;
       display: grid;
-      grid-template-columns: 1fr minmax(160px, 260px);
+      grid-template-columns: 1fr minmax(200px, 332px);
       gap: clamp(1.25rem, 4vw, 2.75rem);
       align-items: start;
       padding: 2.25rem 0 2rem;
@@ -407,7 +407,7 @@
       align-items: center;
       gap: 1.85rem;
       width: 100%;
-      max-width: 260px;
+      max-width: 332px;
     }
     .hero-aside {
       width: 100%;
@@ -510,7 +510,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.55rem;
+      gap: 0.62rem;
       width: 100%;
       box-sizing: border-box;
       font-family: var(--font-disp);
@@ -565,13 +565,137 @@
       border-color: #388bfd;
       color: #fff;
     }
+    .hero-aside-btn--whatsapp {
+      background-color: #128c7e;
+      border-color: #0d6b60;
+      color: #fff;
+      font-size: clamp(0.76rem, 1.45vw, 0.95rem);
+    }
+    .hero-aside-btn--whatsapp:hover {
+      background-color: #075e54;
+      border-color: #044a42;
+      color: #fff;
+    }
+    .hero-aside-btn--whatsapp,
+    .hero-aside-btn--email {
+      text-transform: none;
+      letter-spacing: 0.04em;
+      overflow-wrap: anywhere;
+      padding: 0.85rem 1.05rem;
+      gap: 0.68rem;
+    }
+    .hero-aside-btn--whatsapp svg {
+      width: 22px;
+      height: 22px;
+    }
+    .hero-aside-btn--email svg {
+      width: 24px;
+      height: 24px;
+    }
+    .hero-aside-btn--email {
+      background-color: #4a5568;
+      border-color: #3d4756;
+      color: #fff;
+      font-size: clamp(0.74rem, 1.28vw, 0.9rem);
+      font-weight: 750;
+      letter-spacing: 0.032em;
+    }
+    .hero-aside-btn--email:hover {
+      background-color: #5c687a;
+      border-color: #4a5568;
+      color: #fff;
+    }
+    .hero-aside-btn--stack {
+      flex-direction: column;
+      gap: 0.18rem;
+      padding: 0.5rem 0.65rem;
+      line-height: 1.2;
+    }
+    .hero-aside-btn--stack > svg {
+      flex-shrink: 0;
+    }
+    .hero-aside-btn__lines {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.06rem;
+      text-align: center;
+    }
+    .hero-aside-btn__sub {
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      opacity: 0.93;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
     .hero-aside-btn:focus-visible {
       outline: 2px solid var(--orange);
       outline-offset: 2px;
     }
+
+    .copy-toast {
+      position: fixed;
+      z-index: 10055;
+      left: 50%;
+      bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+      width: min(calc(100vw - 1.5rem), 22rem);
+      pointer-events: none;
+      transform: translate3d(-50%, 120%, 0);
+      opacity: 0;
+      transition: transform 0.55s var(--ease), opacity 0.45s var(--ease);
+    }
+    .copy-toast.is-on {
+      transform: translate3d(-50%, 0, 0);
+      opacity: 1;
+    }
+    .copy-toast__panel {
+      position: relative;
+      padding: 0.95rem 1.15rem 0.95rem 1.25rem;
+      border-radius: 12px;
+      background: rgba(12, 12, 15, 0.94);
+      border: 1px solid rgba(var(--hero-accent-rgb), 0.28);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+        0 20px 50px rgba(0, 0, 0, 0.55),
+        0 0 40px rgba(var(--hero-accent-rgb), 0.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .copy-toast__accent {
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      bottom: 0.65rem;
+      width: 3px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--hero-accent-bright), var(--orange));
+      opacity: 0.95;
+    }
+    .copy-toast__title {
+      font-family: var(--font-disp);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.96);
+      margin: 0 0 0.35rem;
+      padding-left: 0.5rem;
+    }
+    .copy-toast__sub {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      line-height: 1.45;
+      color: rgba(246, 243, 238, 0.72);
+      margin: 0;
+      padding-left: 0.5rem;
+    }
     .hero-aside-btn svg {
-      width: 14px;
-      height: 14px;
+      width: 20px;
+      height: 20px;
       flex-shrink: 0;
     }
     .hero-photo-frame {
@@ -1942,7 +2066,7 @@
       gap: 0.6rem;
       margin-top: 1.45rem;
       padding: 0.65rem;
-      max-width: 260px;
+      max-width: min(332px, 100%);
       width: 100%;
       box-sizing: border-box;
       background-color: #0a0a0c;
@@ -2057,6 +2181,13 @@
   </style>
 </head>
 <body>
+<div id="copy-toast" class="copy-toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+  <div class="copy-toast__panel">
+    <span class="copy-toast__accent" aria-hidden="true"></span>
+    <p class="copy-toast__title"></p>
+    <p class="copy-toast__sub"></p>
+  </div>
+</div>
 <a class="skip-link" href="#top" data-i18n="a11y_skip">Pular para o conteúdo</a>
 <div class="a11y-bar" role="region" data-i18n-aria="a11y_region" aria-label="Ferramentas de acessibilidade">
   <div class="a11y-bar-inner">
@@ -2147,6 +2278,10 @@
       </div>
 
       <div class="hero-cta">
+        <a class="hero-aside-btn hero-aside-btn--whatsapp" href="https://wa.me/5521995556239" target="_blank" rel="noopener noreferrer" data-copy="5521995556239" data-toast-kind="whatsapp" data-i18n-aria="aria_whatsapp" aria-label="Copiar número para a área de transferência e abrir o WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-i18n="cta_whatsapp_sub">(21) 9 9555-6239</span>
+        </a>
         <a class="hero-aside-btn hero-aside-btn--primary" href="https://www.behance.net/mystrader" target="_blank" rel="noopener">
           <i data-feather="layers" aria-hidden="true"></i>
           <span data-i18n="cta_behance">Principais projetos</span>
@@ -2158,6 +2293,10 @@
         <a class="hero-aside-btn hero-aside-btn--github" href="https://github.com/mystrader" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.16 1.18a10.9 10.9 0 013.02-.41c1.02.01 2.05.14 3.02.41 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.12 3.06.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.38-5.25 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.68.8.56A10.48 10.48 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
           GitHub
+        </a>
+        <a class="hero-aside-btn hero-aside-btn--email" href="mailto:mystrader@gmail.com" data-copy="mystrader@gmail.com" data-toast-kind="email" data-i18n-aria="aria_email" aria-label="Copiar e-mail para a área de transferência e abrir o app de e-mail">
+          <i data-feather="mail" aria-hidden="true"></i>
+          <span data-i18n="cta_email_sub">mystrader@gmail.com</span>
         </a>
       </div>
 
@@ -2175,6 +2314,10 @@
               <span class="hero-aside-balloon__notch-fill"></span>
             </span>
             <div class="hero-aside-dl">
+            <a class="hero-aside-btn hero-aside-btn--whatsapp" href="https://wa.me/5521995556239" target="_blank" rel="noopener noreferrer" data-copy="5521995556239" data-toast-kind="whatsapp" data-i18n-aria="aria_whatsapp" aria-label="Copiar número para a área de transferência e abrir o WhatsApp">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-i18n="cta_whatsapp_sub">(21) 9 9555-6239</span>
+            </a>
             <a class="hero-aside-btn hero-aside-btn--primary" href="https://www.behance.net/mystrader" target="_blank" rel="noopener">
               <i data-feather="layers" aria-hidden="true"></i>
               <span data-i18n="cta_behance">Principais projetos</span>
@@ -2183,10 +2326,6 @@
               <i data-feather="linkedin" aria-hidden="true"></i>
               LinkedIn
             </a>
-            <a class="hero-aside-btn hero-aside-btn--github" href="https://github.com/marcuscunha-dev" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.16 1.18a10.9 10.9 0 013.02-.41c1.02.01 2.05.14 3.02.41 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.12 3.06.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.38-5.25 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.68.8.56A10.48 10.48 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-              GitHub
-            </a>
             <a class="hero-aside-btn" href="docs/curriculo_marcus_cunha_senior.pdf" download="curriculo_marcus_cunha_senior.pdf" data-i18n-aria="aria_cv" aria-label="Baixar currículo em PDF">
               <i data-feather="download" aria-hidden="true"></i>
               <span data-i18n="cta_cv">Currículo PDF</span>
@@ -2194,6 +2333,14 @@
             <a class="hero-aside-btn" href="docs/timelineMarcus.pdf" download="timelineMarcus.pdf" data-i18n-aria="aria_timeline_pdf" aria-label="Baixar linha do tempo em PDF">
               <i data-feather="download" aria-hidden="true"></i>
               <span data-i18n="cta_timeline_pdf">Linha do tempo</span>
+            </a>
+            <a class="hero-aside-btn hero-aside-btn--github" href="https://github.com/marcuscunha-dev" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.16 1.18a10.9 10.9 0 013.02-.41c1.02.01 2.05.14 3.02.41 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.12 3.06.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.38-5.25 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.68.8.56A10.48 10.48 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a class="hero-aside-btn hero-aside-btn--email" href="mailto:mystrader@gmail.com" data-copy="mystrader@gmail.com" data-toast-kind="email" data-i18n-aria="aria_email" aria-label="Copiar e-mail para a área de transferência e abrir o app de e-mail">
+              <i data-feather="mail" aria-hidden="true"></i>
+              <span data-i18n="cta_email_sub">mystrader@gmail.com</span>
             </a>
             </div>
           </div>
@@ -2660,6 +2807,70 @@
   document.addEventListener('i18n:applied',paintChips);
 
   if(window.MCI18N) MCI18N.init();
+
+  (function wireHeroCopy() {
+    var toast = document.getElementById('copy-toast');
+    if (!toast || !window.MCI18N) return;
+    var titleEl = toast.querySelector('.copy-toast__title');
+    var subEl = toast.querySelector('.copy-toast__sub');
+    var hideT;
+    function lang() {
+      return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'pt';
+    }
+    function showToast(kind) {
+      var L = lang();
+      var titleKey = kind === 'email' ? 'toast_copy_email_title' : 'toast_copy_whatsapp_title';
+      var subKey = kind === 'email' ? 'toast_copy_email_sub' : 'toast_copy_whatsapp_sub';
+      titleEl.textContent = MCI18N.t(L, titleKey);
+      subEl.textContent = MCI18N.t(L, subKey);
+      toast.hidden = false;
+      requestAnimationFrame(function () { toast.classList.add('is-on'); });
+      clearTimeout(hideT);
+      hideT = setTimeout(function () {
+        toast.classList.remove('is-on');
+        setTimeout(function () { toast.hidden = true; }, 520);
+      }, 3400);
+    }
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+      return new Promise(function (resolve, reject) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;left:-9999px;top:0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          if (document.execCommand('copy')) resolve();
+          else reject(new Error('copy'));
+        } catch (err) { reject(err); }
+        document.body.removeChild(ta);
+      });
+    }
+    function followHref(href) {
+      if (!href) return;
+      if (href.indexOf('mailto:') === 0) window.location.href = href;
+      else window.open(href, '_blank', 'noopener,noreferrer');
+    }
+    document.querySelectorAll('a[data-copy][data-toast-kind]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        var text = a.getAttribute('data-copy');
+        var kind = a.getAttribute('data-toast-kind');
+        var href = a.getAttribute('href');
+        if (!text || !kind) return;
+        e.preventDefault();
+        copyText(text)
+          .then(function () {
+            showToast(kind);
+            setTimeout(function () { followHref(href); }, 320);
+          })
+          .catch(function () { followHref(href); });
+      });
+    });
+  })();
 
   if(typeof feather !== 'undefined') feather.replace({ 'stroke-width': 1.75 });
 
