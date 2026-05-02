@@ -42,7 +42,7 @@
       nav_skills: 'Arquitetura',
       nav_contato: 'Contato',
 
-      nav_id: 'MC · Portfolio',
+      nav_id: 'Portfólio',
 
       hero_label: 'Engenheiro Frontend · UX/UI Designer · IA aplicada (LLMs & automação)',
       hero_cred_heading: 'Formação acadêmica',
@@ -273,7 +273,7 @@
       nav_skills: 'Architecture',
       nav_contato: 'Contact',
 
-      nav_id: 'MC · Portfolio',
+      nav_id: 'Portfólio',
 
       hero_label: 'Frontend Engineer · UX/UI Designer · Applied AI (LLMs & automation)',
       hero_cred_heading: 'Education',

@@ -38,6 +38,9 @@
       --orange:   #E05B1A;
       --orange-d: #B34714;
       --orange-s: #FBF0E9;
+      --hero-accent: #E6C86E;
+      --hero-accent-bright: #F0D991;
+      --hero-accent-rgb: 230, 200, 110;
       --blue:     #1A5CC8;
       --blue-s:   #E8EFF9;
       --white:    #FFFFFF;
@@ -260,13 +263,13 @@
       z-index: 1;
       pointer-events: none;
       background-image:
-        radial-gradient(circle at 60% 30%, rgba(224,91,26,.07) 0%, transparent 50%),
+        radial-gradient(circle at 60% 30%, rgba(var(--hero-accent-rgb), .09) 0%, transparent 50%),
         radial-gradient(circle at 15% 80%, rgba(26,92,200,.072) 0%, transparent 45%),
         radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
         linear-gradient(to bottom,
           transparent 0%,
-          rgba(224,91,26,.12) 35%,
-          rgba(224,91,26,.05) 70%,
+          rgba(var(--hero-accent-rgb), .1) 35%,
+          rgba(var(--hero-accent-rgb), .04) 70%,
           transparent 100%);
       background-size: auto, auto, 32px 32px, 1px 100%;
       background-position: center, center, 0 0, right clamp(1.5rem,5vw,5rem) top;
@@ -285,9 +288,9 @@
     }
     .nav-id {
       font-family: var(--font-disp);
-      font-size: .62rem; font-weight: 700;
+      font-size: 1rem; font-weight: 700;
       letter-spacing: .18em; text-transform: uppercase;
-      color: rgba(255,255,255,.58);
+      color: var(--hero-accent);
     }
     .nav-links {
       display: flex;
@@ -314,8 +317,8 @@
     }
     .nav-links a:hover {
       color: #fff;
-      border-color: rgba(224, 91, 26, 0.55);
-      background: rgba(224, 91, 26, 0.14);
+      border-color: rgba(var(--hero-accent-rgb), 0.55);
+      background: rgba(var(--hero-accent-rgb), 0.12);
       transform: translateY(-1px);
     }
     .nav-links a:focus-visible {
@@ -574,17 +577,17 @@
       font-size: clamp(.66rem, 1.25vw, .78rem);
       font-weight: 800;
       letter-spacing: .18em; text-transform: uppercase;
-      color: #FFB090;
-      text-shadow: 0 0 28px rgba(224, 91, 26, 0.35);
+      color: var(--hero-accent);
+      text-shadow: 0 0 32px rgba(var(--hero-accent-rgb), 0.35);
       margin-bottom: 2rem;
       opacity: 0; transform: translateX(-12px);
       animation: fadeSlideX .7s .2s var(--ease) forwards;
     }
     .hero-label::before {
       content: ''; width: 28px; height: 2px;
-      background: linear-gradient(90deg, var(--orange), rgba(224,91,26,.5));
+      background: linear-gradient(90deg, var(--hero-accent), rgba(var(--hero-accent-rgb), .45));
       border-radius: 1px; flex-shrink: 0;
-      box-shadow: 0 0 12px rgba(224, 91, 26, 0.45);
+      box-shadow: 0 0 14px rgba(var(--hero-accent-rgb), 0.4);
     }
 
     .hero-cred-heading {
@@ -648,7 +651,7 @@
     .cred-level {
       font-weight: 800;
       letter-spacing: .12em;
-      color: var(--orange);
+      color: var(--hero-accent);
     }
     .cred-school {
       font-weight: 800;
@@ -666,12 +669,12 @@
       user-select: none;
     }
     .cred-tag:hover {
-      border-color: rgba(224,91,26,.45);
-      box-shadow: 0 0 0 1px rgba(224,91,26,.12), 0 1px 0 rgba(255,255,255,.06) inset;
+      border-color: rgba(var(--hero-accent-rgb), 0.5);
+      box-shadow: 0 0 0 1px rgba(var(--hero-accent-rgb), 0.16), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
       background: linear-gradient(155deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.05) 100%);
     }
     .cred-tag:hover .cred-level {
-      color: #FB923C;
+      color: var(--hero-accent-bright);
     }
     .cred-tag:hover .cred-school {
       color: #fff;
@@ -701,7 +704,7 @@
       color: #fff;
     }
     .hero-affiliation-link:focus-visible {
-      outline: 2px solid var(--orange);
+      outline: 2px solid var(--hero-accent);
       outline-offset: 4px;
       border-radius: 4px;
     }
@@ -718,7 +721,7 @@
     }
     .hero-affiliation-link:hover .hero-affiliation-crest {
       opacity: 1;
-      filter: invert(1) brightness(1.2) drop-shadow(0 0 16px rgba(224, 91, 26, 0.28));
+      filter: invert(1) brightness(1.2) drop-shadow(0 0 16px rgba(var(--hero-accent-rgb), 0.35));
     }
     .hero-affiliation-text {
       font-family: var(--font-disp);
@@ -728,7 +731,7 @@
       text-transform: uppercase;
       line-height: 1.4;
       padding-left: 0.95rem;
-      border-left: 3px solid rgba(224, 91, 26, 0.5);
+      border-left: 3px solid rgba(var(--hero-accent-rgb), 0.55);
       color: rgba(255, 255, 255, 0.92);
       text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
     }
@@ -763,6 +766,7 @@
     }
     .hero-name.ln2 {
       color: var(--orange);
+      text-shadow: 0 0 40px rgba(224, 91, 26, 0.28);
       animation-delay: .12s;
     }
 
@@ -793,7 +797,9 @@
       font-family: var(--font-disp);
       font-weight: 500;
       font-size: clamp(1.8rem,3.5vw,2.8rem);
-      line-height: 1; color: #8e2389;
+      line-height: 1;
+      color: var(--orange);
+      text-shadow: 0 0 28px rgba(224, 91, 26, 0.25);
     }
     .stat-l {
     display: block;
@@ -1777,7 +1783,7 @@
 <!-- ══════════════ HERO ══════════════ -->
 <header class="hero" id="top">
   <nav class="hero-nav">
-    <span class="nav-id" data-i18n="nav_id">MC · Portfolio</span>
+    <span class="nav-id" data-i18n="nav_id">Portfólio</span>
     <ul class="nav-links">
       <li><a href="sobre.html" data-i18n="nav_sobre">Sobre</a></li>
       <li><a href="#timeline" data-i18n="nav_timeline">Trajetória</a></li>
