@@ -405,7 +405,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.65rem;
+      gap: 1.85rem;
       width: 100%;
       max-width: 260px;
     }
@@ -417,6 +417,54 @@
       opacity: 0;
       transform: translateY(10px);
       animation: fadeSlideY 0.68s 0.48s var(--ease) forwards;
+    }
+    .hero-aside-balloon {
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      border: 4px solid #000;
+      border-radius: 14px;
+      background: #0a0a0c;
+      padding: 0.7rem 0.65rem 0.65rem;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+    }
+    .hero-aside-balloon__notch {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -100%);
+      width: 32px;
+      height: 17px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-aside-balloon__notch-edge {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 17px solid #000;
+    }
+    .hero-aside-balloon__notch-fill {
+      position: absolute;
+      left: 50%;
+      top: 3px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-bottom: 13px solid #0a0a0c;
+    }
+    .hero-aside-balloon .hero-aside-dl {
+      background: transparent;
+      border: none;
+      padding: 0;
+      border-radius: 0;
     }
     .hero-aside-nav {
       display: flex;
@@ -1875,8 +1923,12 @@
           <img src="imagens/avatar_marcus.jpeg" alt="Marcus Cunha" class="hero-photo" width="228" height="228">
         </div>
         <aside class="hero-aside">
-       
-          <div class="hero-aside-dl">
+          <div class="hero-aside-balloon">
+            <span class="hero-aside-balloon__notch" aria-hidden="true">
+              <span class="hero-aside-balloon__notch-edge"></span>
+              <span class="hero-aside-balloon__notch-fill"></span>
+            </span>
+            <div class="hero-aside-dl">
             <a class="hero-aside-btn hero-aside-btn--primary" href="https://www.behance.net/mystrader" target="_blank" rel="noopener">
               <i data-feather="layers" aria-hidden="true"></i>
               <span data-i18n="cta_behance">Principais projetos</span>
@@ -1897,6 +1949,7 @@
               <i data-feather="download" aria-hidden="true"></i>
               <span data-i18n="cta_timeline_pdf">Linha do tempo</span>
             </a>
+            </div>
           </div>
         </aside>
       </div>
