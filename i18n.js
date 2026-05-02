@@ -87,7 +87,7 @@
       about_eyebrow: 'Narrativa profissional',
       about_lead:
         'Aqui você encontra a história completa: origens no Flash, passagens por governo e grandes produtos, visão de arquitetura, estudos na PUC-Rio e o que o front-end representa para mim hoje.',
-      about_snippet_html: 'Do ActionScript ao TypeScript — <em>arte, sistemas e impacto</em> no mesmo fio narrativo.',
+      about_snippet_html: 'Do ActionScript ao TypeScript — <em>arte, sistemas e impacto</em> numa narrativa só.',
       about_btn: 'Sobre mim',
 
       tl_heading: 'Trajetória <span>profissional</span>',
