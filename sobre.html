@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sobre Marcus Cunha — trajetória, arquitetura front-end, setor público e privado, formação e visão profissional.">
+  <title>Sobre mim · Marcus Cunha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <style>
+    :root {
+      --void: #0c0c0f;
+      --page: #f6f3ee;
+      --ink: #1a1a20;
+      --muted: #918d88;
+      --orange: #e05b1a;
+      --orange-d: #b34714;
+      --line: #ddd9d1;
+      --font-disp: 'Nunito', system-ui, sans-serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-disp);
+      background: var(--page);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0.75rem;
+      z-index: 200;
+      padding: 0.6rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--void);
+      background: #fff;
+      border: 2px solid var(--orange);
+      border-radius: 6px;
+    }
+    .skip-link:focus {
+      left: 0.75rem;
+      outline: none;
+    }
+
+    .sobre-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12, 12, 15, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 0.85rem clamp(1.25rem, 4vw, 2.75rem);
+    }
+    .sobre-voltar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: var(--font-disp);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      padding: 0.55rem 0.85rem 0.55rem 0.35rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.06);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .sobre-voltar svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .sobre-voltar:hover {
+      background: rgba(224, 91, 26, 0.25);
+      border-color: rgba(224, 91, 26, 0.55);
+      color: #fff;
+    }
+    .sobre-voltar:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 3px;
+    }
+
+    .sobre-hero {
+      background: var(--orange);
+      padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 3rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .sobre-hero::before {
+      content: 'Trajetória · Arquitetura · Produto';
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-disp);
+      font-size: clamp(6rem, 14vw, 12rem);
+      font-weight: 300;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.08);
+      letter-spacing: -0.04em;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .sobre-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .sobre-hero h1 {
+      font-family: var(--font-disp);
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.03em;
+      color: #fff;
+      line-height: 1.1;
+      text-wrap: balance;
+    }
+    .sobre-hero h1 span {
+      font-weight: 800;
+      color: #fff;
+      border-bottom: 3px solid rgba(255, 255, 255, 0.45);
+    }
+    .sobre-hero-lead {
+      margin-top: 1rem;
+      font-size: clamp(0.92rem, 1.2vw, 1.02rem);
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      max-width: 42ch;
+    }
+
+    .sobre-quote-band {
+      background: var(--void);
+      padding: clamp(2.25rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 2.75rem);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .sobre-quote-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .sobre-quote {
+      margin: 0;
+      padding: 0 0 0 clamp(1rem, 3vw, 1.35rem);
+      border-left: 3px solid rgba(255, 255, 255, 0.28);
+    }
+    .sobre-quote p {
+      font-family: var(--font-disp);
+      font-size: clamp(1.05rem, 2.35vw, 1.42rem);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .sobre-main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 2rem) clamp(4rem, 10vw, 6rem);
+      scroll-margin-top: 5rem;
+    }
+    .sobre-main p {
+      font-size: clamp(0.94rem, 1.15vw, 1.05rem);
+      margin-bottom: 1.35rem;
+      color: var(--ink);
+    }
+    .sobre-main p:last-child {
+      margin-bottom: 0;
+    }
+
+    .sobre-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.25rem 0;
+      color: var(--orange);
+    }
+    .sobre-divider__line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(224, 91, 26, 0.45), transparent);
+    }
+    .sobre-divider svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .sobre-foot {
+      text-align: center;
+      padding: 2rem 1.5rem 3rem;
+      border-top: 1px solid var(--line);
+      background: var(--page);
+    }
+    .sobre-foot a {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange-d);
+      text-decoration: none;
+    }
+    .sobre-foot a:hover {
+      text-decoration: underline;
+    }
+    .sobre-foot a:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="sobre-bar">
+    <a class="sobre-voltar" href="index.html">
+      <i data-feather="arrow-left" aria-hidden="true"></i>
+      Voltar ao portfólio
+    </a>
+  </header>
+
+  <div class="sobre-hero">
+    <div class="sobre-hero-inner">
+      <h1>Sobre <span>mim</span></h1>
+      <p class="sobre-hero-lead">Texto completo da trajetória — do primeiro freelance ao que construo hoje em arquitetura, produto e experiência.</p>
+    </div>
+  </div>
+
+  <div class="sobre-quote-band">
+    <div class="sobre-quote-inner">
+      <blockquote class="sobre-quote">
+        <p lang="pt-BR">“Tecnologia muda, ferramentas mudam — mas construir algo que faça sentido para as pessoas continua sendo o que me move.”</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <main class="sobre-main" id="conteudo">
+    <p>Comecei minha trajetória em 2003, criando sites animados em Flash com ActionScript como freelancer para empresas como Fisk e White Martins. Desde cedo, unir arte e tecnologia sempre fez parte de quem eu sou — música, pintura e fotografia estão no meu DNA criativo. Foi isso que me levou naturalmente ao Front-End, onde encontrei o ponto de equilíbrio entre estética, usabilidade e impacto real.</p>
+
+    <p>Em 2007, iniciei oficialmente minha carreira como desenvolvedor, sem imaginar que estava construindo uma jornada tão consistente. Hoje, mais de 15 anos depois, continuo escrevendo código com a mesma curiosidade — mas com uma visão muito mais ampla de arquitetura, produto e experiência.</p>
+
+    <p>Ao longo da minha carreira, atuei em diferentes contextos: TV aberta, governo, fintechs, startups e multinacionais.</p>
+
+    <div class="sobre-divider" aria-hidden="true">
+      <span class="sobre-divider__line"></span>
+      <i data-feather="compass"></i>
+      <span class="sobre-divider__line"></span>
+    </div>
+
+    <p>No setor público, participei de projetos de grande escala, como na Fundação CECIERJ, contribuindo para tornar o ensino a distância acessível com práticas de acessibilidade em parceria com a UFRJ (COPPE).</p>
+
+    <p>Também estive envolvido na transformação digital de diversos sistemas governamentais, sempre trazendo uma visão integrada entre UX, arquitetura e desenvolvimento — da concepção até a validação com usuários.</p>
+
+    <div class="sobre-divider" aria-hidden="true">
+      <span class="sobre-divider__line"></span>
+      <i data-feather="briefcase"></i>
+      <span class="sobre-divider__line"></span>
+    </div>
+
+    <p>Na iniciativa privada, trabalhei em plataformas internacionais, incluindo projetos ligados ao Tinder e outros produtos do segmento de relacionamento, o que ampliou minha visão de produto, escala e tomada de decisão.</p>
+
+    <p>Na Spassu, em projetos para a Petrobras, consolidei minha experiência em design e Front-End avançado. No Tribunal de Justiça do RJ, participei da concepção do PJe, estruturando fluxos e criando a base visual que orientou equipes inteiras de desenvolvimento.</p>
+
+    <p>Na Engineering, atuei na construção de componentes e arquitetura para um sistema global (API Gateway), tendo a TIM como principal cliente. Já no SCOMEX do Estado do Rio de Janeiro, atuei como especialista de Front-End e analista, em um projeto que se tornou referência nacional pela SEFAZ.</p>
+
+    <div class="sobre-divider" aria-hidden="true">
+      <span class="sobre-divider__line"></span>
+      <i data-feather="layers"></i>
+      <span class="sobre-divider__line"></span>
+    </div>
+
+    <p>Mais recentemente, participei da construção de um CMS responsável por mais de 80 portais principais do estado de São Paulo, além de liderar a concepção e engenharia de um MVP para o setor portuário paulista.</p>
+
+    <div class="sobre-divider" aria-hidden="true">
+      <span class="sobre-divider__line"></span>
+      <i data-feather="cpu"></i>
+      <span class="sobre-divider__line"></span>
+    </div>
+
+    <p>Paralelamente à prática, sempre mantive uma base forte de estudo. Atualmente, estou em pós-graduação na PUC-Rio e tenho aprofundado cada vez mais meus conhecimentos em Inteligência Artificial, especialmente no uso de LLMs, automação e aplicações práticas no desenvolvimento de software.</p>
+
+    <p>No lado pessoal, sou casado e pai — experiências que reforçam ainda mais meu senso de responsabilidade, equilíbrio e visão de longo prazo.</p>
+
+    <p>Hoje, não vejo o Front-End apenas como código, mas como uma forma de conectar pessoas, sistemas e decisões através de experiências bem construídas.</p>
+  </main>
+
+  <footer class="sobre-foot">
+    <a href="index.html">← Voltar ao portfólio</a>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      if (typeof feather !== 'undefined') {
+        feather.replace({ 'stroke-width': 1.75 });
+      }
+    })();
+  </script>
+</body>
+</html>
