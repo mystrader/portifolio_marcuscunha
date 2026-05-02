@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Marcus Cunha — Frontend Engineer & UX/UI Designer · +15 anos de experiência">
+  <meta name="description" content="Marcus Cunha — Frontend Engineer & UX/UI Designer · +20 anos de experiência">
   <title>Marcus Cunha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -225,15 +225,12 @@
       border-radius: 10px;
       border: 1px solid #45454F;
       background: #2A2A34;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-      transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.15s var(--ease), box-shadow 0.2s;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
     }
     .hero-aside-nav a:hover {
       color: #fff;
       border-color: var(--orange);
-      background: #8F3A12;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(224, 91, 26, 0.35);
+      background: var(--orange-d);
     }
     .hero-aside-nav a:focus-visible {
       outline: 2px solid var(--orange);
@@ -243,53 +240,71 @@
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
+      width: 100%;
+      padding: 0.65rem;
+      box-sizing: border-box;
+      background-color: #0a0a0c;
+      border: 1px solid #1c1c22;
+      border-radius: 10px;
     }
     .hero-aside-btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.55rem;
+      width: 100%;
+      box-sizing: border-box;
       font-family: var(--font-disp);
       font-size: clamp(0.65rem, 1.1vw, 0.72rem);
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
-      color: #E8EEF8;
+      color: #fff;
       padding: 0.65rem 0.85rem;
       border-radius: 8px;
-      border: 1px solid #3568A8;
-      background: #1A2F4D;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-      transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+      border: 1px solid #1a5588;
+      background-color: #1e5a8f;
+      background-image: none;
+      opacity: 1;
+      mix-blend-mode: normal;
+      box-shadow: none;
+      transition: border-color 0.15s, background-color 0.15s, color 0.15s;
     }
     .hero-aside-btn:hover {
-      border-color: var(--orange);
-      background: #7A3010;
+      border-color: var(--orange-d);
+      background-color: var(--orange);
       color: #fff;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(224, 91, 26, 0.35);
     }
     .hero-aside-btn--primary {
-      background: #4A2816;
-      border-color: #C24A14;
-      color: #FFD4B8;
+      background-color: #d9652e;
+      border-color: #c45522;
+      color: #fff;
     }
     .hero-aside-btn--primary:hover {
-      background: var(--orange);
-      border-color: var(--orange);
+      background-color: #7a3010;
+      border-color: #5c240c;
       color: #fff;
     }
     .hero-aside-btn--linkedin {
-      background: #0A3D5C;
-      border-color: #0EA5E9;
-      color: #BAE6FD;
+      background-color: #0a66c2;
+      border-color: #0958aa;
+      color: #fff;
     }
     .hero-aside-btn--linkedin:hover {
-      background: #0284C7;
-      border-color: #0284C7;
+      background-color: #004182;
+      border-color: #00305e;
       color: #fff;
-      box-shadow: 0 6px 16px rgba(14, 165, 233, 0.35);
+    }
+    .hero-aside-btn--github {
+      background-color: #24292f;
+      border-color: #1b1f23;
+      color: #fff;
+    }
+    .hero-aside-btn--github:hover {
+      background-color: #1f6feb;
+      border-color: #388bfd;
+      color: #fff;
     }
     .hero-aside-btn:focus-visible {
       outline: 2px solid var(--orange);
@@ -514,8 +529,12 @@
     .hero-foot {
       padding: 1.5rem 0;
       border-top: 1px solid rgba(255,255,255,.06);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      width: 100%;
+      box-sizing: border-box;
       opacity: 0; animation: fadeIn .6s .65s ease forwards;
     }
     .open-badge {
@@ -542,6 +561,9 @@
       animation: pulse 2s ease-in-out infinite;
     }
     .hero-location {
+      margin-left: auto;
+      text-align: right;
+      max-width: 100%;
       font-family: var(--font-disp);
       font-size: .6rem; font-weight: 600;
       letter-spacing: .12em; text-transform: uppercase;
@@ -639,10 +661,20 @@
     .about-inner {
       position: relative;
       z-index: 1;
-      max-width: 920px;
+      max-width: 1080px;
       margin: 0 auto;
       display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: clamp(1.25rem, 4vw, 3rem);
+    }
+    .about-copy {
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
+    }
+    .about-cta {
+      flex-shrink: 0;
     }
     .about-eyebrow {
       display: inline-flex;
@@ -687,7 +719,6 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      margin-top: 0.35rem;
       width: fit-content;
       font-family: var(--font-disp);
       font-size: 0.68rem;
@@ -719,6 +750,15 @@
     @media (prefers-reduced-motion: reduce) {
       .about-btn:hover {
         transform: none;
+      }
+    }
+    @media (max-width: 720px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+      .about-cta {
+        justify-self: start;
       }
     }
 
@@ -822,6 +862,7 @@
       box-shadow: 0 0 0 4px rgba(224,91,26,.15);
     }
     .entry:last-child .e-node { background: var(--blue); }
+    .entry--seed .entry-yr { color: rgba(0, 0, 0, 0.028); }
 
     .e-right {
       padding-left: 2.5rem;
@@ -1317,9 +1358,19 @@
 
     /* ─── Hero CTA buttons ─── */
     .hero-cta {
-      display: flex; gap: .65rem; flex-wrap: wrap;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
       margin-top: 1.45rem;
-      opacity: 0; transform: translateY(12px);
+      padding: 0.65rem;
+      max-width: 260px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #0a0a0c;
+      border: 1px solid #1c1c22;
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(12px);
       animation: fadeSlideY .7s .6s var(--ease) forwards;
     }
     @media (min-width: 769px) {
@@ -1470,7 +1521,7 @@
         </p>
         <div class="hero-stats">
           <div>
-            <span class="stat-n">15+</span>
+            <span class="stat-n">20+</span>
             <span class="stat-l">Anos de exp.</span>
           </div>
           <div>
@@ -1488,6 +1539,10 @@
         <a class="hero-aside-btn hero-aside-btn--linkedin" href="https://www.linkedin.com/in/marcuscunha-dev/" target="_blank" rel="noopener">
           <i data-feather="linkedin" aria-hidden="true"></i>
           LinkedIn
+        </a>
+        <a class="hero-aside-btn hero-aside-btn--github" href="https://github.com/marcuscunha-dev" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.16 1.18a10.9 10.9 0 013.02-.41c1.02.01 2.05.14 3.02.41 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.12 3.06.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.38-5.25 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.68.8.56A10.48 10.48 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          GitHub
         </a>
       </div>
 
@@ -1509,6 +1564,10 @@
               <i data-feather="linkedin" aria-hidden="true"></i>
               LinkedIn
             </a>
+            <a class="hero-aside-btn hero-aside-btn--github" href="https://github.com/marcuscunha-dev" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.16 1.18a10.9 10.9 0 013.02-.41c1.02.01 2.05.14 3.02.41 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.12 3.06.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.38-5.25 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.68.8.56A10.48 10.48 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              GitHub
+            </a>
             <a class="hero-aside-btn" href="docs/curriculo_marcus_cunha_senior.pdf" download="curriculo_marcus_cunha_senior.pdf" aria-label="Baixar currículo em PDF">
               <i data-feather="download" aria-hidden="true"></i>
               Currículo PDF
@@ -1525,7 +1584,7 @@
 
   <div class="hero-foot">
     <div class="open-badge" role="status" aria-label="Status profissional: disponível para novas oportunidades"><span class="dot" aria-hidden="true"></span><span><strong>Disponível</strong> para novas oportunidades</span></div>
-    <span class="hero-location">São Paulo · Brasil · Remoto</span>
+    <span class="hero-location">Rio de janeiro · São Paulo · Brasil · Internacional · Remoto</span>
   </div>
 </header>
 
@@ -1535,20 +1594,24 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
   </div>
   <div class="about-inner">
-    <p class="about-eyebrow">
-      <i data-feather="book-open" aria-hidden="true"></i>
-      Narrativa profissional
-    </p>
-    <p class="about-lead">
-      Aqui você encontra a história completa: origens no Flash, passagens por governo e grandes produtos, visão de arquitetura, estudos na PUC-Rio e o que o front-end representa para mim hoje.
-    </p>
-    <p class="about-snippet">
-      Do ActionScript ao TypeScript — <em>arte, sistemas e impacto</em> no mesmo fio narrativo.
-    </p>
-    <a class="about-btn" href="sobre.html">
-      <i data-feather="user" aria-hidden="true"></i>
-      Sobre mim
-    </a>
+    <div class="about-copy">
+      <p class="about-eyebrow">
+        <i data-feather="book-open" aria-hidden="true"></i>
+        Narrativa profissional
+      </p>
+      <p class="about-lead">
+        Aqui você encontra a história completa: origens no Flash, passagens por governo e grandes produtos, visão de arquitetura, estudos na PUC-Rio e o que o front-end representa para mim hoje.
+      </p>
+      <p class="about-snippet">
+        Do ActionScript ao TypeScript — <em>arte, sistemas e impacto</em> no mesmo fio narrativo.
+      </p>
+    </div>
+    <div class="about-cta">
+      <a class="about-btn" href="sobre.html">
+        <i data-feather="user" aria-hidden="true"></i>
+        Sobre mim
+      </a>
+    </div>
   </div>
 </div>
 
@@ -1559,7 +1622,7 @@
   </div>
   <div class="section-header rev">
     <h2>Trajetória <span>profissional</span></h2>
-    <p>Mais recente primeiro — de 2025 até os primeiros passos em 2007.</p>
+    <p>Mais recente primeiro — até o estágio no INSS (2004) e o período freelance anterior.</p>
   </div>
 
   <div class="dir-row rev">
@@ -1778,13 +1841,40 @@
           <img src="imagens/logos/logo_CECIERJ.svg" alt="Fundação CECIERJ" class="e-logo e-logo--lg">
         </div>
         <h3 class="e-title">Desenvolvedor Web · UI · Animador 2D</h3>
-        <span class="e-level">Início de carreira · CECIERJ</span>
+        <span class="e-level">CECIERJ · Web educacional & acessibilidade</span>
         <p class="e-body">Interfaces com forte preocupação com acessibilidade — e animação 2D quando o projeto pedia — aprendizado cedo de que interface tem impacto real nas pessoas.</p>
         <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Flash</span><span class="chip">Motion 2D</span></div>
         </div>
         <div class="e-right-cta">
         <a class="e-detail-btn" href="cecierj.html">Ver projetos <i data-feather="arrow-right" aria-hidden="true"></i></a>
         </div>
+      </div>
+    </div>
+
+    <!-- INSS / Previdência Social -->
+    <div class="entry" data-year="2004">
+      <div class="entry-yr" aria-hidden="true">2004</div>
+      <div class="e-left"><span class="e-period">2004<br>2006</span><div class="e-node"></div></div>
+      <div class="e-right">
+        <div class="e-logos">
+          <img src="imagens/logos/logo-inss-30.svg" alt="INSS — Instituto Nacional do Seguro Social" class="e-logo e-logo--lg">
+        </div>
+        <h3 class="e-title">Estágio · Desenvolvimento web & suporte técnico</h3>
+        <span class="e-level">INSS · Portais internos & infraestrutura</span>
+        <p class="e-body">Primeira experiência formal na Previdência Social: sites e ferramentas internas em <strong>WordPress</strong> e <strong>PHP</strong>, convivência com <strong>Linux</strong> em servidores e manutenção de microcomputadores — web, servidor e atendimento a usuários internos no mesmo desafio diário.</p>
+        <div class="chips"><span class="chip">WordPress</span><span class="chip">PHP</span><span class="chip">Linux</span><span class="chip">HTML/CSS</span><span class="chip">Suporte TI</span></div>
+      </div>
+    </div>
+
+    <!-- Freelance — origem (sem marca) -->
+    <div class="entry entry--seed" data-year="2003">
+      <div class="entry-yr" aria-hidden="true">2003</div>
+      <div class="e-left"><span class="e-period">Freelance<br>até 2004</span><div class="e-node"></div></div>
+      <div class="e-right">
+        <h3 class="e-title">Autônomo · Web & TI</h3>
+        <span class="e-level">Antes do INSS · projetos sob demanda</span>
+        <p class="e-body">Trabalhos avulsos — páginas e pequenos sites, ajustes em <strong>HTML/CSS</strong> e suporte a hardware — o ponto zero da linha do tempo, sem logo de empresa: só prática, curiosidade e cliente direto.</p>
+        <div class="chips"><span class="chip">HTML/CSS</span><span class="chip">Freelance</span></div>
       </div>
     </div>
   </div>
@@ -1921,6 +2011,7 @@
     'jQuery':'chip-slate','WordPress':'chip-slate','SQL':'chip-slate',
     'ASP.Net':'chip-slate','Flash':'chip-slate','Análise de Requisitos':'chip-slate',
     'C#':'chip-slate','.NET':'chip-slate','UI':'chip-teal','Motion 2D':'chip-violet',
+    'PHP':'chip-green','Linux':'chip-slate','Suporte TI':'chip-teal','Freelance':'chip-amber',
   };
   document.querySelectorAll('.chip').forEach(el=>{
     const cls = chipMap[el.textContent.trim()];
