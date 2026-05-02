@@ -236,27 +236,50 @@
     var root = document.getElementById('recomendacoes');
     if (!root) return;
 
-    var card = root.querySelector('.tm-card');
-    var quoteEl = root.querySelector('.tm-quote');
-    var nameEl = root.querySelector('.tm-name');
-    var roleEl = root.querySelector('.tm-role');
-    var imgEl = root.querySelector('.tm-photo');
-    var fbEl = root.querySelector('.tm-fallback');
+    var prevCard = root.querySelector('.tm-card--prev');
+    var mainCard = root.querySelector('.tm-card--main');
+    var nextCard = root.querySelector('.tm-card--next');
     var prevBtn = root.querySelector('.tm-nav--prev');
     var nextBtn = root.querySelector('.tm-nav--next');
     var dots = root.querySelector('.tm-dots');
     var viewport = root.querySelector('.tm-viewport');
     var carouselEl = root.querySelector('.tm-carousel');
 
-    if (!card || !quoteEl || !nameEl || !roleEl || !imgEl || !fbEl || !prevBtn || !nextBtn || !dots) return;
+    if (!prevCard || !mainCard || !nextCard || !prevBtn || !nextBtn || !dots) return;
 
     var idx = 0;
     var n = DATA.length;
+    var tmAnimating = false;
+    var tmFadeTimer = null;
+    var tmOnFadeOutEnd = null;
 
-    function render() {
+    function prefersReducedMotion() {
+      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function abortTmSwitch() {
+      if (tmFadeTimer) {
+        clearTimeout(tmFadeTimer);
+        tmFadeTimer = null;
+      }
+      if (tmOnFadeOutEnd) {
+        var inner = mainCard.querySelector('.tm-card-inner');
+        if (inner) inner.removeEventListener('transitionend', tmOnFadeOutEnd);
+        tmOnFadeOutEnd = null;
+      }
+      mainCard.classList.remove('tm-switch');
+      tmAnimating = false;
+    }
+
+    function fillCard(card, i) {
       var lang = getLang();
-      var d = DATA[idx];
+      var d = DATA[i];
       var pack = d[lang] || d.pt;
+      var quoteEl = card.querySelector('.tm-quote');
+      var nameEl = card.querySelector('.tm-name');
+      var roleEl = card.querySelector('.tm-role');
+      var imgEl = card.querySelector('.tm-photo');
+      var fbEl = card.querySelector('.tm-fallback');
       quoteEl.textContent = pack.quote;
       nameEl.textContent = pack.name;
       roleEl.textContent = pack.role;
@@ -266,8 +289,16 @@
       fbEl.textContent = initials(pack.name);
       fbEl.hidden = true;
       imgEl.style.display = '';
+    }
 
-      card.setAttribute('data-tm-index', String(idx + 1));
+    function applyCards() {
+      var prev = (idx - 1 + n) % n;
+      var next = (idx + 1) % n;
+      fillCard(prevCard, prev);
+      fillCard(mainCard, idx);
+      fillCard(nextCard, next);
+
+      mainCard.setAttribute('data-tm-index', String(idx + 1));
 
       root.querySelectorAll('.tm-dot').forEach(function (btn, i) {
         var on = i === idx;
@@ -276,18 +307,70 @@
       });
 
       var live = str('tm_live').replace('{n}', String(idx + 1)).replace('{t}', String(n));
-      card.setAttribute('aria-label', live);
+      mainCard.setAttribute('aria-label', live);
     }
 
-    imgEl.addEventListener('error', function () {
-      imgEl.style.display = 'none';
-      fbEl.hidden = false;
-    });
-    imgEl.addEventListener('load', function () {
-      if (imgEl.naturalWidth > 0) {
-        imgEl.style.display = '';
-        fbEl.hidden = true;
+    function render(opts) {
+      var animate = opts && opts.animate && !prefersReducedMotion();
+
+      if (animate) {
+        if (tmAnimating) {
+          abortTmSwitch();
+          applyCards();
+        }
+        tmAnimating = true;
+        var inner = mainCard.querySelector('.tm-card-inner');
+        tmOnFadeOutEnd = function (e) {
+          if (e.target !== inner) return;
+          if (e.propertyName !== 'opacity') return;
+          inner.removeEventListener('transitionend', tmOnFadeOutEnd);
+          tmOnFadeOutEnd = null;
+          if (tmFadeTimer) {
+            clearTimeout(tmFadeTimer);
+            tmFadeTimer = null;
+          }
+          applyCards();
+          mainCard.classList.remove('tm-switch');
+          tmAnimating = false;
+        };
+        inner.addEventListener('transitionend', tmOnFadeOutEnd);
+        mainCard.classList.add('tm-switch');
+        tmFadeTimer = setTimeout(function () {
+          tmFadeTimer = null;
+          if (!tmAnimating) return;
+          if (tmOnFadeOutEnd && inner) inner.removeEventListener('transitionend', tmOnFadeOutEnd);
+          tmOnFadeOutEnd = null;
+          applyCards();
+          mainCard.classList.remove('tm-switch');
+          tmAnimating = false;
+        }, 480);
+        return;
       }
+
+      abortTmSwitch();
+      applyCards();
+    }
+
+    ;[prevCard, mainCard, nextCard].forEach(function (card) {
+      var imgEl = card.querySelector('.tm-photo');
+      var fbEl = card.querySelector('.tm-fallback');
+      imgEl.addEventListener('error', function () {
+        imgEl.style.display = 'none';
+        fbEl.hidden = false;
+      });
+      imgEl.addEventListener('load', function () {
+        if (imgEl.naturalWidth > 0) {
+          imgEl.style.display = '';
+          fbEl.hidden = true;
+        }
+      });
+    });
+
+    prevCard.addEventListener('click', function () {
+      go(-1);
+    });
+    nextCard.addEventListener('click', function () {
+      go(1);
     });
 
     DATA.forEach(function (_, i) {
@@ -296,15 +379,18 @@
       b.className = 'tm-dot';
       b.setAttribute('aria-label', str('tm_dot_aria').replace('{n}', String(i + 1)).replace('{t}', String(n)));
       b.addEventListener('click', function () {
+        if (i === idx) return;
         idx = i;
-        render();
+        render({ animate: true });
       });
       dots.appendChild(b);
     });
 
     function go(delta) {
-      idx = ((idx + delta) % n + n) % n;
-      render();
+      var nextIdx = ((idx + delta) % n + n) % n;
+      if (nextIdx === idx) return;
+      idx = nextIdx;
+      render({ animate: true });
     }
 
     function syncChrome() {

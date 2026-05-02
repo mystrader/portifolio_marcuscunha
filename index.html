@@ -635,12 +635,162 @@
       outline-offset: 2px;
     }
 
+    .hero-aside-btn--row {
+      overflow: hidden;
+    }
+    .hero-aside-btn--row.hero-aside-btn--whatsapp,
+    .hero-aside-btn--row.hero-aside-btn--email {
+      padding: 0;
+      gap: 0;
+    }
+    .hero-aside-btn--row .hero-aside-btn__primary {
+      flex: 1;
+      min-width: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.68rem;
+      padding: 0.85rem 0.55rem 0.85rem 1.05rem;
+      margin: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      color: inherit;
+      font: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 8px 0 0 8px;
+      box-sizing: border-box;
+      transition: color 0.15s, background-color 0.15s;
+    }
+    .hero-aside-btn--row.hero-aside-btn--whatsapp .hero-aside-btn__primary {
+      text-transform: none;
+    }
+    .hero-aside-btn--row .hero-aside-btn__clip {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.85rem;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-left: 1px solid rgba(255, 255, 255, 0.22);
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      border-radius: 0 8px 8px 0;
+      transition: background-color 0.15s, color 0.15s;
+    }
+    .hero-aside-btn--row .hero-aside-btn__clip:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+    .hero-aside-btn--row .hero-aside-btn__clip:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: -2px;
+      z-index: 1;
+    }
+    .hero-aside-btn--row .hero-aside-btn__clip svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .wa-prompt {
+      position: fixed;
+      inset: 0;
+      z-index: 10070;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.32s var(--ease), visibility 0.32s;
+    }
+    .wa-prompt.is-on {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .wa-prompt[hidden] {
+      display: none !important;
+    }
+    .wa-prompt__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.58);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .wa-prompt__box {
+      position: relative;
+      width: min(100%, 22rem);
+      padding: 1.4rem 1.35rem 1.3rem;
+      border-radius: 14px;
+      background: rgba(12, 12, 15, 0.97);
+      border: 1px solid rgba(var(--hero-accent-rgb), 0.32);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+        0 24px 56px rgba(0, 0, 0, 0.55);
+    }
+    .wa-prompt__title {
+      font-family: var(--font-disp);
+      font-size: clamp(0.95rem, 2.6vw, 1.12rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: rgba(255, 255, 255, 0.96);
+      text-align: center;
+      margin: 0 0 1.35rem;
+      line-height: 1.45;
+    }
+    .wa-prompt__actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: stretch;
+    }
+    .wa-prompt__btn {
+      flex: 1;
+      font-family: var(--font-disp);
+      font-size: clamp(0.78rem, 2vw, 0.9rem);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.82rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      cursor: pointer;
+      transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.15s var(--ease);
+    }
+    .wa-prompt__btn--no {
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .wa-prompt__btn--no:hover {
+      background: rgba(255, 255, 255, 0.11);
+    }
+    .wa-prompt__btn--yes {
+      background: linear-gradient(165deg, var(--hero-accent-bright), var(--hero-accent));
+      color: var(--void);
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+    .wa-prompt__btn--yes:hover {
+      filter: brightness(1.05);
+    }
+    .wa-prompt__btn:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
+    }
+
     .copy-toast {
       position: fixed;
       z-index: 10055;
       left: 50%;
       bottom: max(1rem, env(safe-area-inset-bottom, 0px));
-      width: min(calc(100vw - 1.5rem), 22rem);
+      width: min(calc(100vw - 1.5rem), 26rem);
       pointer-events: none;
       transform: translate3d(-50%, 120%, 0);
       opacity: 0;
@@ -652,7 +802,7 @@
     }
     .copy-toast__panel {
       position: relative;
-      padding: 0.95rem 1.15rem 0.95rem 1.25rem;
+      padding: 1.15rem 1.35rem 1.15rem 1.4rem;
       border-radius: 12px;
       background: rgba(12, 12, 15, 0.94);
       border: 1px solid rgba(var(--hero-accent-rgb), 0.28);
@@ -675,21 +825,21 @@
     }
     .copy-toast__title {
       font-family: var(--font-disp);
-      font-size: 0.72rem;
+      font-size: clamp(0.88rem, 2.1vw, 1.05rem);
       font-weight: 800;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.96);
-      margin: 0 0 0.35rem;
+      margin: 0 0 0.45rem;
       padding-left: 0.5rem;
     }
     .copy-toast__sub {
       font-family: var(--font-body);
-      font-size: 0.78rem;
-      font-weight: 500;
+      font-size: clamp(0.9rem, 2vw, 1.08rem);
+      font-weight: 600;
       letter-spacing: 0.02em;
-      line-height: 1.45;
-      color: rgba(246, 243, 238, 0.72);
+      line-height: 1.5;
+      color: rgba(246, 243, 238, 0.78);
       margin: 0;
       padding-left: 0.5rem;
     }
@@ -1320,9 +1470,17 @@
     }
     .tm-viewport {
       min-width: 0;
-      max-width: 720px;
+      width: 100%;
+      max-width: min(1080px, 100%);
       margin: 0 auto;
       padding: 0.2rem 0;
+      overflow: hidden;
+    }
+    .tm-track {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: clamp(0.45rem, 1.8vw, 0.95rem);
     }
     .tm-card {
       border-radius: 16px;
@@ -1330,6 +1488,69 @@
       background: linear-gradient(160deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
       box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
       padding: clamp(1.25rem, 3vw, 1.65rem) clamp(1.1rem, 2.5vw, 1.5rem);
+      transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), border-color 0.25s;
+    }
+    .tm-card--peek {
+      flex: 0 1 clamp(140px, 22vw, 240px);
+      min-width: 0;
+      max-width: 240px;
+      opacity: 0.48;
+      transform: scale(0.94);
+      cursor: pointer;
+      padding: clamp(0.85rem, 2vw, 1.1rem) clamp(0.65rem, 1.5vw, 0.95rem);
+      pointer-events: auto;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tm-card--peek:hover {
+      opacity: 0.72;
+      border-color: rgba(230, 200, 110, 0.22);
+      transform: scale(0.96);
+    }
+    .tm-card--peek:focus-visible {
+      outline: 2px solid var(--hero-accent);
+      outline-offset: 3px;
+    }
+    .tm-card--peek .tm-card-inner {
+      gap: 0.65rem;
+    }
+    .tm-card--peek .tm-figure {
+      width: clamp(2.75rem, 8vw, 3.5rem);
+      height: clamp(2.75rem, 8vw, 3.5rem);
+    }
+    .tm-card--peek .tm-quote {
+      font-size: clamp(0.68rem, 1.05vw, 0.78rem);
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+      max-width: none;
+    }
+    .tm-card--peek .tm-name {
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+    }
+    .tm-card--peek .tm-role {
+      font-size: 0.72rem;
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tm-card--main {
+      flex: 1 1 auto;
+      min-width: min(100%, 280px);
+      max-width: 720px;
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+    .tm-card--main .tm-card-inner {
+      transition: opacity 0.42s var(--ease), transform 0.42s var(--ease);
+    }
+    .tm-card--main.tm-switch .tm-card-inner {
+      opacity: 0;
+      transform: translateY(0.6rem) scale(0.985);
     }
     .tm-card-inner {
       display: flex;
@@ -1452,6 +1673,19 @@
       color: var(--hero-accent);
       border-bottom-color: var(--hero-accent);
     }
+    @media (max-width: 640px) {
+      .tm-track {
+        display: block;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .tm-card--peek {
+        display: none;
+      }
+      .tm-card--main {
+        max-width: 100%;
+      }
+    }
     @media (max-width: 520px) {
       .tm-carousel {
         grid-template-columns: 1fr;
@@ -1463,6 +1697,12 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .tm-dot {
+        transition: none;
+      }
+      .tm-card {
+        transition: none;
+      }
+      .tm-card--main .tm-card-inner {
         transition: none;
       }
     }
@@ -2189,6 +2429,16 @@
     <p class="copy-toast__sub"></p>
   </div>
 </div>
+<div id="wa-open-prompt" class="wa-prompt" hidden role="dialog" aria-modal="true" aria-labelledby="wa-prompt-heading">
+  <div class="wa-prompt__backdrop" data-wa-dismiss="1" tabindex="-1" aria-hidden="true"></div>
+  <div class="wa-prompt__box">
+    <p id="wa-prompt-heading" class="wa-prompt__title" data-i18n="wa_prompt_title">Abrir WhatsApp Web?</p>
+    <div class="wa-prompt__actions">
+      <button type="button" class="wa-prompt__btn wa-prompt__btn--no" id="wa-prompt-no" data-wa-choice="no" data-i18n="wa_prompt_no">Não</button>
+      <button type="button" class="wa-prompt__btn wa-prompt__btn--yes" id="wa-prompt-yes" data-wa-choice="yes" data-i18n="wa_prompt_yes">Sim</button>
+    </div>
+  </div>
+</div>
 <a class="skip-link" href="#top" data-i18n="a11y_skip">Pular para o conteúdo</a>
 <div class="a11y-bar" role="region" data-i18n-aria="a11y_region" aria-label="Ferramentas de acessibilidade">
   <div class="a11y-bar-inner">
@@ -2279,10 +2529,13 @@
       </div>
 
       <div class="hero-cta">
-        <a class="hero-aside-btn hero-aside-btn--whatsapp" href="https://wa.me/5521995556239" target="_blank" rel="noopener noreferrer" data-copy="5521995556239" data-toast-kind="whatsapp" data-i18n-aria="aria_whatsapp" aria-label="Copiar número para a área de transferência e abrir o WhatsApp">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span data-i18n="cta_whatsapp_sub">(21) 9 9555-6239</span>
-        </a>
+        <div class="hero-aside-btn hero-aside-btn--whatsapp hero-aside-btn--row">
+          <a class="hero-aside-btn__primary" href="https://wa.me/5521995556239" target="_blank" rel="noopener noreferrer" data-copy="5521995556239" data-toast-kind="whatsapp" data-i18n-aria="aria_whatsapp" aria-label="Copiar número e escolher se abre o WhatsApp Web">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="cta_whatsapp_sub">(21) 9 9555-6239</span>
+          </a>
+          <button type="button" class="hero-aside-btn__clip" data-copy="5521995556239" data-i18n-aria="aria_copy_phone" aria-label="Copiar só o número"><i data-feather="copy" aria-hidden="true"></i></button>
+        </div>
         <a class="hero-aside-btn hero-aside-btn--primary" href="https://www.behance.net/mystrader" target="_blank" rel="noopener">
           <i data-feather="layers" aria-hidden="true"></i>
           <span data-i18n="cta_behance">Principais projetos</span>
@@ -2295,10 +2548,13 @@
           <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.16 1.18a10.9 10.9 0 013.02-.41c1.02.01 2.05.14 3.02.41 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.12 3.06.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.38-5.25 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.68.8.56A10.48 10.48 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
           GitHub
         </a>
-        <a class="hero-aside-btn hero-aside-btn--email" href="mailto:mystrader@gmail.com" data-copy="mystrader@gmail.com" data-toast-kind="email" data-i18n-aria="aria_email" aria-label="Copiar e-mail para a área de transferência e abrir o app de e-mail">
-          <i data-feather="mail" aria-hidden="true"></i>
-          <span data-i18n="cta_email_sub">mystrader@gmail.com</span>
-        </a>
+        <div class="hero-aside-btn hero-aside-btn--email hero-aside-btn--row">
+          <a class="hero-aside-btn__primary" href="mailto:mystrader@gmail.com" data-copy="mystrader@gmail.com" data-toast-kind="email" data-i18n-aria="aria_email" aria-label="Copiar e-mail para a área de transferência">
+            <i data-feather="mail" aria-hidden="true"></i>
+            <span data-i18n="cta_email_sub">mystrader@gmail.com</span>
+          </a>
+          <button type="button" class="hero-aside-btn__clip" data-copy="mystrader@gmail.com" data-i18n-aria="aria_copy_email" aria-label="Copiar só o e-mail"><i data-feather="copy" aria-hidden="true"></i></button>
+        </div>
       </div>
 
     </div>
@@ -2315,10 +2571,13 @@
               <span class="hero-aside-balloon__notch-fill"></span>
             </span>
             <div class="hero-aside-dl">
-            <a class="hero-aside-btn hero-aside-btn--whatsapp" href="https://wa.me/5521995556239" target="_blank" rel="noopener noreferrer" data-copy="5521995556239" data-toast-kind="whatsapp" data-i18n-aria="aria_whatsapp" aria-label="Copiar número para a área de transferência e abrir o WhatsApp">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              <span data-i18n="cta_whatsapp_sub">(21) 9 9555-6239</span>
-            </a>
+            <div class="hero-aside-btn hero-aside-btn--whatsapp hero-aside-btn--row">
+              <a class="hero-aside-btn__primary" href="https://wa.me/5521995556239" target="_blank" rel="noopener noreferrer" data-copy="5521995556239" data-toast-kind="whatsapp" data-i18n-aria="aria_whatsapp" aria-label="Copiar número e escolher se abre o WhatsApp Web">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span data-i18n="cta_whatsapp_sub">(21) 9 9555-6239</span>
+              </a>
+              <button type="button" class="hero-aside-btn__clip" data-copy="5521995556239" data-i18n-aria="aria_copy_phone" aria-label="Copiar só o número"><i data-feather="copy" aria-hidden="true"></i></button>
+            </div>
             <a class="hero-aside-btn hero-aside-btn--primary" href="https://www.behance.net/mystrader" target="_blank" rel="noopener">
               <i data-feather="layers" aria-hidden="true"></i>
               <span data-i18n="cta_behance">Principais projetos</span>
@@ -2339,10 +2598,13 @@
               <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.08-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.16 1.18a10.9 10.9 0 013.02-.41c1.02.01 2.05.14 3.02.41 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.12 3.06.74.8 1.18 1.82 1.18 3.08 0 4.42-2.69 5.38-5.25 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.68.8.56A10.48 10.48 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
               GitHub
             </a>
-            <a class="hero-aside-btn hero-aside-btn--email" href="mailto:mystrader@gmail.com" data-copy="mystrader@gmail.com" data-toast-kind="email" data-i18n-aria="aria_email" aria-label="Copiar e-mail para a área de transferência e abrir o app de e-mail">
-              <i data-feather="mail" aria-hidden="true"></i>
-              <span data-i18n="cta_email_sub">mystrader@gmail.com</span>
-            </a>
+            <div class="hero-aside-btn hero-aside-btn--email hero-aside-btn--row">
+              <a class="hero-aside-btn__primary" href="mailto:mystrader@gmail.com" data-copy="mystrader@gmail.com" data-toast-kind="email" data-i18n-aria="aria_email" aria-label="Copiar e-mail para a área de transferência">
+                <i data-feather="mail" aria-hidden="true"></i>
+                <span data-i18n="cta_email_sub">mystrader@gmail.com</span>
+              </a>
+              <button type="button" class="hero-aside-btn__clip" data-copy="mystrader@gmail.com" data-i18n-aria="aria_copy_email" aria-label="Copiar só o e-mail"><i data-feather="copy" aria-hidden="true"></i></button>
+            </div>
             </div>
           </div>
         </aside>
@@ -2401,19 +2663,47 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
       <div class="tm-viewport">
-        <article class="tm-card" aria-live="polite">
-          <div class="tm-card-inner">
-            <div class="tm-figure">
-              <img class="tm-photo" src="imagens/avatars/gleziane.jpeg" alt="" width="88" height="88" decoding="async">
-              <span class="tm-fallback" hidden aria-hidden="true"></span>
+        <div class="tm-track">
+          <article class="tm-card tm-card--peek tm-card--prev" aria-hidden="true" tabindex="-1">
+            <div class="tm-card-inner">
+              <div class="tm-figure">
+                <img class="tm-photo" src="" alt="" width="88" height="88" decoding="async">
+                <span class="tm-fallback" hidden aria-hidden="true"></span>
+              </div>
+              <blockquote class="tm-quote"></blockquote>
+              <footer class="tm-cite">
+                <strong class="tm-name"></strong>
+                <span class="tm-role"></span>
+              </footer>
             </div>
-            <blockquote class="tm-quote"></blockquote>
-            <footer class="tm-cite">
-              <strong class="tm-name"></strong>
-              <span class="tm-role"></span>
-            </footer>
-          </div>
-        </article>
+          </article>
+          <article class="tm-card tm-card--main" aria-live="polite">
+            <div class="tm-card-inner">
+              <div class="tm-figure">
+                <img class="tm-photo" src="imagens/avatars/gleziane.jpeg" alt="" width="88" height="88" decoding="async">
+                <span class="tm-fallback" hidden aria-hidden="true"></span>
+              </div>
+              <blockquote class="tm-quote"></blockquote>
+              <footer class="tm-cite">
+                <strong class="tm-name"></strong>
+                <span class="tm-role"></span>
+              </footer>
+            </div>
+          </article>
+          <article class="tm-card tm-card--peek tm-card--next" aria-hidden="true" tabindex="-1">
+            <div class="tm-card-inner">
+              <div class="tm-figure">
+                <img class="tm-photo" src="" alt="" width="88" height="88" decoding="async">
+                <span class="tm-fallback" hidden aria-hidden="true"></span>
+              </div>
+              <blockquote class="tm-quote"></blockquote>
+              <footer class="tm-cite">
+                <strong class="tm-name"></strong>
+                <span class="tm-role"></span>
+              </footer>
+            </div>
+          </article>
+        </div>
       </div>
       <button type="button" class="tm-nav tm-nav--next" aria-label="Próximo depoimento">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
@@ -2811,26 +3101,40 @@
 
   (function wireHeroCopy() {
     var toast = document.getElementById('copy-toast');
-    if (!toast || !window.MCI18N) return;
+    var waDlg = document.getElementById('wa-open-prompt');
+    if (!toast || !waDlg || !window.MCI18N) return;
     var titleEl = toast.querySelector('.copy-toast__title');
     var subEl = toast.querySelector('.copy-toast__sub');
     var hideT;
+    var waPendingHref = null;
+    var lastFocusEl = null;
     function lang() {
       return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'pt';
     }
     function showToast(kind) {
       var L = lang();
-      var titleKey = kind === 'email' ? 'toast_copy_email_title' : 'toast_copy_whatsapp_title';
-      var subKey = kind === 'email' ? 'toast_copy_email_sub' : 'toast_copy_whatsapp_sub';
+      var titleKey;
+      var subKey;
+      if (kind === 'email') {
+        titleKey = 'toast_copy_email_title';
+        subKey = 'toast_copy_email_sub';
+      } else if (kind === 'clip') {
+        titleKey = 'toast_copy_clip_title';
+        subKey = 'toast_copy_clip_sub';
+      } else {
+        titleKey = 'toast_copy_whatsapp_title';
+        subKey = 'toast_copy_whatsapp_sub';
+      }
       titleEl.textContent = MCI18N.t(L, titleKey);
       subEl.textContent = MCI18N.t(L, subKey);
       toast.hidden = false;
       requestAnimationFrame(function () { toast.classList.add('is-on'); });
       clearTimeout(hideT);
+      var visibleMs = kind === 'whatsapp' ? 5200 : kind === 'clip' ? 2800 : 4800;
       hideT = setTimeout(function () {
         toast.classList.remove('is-on');
         setTimeout(function () { toast.hidden = true; }, 520);
-      }, 3400);
+      }, visibleMs);
     }
     function copyText(text) {
       if (navigator.clipboard && window.isSecureContext) {
@@ -2850,11 +3154,57 @@
         document.body.removeChild(ta);
       });
     }
-    function followHref(href) {
-      if (!href) return;
-      if (href.indexOf('mailto:') === 0) window.location.href = href;
-      else window.open(href, '_blank', 'noopener,noreferrer');
+    function openWhatsApp(href) {
+      if (!href || href.indexOf('wa.me') === -1) return;
+      window.open(href, '_blank', 'noopener,noreferrer');
     }
+    function closeWaPrompt() {
+      waDlg.classList.remove('is-on');
+      setTimeout(function () {
+        waDlg.hidden = true;
+        waPendingHref = null;
+        if (lastFocusEl && typeof lastFocusEl.focus === 'function') {
+          try { lastFocusEl.focus(); } catch (err) {}
+        }
+        lastFocusEl = null;
+      }, 280);
+    }
+    function openWaPrompt(href) {
+      waPendingHref = href;
+      lastFocusEl = document.activeElement;
+      waDlg.hidden = false;
+      requestAnimationFrame(function () {
+        waDlg.classList.add('is-on');
+        var yes = document.getElementById('wa-prompt-yes');
+        if (yes) yes.focus();
+      });
+    }
+    waDlg.querySelectorAll('[data-wa-choice]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var yes = btn.getAttribute('data-wa-choice') === 'yes';
+        if (yes && waPendingHref) openWhatsApp(waPendingHref);
+        closeWaPrompt();
+      });
+    });
+    waDlg.querySelectorAll('[data-wa-dismiss]').forEach(function (el) {
+      el.addEventListener('click', function () { closeWaPrompt(); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' || waDlg.hidden || !waDlg.classList.contains('is-on')) return;
+      e.preventDefault();
+      closeWaPrompt();
+    });
+    document.querySelectorAll('button.hero-aside-btn__clip[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var text = btn.getAttribute('data-copy');
+        if (!text) return;
+        copyText(text)
+          .then(function () { showToast('clip'); })
+          .catch(function () {});
+      });
+    });
     document.querySelectorAll('a[data-copy][data-toast-kind]').forEach(function (a) {
       a.addEventListener('click', function (e) {
         if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
@@ -2866,9 +3216,9 @@
         copyText(text)
           .then(function () {
             showToast(kind);
-            setTimeout(function () { followHref(href); }, 320);
+            if (kind === 'whatsapp') openWaPrompt(href);
           })
-          .catch(function () { followHref(href); });
+          .catch(function () {});
       });
     });
   })();
