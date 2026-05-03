@@ -56,6 +56,19 @@
     .page-foot a:hover{text-decoration:underline}
     .page-foot a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  
+    /* ── Mobile page-bar ── */
+    @media(max-width:480px){
+      .page-period{display:none}
+      .page-bar{padding:.65rem 1rem}
+    }
+    /* ── Scroll-to-top ── */
+    .btn-top{position:fixed;bottom:2rem;right:2rem;z-index:9000;width:2.75rem;height:2.75rem;border-radius:50%;border:none;cursor:pointer;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(224,91,26,.38),0 1px 4px rgba(0,0,0,.18);opacity:0;pointer-events:none;transform:translateY(.75rem) scale(.88);transition:opacity .35s var(--ease),transform .35s var(--ease),background .2s,box-shadow .2s}
+    .btn-top.visible{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}
+    .btn-top:hover{background:var(--orange-d);box-shadow:0 6px 22px rgba(224,91,26,.5),0 2px 6px rgba(0,0,0,.22);transform:translateY(-2px) scale(1.06)}
+    .btn-top:active{transform:scale(.95)}
+    .btn-top:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    @media(max-width:600px){.btn-top{bottom:1.5rem;right:1.25rem;width:2.5rem;height:2.5rem}}
   </style>
 </head>
 <body>
@@ -136,5 +149,16 @@
   </script>
   <script src="../../../i18n.js"></script>
   <script>if(window.MCI18N) MCI18N.init();</script>
+<button class="btn-top" id="btnTop" aria-label="Voltar ao topo" title="Voltar ao topo">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+<script>
+  (function(){
+    var btn=document.getElementById('btnTop');
+    if(!btn)return;
+    window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300)},{passive:true});
+    btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+  })();
+</script>
 </body>
 </html>
