@@ -60,7 +60,7 @@
       hero_cred3_course: 'Especialista em TI · Full Stack',
 
       hero_puc_affil_l1: 'Pós-graduação lato sensu',
-      hero_puc_affil_l2: 'PUC-Rio (maio)',
+      hero_puc_affil_l2: 'PUC-Rio',
       hero_puc_link_title: 'PUC-Rio — site institucional',
 
       hero_role_html:
@@ -775,7 +775,7 @@
       hero_cred3_course: 'IT Specialist · Full Stack',
 
       hero_puc_affil_l1: 'Graduate specialization',
-      hero_puc_affil_l2: 'PUC-Rio (May)',
+      hero_puc_affil_l2: 'PUC-Rio',
       hero_puc_link_title: 'PUC-Rio — official website',
 
       hero_role_html:
