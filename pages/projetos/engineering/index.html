@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-i18n-page="project">
+<html lang="pt-BR" data-i18n-page="engineering">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,21 +85,21 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="skip-link" href="#conteudo" data-i18n="a11y_skip">Pular para o conteúdo</a>
 
   <header class="page-bar">
     <a class="page-voltar" href="../../../index.html#timeline">
       <i data-feather="arrow-left" aria-hidden="true"></i>
-      Portfólio
+      <span data-i18n="proj_nav_portfolio">Portfólio</span>
     </a>
     <div class="page-bar-right">
       <span class="page-period">2024 → 2025</span>
-      <div class="lang-switch" role="group" aria-label="Idioma do site">
-        <button type="button" class="lang-btn" data-lang-btn="pt" aria-pressed="true" aria-label="Português">
+      <div class="lang-switch" role="group" data-i18n-aria="lang_switch_aria" aria-label="Idioma do site">
+        <button type="button" class="lang-btn" data-lang-btn="pt" aria-pressed="true" data-i18n-aria="proj_lang_pt_aria" aria-label="Português">
           <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.2 17.8 7 10 12.8 2.2 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="2.6" fill="#002776"/></svg></span>
           <span class="lang-btn-text" data-i18n="lang_pt_label">PT</span>
         </button>
-        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false" aria-label="English">
+        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false" data-i18n-aria="proj_lang_en_aria" aria-label="English">
           <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10"><rect width="19" height="10" fill="#b22234"/><path fill="#fff" d="M0 1.54h19v1.54H0zm0 3.08h19v1.54H0zm0 3.08h12.35v1.54H0z"/><rect width="7.65" height="5.38" fill="#3c3b6e"/></svg></span>
           <span class="lang-btn-text" data-i18n="lang_en_label">EN</span>
         </button>
@@ -109,34 +109,34 @@
 
   <div class="page-hero">
     <div class="page-hero-inner">
-      <span class="page-hero-tag">Especialista</span>
+      <span class="page-hero-tag" data-i18n="proj_eng_hero_tag">Especialista</span>
       <h1><strong>Engineering</strong></h1>
-      <p class="page-hero-role">Especialista Front-end Engineer · Produto global · São Paulo</p>
+      <p class="page-hero-role" data-i18n="proj_eng_role">Especialista Front-end Engineer · Produto global · São Paulo</p>
     </div>
   </div>
 
   <div class="page-band">
     <div class="page-band-inner">
       <blockquote class="page-quote">
-        <p lang="pt-BR">"Arquitetei o frontend do DHuO — plataforma completa de gestão de APIs e integração de sistemas, dados e IA para clientes de nível mundial."</p>
+        <p data-i18n="proj_eng_quote">"Arquitetei o frontend do DHuO — plataforma completa de gestão de APIs e integração de sistemas, dados e IA para clientes de nível mundial."</p>
       </blockquote>
     </div>
   </div>
 
   <main class="page-main" id="conteudo">
 
-    <div class="sec-label"><i data-feather="briefcase" aria-hidden="true"></i> A empresa</div>
-    <h2>Empresa global com sede em Roma, 13.000 profissionais em 40+ países</h2>
-    <p>A Engineering oferece soluções digitais inovadoras para finanças, governo, saúde, cidades inteligentes, indústria, energia e mídia. Uma das maiores empresas de TI da Europa, com projetos de alto impacto e complexidade real.</p>
+    <div class="sec-label"><i data-feather="briefcase" aria-hidden="true"></i> <span data-i18n="proj_eng_sec_company">A empresa</span></div>
+    <h2 data-i18n="proj_eng_h2_company">Empresa global com sede em Roma, 13.000 profissionais em 40+ países</h2>
+    <p data-i18n="proj_eng_p_company">A Engineering oferece soluções digitais inovadoras para finanças, governo, saúde, cidades inteligentes, indústria, energia e mídia. Uma das maiores empresas de TI da Europa, com projetos de alto impacto e complexidade real.</p>
 
     <div class="page-divider" aria-hidden="true">
       <span class="page-divider__line"></span><i data-feather="cpu"></i><span class="page-divider__line"></span>
     </div>
 
-    <div class="sec-label"><i data-feather="code" aria-hidden="true"></i> Minha atuação</div>
-    <h2>Arquitetura frontend do DHuO — plataforma de API Management, iPaaS e IA</h2>
-    <p>Arquitetei e documentei o Design System do DHuO de ponta a ponta: mapeando o fluxo completo de tokens → assets → core → publicação npm, tornando-o consumível por múltiplos times e frameworks (React, Vue, Angular).</p>
-    <p>Construção de componentes no Design System (Storybook) em arquitetura de monorepo, implementação de microfrontends e integração via API First. Cobertura de testes com Jest e Cypress.</p>
+    <div class="sec-label"><i data-feather="code" aria-hidden="true"></i> <span data-i18n="proj_eng_sec_role">Minha atuação</span></div>
+    <h2 data-i18n="proj_eng_h2_role">Arquitetura frontend do DHuO — plataforma de API Management, iPaaS e IA</h2>
+    <p data-i18n="proj_eng_p_ds">Arquitetei e documentei o Design System do DHuO de ponta a ponta: mapeando o fluxo completo de tokens → assets → core → publicação npm, tornando-o consumível por múltiplos times e frameworks (React, Vue, Angular).</p>
+    <p data-i18n="proj_eng_p_mf">Construção de componentes no Design System (Storybook) em arquitetura de monorepo, implementação de microfrontends e integração via API First. Cobertura de testes com Jest e Cypress.</p>
 
     <div class="page-chips">
       <span class="page-chip">React</span>
@@ -158,12 +158,13 @@
       <span class="page-divider__line"></span><i data-feather="video" aria-hidden="true"></i><span class="page-divider__line"></span>
     </div>
 
-    <div class="sec-label"><i data-feather="film" aria-hidden="true"></i> Vídeo</div>
-    <h2>Walkthrough no Loom</h2>
-    <p>Visão geral em vídeo do contexto Engineering e do produto DHuO.</p>
+    <div class="sec-label"><i data-feather="film" aria-hidden="true"></i> <span data-i18n="proj_eng_sec_video">Vídeo</span></div>
+    <h2 data-i18n="proj_eng_h2_loom">Walkthrough no Loom</h2>
+    <p data-i18n="proj_eng_p_loom">Visão geral em vídeo do contexto Engineering e do produto DHuO.</p>
     <div class="page-embed-wrap">
       <div class="page-embed-loom">
         <iframe src="https://www.loom.com/embed/3d303b6b024d4b96ac24741b43509754"
+                data-i18n-title="proj_eng_iframe_main"
                 title="Loom — Engineering · DHuO"
                 loading="lazy"
                 allowfullscreen
@@ -172,12 +173,13 @@
     </div>
 
     <details class="eng-acc">
-      <summary><span class="eng-sum-main"><i data-feather="terminal" class="eng-sum-ico" aria-hidden="true"></i><span>Live — Code API</span></span></summary>
+      <summary><span class="eng-sum-main"><i data-feather="terminal" class="eng-sum-ico" aria-hidden="true"></i><span data-i18n="proj_eng_acc_live">Live — Code API</span></span></summary>
       <div class="eng-acc-body">
-        <p>Loom focado em código e integração com APIs no contexto do produto — complemento ao walkthrough geral do DHuO.</p>
+        <p data-i18n="proj_eng_acc_live_p">Loom focado em código e integração com APIs no contexto do produto — complemento ao walkthrough geral do DHuO.</p>
         <div class="page-embed-wrap">
           <div class="page-embed-loom">
             <iframe src="https://www.loom.com/embed/2dea8209787540cc8b25ff0c59091c50"
+                    data-i18n-title="proj_eng_iframe_code"
                     title="Loom — Live Code API (Engineering)"
                     loading="lazy"
                     allowfullscreen
@@ -191,16 +193,16 @@
       <span class="page-divider__line"></span><i data-feather="folder"></i><span class="page-divider__line"></span>
     </div>
 
-    <div class="sec-label"><i data-feather="layers" aria-hidden="true"></i> Projetos & trabalhos</div>
-    <h2>DHuO — produto global</h2>
+    <div class="sec-label"><i data-feather="layers" aria-hidden="true"></i> <span data-i18n="proj_eng_sec_work">Projetos & trabalhos</span></div>
+    <h2 data-i18n="proj_eng_h2_dhuo">DHuO — produto global</h2>
 
     <div class="work-list">
       <a class="work-card" href="https://www.engdb.com.br/dhuo/" target="_blank" rel="noopener">
         <div class="work-card-ico"><i data-feather="zap" aria-hidden="true"></i></div>
         <div class="work-card-body">
-          <p class="work-card-title">DHuO Platform</p>
-          <p class="work-card-desc">Plataforma completa de API Management, iPaaS, Data Integration e AI sob demanda. Produto de nível mundial com módulos integrados e Design System compartilhado entre squads.</p>
-          <span class="work-card-link">Ver produto <i data-feather="external-link" aria-hidden="true"></i></span>
+          <p class="work-card-title" data-i18n="proj_eng_card_dhuo_title">DHuO Platform</p>
+          <p class="work-card-desc" data-i18n="proj_eng_card_dhuo_desc">Plataforma completa de API Management, iPaaS, Data Integration e AI sob demanda. Produto de nível mundial com módulos integrados e Design System compartilhado entre squads.</p>
+          <span class="work-card-link"><span data-i18n="proj_eng_card_cta">Ver produto</span> <i data-feather="external-link" aria-hidden="true"></i></span>
         </div>
       </a>
     </div>
@@ -208,7 +210,7 @@
   </main>
 
   <footer class="page-foot">
-    <a href="../../../index.html#timeline">← Voltar ao portfólio</a>
+    <a href="../../../index.html#timeline" data-i18n="proj_foot_back">← Voltar ao portfólio</a>
   </footer>
 
   <script>

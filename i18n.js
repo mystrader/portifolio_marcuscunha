@@ -258,7 +258,462 @@
         'No lado pessoal, sou casado e pai — experiências que reforçam ainda mais meu senso de responsabilidade, equilíbrio e visão de longo prazo.',
       sobre_p12:
         'Hoje, não vejo o Front-End apenas como código, mas como uma forma de conectar pessoas, sistemas e decisões através de experiências bem construídas.',
-      sobre_foot: '← Voltar ao portfólio'
+      sobre_foot: '← Voltar ao portfólio',
+
+      proj_nav_portfolio: 'Portfólio',
+      proj_foot_back: '← Voltar ao portfólio',
+      proj_lang_pt_aria: 'Português',
+      proj_lang_en_aria: 'English',
+
+      proj_eng_meta_desc:
+        'Engineering — Especialista Front-end, DHuO · Marcus Cunha',
+      proj_eng_doc_title: 'Engineering · Marcus Cunha',
+      proj_eng_hero_tag: 'Especialista',
+      proj_eng_role:
+        'Especialista Front-end Engineer · Produto global · São Paulo',
+      proj_eng_quote:
+        '"Arquitetei o frontend do DHuO — plataforma completa de gestão de APIs e integração de sistemas, dados e IA para clientes de nível mundial."',
+      proj_eng_sec_company: 'A empresa',
+      proj_eng_h2_company:
+        'Empresa global com sede em Roma, 13.000 profissionais em 40+ países',
+      proj_eng_p_company:
+        'A Engineering oferece soluções digitais inovadoras para finanças, governo, saúde, cidades inteligentes, indústria, energia e mídia. Uma das maiores empresas de TI da Europa, com projetos de alto impacto e complexidade real.',
+      proj_eng_sec_role: 'Minha atuação',
+      proj_eng_h2_role:
+        'Arquitetura frontend do DHuO — plataforma de API Management, iPaaS e IA',
+      proj_eng_p_ds:
+        'Arquitetei e documentei o Design System do DHuO de ponta a ponta: mapeando o fluxo completo de tokens → assets → core → publicação npm, tornando-o consumível por múltiplos times e frameworks (React, Vue, Angular).',
+      proj_eng_p_mf:
+        'Construção de componentes no Design System (Storybook) em arquitetura de monorepo, implementação de microfrontends e integração via API First. Cobertura de testes com Jest e Cypress.',
+      proj_eng_sec_video: 'Vídeo',
+      proj_eng_h2_loom: 'Walkthrough no Loom',
+      proj_eng_p_loom:
+        'Visão geral em vídeo do contexto Engineering e do produto DHuO.',
+      proj_eng_iframe_main: 'Loom — Engineering · DHuO',
+      proj_eng_acc_live: 'Live — Code API',
+      proj_eng_acc_live_p:
+        'Loom focado em código e integração com APIs no contexto do produto — complemento ao walkthrough geral do DHuO.',
+      proj_eng_iframe_code: 'Loom — Live Code API (Engineering)',
+      proj_eng_sec_work: 'Projetos & trabalhos',
+      proj_eng_h2_dhuo: 'DHuO — produto global',
+      proj_eng_card_dhuo_title: 'DHuO Platform',
+      proj_eng_card_dhuo_desc:
+        'Plataforma completa de API Management, iPaaS, Data Integration e AI sob demanda. Produto de nível mundial com módulos integrados e Design System compartilhado entre squads.',
+      proj_eng_card_cta: 'Ver produto',
+
+      proj_alm_meta_desc:
+        'AlmaViva — Senior Frontend Engineer & Tech Lead · Marcus Cunha',
+      proj_alm_doc_title: 'AlmaViva · Marcus Cunha',
+      proj_alm_period: '2024 → agora',
+      proj_alm_role: 'Senior Frontend Engineer · Tech Lead · Brasil–Itália',
+      proj_alm_quote:
+        '"Liderança técnica em projeto de escala internacional — arquitetura, identidade visual e gestão de squads num produto que conecta dois países."',
+      proj_alm_sec_company: 'A empresa',
+      proj_alm_h2_company: 'Grupo italiano líder em ICT, há mais de 40 anos',
+      proj_alm_p_company:
+        'A AlmaViva é uma das maiores empresas de Information & Communication Technology da Itália, com forte atuação na transformação digital de empresas e administrações públicas. No Brasil, conduz projetos estratégicos em parceria com governos estaduais, combinando escala corporativa com execução local.',
+      proj_alm_sec_role: 'Minha atuação',
+      proj_alm_h2_role: 'Frontend Engineer em portais estratégicos do Governo de SP',
+      proj_alm_p_role1:
+        'Responsável pelo desenvolvimento frontend em portais e produtos digitais do estado — arquitetura, identidade visual, React e JavaScript e integração com serviços críticos de backend. Na galeria abaixo, só há material público do <strong>Porto de São Sebastião</strong>; frentes como PRODESP e ALESP não têm artefato divulgável aqui.',
+      proj_alm_p_role2:
+        'Apliquei design patterns como SOLID, DRY, YAGNI, DDD e Orientação a Objetos para garantir sustentabilidade do código ao longo do tempo, com times distribuídos e entregas em ritmo contínuo.',
+      proj_alm_sd_eyebrow: 'System design · PCS',
+      proj_alm_sd_h2: 'Arquitetura frontend escalável — Almaviva',
+      proj_alm_sd_lead:
+        'Case técnico do portal portuário: base preparada para evolução contínua, crescimento de equipa e integração com sistemas complexos — além das telas da galeria, o desenho de camadas e de estado foi documentado de forma explícita.',
+      proj_alm_sd_sum1: 'Visão geral e diagrama',
+      proj_alm_sd_btn_zoom:
+        'Ampliar diagrama de arquitetura PCS em ecrã inteiro',
+      proj_alm_sd_zoom_hint: 'Clique · ampliar',
+      proj_alm_sd_figcap:
+        'Diagrama de arquitetura (PCS) — referência para alinhar equipa e stakeholders. Clica na imagem para ver em tamanho real.',
+      proj_alm_sd_p1:
+        'O trabalho não foi só construir interfaces: estruturar uma base sólida inspirada em <strong>Clean Architecture</strong> e <strong>DDD</strong>, com camadas bem definidas — Presentation, Application, Domain e Infrastructure.',
+      proj_alm_sd_sum2: 'Decisões de arquitetura',
+      proj_alm_sd_q1: 'A estrutura responde a problemas típicos de aplicações grandes:',
+      proj_alm_sd_li1: 'Reduzir acoplamento entre UI e regras de negócio',
+      proj_alm_sd_li2: 'Estado previsível e testável',
+      proj_alm_sd_li3: 'Manutenção e evolução de features em paralelo',
+      proj_alm_sd_p2:
+        '<strong>Abordagens:</strong> arquitetura em camadas; <em>feature-first</em> (vertical slices); separação de estados (global, servidor e UI); hooks como orquestração.',
+      proj_alm_sd_sum3: 'Gestão de estado',
+      proj_alm_sd_st1: '<strong>Server state</strong> — APIs, cache e revalidação',
+      proj_alm_sd_st2:
+        '<strong>Global state</strong> — autenticação, preferências partilhadas',
+      proj_alm_sd_st3: '<strong>UI state</strong> — comportamento e controlo visual',
+      proj_alm_sd_st4:
+        '<strong>Local / URL state</strong> — filtros e navegação persistidos',
+      proj_alm_sd_p3:
+        'Esta separação reduz complexidade e evita conflitos comuns em SPAs de grande porte.',
+      proj_alm_sd_sum4: 'Estrutura e fluxo de dados',
+      proj_alm_sd_h3_1: 'Feature-first',
+      proj_alm_sd_p4:
+        'Cada funcionalidade com a sua árvore: hooks, schemas, componentes, tipagens e regras de negócio — para squads paralelos sem perder organização.',
+      proj_alm_sd_h3_2: 'Fluxo',
+      proj_alm_sd_p5:
+        '<strong>Interface → hooks → camada de aplicação → APIs → persistência.</strong> Interceptors para autenticação, erros e padronização de pedidos.',
+      proj_alm_sd_sum5: 'Stack e visão IA-ready',
+      proj_alm_sd_p6:
+        '<strong>Stack:</strong> React, TypeScript, TanStack Query, Zustand, Zod, Vite — foco em performance, escalabilidade e DX.',
+      proj_alm_sd_p7:
+        '<strong>IA-ready:</strong> domínio desacoplado da infraestrutura facilita integrações futuras (automação de fluxos, recomendações, análise em tempo real) sem reescritas traumáticas.',
+      proj_alm_sd_sum6: 'Resultado e conclusão',
+      proj_alm_sd_p8:
+        '<strong>Resultado:</strong> escalar funcionalidades com menos risco, reduzir complexidade ao longo do tempo, melhorar testabilidade e velocidade de entrega.',
+      proj_alm_sd_p9:
+        'Em suma: preocupação explícita com engenharia, organização e sustentabilidade do código — o tipo de decisão que sustenta ambientes corporativos e sistemas críticos.',
+      proj_alm_gallery_aria: 'Projetos e cases',
+      proj_alm_gallery_eyebrow: 'Cases publicados',
+      proj_alm_gallery_h2: 'Projetos & trabalhos',
+      proj_alm_gallery_count: '1 case · 8 imagens',
+      proj_alm_frame_aria:
+        'Abrir galeria PCS — Porto de São Sebastião, 8 imagens',
+      proj_alm_frame_alt:
+        'Interface do portal Porto de São Sebastião — preview do case no Behance',
+      proj_alm_frame_hint: 'Clique · galeria',
+      proj_alm_frame_title: 'Porto de São Sebastião',
+      proj_alm_frame_type: 'MVP · Plataforma portuária estadual · São Paulo',
+      proj_lb_close: 'Fechar galeria',
+      proj_lb_prev: 'Imagem anterior',
+      proj_lb_next: 'Próxima imagem',
+      proj_lb_dialog: 'Galeria de imagens PCS',
+      proj_lb_gallery_fallback: 'Galeria',
+      proj_lb_zoom_alt: 'Visualização ampliada',
+      proj_lb_image_word: 'Imagem',
+      proj_lb_of: 'de',
+      proj_lb_aria_pcs: 'Galeria PCS · imagem {i} de {n}',
+      proj_lb_aria_single: '{title} — vista ampliada',
+      proj_lb_diagram_title: 'Diagrama de arquitetura PCS',
+
+      proj_common_sec_company: 'A empresa',
+      proj_common_sec_role: 'Minha atuação',
+      proj_common_sec_work: 'Projetos & trabalhos',
+      proj_common_cases_h2: 'Cases publicados',
+      proj_common_behance: 'Ver no Behance',
+      proj_common_sec_video: 'Vídeo',
+      proj_common_h2_loom: 'Walkthrough no Loom',
+      proj_common_sec_context: 'O contexto',
+      proj_common_eyebrow_fd: 'Frontend & design',
+      proj_gallery_hint: 'Clique · galeria',
+      proj_click_prefix: 'Clique ·',
+      proj_sec_diagram: 'Diagrama',
+      proj_word_folder: 'pasta',
+
+      proj_record_meta_desc: 'Rede Record — WebMaster · Marcus Cunha',
+      proj_record_doc_title: 'Rede Record · Marcus Cunha',
+      proj_record_tag: 'Início de carreira',
+      proj_record_role: 'WebMaster · Via Octagonal · Benfica, Rio de Janeiro',
+      proj_record_quote:
+        '"Primeira experiência com escala e prazo de verdade — sites e interfaces em ASP.NET em um dos maiores veículos de comunicação do país."',
+      proj_record_h2_co:
+        'Rede Record — um dos maiores veículos de comunicação do Brasil',
+      proj_record_p_co:
+        'Trabalhei pela empresa Octagonal, alocado na Rede Record de Benfica. Responsável pela gestão do site da gravadora — institucional, e-commerce e hotsites — e pela adequação de interfaces em sistemas ASP.NET (C#).',
+      proj_record_h2_role: 'WebMaster full-stack — da diretoria ao código',
+      proj_record_p_role1:
+        'Programação em PHP puro com consultas SQL Server para o comercial. Responsável por todos os sites dos cantores da gravadora — Photoshop, HTML e CSS. Gestão de processos e adequação de interfaces em sistemas ASP.NET.',
+      proj_record_p_role2:
+        'Apesar de não ter subordinados, aprendi a lidar com a diretoria e a ter uma visão pragmática de projeto — uma das lições mais valiosas desta fase.',
+
+      proj_ceci_meta_desc:
+        'Fundação CECIERJ — Desenvolvedor Web · UI · Animador 2D · Marcus Cunha',
+      proj_ceci_doc_title: 'CECIERJ · Marcus Cunha',
+      proj_ceci_tag: 'Início de carreira · Fundação',
+      proj_ceci_role: 'Desenvolvedor Web · UI · Animador 2D · Consórcio CEDERJ / UFRJ',
+      proj_ceci_quote:
+        '"Interfaces com forte preocupação com acessibilidade — em parceria com a UFRJ (COPPE) — e animação 2D quando o projeto pedia. Aprendi cedo que interface tem impacto real nas pessoas."',
+      proj_ceci_sec_foundation: 'A fundação',
+      proj_ceci_h2_foundation:
+        'CECIERJ — ensino a distância acessível para todo o Brasil',
+      proj_ceci_p_foundation:
+        'A Fundação CECIERJ é responsável pelo Consórcio CEDERJ, que democratiza o acesso ao ensino superior público e gratuito no estado do Rio de Janeiro, com polos universitários em cidades do interior. Um projeto de impacto social profundo, em parceria com a UFRJ, COPPE e outras universidades estaduais.',
+      proj_ceci_h2_role: 'Acessibilidade, animação e a origem do meu olhar para o usuário',
+      proj_ceci_p_role1:
+        'Desenvolvimento de interfaces educacionais com forte preocupação com acessibilidade — em parceria com a COPPE/UFRJ. Criação de animações 2D para conteúdos educativos, tornando o aprendizado a distância mais acessível e engajante.',
+      proj_ceci_p_role2:
+        'Foi aqui que aprendi cedo que interface tem impacto real nas pessoas — uma percepção que carrego em todos os projetos desde então.',
+      proj_ceci_card_title: 'Fundação CECIERJ · Consórcio CEDERJ',
+      proj_ceci_card_desc:
+        'Interfaces educacionais com foco em acessibilidade para o ensino a distância — projeto de impacto social para democratizar o acesso ao ensino superior público no RJ.',
+
+      proj_casa_meta_desc: 'Casa Digital — Analista Desenvolvedor Frontend · Marcus Cunha',
+      proj_casa_doc_title: 'Casa Digital · Marcus Cunha',
+      proj_casa_tag: 'Pleno · Agência',
+      proj_casa_role: 'Analista Desenvolvedor Frontend · Agência full-service · Projetos públicos',
+      proj_casa_quote:
+        '"Sites de muito acesso como EduardoPaes15, MarcaRJ, GDF, Cidade Olímpica e Lei Sêca RJ — além de criação e gestão de e-mail marketing em grandes contas."',
+      proj_casa_h2_co: 'Casa Digital — agência responsável por cases importantes do governo',
+      proj_casa_p_co:
+        'Agência full-service que atendia clientes governamentais e privados de alto perfil. Análise de sistemas, prototipação e entrega de interface para múltiplos clientes simultaneamente, com treinamentos internos em desenvolvimento rápido de UI.',
+      proj_casa_h2_role:
+        'Frontend em sites de grande visibilidade e disparo de e-mail marketing',
+      proj_casa_p_role:
+        'Frontend em sites de alto acesso para clientes como EduardoPaes15, MarcaRJ, Sérgio Cabral, GDF (Governo do Distrito Federal), Cidade Olímpica v.1 e Lei Sêca RJ. Também responsável pela criação e gestão do disparo de grandes contas de e-mail marketing com MailChimp e LocalWeb.',
+      proj_casa_card1_t: 'RJ — Marca Registrada',
+      proj_casa_card1_d:
+        'Portal institucional da campanha de valorização do Rio de Janeiro — identidade forte e acesso amplo ao público.',
+      proj_casa_card2_t: 'Cidade Olímpica',
+      proj_casa_card2_d:
+        'Portal da Cidade Olímpica — v.1 do site oficial das ações olímpicas do Rio de Janeiro, com grande volume de acessos.',
+      proj_casa_card3_t: 'Lei Sêca RJ',
+      proj_casa_card3_d:
+        'Portal da campanha Lei Sêca do Rio de Janeiro — comunicação de alto impacto para conscientização no trânsito.',
+      proj_casa_card4_t: 'GDF — Governo do Distrito Federal',
+      proj_casa_card4_d:
+        'Portal do Governo do Distrito Federal — presença institucional federal com interface moderna e acessível.',
+      proj_casa_card5_t: 'ABP — Landing de Concurso',
+      proj_casa_card5_d:
+        'Landing page para concurso da ABP — conversão e experiência de inscrição otimizadas para alto volume.',
+
+      proj_spassu_meta_desc: 'Spassu · Petrobras — Frontend UI Designer · Marcus Cunha',
+      proj_spassu_doc_title: 'Spassu · Petrobras · Marcus Cunha',
+      proj_spassu_tag: 'FrontEnd Pleno · UI/UX',
+      proj_spassu_role:
+        'Desenvolvedor Front-end · UI Designer · Transformação digital interna',
+      proj_spassu_quote:
+        '"Design Sprint, identidade de sistemas internos e frontend em VueJS — colaboração ativa no processo de transformação digital da maior empresa de energia do Brasil."',
+      proj_spassu_h2_ctx: 'Spassu — consultoria em projetos internos da Petrobras',
+      proj_spassu_p_ctx:
+        'Contrato pela Spassu atuando em projetos internos de transformação digital da Petrobras. Dois períodos de atuação: primeiro como FrontEnd Pleno e UI/UX (jul/2019 – jul/2020), depois na Esteira Ágil (jul/2020 – nov/2020).',
+      proj_spassu_h2_role:
+        'Da ideação ao código — sistemas de grande porte com dados complexos',
+      proj_spassu_p_role:
+        'Fase de ideação com Design Sprint (Google), identidade visual dos sistemas internos, desenvolvimento frontend em JavaScript puro e VueJS com Vuex. Entrega de UI/UX em sistemas de grande porte com gráficos e dashboards de dados.',
+      proj_spassu_p_video:
+        'Apresentação em vídeo do contexto Spassu · Petrobras e do material de interface desta página.',
+      proj_spassu_iframe_main: 'Loom — Spassu e Petrobras (portfólio)',
+      proj_spassu_sec_pandora: 'Sistema Pandora',
+      proj_spassu_h2_pandora: 'Loom — Pandora (parte 1 e 2)',
+      proj_spassu_p_pandora: 'Parte 1 em cima, parte 2 abaixo — mesma ordem dos embeds que enviaste.',
+      proj_spassu_iframe_p1: 'Loom — Sistema Pandora (1)',
+      proj_spassu_iframe_p2: 'Loom — Sistema Pandora (2)',
+      proj_spassu_gallery_aria: 'Galerias por projeto Spassu Petrobras',
+      proj_spassu_gallery_eyebrow: 'Telas por projeto',
+      proj_spassu_gallery_h2: 'Cada pasta = um case',
+      proj_spassu_gallery_count: '4 projetos · 31 imagens',
+      proj_spassu_card1_t: 'Busca Semântica de Documentos',
+      proj_spassu_card1_d:
+        'Interface de busca inteligente para documentos internos da Petrobras — UX orientada à relevância e eficiência na recuperação de informação.',
+      proj_spassu_card2_t: 'Delfos — Previsão da data do primeiro óleo',
+      proj_spassu_card2_d:
+        'Sistema preditivo para estimativa de entregas no contexto de exploração de petróleo — dashboards de dados complexos e visualizações críticas.',
+      proj_spassu_card3_t: 'Sistema de Qualidade de Produtos Químicos',
+      proj_spassu_card3_d:
+        'Qualiprod — sistema de qualificação de produtos químicos com interface especializada para controle de processos industriais internos.',
+      proj_spassu_folder_lbl: 'Pasta',
+      proj_spassu_internal: 'Interno',
+      proj_spassu_lb_dialog: 'Galeria de imagens',
+      proj_spassu_alt_bussola: 'Busca semântica — pré-visualização',
+      proj_spassu_alt_delfos: 'Delfos — pré-visualização',
+      proj_spassu_alt_qualiprod: 'Qualiprod — pré-visualização',
+      proj_spassu_alt_pocos: 'Sistema de poços — pré-visualização',
+      proj_spassu_aria_bussola: 'Galeria Busca semântica, 4 imagens',
+      proj_spassu_aria_delfos: 'Galeria Delfos, 7 imagens',
+      proj_spassu_aria_qualiprod: 'Galeria Qualiprod, 15 imagens',
+      proj_spassu_aria_pocos: 'Galeria Sistema de poços, 5 imagens',
+      proj_spassu_t_bussola: 'Busca semântica',
+      proj_spassu_t_delfos: 'Delfos',
+      proj_spassu_t_qualiprod: 'Qualiprod',
+      proj_spassu_t_pocos: 'Sistema de poços',
+
+      proj_par_meta_desc: 'Par Perfeito · Match Group — Frontend Developer · Marcus Cunha',
+      proj_par_doc_title: 'Par Perfeito · Marcus Cunha',
+      proj_par_h1_html: 'Par <strong>Perfeito</strong>',
+      proj_par_tag: 'Pleno · Freelance',
+      proj_par_role:
+        'Analista Desenvolvedor Frontend · Match Group · Alto tráfego internacional',
+      proj_par_quote:
+        '"Produtos de relacionamento em alto tráfego — Tinder, Par Perfeito, Divino Amor, POF — além de e-commerce para Globo, GE e Americanas e e-mail marketing em escala."',
+      proj_par_h2_co: 'Match Group — mais de 45 marcas líderes em relacionamento no mundo',
+      proj_par_p_co:
+        'Desde 2008, o Match Group mais que dobrou de tamanho: de essencialmente uma marca para mais de 45 marcas líderes de mercado com usuários em quase todos os países do mundo. A Par Perfeito, Divino Amor, Tinder e POF fazem parte deste ecossistema global de relacionamento.',
+      proj_par_h2_role:
+        'Frontend para produtos de relacionamento, e-commerce e campanhas de escala',
+      proj_par_p_role1:
+        'Desenvolvimento frontend para os principais produtos da empresa — desktop e mobile — incluindo Par Perfeito, Divino Amor, GE Encontros, Match Argentina e Match Chile. Landing pages para Tinder, Divino Amor, Amor e Fé e outros produtos do grupo.',
+      proj_par_p_role2:
+        'Além dos produtos de relacionamento: e-commerce e campanhas para Globo, GE e Americanas, com e-mail marketing em alta escala.',
+      proj_par_gallery_aria: 'Landing pages e telas Par Perfeito · Match Group',
+      proj_par_gallery_eyebrow: 'Frontend & design',
+      proj_par_gallery_h2: 'Landings & campanhas — Match Group',
+      proj_par_gallery_count: '5 imagens',
+      proj_par_count_one: '1 imagem',
+      proj_par_count_n: '{n} imagens',
+      proj_par_lb_aria_multi: 'Galeria landings · imagem {i} de {n}',
+      proj_par_frame_aria: 'Abrir galeria de landing pages, 5 imagens',
+      proj_par_frame_alt:
+        'Landing page Match Group — galeria landings Par Perfeito',
+      proj_par_frame_title: 'Landings — Par Perfeito · Match Group',
+      proj_par_caption_title: 'Landing pages & campanhas',
+      proj_par_caption_type: 'HTML responsivo · alto tráfego · A/B',
+      proj_par_lb_dialog: 'Galeria landing pages Par Perfeito',
+      proj_par_card_t: 'Match.com — Tinder · Par Perfeito · Divino Amor · POF',
+      proj_par_card_d:
+        'Frontend de produtos de relacionamento do ecossistema Match Group — interfaces de alto tráfego para desktop e mobile em múltiplas marcas internacionais.',
+
+      proj_inst_meta_desc: 'Instant Solutions — Analista Frontend UI · Marcus Cunha',
+      proj_inst_doc_title: 'Instant Solutions · Marcus Cunha',
+      proj_inst_h1_html: 'Instant <strong>Solutions</strong>',
+      proj_inst_tag: 'Sênior',
+      proj_inst_role:
+        'Analista Desenvolvedor Frontend UI · UX com o mesmo peso que o código',
+      proj_inst_quote:
+        '"Ao entrar na empresa, documentei todos os processos e tarefas — e refiz a interface dos dois principais sistemas, colocando qualidade de UI e produto no centro."',
+      proj_inst_h2_co: 'Instant Solutions — sistemas multitecnologia com visão de produto',
+      proj_inst_p_co:
+        'Empresa com sistemas complexos construídos em múltiplas linguagens (Django, React, PHP, Node). A proposta era dar linguagem moderna e melhoria constante de usabilidade a uma plataforma consolidada.',
+      proj_inst_h2_role: 'Redesign dos sistemas principais e modernização de chatBots',
+      proj_inst_p_role:
+        'Documentei processos e tarefas em GitBook ao entrar na empresa. Remodelei via CSS e JavaScript os dois principais sistemas e chatBot de diversos clientes. Foco em análise, construção de interface e alinhamento com produto.',
+      proj_inst_gallery_aria: 'Frontend design — telas Instant Solutions',
+      proj_inst_gallery_h2: 'Telas em produção — uma pasta por projeto',
+      proj_inst_gallery_count: '2 projetos',
+      proj_inst_frame1_aria: 'Galeria sistema principal Instant Solutions',
+      proj_inst_frame1_alt: 'Sistema principal Instant Solutions — capa da galeria',
+      proj_inst_cap1_t: 'Sistema principal',
+      proj_inst_cap1_type_prefix: '44 imagens · pasta',
+      proj_inst_type1_html:
+        '44 imagens · pasta <span lang="en">instantSolutionsSistema</span>',
+      proj_inst_type2_html: '3 imagens · pasta <span lang="en">Agora</span>',
+      proj_inst_frame2_aria: 'Galeria Ágora mobile chat',
+      proj_inst_frame2_alt: 'Ágora mobile chat — capa da galeria',
+      proj_inst_cap2_t: 'Ágora — Mobile Chat',
+      proj_inst_cap2_type_prefix: '3 imagens · pasta',
+      proj_inst_card1_t: 'Sistema Principal',
+      proj_inst_card1_d:
+        'Redesign completo do sistema core da Instant Solutions — nova interface, fluxos modernizados e melhoria significativa de usabilidade.',
+      proj_inst_card2_t: 'Ágora — Mobile Chat',
+      proj_inst_card2_d:
+        'Interface de chatBot mobile para múltiplos clientes da plataforma — experiência conversacional com identidade visual moderna.',
+      proj_inst_lb_dialog: 'Galeria Instant Solutions',
+      proj_inst_summary_tpl: '{nk} projetos · {nt} imagens',
+      proj_inst_aria_open_one: 'Abrir galeria — {title} — 1 imagem',
+      proj_inst_aria_open_many: 'Abrir galeria — {title} — {n} imagens',
+      proj_inst_lb_aria_multi:
+        'Galeria Instant Solutions · imagem {i} de {n}',
+
+      proj_tjrj_meta_desc: 'TJRJ · PJe — Marcus Cunha',
+      proj_tjrj_doc_title: 'TJRJ · PJe · Marcus Cunha',
+      proj_tjrj_h1_html: 'TJRJ · <strong>PJe</strong>',
+      proj_tjrj_tag: 'Sênior → Especialista',
+      proj_tjrj_role:
+        'Analista Desenvolvedor Frontend Master / UI·UX · Atuação simultânea',
+      proj_tjrj_quote:
+        '"Sistemas críticos do Judiciário — zero tolerância a falhas. Concepção do PJe, estruturando fluxos e criando a base visual que orientou equipes inteiras."',
+      proj_tjrj_h2_ctx: 'Tribunal de Justiça do Rio de Janeiro — sistemas públicos de alta criticidade',
+      proj_tjrj_p_ctx1:
+        'Atuação no TJRJ via parceiro, desenvolvendo o PJe (Processo Judicial Eletrônico). Sistemas sem margem de erro, usados por magistrados, advogados e servidores em todo o estado do Rio de Janeiro.',
+      proj_tjrj_p_ctx2:
+        'Paralelamente, atuação na Extreme Digital liderando biblioteca de componentes e plataforma de saúde digital nacional de alto volume — dois contextos distintos que exigiram adaptação constante de ritmo e exigência.',
+      proj_tjrj_h2_role: 'Do design à arquitetura — usuário no centro do processo',
+      proj_tjrj_p_role1:
+        'No PJe, participei da concepção do sistema, estruturando fluxos e criando a base visual que orientou equipes inteiras de desenvolvimento. Atuação com Angular, PHP (PoC) e JavaScript vanilla, usando Figma para design e arquitetura limpa como diretriz técnica.',
+      proj_tjrj_p_role2:
+        'Na Extreme Digital, foco em microfrontends, Design System e GraphQL para uma plataforma de saúde com exigências severas de performance e acessibilidade.',
+      proj_tjrj_iframe_whimsical: 'Diagrama TJRJ PJe — Whimsical',
+      proj_tjrj_h2_diag: 'Fluxo — Whimsical',
+      proj_tjrj_p_loom: 'Apresentação em vídeo complementar ao diagrama — contexto PJe e TJRJ.',
+      proj_tjrj_iframe_loom: 'Loom — TJRJ · PJe',
+      proj_tjrj_gallery_aria: 'Telas e interface PJe TJRJ',
+      proj_tjrj_gallery_h2: 'PJe — usuário externo (TJRJ)',
+      proj_tjrj_gallery_count: '7 imagens',
+      proj_tjrj_frame_aria: 'Abrir galeria PJe TJRJ, 7 imagens',
+      proj_tjrj_frame_alt: 'Telas do portal PJe — usuário externo TJRJ',
+      proj_tjrj_cap_title: 'Portal do usuário externo',
+      proj_tjrj_cap_type: 'Fluxos · interface · TJRJ',
+      proj_tjrj_lb_dialog: 'Galeria PJe TJRJ',
+      proj_tjrj_card1_t: 'PJe — Portal do Usuário Externo',
+      proj_tjrj_card1_d:
+        'Portal judicial eletrônico do TJRJ — concepção de UX, arquitetura de interface e Design System orientando o desenvolvimento de múltiplas equipes.',
+      proj_tjrj_card2_t: 'Demo online — usuário externo',
+      proj_tjrj_card2_d:
+        'Protótipo do portal ainda publicado (Surge): referência de fluxos e interface para consulta.',
+      proj_tjrj_card2_link: 'Abrir pjxternal.surge.sh',
+      proj_tjrj_lb_title: 'PJe · Portal do usuário externo',
+      proj_tjrj_lb_aria_multi: 'Galeria PJe · imagem {i} de {n}',
+      proj_tjrj_sec_diag: 'Diagrama',
+
+      proj_sefaz_meta_desc:
+        'SEFAZ-RJ · SCOMEX — Analista Frontend · Marcus Cunha',
+      proj_sefaz_doc_title: 'SEFAZ · Governo RJ · Marcus Cunha',
+      proj_sefaz_h1_html: 'SEFAZ · <strong>Governo RJ</strong>',
+      proj_sefaz_tag: 'Pleno → Sênior',
+      proj_sefaz_role:
+        'Analista Desenvolvedor Frontend · SEPLAG + Secretaria da Fazenda · Escala estadual',
+      proj_sefaz_quote:
+        '"Portais e sistemas da fazenda estadual com escala estadual e impacto direto no cidadão — o SCOMEX tornou-se referência nacional pela SEFAZ."',
+      proj_sefaz_h2_ctx: 'Governo do Estado do Rio de Janeiro — SEPLAG e SEFAZ',
+      proj_sefaz_p_ctx:
+        'Atuação em dois órgãos do governo estadual do Rio de Janeiro. Na SEPLAG (Secretaria de Planejamento): portais de compras (licitação), portal do servidor, intranet, mídia indoor e portal de remuneração. Na SEFAZ (Secretaria da Fazenda): portais institucionais, sistemas de incentivos fiscais e o SCOMEX — projeto que se tornou referência nacional.',
+      proj_sefaz_h2_role: 'Frontend sênior em sistemas de impacto para o cidadão',
+      proj_sefaz_p_role:
+        'Manutenção e gestão dos portais da Fazenda (HTML, CSS, JS, ADF Oracle, UX). Refatoração de arquitetura frontend com automatizadores (Gulp, Grunt, Sass) e geração de protótipos com Jekyll e Hexo.js. Todos os projetos com ênfase em responsividade, usabilidade e design moderno. Implantação de automatizadores de tarefas em toda a stack.',
+      proj_sefaz_gallery_aria: 'Galerias frontend-design por projeto — SEFAZ e SEPLAG',
+      proj_sefaz_gallery_h2: 'Telas em produção — uma pasta por projeto',
+      proj_sefaz_sketch_sec: 'Frontend & design',
+      proj_sefaz_sketch_h2: 'Sketches — referência visual',
+      proj_sefaz_sketch_p_html:
+        'É um dos meus jeitos de fazer <strong>frontend-design</strong> antes de codar: rascunhar fluxos, hierarquia e estados da interface para alinhar com o time e ir para o código com decisões já fechadas — implementação mais assertiva e menos retrabalho. O álbum no <a class="sketch-inline-link" href="https://photos.google.com/share/AF1QipMXYCySh4zL5ybW1YOr_V_CaIBno0XtY322R4-HYSpiZz5hWV6aSUHAFgvTAU5g7Q?key=c0RNVEJxMlVXNDZjMjM0S2JKOGM1cmhIQ004OGFB" target="_blank" rel="noopener noreferrer">Google Photos</a> documenta esse processo em projetos do governo estadual.',
+      proj_sefaz_sketch_cta: 'Ver rascunhos e processo de UI',
+      proj_sefaz_work_h2: 'Cases publicados — SEPLAG & SEFAZ',
+      proj_sefaz_lb_dialog: 'Galeria frontend-design SEFAZ',
+      proj_sefaz_summary_tpl: '{nk} projetos · {nt} imagens',
+      proj_sefaz_open_gallery_tpl: 'Abrir galeria — {title} — {suffix}',
+      proj_sefaz_lb_aria_multi: 'Galeria SEFAZ · imagem {i} de {n}',
+      proj_sefaz_img_one: '1 imagem',
+      proj_sefaz_img_n: '{n} imagens',
+      proj_sefaz_type_psrj_html:
+        '6 imagens · pasta <span lang="en">portalServidorRJ</span>',
+      proj_sefaz_type_intra_html:
+        '1 imagem · pasta <span lang="en">IntranetRJ</span>',
+      proj_sefaz_type_novo_html:
+        '2 imagens · pasta <span lang="en">novoPortalSefaz</span>',
+      proj_sefaz_type_tesouro_html:
+        '4 imagens · pasta <span lang="en">portalTesouroRJ</span>',
+      proj_sefaz_type_sei_html:
+        '2 imagens · pasta <span lang="en">PortalSEI</span>',
+      proj_sefaz_type_rem_html:
+        '6 imagens · pasta <span lang="en">consultaRemuneracaoRJ</span>',
+      proj_sefaz_type_transp_html:
+        '3 imagens · pasta <span lang="en">portal_transparencia</span>',
+      proj_sefaz_type_padrao_html:
+        '14 imagens · frontend-design · pasta <span lang="en">projeto_padraoVisualSistemasInternos</span>',
+      proj_sefaz_type_bast_html:
+        '18 imagens · pasta <span lang="en">BastidoresPlanejamentos</span>',
+      proj_sefaz_lbl_tesouro: 'Portal do Tesouro RJ',
+      proj_sefaz_lbl_rem: 'Consulta remuneração RJ',
+      proj_sefaz_lbl_transp: 'Portal transparência',
+      proj_sefaz_lbl_padrao: 'Padrão visual · sistemas internos',
+      proj_sefaz_frame_bast: 'Bastidores · planejamento & processo',
+      proj_sefaz_cap_bast_short: 'Bastidores · planejamento',
+      proj_sefaz_land_title: 'Landing padrão',
+      proj_sefaz_land_title_attr:
+        'Novo Padrão Sistemas SEFAZ-RJ — landing de documentação',
+      proj_sefaz_card_psrj_t: 'Portal do Servidor RJ',
+      proj_sefaz_card_psrj_d:
+        'Portal com contra-cheque digital e principais serviços para todos os servidores do Estado do Rio de Janeiro.',
+      proj_sefaz_card_intra_t: 'Intranet Estado do RJ',
+      proj_sefaz_card_intra_d:
+        'Nova intranet da SEPLAG e Fazenda — acesso unificado para servidores estaduais com interface moderna e responsiva.',
+      proj_sefaz_card_midia_t: 'Projeto Mídia Indoor',
+      proj_sefaz_card_midia_d:
+        'Sistema de sinalização digital interna para a Secretaria de Planejamento — exibição de conteúdo institucional em displays internos.',
+      proj_sefaz_card_portal_t: 'Novo Portal SEFAZ RJ',
+      proj_sefaz_card_portal_d:
+        'Redesign completo do portal da Secretaria da Fazenda e Planejamento do Rio de Janeiro — referência estadual de 2015 a 2020.',
+      proj_sefaz_card_tesouro_t: 'Novo Portal do Tesouro RJ',
+      proj_sefaz_card_tesouro_d:
+        'Portal institucional do Tesouro do Estado do Rio de Janeiro com foco em transparência pública e acesso à informação.',
+      proj_sefaz_card_sei_t: 'Portal SEIRJ',
+      proj_sefaz_card_sei_d:
+        'Portal do Sistema Estadual de Incentivos da Fazenda e Planejamento RJ — interface para gestão de benefícios fiscais.',
+      proj_sefaz_card_rem_t: 'Consulta Remuneração RJ',
+      proj_sefaz_card_rem_d:
+        'Portal público de transparência para consulta de remuneração de servidores do Estado do Rio de Janeiro.',
+      proj_sefaz_card_bast_t: 'Bastidores — Scrum & Design Thinking',
+      proj_sefaz_card_bast_d:
+        'Documentação do processo: como aconteceu o planejamento de grandes sistemas do Estado do RJ — do Scrum ao Design Thinking.'
     },
     en: {
       meta_title_index: 'Marcus Cunha — Senior Frontend Engineer, UX/UI & AI for product teams',
@@ -516,7 +971,460 @@
       sobre_p12:
         'Today I do not see frontend as “just code”, but as a way to connect people, systems and decisions through well-built experiences.',
 
-      sobre_foot: '← Back to portfolio'
+      sobre_foot: '← Back to portfolio',
+
+      proj_nav_portfolio: 'Portfolio',
+      proj_foot_back: '← Back to portfolio',
+      proj_lang_pt_aria: 'Portuguese',
+      proj_lang_en_aria: 'English',
+
+      proj_eng_meta_desc:
+        'Engineering — Front-end specialist, DHuO · Marcus Cunha',
+      proj_eng_doc_title: 'Engineering · Marcus Cunha',
+      proj_eng_hero_tag: 'Specialist',
+      proj_eng_role:
+        'Front-end specialist · Global product · São Paulo',
+      proj_eng_quote:
+        '"I architected the DHuO frontend — a full platform for API management and integration of systems, data and AI for world-class clients."',
+      proj_eng_sec_company: 'The company',
+      proj_eng_h2_company:
+        'Global company based in Rome, 13,000 people in 40+ countries',
+      proj_eng_p_company:
+        'Engineering delivers innovative digital solutions for finance, government, health, smart cities, industry, energy and media. One of Europe’s largest IT firms, with high-impact projects and real complexity.',
+      proj_eng_sec_role: 'My role',
+      proj_eng_h2_role:
+        'DHuO frontend architecture — API Management, iPaaS and AI platform',
+      proj_eng_p_ds:
+        'I architected and documented the DHuO Design System end to end: tokens → assets → core → npm publish, consumable across teams and frameworks (React, Vue, Angular).',
+      proj_eng_p_mf:
+        'Design System components (Storybook) in a monorepo, micro-frontends and API-first integration. Testing with Jest and Cypress.',
+      proj_eng_sec_video: 'Video',
+      proj_eng_h2_loom: 'Loom walkthrough',
+      proj_eng_p_loom:
+        'Video overview of the Engineering context and the DHuO product.',
+      proj_eng_iframe_main: 'Loom — Engineering · DHuO',
+      proj_eng_acc_live: 'Live — Code API',
+      proj_eng_acc_live_p:
+        'Loom focused on code and API integration in the product — a complement to the general DHuO walkthrough.',
+      proj_eng_iframe_code: 'Loom — Live Code API (Engineering)',
+      proj_eng_sec_work: 'Projects & work',
+      proj_eng_h2_dhuo: 'DHuO — global product',
+      proj_eng_card_dhuo_title: 'DHuO Platform',
+      proj_eng_card_dhuo_desc:
+        'Full API Management, iPaaS, data integration and on-demand AI. A world-class product with integrated modules and a shared Design System across squads.',
+      proj_eng_card_cta: 'View product',
+
+      proj_alm_meta_desc:
+        'AlmaViva — Senior Frontend Engineer & Tech Lead · Marcus Cunha',
+      proj_alm_doc_title: 'AlmaViva · Marcus Cunha',
+      proj_alm_period: '2024 → now',
+      proj_alm_role: 'Senior Frontend Engineer · Tech Lead · Brazil–Italy',
+      proj_alm_quote:
+        '"Technical leadership on an international-scale program — architecture, visual identity and squad management for a product that connects two countries."',
+      proj_alm_sec_company: 'The company',
+      proj_alm_h2_company: 'Leading Italian ICT group, 40+ years',
+      proj_alm_p_company:
+        'AlmaViva is one of Italy’s largest Information & Communication Technology companies, with a strong focus on digital transformation for businesses and public administration. In Brazil, it runs strategic projects with state governments, combining corporate scale with local delivery.',
+      proj_alm_sec_role: 'My role',
+      proj_alm_h2_role: 'Frontend engineer on strategic SP state government portals',
+      proj_alm_p_role1:
+        'I led frontend development for state portals and digital products — architecture, visual identity, React and JavaScript, and integration with critical backend services. The gallery below only includes public material for the <strong>Porto de São Sebastião</strong>; tracks such as PRODESP and ALESP have no shareable artifacts here.',
+      proj_alm_p_role2:
+        'I applied patterns such as SOLID, DRY, YAGNI, DDD and OOP to keep the codebase sustainable over time, with distributed teams and continuous delivery.',
+      proj_alm_sd_eyebrow: 'System design · PCS',
+      proj_alm_sd_h2: 'Scalable frontend architecture — Almaviva',
+      proj_alm_sd_lead:
+        'Technical case for the port portal: a foundation built for continuous evolution, team growth and integration with complex systems — beyond the gallery screens, layer and state design was explicitly documented.',
+      proj_alm_sd_sum1: 'Overview and diagram',
+      proj_alm_sd_btn_zoom: 'Open full-screen PCS architecture diagram',
+      proj_alm_sd_zoom_hint: 'Click · enlarge',
+      proj_alm_sd_figcap:
+        'Architecture diagram (PCS) — reference to align team and stakeholders. Click the image for full size.',
+      proj_alm_sd_p1:
+        'The work was not only building UIs: structuring a solid base inspired by <strong>Clean Architecture</strong> and <strong>DDD</strong>, with clear layers — Presentation, Application, Domain and Infrastructure.',
+      proj_alm_sd_sum2: 'Architecture decisions',
+      proj_alm_sd_q1: 'The structure addresses typical large-application problems:',
+      proj_alm_sd_li1: 'Reduce coupling between UI and business rules',
+      proj_alm_sd_li2: 'Predictable, testable state',
+      proj_alm_sd_li3: 'Parallel feature maintenance and evolution',
+      proj_alm_sd_p2:
+        '<strong>Approaches:</strong> layered architecture; <em>feature-first</em> (vertical slices); separation of state (global, server and UI); hooks as orchestration.',
+      proj_alm_sd_sum3: 'State management',
+      proj_alm_sd_st1: '<strong>Server state</strong> — APIs, cache and revalidation',
+      proj_alm_sd_st2: '<strong>Global state</strong> — auth, shared preferences',
+      proj_alm_sd_st3: '<strong>UI state</strong> — behaviour and visual control',
+      proj_alm_sd_st4: '<strong>Local / URL state</strong> — filters and persisted navigation',
+      proj_alm_sd_p3:
+        'This separation cuts complexity and avoids common conflicts in large SPAs.',
+      proj_alm_sd_sum4: 'Structure and data flow',
+      proj_alm_sd_h3_1: 'Feature-first',
+      proj_alm_sd_p4:
+        'Each feature with its own tree: hooks, schemas, components, types and business rules — for parallel squads without losing structure.',
+      proj_alm_sd_h3_2: 'Flow',
+      proj_alm_sd_p5:
+        '<strong>UI → hooks → application layer → APIs → persistence.</strong> Interceptors for auth, errors and request standardization.',
+      proj_alm_sd_sum5: 'Stack and AI-ready view',
+      proj_alm_sd_p6:
+        '<strong>Stack:</strong> React, TypeScript, TanStack Query, Zustand, Zod, Vite — performance, scale and DX.',
+      proj_alm_sd_p7:
+        '<strong>AI-ready:</strong> domain decoupled from infrastructure eases future integrations (flow automation, recommendations, real-time analysis) without painful rewrites.',
+      proj_alm_sd_sum6: 'Outcome and conclusion',
+      proj_alm_sd_p8:
+        '<strong>Outcome:</strong> scale features with less risk, reduce complexity over time, improve testability and delivery speed.',
+      proj_alm_sd_p9:
+        'In short: explicit focus on engineering, organization and code sustainability — the kind of decision that supports enterprise and critical systems.',
+      proj_alm_gallery_aria: 'Projects and case studies',
+      proj_alm_gallery_eyebrow: 'Published cases',
+      proj_alm_gallery_h2: 'Projects & work',
+      proj_alm_gallery_count: '1 case · 8 images',
+      proj_alm_frame_aria: 'Open PCS gallery — Porto de São Sebastião, 8 images',
+      proj_alm_frame_alt:
+        'Porto de São Sebastião portal UI — Behance case preview',
+      proj_alm_frame_hint: 'Click · gallery',
+      proj_alm_frame_title: 'Porto de São Sebastião',
+      proj_alm_frame_type: 'MVP · State port platform · São Paulo',
+      proj_lb_close: 'Close gallery',
+      proj_lb_prev: 'Previous image',
+      proj_lb_next: 'Next image',
+      proj_lb_dialog: 'PCS image gallery',
+      proj_lb_gallery_fallback: 'Gallery',
+      proj_lb_zoom_alt: 'Enlarged view',
+      proj_lb_image_word: 'Image',
+      proj_lb_of: 'of',
+      proj_lb_aria_pcs: 'PCS gallery · image {i} of {n}',
+      proj_lb_aria_single: '{title} — enlarged view',
+      proj_lb_diagram_title: 'PCS architecture diagram',
+
+      proj_common_sec_company: 'The company',
+      proj_common_sec_role: 'My role',
+      proj_common_sec_work: 'Projects & work',
+      proj_common_cases_h2: 'Published cases',
+      proj_common_behance: 'View on Behance',
+      proj_common_sec_video: 'Video',
+      proj_common_h2_loom: 'Loom walkthrough',
+      proj_common_sec_context: 'The context',
+      proj_common_eyebrow_fd: 'Frontend & design',
+      proj_gallery_hint: 'Click · gallery',
+      proj_click_prefix: 'Click ·',
+      proj_sec_diagram: 'Diagram',
+      proj_word_folder: 'folder',
+
+      proj_record_meta_desc: 'Record TV — Webmaster · Marcus Cunha',
+      proj_record_doc_title: 'Record TV · Marcus Cunha',
+      proj_record_tag: 'Early career',
+      proj_record_role: 'Webmaster · Via Octagonal · Benfica, Rio de Janeiro',
+      proj_record_quote:
+        '"First real taste of scale and deadlines — ASP.NET sites and interfaces at one of the country’s largest media networks."',
+      proj_record_h2_co: 'Record TV — one of Brazil’s largest communication outlets',
+      proj_record_p_co:
+        'I worked for Octagonal, assigned to Record TV Benfica. I managed the label’s website — institutional, e-commerce and campaign sites — and adapted interfaces in ASP.NET (C#) systems.',
+      proj_record_h2_role: 'Full-stack webmaster — from leadership to code',
+      proj_record_p_role1:
+        'PHP with SQL Server queries for sales. I owned artist sites — Photoshop, HTML and CSS. Process ownership and ASP.NET UI adaptation.',
+      proj_record_p_role2:
+        'Without direct reports, I learned to work with executive leadership and a pragmatic view of delivery — one of the most valuable lessons of this phase.',
+
+      proj_ceci_meta_desc:
+        'CECIERJ Foundation — Web Developer · UI · 2D Animator · Marcus Cunha',
+      proj_ceci_doc_title: 'CECIERJ · Marcus Cunha',
+      proj_ceci_tag: 'Early career · Foundation',
+      proj_ceci_role: 'Web Developer · UI · 2D Animator · CEDERJ consortium / UFRJ',
+      proj_ceci_quote:
+        '"Interfaces with strong accessibility focus — with UFRJ (COPPE) — and 2D animation when the project needed it. I learned early that UI has real impact on people."',
+      proj_ceci_sec_foundation: 'The foundation',
+      proj_ceci_h2_foundation:
+        'CECIERJ — accessible distance learning across Brazil',
+      proj_ceci_p_foundation:
+        'CECIERJ Foundation runs the CEDERJ consortium, widening access to free public higher education in Rio state, with university hubs in inland cities. Deep social impact, with UFRJ, COPPE and other state universities.',
+      proj_ceci_h2_role: 'Accessibility, animation and the origin of my user focus',
+      proj_ceci_p_role1:
+        'Educational interfaces with strong accessibility — with COPPE/UFRJ. 2D animation for learning content, making distance learning more accessible and engaging.',
+      proj_ceci_p_role2:
+        'Where I learned early that UI has real impact — a lens I still bring to every project.',
+      proj_ceci_card_title: 'CECIERJ Foundation · CEDERJ consortium',
+      proj_ceci_card_desc:
+        'Educational interfaces focused on accessibility for distance learning — social-impact work widening access to free public higher education in RJ.',
+
+      proj_casa_meta_desc: 'Casa Digital — Frontend Developer · Marcus Cunha',
+      proj_casa_doc_title: 'Casa Digital · Marcus Cunha',
+      proj_casa_tag: 'Mid · Agency',
+      proj_casa_role: 'Frontend Developer · Full-service agency · Public-sector projects',
+      proj_casa_quote:
+        '"High-traffic sites such as EduardoPaes15, MarcaRJ, GDF, Olympic City and Lei Sêca RJ — plus creation and management of email marketing at scale."',
+      proj_casa_h2_co: 'Casa Digital — agency behind major government campaigns',
+      proj_casa_p_co:
+        'Full-service agency for high-profile government and private clients. Systems analysis, prototyping and UI delivery for multiple clients, with internal training on fast UI development.',
+      proj_casa_h2_role: 'Frontend on high-visibility sites and email marketing sends',
+      proj_casa_p_role:
+        'Frontend on high-traffic sites for clients such as EduardoPaes15, MarcaRJ, Sérgio Cabral, GDF (Federal District government), Olympic City v1 and Lei Sêca RJ. I also ran large-scale MailChimp and LocalWeb email sends.',
+      proj_casa_card1_t: 'RJ — Registered trademark',
+      proj_casa_card1_d:
+        'Institutional portal for the Rio promotion campaign — strong identity and broad public reach.',
+      proj_casa_card2_t: 'Olympic City',
+      proj_casa_card2_d:
+        'Olympic City portal — v1 of Rio’s official Olympic actions site, very high traffic.',
+      proj_casa_card3_t: 'Lei Sêca RJ',
+      proj_casa_card3_d:
+        'Campaign portal for Rio’s Lei Sêca — high-impact road-safety messaging.',
+      proj_casa_card4_t: 'GDF — Federal District government',
+      proj_casa_card4_d:
+        'Federal District government portal — modern, accessible institutional presence.',
+      proj_casa_card5_t: 'ABP — Contest landing',
+      proj_casa_card5_d:
+        'Contest landing for ABP — conversion and signup flows tuned for high volume.',
+
+      proj_spassu_meta_desc: 'Spassu · Petrobras — Frontend UI Designer · Marcus Cunha',
+      proj_spassu_doc_title: 'Spassu · Petrobras · Marcus Cunha',
+      proj_spassu_tag: 'Frontend Mid · UI/UX',
+      proj_spassu_role:
+        'Front-end Developer · UI Designer · Internal digital transformation',
+      proj_spassu_quote:
+        '"Design Sprint, internal systems identity and VueJS frontend — hands-on in the digital transformation of Brazil’s largest energy company."',
+      proj_spassu_h2_ctx: 'Spassu — consulting on internal Petrobras programs',
+      proj_spassu_p_ctx:
+        'Spassu contract on Petrobras internal transformation projects. Two phases: first as Frontend/UI/UX (Jul 2019 – Jul 2020), then Agile pipeline (Jul 2020 – Nov 2020).',
+      proj_spassu_h2_role:
+        'From ideation to code — large systems with complex data',
+      proj_spassu_p_role:
+        'Ideation with Design Sprint (Google), visual identity for internal systems, frontend in vanilla JS and Vue/Vuex. UI/UX delivery on large-scale systems with charts and data dashboards.',
+      proj_spassu_p_video:
+        'Video walkthrough of the Spassu · Petrobras context and UI material on this page.',
+      proj_spassu_iframe_main: 'Loom — Spassu & Petrobras (portfolio)',
+      proj_spassu_sec_pandora: 'Pandora system',
+      proj_spassu_h2_pandora: 'Loom — Pandora (parts 1 & 2)',
+      proj_spassu_p_pandora: 'Part 1 above, part 2 below — same order as the embeds you shared.',
+      proj_spassu_iframe_p1: 'Loom — Pandora system (1)',
+      proj_spassu_iframe_p2: 'Loom — Pandora system (2)',
+      proj_spassu_gallery_aria: 'Spassu Petrobras project galleries',
+      proj_spassu_gallery_eyebrow: 'Screens by project',
+      proj_spassu_gallery_h2: 'Each folder = one case',
+      proj_spassu_gallery_count: '4 projects · 31 images',
+      proj_spassu_card1_t: 'Semantic document search',
+      proj_spassu_card1_d:
+        'Smart search UI for Petrobras internal documents — UX focused on relevance and retrieval efficiency.',
+      proj_spassu_card2_t: 'Delfos — First-oil date forecast',
+      proj_spassu_card2_d:
+        'Predictive system for delivery estimates in oil exploration — complex dashboards and critical visualizations.',
+      proj_spassu_card3_t: 'Chemical product quality system',
+      proj_spassu_card3_d:
+        'Qualiprod — chemical product qualification with specialized UI for internal industrial process control.',
+      proj_spassu_folder_lbl: 'Folder',
+      proj_spassu_internal: 'Internal',
+      proj_spassu_lb_dialog: 'Image gallery',
+      proj_spassu_alt_bussola: 'Semantic search — preview',
+      proj_spassu_alt_delfos: 'Delfos — preview',
+      proj_spassu_alt_qualiprod: 'Qualiprod — preview',
+      proj_spassu_alt_pocos: 'Well system — preview',
+      proj_spassu_aria_bussola: 'Semantic search gallery, 4 images',
+      proj_spassu_aria_delfos: 'Delfos gallery, 7 images',
+      proj_spassu_aria_qualiprod: 'Qualiprod gallery, 15 images',
+      proj_spassu_aria_pocos: 'Well system gallery, 5 images',
+      proj_spassu_t_bussola: 'Semantic search',
+      proj_spassu_t_delfos: 'Delfos',
+      proj_spassu_t_qualiprod: 'Qualiprod',
+      proj_spassu_t_pocos: 'Well system',
+
+      proj_par_meta_desc: 'Par Perfeito · Match Group — Frontend Developer · Marcus Cunha',
+      proj_par_doc_title: 'Par Perfeito · Marcus Cunha',
+      proj_par_h1_html: 'Par <strong>Perfeito</strong>',
+      proj_par_tag: 'Mid · Freelance',
+      proj_par_role:
+        'Frontend Developer · Match Group · High international traffic',
+      proj_par_quote:
+        '"High-traffic dating products — Tinder, Par Perfeito, Divino Amor, POF — plus e-commerce for Globo, GE and Americanas and email marketing at scale."',
+      proj_par_h2_co:
+        'Match Group — 45+ leading dating brands worldwide',
+      proj_par_p_co:
+        'Since 2008 Match Group has more than doubled: from essentially one brand to 45+ market-leading brands with users in almost every country. Par Perfeito, Divino Amor, Tinder and POF are part of this global ecosystem.',
+      proj_par_h2_role:
+        'Frontend for dating products, e-commerce and large-scale campaigns',
+      proj_par_p_role1:
+        'Frontend for flagship products — desktop and mobile — including Par Perfeito, Divino Amor, GE Encontros, Match Argentina and Chile. Landing pages for Tinder, Divino Amor, Amor e Fé and other group products.',
+      proj_par_p_role2:
+        'Beyond dating: e-commerce and campaigns for Globo, GE and Americanas, with high-scale email marketing.',
+      proj_par_gallery_aria: 'Landing pages & screens · Par Perfeito · Match Group',
+      proj_par_gallery_eyebrow: 'Frontend & design',
+      proj_par_gallery_h2: 'Landings & campaigns — Match Group',
+      proj_par_gallery_count: '5 images',
+      proj_par_count_one: '1 image',
+      proj_par_count_n: '{n} images',
+      proj_par_lb_aria_multi: 'Landings gallery · image {i} of {n}',
+      proj_par_frame_aria: 'Open landing gallery, 5 images',
+      proj_par_frame_alt:
+        'Match Group landing — Par Perfeito gallery preview',
+      proj_par_frame_title: 'Landings — Par Perfeito · Match Group',
+      proj_par_caption_title: 'Landing pages & campaigns',
+      proj_par_caption_type: 'Responsive HTML · high traffic · A/B',
+      proj_par_lb_dialog: 'Par Perfeito landing gallery',
+      proj_par_card_t: 'Match.com — Tinder · Par Perfeito · Divino Amor · POF',
+      proj_par_card_d:
+        'Frontend for Match Group dating products — high-traffic interfaces for desktop and mobile across international brands.',
+
+      proj_inst_meta_desc: 'Instant Solutions — Frontend UI Analyst · Marcus Cunha',
+      proj_inst_doc_title: 'Instant Solutions · Marcus Cunha',
+      proj_inst_h1_html: 'Instant <strong>Solutions</strong>',
+      proj_inst_tag: 'Senior',
+      proj_inst_role:
+        'Frontend UI Analyst · UX weighted equally with code',
+      proj_inst_quote:
+        '"When I joined, I documented every process and task — and rebuilt the UI of the two main systems, putting UI quality and product at the center."',
+      proj_inst_h2_co:
+        'Instant Solutions — multi-stack systems with product mindset',
+      proj_inst_p_co:
+        'Complex systems in Django, React, PHP and Node. The goal was to bring a modern language and continuous usability improvement to a mature platform.',
+      proj_inst_h2_role:
+        'Redesign of core systems and modernization of chatbots',
+      proj_inst_p_role:
+        'I documented processes in GitBook on day one. I reworked the two main systems and several client chatbots with CSS and JavaScript. Focus on analysis, UI build and product alignment.',
+      proj_inst_gallery_aria: 'Frontend design — Instant Solutions screens',
+      proj_inst_gallery_h2: 'Production screens — one folder per project',
+      proj_inst_gallery_count: '2 projects',
+      proj_inst_frame1_aria: 'Main Instant Solutions system gallery',
+      proj_inst_frame1_alt: 'Main Instant Solutions system — gallery cover',
+      proj_inst_cap1_t: 'Core system',
+      proj_inst_cap1_type_prefix: '44 images · folder',
+      proj_inst_type1_html:
+        '44 images · folder <span lang="en">instantSolutionsSistema</span>',
+      proj_inst_type2_html: '3 images · folder <span lang="en">Agora</span>',
+      proj_inst_frame2_aria: 'Ágora mobile chat gallery',
+      proj_inst_frame2_alt: 'Ágora mobile chat — gallery cover',
+      proj_inst_cap2_t: 'Ágora — Mobile chat',
+      proj_inst_cap2_type_prefix: '3 images · folder',
+      proj_inst_card1_t: 'Core system',
+      proj_inst_card1_d:
+        'Full redesign of Instant Solutions’ core system — new UI, modernized flows and major usability gains.',
+      proj_inst_card2_t: 'Ágora — Mobile chat',
+      proj_inst_card2_d:
+        'Mobile chatbot UI for multiple platform clients — conversational experience with a modern visual identity.',
+      proj_inst_lb_dialog: 'Instant Solutions gallery',
+      proj_inst_summary_tpl: '{nk} projects · {nt} images',
+      proj_inst_aria_open_one: 'Open gallery — {title} — 1 image',
+      proj_inst_aria_open_many: 'Open gallery — {title} — {n} images',
+      proj_inst_lb_aria_multi:
+        'Instant Solutions gallery · image {i} of {n}',
+
+      proj_tjrj_meta_desc: 'TJRJ · PJe — Marcus Cunha',
+      proj_tjrj_doc_title: 'TJRJ · PJe · Marcus Cunha',
+      proj_tjrj_h1_html: 'TJRJ · <strong>PJe</strong>',
+      proj_tjrj_tag: 'Senior → Specialist',
+      proj_tjrj_role:
+        'Lead Frontend Developer / UI·UX · Concurrent roles',
+      proj_tjrj_quote:
+        '"Mission-critical judiciary systems — zero tolerance for failure. Shaping PJe, structuring flows and the visual baseline that guided entire teams."',
+      proj_tjrj_h2_ctx:
+        'Rio de Janeiro Court — high-criticality public systems',
+      proj_tjrj_p_ctx1:
+        'Work at TJRJ via partner, building PJe (electronic judicial process). No margin for error — judges, lawyers and staff across Rio state.',
+      proj_tjrj_p_ctx2:
+        'In parallel, Extreme Digital: component library and national high-volume digital health — two contexts demanding constant pace and quality shifts.',
+      proj_tjrj_h2_role: 'From design to architecture — user at the center',
+      proj_tjrj_p_role1:
+        'On PJe I helped conceive the system, structure flows and define the visual baseline for whole dev teams. Angular, PHP PoC, vanilla JS, Figma and clean architecture.',
+      proj_tjrj_p_role2:
+        'At Extreme Digital: micro-frontends, Design System and GraphQL for a health platform with strict performance and accessibility.',
+      proj_tjrj_iframe_whimsical: 'TJRJ PJe diagram — Whimsical',
+      proj_tjrj_h2_diag: 'Flow — Whimsical',
+      proj_tjrj_p_loom: 'Complementary video to the diagram — PJe and TJRJ context.',
+      proj_tjrj_iframe_loom: 'Loom — TJRJ · PJe',
+      proj_tjrj_gallery_aria: 'PJe TJRJ screens and UI',
+      proj_tjrj_gallery_h2: 'PJe — external user (TJRJ)',
+      proj_tjrj_gallery_count: '7 images',
+      proj_tjrj_frame_aria: 'Open PJe TJRJ gallery, 7 images',
+      proj_tjrj_frame_alt: 'PJe portal screens — external user TJRJ',
+      proj_tjrj_cap_title: 'External user portal',
+      proj_tjrj_cap_type: 'Flows · interface · TJRJ',
+      proj_tjrj_lb_dialog: 'PJe TJRJ gallery',
+      proj_tjrj_card1_t: 'PJe — External user portal',
+      proj_tjrj_card1_d:
+        'TJRJ electronic judicial portal — UX conception, interface architecture and Design System guiding multiple teams.',
+      proj_tjrj_card2_t: 'Online demo — external user',
+      proj_tjrj_card2_d:
+        'Prototype still hosted on Surge: reference flows and interface for review.',
+      proj_tjrj_card2_link: 'Open pjxternal.surge.sh',
+      proj_tjrj_lb_title: 'PJe · External user portal',
+      proj_tjrj_lb_aria_multi: 'PJe gallery · image {i} of {n}',
+      proj_tjrj_sec_diag: 'Diagram',
+
+      proj_sefaz_meta_desc:
+        'SEFAZ-RJ · SCOMEX — Frontend Analyst · Marcus Cunha',
+      proj_sefaz_doc_title: 'SEFAZ · Rio Government · Marcus Cunha',
+      proj_sefaz_h1_html: 'SEFAZ · <strong>Rio Government</strong>',
+      proj_sefaz_tag: 'Mid → Senior',
+      proj_sefaz_role:
+        'Frontend Developer · SEPLAG + Treasury Secretariat · Statewide scale',
+      proj_sefaz_quote:
+        '"State treasury portals and systems at statewide scale with direct citizen impact — SCOMEX became a national reference for the treasury."',
+      proj_sefaz_h2_ctx: 'Government of Rio de Janeiro — SEPLAG and SEFAZ',
+      proj_sefaz_p_ctx:
+        'Two bodies of Rio state government. At SEPLAG (Planning): procurement portals, employee portal, intranet, indoor media and payroll transparency. At SEFAZ (Treasury): institutional portals, tax incentive systems and SCOMEX — a nationally referenced program.',
+      proj_sefaz_h2_role: 'Senior frontend on citizen-impact systems',
+      proj_sefaz_p_role:
+        'Maintained and evolved Treasury portals (HTML, CSS, JS, Oracle ADF, UX). Frontend refactors with Gulp, Grunt, Sass; prototypes with Jekyll and Hexo. Responsive, usable, modern UI and automation across the stack.',
+      proj_sefaz_gallery_aria: 'Frontend-design galleries by project — SEFAZ & SEPLAG',
+      proj_sefaz_gallery_h2: 'Production screens — one folder per project',
+      proj_sefaz_sketch_sec: 'Frontend & design',
+      proj_sefaz_sketch_h2: 'Sketches — visual reference',
+      proj_sefaz_sketch_p_html:
+        'One way I do <strong>frontend-design</strong> before coding: sketch flows, hierarchy and UI states to align with the team and ship code with decisions already made — tighter execution, less rework. The <a class="sketch-inline-link" href="https://photos.google.com/share/AF1QipMXYCySh4zL5ybW1YOr_V_CaIBno0XtY322R4-HYSpiZz5hWV6aSUHAFgvTAU5g7Q?key=c0RNVEJxMlVXNDZjMjM0S2JKOGM1cmhIQ004OGFB" target="_blank" rel="noopener noreferrer">Google Photos</a> album documents this process on state government projects.',
+      proj_sefaz_sketch_cta: 'View sketches and UI process',
+      proj_sefaz_work_h2: 'Published cases — SEPLAG & SEFAZ',
+      proj_sefaz_lb_dialog: 'SEFAZ frontend-design gallery',
+      proj_sefaz_summary_tpl: '{nk} projects · {nt} images',
+      proj_sefaz_open_gallery_tpl: 'Open gallery — {title} — {suffix}',
+      proj_sefaz_lb_aria_multi: 'SEFAZ gallery · image {i} of {n}',
+      proj_sefaz_img_one: '1 image',
+      proj_sefaz_img_n: '{n} images',
+      proj_sefaz_type_psrj_html:
+        '6 images · folder <span lang="en">portalServidorRJ</span>',
+      proj_sefaz_type_intra_html:
+        '1 image · folder <span lang="en">IntranetRJ</span>',
+      proj_sefaz_type_novo_html:
+        '2 images · folder <span lang="en">novoPortalSefaz</span>',
+      proj_sefaz_type_tesouro_html:
+        '4 images · folder <span lang="en">portalTesouroRJ</span>',
+      proj_sefaz_type_sei_html:
+        '2 images · folder <span lang="en">PortalSEI</span>',
+      proj_sefaz_type_rem_html:
+        '6 images · folder <span lang="en">consultaRemuneracaoRJ</span>',
+      proj_sefaz_type_transp_html:
+        '3 images · folder <span lang="en">portal_transparencia</span>',
+      proj_sefaz_type_padrao_html:
+        '14 images · frontend-design · folder <span lang="en">projeto_padraoVisualSistemasInternos</span>',
+      proj_sefaz_type_bast_html:
+        '18 images · folder <span lang="en">BastidoresPlanejamentos</span>',
+      proj_sefaz_lbl_tesouro: 'Rio Treasury portal',
+      proj_sefaz_lbl_rem: 'RJ salary lookup',
+      proj_sefaz_lbl_transp: 'Transparency portal',
+      proj_sefaz_lbl_padrao: 'Visual standard · internal systems',
+      proj_sefaz_frame_bast: 'Behind the scenes · planning & process',
+      proj_sefaz_cap_bast_short: 'Behind the scenes · planning',
+      proj_sefaz_land_title: 'Standards landing',
+      proj_sefaz_land_title_attr:
+        'New SEFAZ-RJ systems standard — documentation landing',
+      proj_sefaz_card_psrj_t: 'RJ Employee Portal',
+      proj_sefaz_card_psrj_d:
+        'Portal with digital payslip and core services for all Rio state employees.',
+      proj_sefaz_card_intra_t: 'RJ State intranet',
+      proj_sefaz_card_intra_d:
+        'New SEPLAG & Treasury intranet — unified access for state staff with a modern responsive UI.',
+      proj_sefaz_card_midia_t: 'Indoor media project',
+      proj_sefaz_card_midia_d:
+        'Digital signage for the Planning Secretariat — institutional content on internal displays.',
+      proj_sefaz_card_portal_t: 'New SEFAZ RJ portal',
+      proj_sefaz_card_portal_d:
+        'Full redesign of the Treasury & Planning portal — statewide reference from 2015 to 2020.',
+      proj_sefaz_card_tesouro_t: 'New Rio Treasury portal',
+      proj_sefaz_card_tesouro_d:
+        'Institutional Treasury portal focused on transparency and information access.',
+      proj_sefaz_card_sei_t: 'SEIRJ portal',
+      proj_sefaz_card_sei_d:
+        'State incentive system portal for Treasury & Planning — fiscal benefit management UI.',
+      proj_sefaz_card_rem_t: 'RJ salary transparency',
+      proj_sefaz_card_rem_d:
+        'Public transparency portal for Rio state employee compensation.',
+      proj_sefaz_card_bast_t: 'Behind the scenes — Scrum & Design Thinking',
+      proj_sefaz_card_bast_d:
+        'Process documentation: how large RJ state systems were planned — from Scrum to Design Thinking.'
     }
   };
 
@@ -583,6 +1491,37 @@
       if (!key || !bundle[key]) return;
       el.setAttribute('title', bundle[key]);
     });
+
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-alt');
+      if (!key || !bundle[key]) return;
+      el.setAttribute('alt', bundle[key]);
+    });
+
+    document.querySelectorAll('[data-title-i18n]').forEach(function (el) {
+      var tk = el.getAttribute('data-title-i18n');
+      if (!tk || !bundle[tk]) return;
+      el.setAttribute('data-title', bundle[tk]);
+    });
+
+    var projectMeta = {
+      engineering: { titleKey: 'proj_eng_doc_title', descKey: 'proj_eng_meta_desc' },
+      almaviva: { titleKey: 'proj_alm_doc_title', descKey: 'proj_alm_meta_desc' },
+      record: { titleKey: 'proj_record_doc_title', descKey: 'proj_record_meta_desc' },
+      cecierj: { titleKey: 'proj_ceci_doc_title', descKey: 'proj_ceci_meta_desc' },
+      casa_digital: { titleKey: 'proj_casa_doc_title', descKey: 'proj_casa_meta_desc' },
+      spassu: { titleKey: 'proj_spassu_doc_title', descKey: 'proj_spassu_meta_desc' },
+      sefaz_rj: { titleKey: 'proj_sefaz_doc_title', descKey: 'proj_sefaz_meta_desc' },
+      par_perfeito: { titleKey: 'proj_par_doc_title', descKey: 'proj_par_meta_desc' },
+      instant_solutions: { titleKey: 'proj_inst_doc_title', descKey: 'proj_inst_meta_desc' },
+      tjrj_pje: { titleKey: 'proj_tjrj_doc_title', descKey: 'proj_tjrj_meta_desc' }
+    };
+    if (projectMeta[page]) {
+      var pm = projectMeta[page];
+      if (bundle[pm.titleKey]) document.title = bundle[pm.titleKey];
+      var mdP = document.querySelector('meta[name="description"]');
+      if (mdP && bundle[pm.descKey]) mdP.setAttribute('content', bundle[pm.descKey]);
+    }
 
     if (page === 'index') {
       document.title = bundle.meta_title_index;
@@ -735,6 +1674,9 @@
 
     var sq = document.querySelector('.sobre-quote p');
     if (sq) sq.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+    document.querySelectorAll('.page-quote p').forEach(function (el) {
+      el.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+    });
 
     var hist = opts.history != null ? opts.history : 'replace';
     if (hist !== 'none') {

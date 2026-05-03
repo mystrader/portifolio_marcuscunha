@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-i18n-page="project">
+<html lang="pt-BR" data-i18n-page="tjrj_pje">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -135,21 +135,21 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="skip-link" href="#conteudo" data-i18n="a11y_skip">Pular para o conteúdo</a>
 
   <header class="page-bar">
     <a class="page-voltar" href="../../../../index.html#timeline">
       <i data-feather="arrow-left" aria-hidden="true"></i>
-      Portfólio
+      <span data-i18n="proj_nav_portfolio">Portfólio</span>
     </a>
     <div class="page-bar-right">
       <span class="page-period">2020 → 2024</span>
-      <div class="lang-switch" role="group" aria-label="Idioma do site">
-        <button type="button" class="lang-btn" data-lang-btn="pt" aria-pressed="true" aria-label="Português">
+      <div class="lang-switch" role="group" data-i18n-aria="lang_switch_aria" aria-label="Idioma do site">
+        <button type="button" class="lang-btn" data-lang-btn="pt" aria-pressed="true" data-i18n-aria="proj_lang_pt_aria" aria-label="Português">
           <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.2 17.8 7 10 12.8 2.2 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="2.6" fill="#002776"/></svg></span>
           <span class="lang-btn-text" data-i18n="lang_pt_label">PT</span>
         </button>
-        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false" aria-label="English">
+        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false" data-i18n-aria="proj_lang_en_aria" aria-label="English">
           <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10"><rect width="19" height="10" fill="#b22234"/><path fill="#fff" d="M0 1.54h19v1.54H0zm0 3.08h19v1.54H0zm0 3.08h12.35v1.54H0z"/><rect width="7.65" height="5.38" fill="#3c3b6e"/></svg></span>
           <span class="lang-btn-text" data-i18n="lang_en_label">EN</span>
         </button>
@@ -159,16 +159,16 @@
 
   <div class="page-hero">
     <div class="page-hero-inner">
-      <span class="page-hero-tag">Sênior → Especialista</span>
-      <h1>TJRJ · <strong>PJe</strong></h1>
-      <p class="page-hero-role">Analista Desenvolvedor Frontend Master / UI·UX · Atuação simultânea</p>
+      <span class="page-hero-tag" data-i18n="proj_tjrj_tag">Sênior → Especialista</span>
+      <h1 data-i18n-html="proj_tjrj_h1_html">TJRJ · <strong>PJe</strong></h1>
+      <p class="page-hero-role" data-i18n="proj_tjrj_role">Analista Desenvolvedor Frontend Master / UI·UX · Atuação simultânea</p>
     </div>
   </div>
 
   <div class="page-band">
     <div class="page-band-inner">
       <blockquote class="page-quote">
-        <p lang="pt-BR">"Sistemas críticos do Judiciário — zero tolerância a falhas. Concepção do PJe, estruturando fluxos e criando a base visual que orientou equipes inteiras."</p>
+        <p data-i18n="proj_tjrj_quote">"Sistemas críticos do Judiciário — zero tolerância a falhas. Concepção do PJe, estruturando fluxos e criando a base visual que orientou equipes inteiras."</p>
       </blockquote>
     </div>
   </div>
@@ -177,19 +177,19 @@
 
     <div class="page-main">
 
-    <div class="sec-label"><i data-feather="briefcase" aria-hidden="true"></i> O contexto</div>
-    <h2>Tribunal de Justiça do Rio de Janeiro — sistemas públicos de alta criticidade</h2>
-    <p>Atuação no TJRJ via parceiro, desenvolvendo o PJe (Processo Judicial Eletrônico). Sistemas sem margem de erro, usados por magistrados, advogados e servidores em todo o estado do Rio de Janeiro.</p>
-    <p>Paralelamente, atuação na Extreme Digital liderando biblioteca de componentes e plataforma de saúde digital nacional de alto volume — dois contextos distintos que exigiram adaptação constante de ritmo e exigência.</p>
+    <div class="sec-label"><i data-feather="briefcase" aria-hidden="true"></i> <span data-i18n="proj_common_sec_context">O contexto</span></div>
+    <h2 data-i18n="proj_tjrj_h2_ctx">Tribunal de Justiça do Rio de Janeiro — sistemas públicos de alta criticidade</h2>
+    <p data-i18n="proj_tjrj_p_ctx1">Atuação no TJRJ via parceiro, desenvolvendo o PJe (Processo Judicial Eletrônico). Sistemas sem margem de erro, usados por magistrados, advogados e servidores em todo o estado do Rio de Janeiro.</p>
+    <p data-i18n="proj_tjrj_p_ctx2">Paralelamente, atuação na Extreme Digital liderando biblioteca de componentes e plataforma de saúde digital nacional de alto volume — dois contextos distintos que exigiram adaptação constante de ritmo e exigência.</p>
 
     <div class="page-divider" aria-hidden="true">
       <span class="page-divider__line"></span><i data-feather="shield"></i><span class="page-divider__line"></span>
     </div>
 
-    <div class="sec-label"><i data-feather="code" aria-hidden="true"></i> Minha atuação</div>
-    <h2>Do design à arquitetura — usuário no centro do processo</h2>
-    <p>No PJe, participei da concepção do sistema, estruturando fluxos e criando a base visual que orientou equipes inteiras de desenvolvimento. Atuação com Angular, PHP (PoC) e JavaScript vanilla, usando Figma para design e arquitetura limpa como diretriz técnica.</p>
-    <p>Na Extreme Digital, foco em microfrontends, Design System e GraphQL para uma plataforma de saúde com exigências severas de performance e acessibilidade.</p>
+    <div class="sec-label"><i data-feather="code" aria-hidden="true"></i> <span data-i18n="proj_common_sec_role">Minha atuação</span></div>
+    <h2 data-i18n="proj_tjrj_h2_role">Do design à arquitetura — usuário no centro do processo</h2>
+    <p data-i18n="proj_tjrj_p_role1">No PJe, participei da concepção do sistema, estruturando fluxos e criando a base visual que orientou equipes inteiras de desenvolvimento. Atuação com Angular, PHP (PoC) e JavaScript vanilla, usando Figma para design e arquitetura limpa como diretriz técnica.</p>
+    <p data-i18n="proj_tjrj_p_role2">Na Extreme Digital, foco em microfrontends, Design System e GraphQL para uma plataforma de saúde com exigências severas de performance e acessibilidade.</p>
 
     <div class="page-chips">
       <span class="page-chip">React</span>
@@ -208,11 +208,11 @@
       <span class="page-divider__line"></span><i data-feather="git-branch"></i><span class="page-divider__line"></span>
     </div>
 
-    <div class="sec-label"><i data-feather="layout" aria-hidden="true"></i> Diagrama</div>
-    <h2>Fluxo — Whimsical</h2>
+    <div class="sec-label"><i data-feather="layout" aria-hidden="true"></i> <span data-i18n="proj_tjrj_sec_diag">Diagrama</span></div>
+    <h2 data-i18n="proj_tjrj_h2_diag">Fluxo — Whimsical</h2>
     <div class="page-embed-shell">
       <div class="page-embed">
-        <iframe title="Diagrama TJRJ PJe — Whimsical" style="border:none" width="800" height="450" loading="lazy" allow="fullscreen" src="https://whimsical.com/embed/PXhXobBzkbbQappbFB7bTn"></iframe>
+        <iframe data-i18n-title="proj_tjrj_iframe_whimsical" title="Diagrama TJRJ PJe — Whimsical" style="border:none" width="800" height="450" loading="lazy" allow="fullscreen" src="https://whimsical.com/embed/PXhXobBzkbbQappbFB7bTn"></iframe>
       </div>
     </div>
 
@@ -220,12 +220,13 @@
       <span class="page-divider__line"></span><i data-feather="video" aria-hidden="true"></i><span class="page-divider__line"></span>
     </div>
 
-    <div class="sec-label"><i data-feather="film" aria-hidden="true"></i> Vídeo</div>
-    <h2>Walkthrough no Loom</h2>
-    <p>Apresentação em vídeo complementar ao diagrama — contexto PJe e TJRJ.</p>
+    <div class="sec-label"><i data-feather="film" aria-hidden="true"></i> <span data-i18n="proj_common_sec_video">Vídeo</span></div>
+    <h2 data-i18n="proj_common_h2_loom">Walkthrough no Loom</h2>
+    <p data-i18n="proj_tjrj_p_loom">Apresentação em vídeo complementar ao diagrama — contexto PJe e TJRJ.</p>
     <div class="page-embed-wrap">
       <div class="page-embed-loom">
         <iframe src="https://www.loom.com/embed/59740a21e49e47dc9bd6141e5732951d"
+                data-i18n-title="proj_tjrj_iframe_loom"
                 title="Loom — TJRJ · PJe"
                 loading="lazy"
                 allowfullscreen
@@ -235,24 +236,26 @@
 
     </div>
 
-    <section class="proj-gallery-section" aria-label="Telas e interface PJe TJRJ">
+    <section class="proj-gallery-section" data-i18n-aria="proj_tjrj_gallery_aria" aria-label="Telas e interface PJe TJRJ">
       <div class="proj-gallery-inner">
         <div class="proj-gallery-head">
           <div>
             <div class="proj-gallery-eyebrow">
               <i data-feather="monitor" aria-hidden="true"></i>
-              Frontend &amp; design
+              <span data-i18n="proj_common_eyebrow_fd">Frontend &amp; design</span>
             </div>
-            <h2>PJe — usuário externo (TJRJ)</h2>
+            <h2 data-i18n="proj_tjrj_gallery_h2">PJe — usuário externo (TJRJ)</h2>
           </div>
-          <span class="proj-gallery-count">7 imagens</span>
+          <span class="proj-gallery-count" data-i18n="proj_tjrj_gallery_count">7 imagens</span>
         </div>
         <div class="proj-gallery-hero">
           <div class="proj-frame"
                tabindex="0"
                role="button"
+               data-i18n-aria="proj_tjrj_frame_aria"
                aria-label="Abrir galeria PJe TJRJ, 7 imagens"
                data-src="frontend-design/236cfe116440829.6062240da8605.webp"
+               data-title-i18n="proj_tjrj_lb_title"
                data-title="PJe · Portal do usuário externo"
                data-gallery="tjrj">
             <div class="proj-frame-chrome">
@@ -264,13 +267,13 @@
               <div class="proj-frame-url">pje.tjrj.jus.br / usuário externo</div>
             </div>
             <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
-              <img class="proj-frame-img proj-frame-img--contain" src="frontend-design/236cfe116440829.6062240da8605.webp" width="1400" height="596" alt="Telas do portal PJe — usuário externo TJRJ" loading="lazy" decoding="async">
-              <span class="proj-frame-hint" aria-hidden="true">Clique · galeria</span>
+              <img class="proj-frame-img proj-frame-img--contain" src="frontend-design/236cfe116440829.6062240da8605.webp" width="1400" height="596" data-i18n-alt="proj_tjrj_frame_alt" alt="Telas do portal PJe — usuário externo TJRJ" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
             </div>
             <div class="proj-frame-caption">
               <div class="proj-frame-caption-info">
-                <div class="proj-frame-caption-title">Portal do usuário externo</div>
-                <div class="proj-frame-caption-type">Fluxos · interface · TJRJ</div>
+                <div class="proj-frame-caption-title" data-i18n="proj_tjrj_cap_title">Portal do usuário externo</div>
+                <div class="proj-frame-caption-type" data-i18n="proj_tjrj_cap_type">Fluxos · interface · TJRJ</div>
               </div>
               <a class="proj-frame-caption-link"
                  href="https://www.behance.net/gallery/116440829/Portal-do-Usuario-Externo"
@@ -290,24 +293,24 @@
       <span class="page-divider__line"></span><i data-feather="folder"></i><span class="page-divider__line"></span>
     </div>
 
-    <div class="sec-label"><i data-feather="layers" aria-hidden="true"></i> Projetos & trabalhos</div>
-    <h2>Cases publicados</h2>
+    <div class="sec-label"><i data-feather="layers" aria-hidden="true"></i> <span data-i18n="proj_common_sec_work">Projetos & trabalhos</span></div>
+    <h2 data-i18n="proj_common_cases_h2">Cases publicados</h2>
 
     <div class="work-list">
       <a class="work-card" href="https://www.behance.net/gallery/116440829/Portal-do-Usuario-Externo" target="_blank" rel="noopener">
         <div class="work-card-ico"><i data-feather="book-open" aria-hidden="true"></i></div>
         <div class="work-card-body">
-          <p class="work-card-title">PJe — Portal do Usuário Externo</p>
-          <p class="work-card-desc">Portal judicial eletrônico do TJRJ — concepção de UX, arquitetura de interface e Design System orientando o desenvolvimento de múltiplas equipes.</p>
-          <span class="work-card-link">Ver no Behance <i data-feather="external-link" aria-hidden="true"></i></span>
+          <p class="work-card-title" data-i18n="proj_tjrj_card1_t">PJe — Portal do Usuário Externo</p>
+          <p class="work-card-desc" data-i18n="proj_tjrj_card1_d">Portal judicial eletrônico do TJRJ — concepção de UX, arquitetura de interface e Design System orientando o desenvolvimento de múltiplas equipes.</p>
+          <span class="work-card-link"><span data-i18n="proj_common_behance">Ver no Behance</span> <i data-feather="external-link" aria-hidden="true"></i></span>
         </div>
       </a>
       <a class="work-card" href="https://pjxternal.surge.sh/" target="_blank" rel="noopener noreferrer">
         <div class="work-card-ico"><i data-feather="monitor" aria-hidden="true"></i></div>
         <div class="work-card-body">
-          <p class="work-card-title">Demo online — usuário externo</p>
-          <p class="work-card-desc">Protótipo do portal ainda publicado (Surge): referência de fluxos e interface para consulta.</p>
-          <span class="work-card-link">Abrir pjxternal.surge.sh <i data-feather="external-link" aria-hidden="true"></i></span>
+          <p class="work-card-title" data-i18n="proj_tjrj_card2_t">Demo online — usuário externo</p>
+          <p class="work-card-desc" data-i18n="proj_tjrj_card2_d">Protótipo do portal ainda publicado (Surge): referência de fluxos e interface para consulta.</p>
+          <span class="work-card-link"><span data-i18n="proj_tjrj_card2_link">Abrir pjxternal.surge.sh</span> <i data-feather="external-link" aria-hidden="true"></i></span>
         </div>
       </a>
     </div>
@@ -316,16 +319,16 @@
 
   </main>
 
-  <div class="proj-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeria PJe TJRJ">
-    <button type="button" class="proj-lightbox-close" id="lightboxClose" aria-label="Fechar galeria">
+  <div class="proj-lightbox" id="lightbox" role="dialog" aria-modal="true" data-i18n-aria="proj_tjrj_lb_dialog" aria-label="Galeria PJe TJRJ">
+    <button type="button" class="proj-lightbox-close" id="lightboxClose" data-i18n-aria="proj_lb_close" aria-label="Fechar galeria">
       <i data-feather="x" aria-hidden="true"></i>
     </button>
     <div class="proj-lightbox-stage">
-      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--prev" id="lightboxPrev" aria-label="Imagem anterior">
+      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--prev" id="lightboxPrev" data-i18n-aria="proj_lb_prev" aria-label="Imagem anterior">
         <i data-feather="chevron-left" aria-hidden="true"></i>
       </button>
       <img class="proj-lightbox-img" id="lightboxImg" src="" alt="" />
-      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--next" id="lightboxNext" aria-label="Próxima imagem">
+      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--next" id="lightboxNext" data-i18n-aria="proj_lb_next" aria-label="Próxima imagem">
         <i data-feather="chevron-right" aria-hidden="true"></i>
       </button>
     </div>
@@ -336,13 +339,28 @@
   </div>
 
   <footer class="page-foot">
-    <a href="../../../../index.html#timeline">← Voltar ao portfólio</a>
+    <a href="../../../../index.html#timeline" data-i18n="proj_foot_back">← Voltar ao portfólio</a>
   </footer>
 
+  <script src="../../../../i18n.js"></script>
+  <script>if(window.MCI18N) MCI18N.init();</script>
   <script>
     (function(){
       'use strict';
       if(typeof feather!=='undefined') feather.replace({'stroke-width':1.75});
+
+      function tr(key){
+        var L = window.MCI18N && MCI18N.detectLang ? MCI18N.detectLang() : 'pt';
+        return (window.MCI18N && MCI18N.t && MCI18N.t(L, key)) || '';
+      }
+      function tpl(str, o){
+        var out = str;
+        if(!out) return '';
+        Object.keys(o).forEach(function(k){
+          out = out.split('{'+k+'}').join(String(o[k]));
+        });
+        return out;
+      }
 
       const TJRJ_COVER = 'frontend-design/236cfe116440829.6062240da8605.webp';
       const TJRJ_GALLERY = [TJRJ_COVER].concat([
@@ -377,16 +395,17 @@
         var src = lbSources[lbIndex];
         if(!src) return;
         lbImg.src = src;
-        lbImg.alt = (lbCaseTitle ? lbCaseTitle + ' — ' : '') + 'Imagem ' + (lbIndex + 1) + ' de ' + lbSources.length;
-        lbTitle.textContent = lbCaseTitle || 'Galeria';
-        lbCount.textContent = (lbIndex + 1) + ' / ' + lbSources.length;
-        lb.setAttribute('aria-label', 'Galeria PJe · imagem ' + (lbIndex + 1) + ' de ' + lbSources.length);
+        var total = lbSources.length;
+        lbImg.alt = (lbCaseTitle ? lbCaseTitle + ' — ' : '') + tr('proj_lb_image_word') + ' ' + (lbIndex + 1) + ' ' + tr('proj_lb_of') + ' ' + total;
+        lbTitle.textContent = lbCaseTitle || tr('proj_lb_gallery_fallback');
+        lbCount.textContent = (lbIndex + 1) + ' / ' + total;
+        lb.setAttribute('aria-label', tpl(tr('proj_tjrj_lb_aria_multi'), { i: lbIndex + 1, n: total }));
       }
 
       function openLbFromFrame(frame){
-        var src = frame.dataset.src;
-        var title = frame.dataset.title || '';
-        if(frame.dataset.gallery === 'tjrj'){
+        var src = frame.getAttribute('data-src');
+        var title = frame.getAttribute('data-title') || '';
+        if(frame.getAttribute('data-gallery') === 'tjrj'){
           lbSources = TJRJ_GALLERY.slice();
           var i = lbSources.indexOf(src);
           lbIndex = i >= 0 ? i : 0;
@@ -433,9 +452,11 @@
         else if(e.key === 'ArrowLeft'){ e.preventDefault(); stepLb(-1); }
         else if(e.key === 'ArrowRight'){ e.preventDefault(); stepLb(1); }
       });
+      document.addEventListener('i18n:applied', function(){
+        if(typeof feather !== 'undefined') feather.replace({ 'stroke-width': 1.75 });
+        if(lb.classList.contains('is-open')) syncLbUi();
+      });
     })();
   </script>
-  <script src="../../../../i18n.js"></script>
-  <script>if(window.MCI18N) MCI18N.init();</script>
 </body>
 </html>
