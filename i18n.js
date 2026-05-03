@@ -59,7 +59,8 @@
       hero_cred3_school: 'PUC-Rio',
       hero_cred3_course: 'Especialista em TI · Full Stack',
 
-      hero_puc_affil: 'Pós-graduação lato sensu · PUC-Rio',
+      hero_puc_affil_l1: 'Pós-graduação lato sensu',
+      hero_puc_affil_l2: 'PUC-Rio (maio)',
       hero_puc_link_title: 'PUC-Rio — site institucional',
 
       hero_role_html:
@@ -137,7 +138,8 @@
       entry_inss_title: 'Estágio · Desenvolvimento web & suporte técnico',
       entry_seed_title: 'Autônomo · Web & TI',
 
-      entry_almaviva_period: '2024<br>→ agora',
+      entry_almaviva_period:
+        '<span class="e-p-a">2024</span><span class="e-p-b">→ agora</span>',
       entry_almaviva_level: 'Sênior',
       entry_almaviva_body:
         'Liderança técnica de frontend em projeto internacional Brasil–Itália: arquitetura, identidade visual digital e coordenação de squads em escala global. Atuação também em <strong>entregas que conversam com o ecossistema do portal da Prodesp</strong> — integrações, consistência de interface e requisitos de produto no contexto de serviços públicos digitais.',
@@ -186,7 +188,8 @@
       entry_inss_body:
         'Primeira experiência formal na Previdência Social: sites e ferramentas internas em <strong>WordPress</strong> e <strong>PHP</strong>, convivência com <strong>Linux</strong> em servidores e manutenção de microcomputadores — web, servidor e atendimento a usuários internos no mesmo desafio diário.',
 
-      entry_seed_period: 'Freelance<br>até 2004',
+      entry_seed_period:
+        '<span class="e-p-a">Freelance</span><span class="e-p-dash" aria-hidden="true"> — </span><span class="e-p-b">até 2004</span>',
       entry_seed_level: 'Antes do INSS · projetos sob demanda',
       entry_seed_body:
         'Trabalhos avulsos — páginas e pequenos sites, ajustes em <strong>HTML/CSS</strong> e suporte a hardware — o ponto zero da linha do tempo, sem logo de empresa: só prática, curiosidade e cliente direto.',
@@ -225,7 +228,8 @@
       cta_dl_label: 'Downloads · PDF',
       cta_cv_file: 'Currículo (sênior)',
 
-      foot_line1: '© 2026 Marcus Cunha',
+      foot_symbol: '©',
+      foot_owner: 'Marcus Cunha',
       foot_line2: 'Frontend · UX/UI · Brasil · Feito sem template.',
 
       sobre_skip: 'Pular para o conteúdo',
@@ -770,7 +774,8 @@
       hero_cred3_school: 'PUC-Rio',
       hero_cred3_course: 'IT Specialist · Full Stack',
 
-      hero_puc_affil: 'Graduate specialization · PUC-Rio',
+      hero_puc_affil_l1: 'Graduate specialization',
+      hero_puc_affil_l2: 'PUC-Rio (May)',
       hero_puc_link_title: 'PUC-Rio — official website',
 
       hero_role_html:
@@ -848,7 +853,8 @@
       entry_inss_title: 'Intern · Web development & IT support',
       entry_seed_title: 'Freelance · Web & IT',
 
-      entry_almaviva_period: '2024<br>→ now',
+      entry_almaviva_period:
+        '<span class="e-p-a">2024</span><span class="e-p-b">→ now</span>',
       entry_almaviva_level: 'Senior',
       entry_almaviva_body:
         'Frontend tech leadership on a Brazil–Italy international program: architecture, digital visual identity and coordination of squads at global scale. Work aligned with the <strong>Prodesp portal ecosystem</strong> — integrations, UI consistency and product requirements for digital public services.',
@@ -897,7 +903,8 @@
       entry_inss_body:
         'First formal role in social security: internal sites and tools in <strong>WordPress</strong> and <strong>PHP</strong>, <strong>Linux</strong> servers and desktop support — web, ops and internal users in one daily challenge.',
 
-      entry_seed_period: 'Freelance<br>until 2004',
+      entry_seed_period:
+        '<span class="e-p-a">Freelance</span><span class="e-p-dash" aria-hidden="true"> — </span><span class="e-p-b">until 2004</span>',
       entry_seed_level: 'Pre-INSS · on-demand work',
       entry_seed_body:
         'Ad hoc work — pages and small sites, <strong>HTML/CSS</strong> tweaks and hardware support — the origin of the timeline: practice, curiosity and direct clients.',
@@ -936,7 +943,8 @@
       cta_dl_label: 'Downloads · PDF',
       cta_cv_file: 'Résumé (senior)',
 
-      foot_line1: '© 2026 Marcus Cunha',
+      foot_symbol: '©',
+      foot_owner: 'Marcus Cunha',
       foot_line2: 'Frontend · UX/UI · Brazil · No template.',
 
       sobre_skip: 'Skip to content',
