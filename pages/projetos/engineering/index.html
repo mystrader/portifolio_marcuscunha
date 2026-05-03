@@ -47,6 +47,18 @@
     .page-embed-wrap{margin:1.1rem 0 0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0c0c0f;box-shadow:0 6px 28px rgba(0,0,0,.08)}
     .page-embed-loom{position:relative;width:100%;aspect-ratio:16/9;background:#0c0c0f}
     .page-embed-loom iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+    .eng-acc{border:1px solid var(--line);border-radius:12px;margin:1.35rem 0 0;background:#fff;overflow:hidden;box-shadow:0 4px 22px rgba(0,0,0,.05)}
+    .eng-acc > summary{list-style:none;cursor:pointer;padding:1rem 1.1rem;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:.75rem;font-size:.88rem;color:var(--ink);letter-spacing:-.01em;transition:background .2s}
+    .eng-acc > summary::-webkit-details-marker{display:none}
+    .eng-acc > summary::after{content:'+';font-weight:400;color:var(--orange);font-size:1.15rem;line-height:1;flex-shrink:0}
+    .eng-acc[open] > summary::after{content:'−'}
+    .eng-acc > summary:hover{background:var(--orange-s)}
+    .eng-acc > summary:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+    .eng-sum-main{display:inline-flex;align-items:center;gap:.55rem;min-width:0;text-align:left}
+    .eng-sum-ico{width:18px;height:18px;flex-shrink:0;color:var(--orange);stroke-width:1.75}
+    .eng-acc-body{padding:0 1.1rem 1.15rem;font-size:.92rem;color:#5c5854;line-height:1.62}
+    .eng-acc-body p{margin-bottom:.85rem}
+    .eng-acc-body .page-embed-wrap{margin-top:.35rem}
     .work-list{display:flex;flex-direction:column;gap:.85rem;margin-top:1rem}
     .work-card{display:flex;align-items:flex-start;gap:1rem;padding:1.15rem 1.25rem;border:1px solid var(--line);border-radius:10px;background:#fff;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s,transform .18s var(--ease)}
     .work-card:hover{border-color:rgba(224,91,26,.45);box-shadow:0 4px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
@@ -139,6 +151,22 @@
                 allow="fullscreen; picture-in-picture"></iframe>
       </div>
     </div>
+
+    <details class="eng-acc">
+      <summary><span class="eng-sum-main"><i data-feather="terminal" class="eng-sum-ico" aria-hidden="true"></i><span>Live — Code API</span></span></summary>
+      <div class="eng-acc-body">
+        <p>Loom focado em código e integração com APIs no contexto do produto — complemento ao walkthrough geral do DHuO.</p>
+        <div class="page-embed-wrap">
+          <div class="page-embed-loom">
+            <iframe src="https://www.loom.com/embed/2dea8209787540cc8b25ff0c59091c50"
+                    title="Loom — Live Code API (Engineering)"
+                    loading="lazy"
+                    allowfullscreen
+                    allow="fullscreen; picture-in-picture"></iframe>
+          </div>
+        </div>
+      </div>
+    </details>
 
     <div class="page-divider" aria-hidden="true">
       <span class="page-divider__line"></span><i data-feather="folder"></i><span class="page-divider__line"></span>

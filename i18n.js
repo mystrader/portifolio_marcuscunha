@@ -126,11 +126,11 @@
       entry_almaviva_title: 'Senior Frontend Engineer',
       entry_kaki_title: 'Especialista Front-end Engineer',
       entry_pje_title: 'Analista Desenvolvedor Frontend Master / UI/UX',
-      entry_spassu_title: 'Desenvolvedor Front-end · UI Designer',
-      entry_instant_title: 'Analista Frontend UI',
-      entry_sefaz_title: 'Analista Desenvolvedor Front-End',
-      entry_par_title: 'Analista Desenvolvedor Front-End',
-      entry_casa_title: 'Analista Desenvolvedor Front-end',
+      entry_spassu_title: 'Desenvolvedor Front-end Sênior · UI Designer',
+      entry_instant_title: 'Analista Frontend UI Especialista',
+      entry_sefaz_title: 'Analista Desenvolvedor Front-End Especialista · UX e UI',
+      entry_par_title: 'Analista Desenvolvedor Front-End Pleno',
+      entry_casa_title: 'Analista Desenvolvedor Front-end Pleno',
       entry_arcon_title: 'Analista Desenvolvedor .NET / C# · UI',
       entry_record_title: 'WebMaster',
       entry_ceci_title: 'Desenvolvedor Web · UI · Animador 2D',
@@ -154,19 +154,19 @@
       entry_spassu_body:
         'Contrato pela SPASSU atuando em projeto interno da Petrobras: interface, consistência visual e entregas em ritmo ágil junto ao time.',
 
-      entry_instant_level: 'Sênior',
+      entry_instant_level: 'Instant Solutions',
       entry_instant_body:
         'Foco em análise e construção de interface, qualidade de UI e alinhamento com produto — UX com o mesmo peso que o código.',
 
-      entry_sefaz_level: 'Pleno → Sênior · Secretaria de Estado da Fazenda (RJ)',
+      entry_sefaz_level: 'Governo do Rio de Janeiro · SEFAZ-RJ',
       entry_sefaz_body:
         'Portais e sistemas da fazenda estadual — escala estadual, impacto direto no cidadão. Margem de erro mínima.',
 
-      entry_par_level: 'Pleno · Freelance',
+      entry_par_level: 'Freelance · Match Group',
       entry_par_body:
         'Produtos de relacionamento em alto tráfego — incluindo <strong>Tinder</strong> e o ecossistema Par Perfeito — além de e-commerce, campanhas (Globo, GE, Americanas) e e-mail marketing em escala.',
 
-      entry_casa_level: 'Pleno · Agência',
+      entry_casa_level: 'Agência',
       entry_casa_body:
         'Agência full-service: análise de sistemas, prototipação e entrega de interface para vários clientes. Treinamentos internos em desenvolvimento rápido de UI.',
 
@@ -382,11 +382,11 @@
       entry_almaviva_title: 'Senior Frontend Engineer',
       entry_kaki_title: 'Specialist Frontend Engineer',
       entry_pje_title: 'Lead Frontend Developer / UI·UX',
-      entry_spassu_title: 'Frontend Developer · UI Designer',
-      entry_instant_title: 'Senior Frontend · UI',
-      entry_sefaz_title: 'Frontend Developer',
-      entry_par_title: 'Frontend Developer',
-      entry_casa_title: 'Frontend Developer',
+      entry_spassu_title: 'Senior Front-end Developer · UI Designer',
+      entry_instant_title: 'Specialist Frontend UI Analyst',
+      entry_sefaz_title: 'Frontend Developer Specialist · UX & UI',
+      entry_par_title: 'Mid-level Frontend Developer',
+      entry_casa_title: 'Mid-level Frontend Developer',
       entry_arcon_title: '.NET / C# Developer · UI',
       entry_record_title: 'Webmaster',
       entry_ceci_title: 'Web Developer · UI · 2D Animator',
@@ -410,19 +410,19 @@
       entry_spassu_body:
         'SPASSU contract on an internal Petrobras project: UI, visual consistency and agile delivery with the team.',
 
-      entry_instant_level: 'Senior',
+      entry_instant_level: 'Instant Solutions',
       entry_instant_body:
         'Analysis and UI build-out, UI quality and product alignment — UX weighted equally with code.',
 
-      entry_sefaz_level: 'Mid → Senior · State Treasury (RJ)',
+      entry_sefaz_level: 'Government of Rio de Janeiro · State Treasury (SEFAZ-RJ)',
       entry_sefaz_body:
         'State treasury portals and systems — statewide scale, direct citizen impact. Minimal margin for error.',
 
-      entry_par_level: 'Mid · Freelance',
+      entry_par_level: 'Freelance · Match Group',
       entry_par_body:
         'High-traffic dating products — including <strong>Tinder</strong> and the Par Perfeito ecosystem — plus e-commerce, campaigns (Globo, GE, Americanas) and email marketing at scale.',
 
-      entry_casa_level: 'Mid · Agency',
+      entry_casa_level: 'Agency',
       entry_casa_body:
         'Full-service agency: systems analysis, prototyping and UI delivery for multiple clients. Internal training on fast UI development.',
 

@@ -59,7 +59,63 @@
     .page-foot a{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);text-decoration:none}
     .page-foot a:hover{text-decoration:underline}
     .page-foot a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    .proj-gallery-section{background:#080810;padding:clamp(2.5rem,6vw,4.5rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid rgba(255,255,255,.06)}
+    .proj-gallery-inner{max-width:720px;margin:0 auto}
+    .proj-gallery-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+    .proj-gallery-eyebrow{display:flex;align-items:center;gap:.55rem;font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+    .proj-gallery-eyebrow svg{width:14px;height:14px;flex-shrink:0}
+    .proj-gallery-head h2{font-size:clamp(1.1rem,2.2vw,1.35rem);font-weight:700;color:rgba(255,255,255,.9);letter-spacing:-.02em;line-height:1.2;margin-top:.35rem}
+    .proj-gallery-count{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.22);flex-shrink:0;align-self:flex-end;padding-bottom:.15rem}
+    .proj-frame{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#14141e;box-shadow:0 24px 64px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.04) inset;transition:transform .35s var(--ease),box-shadow .35s var(--ease);cursor:pointer}
+    .proj-frame:hover{transform:translateY(-5px);box-shadow:0 36px 80px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.07) inset,0 0 0 2px rgba(224,91,26,.18)}
+    .proj-frame:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    .proj-frame-chrome{background:#1e1e2a;padding:.6rem .85rem;display:flex;align-items:center;gap:.65rem;border-bottom:1px solid rgba(255,255,255,.06);user-select:none}
+    .proj-frame-dots{display:flex;gap:.32rem;flex-shrink:0}
+    .proj-frame-dot{width:9px;height:9px;border-radius:50%}
+    .proj-frame-dot:nth-child(1){background:#ff5f57}
+    .proj-frame-dot:nth-child(2){background:#febc2e}
+    .proj-frame-dot:nth-child(3){background:#28c840}
+    .proj-frame-url{flex:1;min-width:0;background:rgba(255,255,255,.05);border-radius:5px;height:22px;display:flex;align-items:center;padding:0 .6rem;font-size:.58rem;font-family:'SF Mono','Fira Code',monospace;color:rgba(255,255,255,.28);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+    .proj-frame-screen-wrap{overflow:hidden;line-height:0;position:relative}
+    .proj-frame-screen-wrap::after{content:'';position:absolute;inset:0;background:rgba(224,91,26,0);transition:background .3s;pointer-events:none}
+    .proj-frame:hover .proj-frame-screen-wrap::after{background:rgba(224,91,26,.04)}
+    .proj-frame-screen-wrap--contain{background:#0a0a12;height:clamp(200px,34vw,340px);width:100%;display:flex;align-items:center;justify-content:center}
+    .proj-frame-img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:top;transition:transform .5s var(--ease)}
+    .proj-frame-img--contain{width:auto;max-width:100%;height:auto;max-height:100%;aspect-ratio:unset;object-fit:contain;object-position:top center}
+    .proj-frame:hover .proj-frame-img{transform:scale(1.03)}
+    .proj-frame:hover .proj-frame-img--contain{transform:none}
+    .proj-frame-hint{position:absolute;bottom:.5rem;right:.55rem;z-index:2;font-size:.52rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);pointer-events:none}
+    .proj-frame-caption{padding:.75rem .9rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;background:#14141e;border-top:1px solid rgba(255,255,255,.06)}
+    .proj-frame-caption-info{min-width:0}
+    .proj-frame-caption-title{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:rgba(255,255,255,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .proj-frame-caption-type{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.28);margin-top:.1rem}
+    .proj-frame-caption-link{flex-shrink:0;display:inline-flex;align-items:center;gap:.35rem;font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--orange);padding:.35rem .75rem;border-radius:6px;border:1px solid rgba(224,91,26,.35);background:rgba(224,91,26,.08);transition:background .18s,border-color .18s,color .18s;white-space:nowrap}
+    .proj-frame-caption-link svg{width:11px;height:11px}
+    .proj-frame-caption-link:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+    .proj-frame-caption-link:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+    .proj-frame{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease),box-shadow .35s var(--ease)}
+    .proj-frame.vis{opacity:1;transform:translateY(0)}
+    .proj-frame:hover{transform:translateY(-5px)!important}
+    .proj-lightbox{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:rgba(0,0,0,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+    .proj-lightbox.is-open{opacity:1;pointer-events:auto}
+    .proj-lightbox-stage{position:relative;display:flex;align-items:center;justify-content:center;max-width:min(94vw,1180px);max-height:calc(85vh - 3rem)}
+    .proj-lightbox-img{max-width:min(92vw,1120px);max-height:calc(85vh - 3rem);width:auto;height:auto;object-fit:contain;border-radius:8px;box-shadow:0 40px 100px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.08);transform:scale(.94);transition:transform .4s var(--ease);display:block}
+    .proj-lightbox.is-open .proj-lightbox-img{transform:scale(1)}
+    .proj-lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(12,12,18,.75);color:rgba(255,255,255,.9);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s}
+    .proj-lightbox-nav svg{width:20px;height:20px}
+    .proj-lightbox-nav:hover{background:rgba(224,91,26,.4);border-color:rgba(224,91,26,.65);color:#fff}
+    .proj-lightbox-nav:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    .proj-lightbox-nav--prev{left:.35rem}
+    .proj-lightbox-nav--next{right:.35rem}
+    @media(max-width:720px){.proj-lightbox-nav{width:40px;height:40px}}
+    .proj-lightbox-close{position:absolute;top:1.25rem;right:1.25rem;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.85);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+    .proj-lightbox-close svg{width:18px;height:18px}
+    .proj-lightbox-close:hover{background:rgba(224,91,26,.35);border-color:rgba(224,91,26,.55);color:#fff}
+    .proj-lightbox-close:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+    .proj-lightbox-caption{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);text-align:center;max-width:90vw}
+    .proj-lightbox-caption-title{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+    .proj-lightbox-caption-count{display:block;margin-top:.35rem;font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.proj-frame,.proj-lightbox-img{transition:none!important}}
   </style>
 </head>
 <body>
@@ -89,7 +145,9 @@
     </div>
   </div>
 
-  <main class="page-main" id="conteudo">
+  <main id="conteudo">
+
+    <div class="page-main">
 
     <div class="sec-label"><i data-feather="briefcase" aria-hidden="true"></i> A empresa</div>
     <h2>Match Group — mais de 45 marcas líderes em relacionamento no mundo</h2>
@@ -115,6 +173,59 @@
       <span class="page-chip">Produto</span>
     </div>
 
+    </div>
+
+    <section class="proj-gallery-section" aria-label="Landing pages e telas Par Perfeito · Match Group">
+      <div class="proj-gallery-inner">
+        <div class="proj-gallery-head">
+          <div>
+            <div class="proj-gallery-eyebrow">
+              <i data-feather="monitor" aria-hidden="true"></i>
+              Frontend &amp; design
+            </div>
+            <h2>Landings &amp; campanhas — Match Group</h2>
+          </div>
+          <span class="proj-gallery-count" id="landpages-count">5 imagens</span>
+        </div>
+        <div class="proj-gallery-hero">
+          <div class="proj-frame"
+               tabindex="0"
+               role="button"
+               aria-label="Abrir galeria de landing pages, 5 imagens"
+               data-src="landpages/dc476157545469.59da7346e2a80.webp"
+               data-title="Landings — Par Perfeito · Match Group"
+               data-gallery="landpages">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots">
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+              </div>
+              <div class="proj-frame-url">match.com / landings · Par Perfeito · campanhas</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="landpages/dc476157545469.59da7346e2a80.webp" width="1200" height="800" alt="Landing page Match Group — galeria landings Par Perfeito" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title">Landing pages &amp; campanhas</div>
+                <div class="proj-frame-caption-type">HTML responsivo · alto tráfego · A/B</div>
+              </div>
+              <a class="proj-frame-caption-link"
+                 href="https://www.behance.net/gallery/57545469/Matchcom-(tinder-parperfeito-divino-amor-POF)"
+                 target="_blank" rel="noopener"
+                 onclick="event.stopPropagation()">
+                Behance <i data-feather="external-link" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-main">
+
     <div class="page-divider" aria-hidden="true">
       <span class="page-divider__line"></span><i data-feather="folder"></i><span class="page-divider__line"></span>
     </div>
@@ -133,7 +244,28 @@
       </a>
     </div>
 
+    </div>
+
   </main>
+
+  <div class="proj-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeria landing pages Par Perfeito">
+    <button type="button" class="proj-lightbox-close" id="lightboxClose" aria-label="Fechar galeria">
+      <i data-feather="x" aria-hidden="true"></i>
+    </button>
+    <div class="proj-lightbox-stage">
+      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--prev" id="lightboxPrev" aria-label="Imagem anterior">
+        <i data-feather="chevron-left" aria-hidden="true"></i>
+      </button>
+      <img class="proj-lightbox-img" id="lightboxImg" src="" alt="" />
+      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--next" id="lightboxNext" aria-label="Próxima imagem">
+        <i data-feather="chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="proj-lightbox-caption" id="lightboxCaption">
+      <span class="proj-lightbox-caption-title" id="lightboxCaptionTitle"></span>
+      <span class="proj-lightbox-caption-count" id="lightboxCaptionCount"></span>
+    </div>
+  </div>
 
   <footer class="page-foot">
     <a href="../../../index.html#timeline">← Voltar ao portfólio</a>
@@ -143,6 +275,112 @@
     (function(){
       'use strict';
       if(typeof feather!=='undefined') feather.replace({'stroke-width':1.75});
+
+      var LAND_COVER = 'landpages/dc476157545469.59da7346e2a80.webp';
+      var LAND_GALLERY = [LAND_COVER].concat([
+        'landpages/2195e457545469.59da7346e33b2.webp',
+        'landpages/c4328957545469.59da7346e2feb.webp',
+        'landpages/f1c9f957545469.59da62b01ca4b.webp',
+        'landpages/f228bb57545469.Y3JvcCw5NjQsNzU0LDIzOCww.jpg',
+      ].sort());
+
+      var frames = document.querySelectorAll('.proj-frame');
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); }
+        });
+      },{threshold:.15});
+      frames.forEach(function(f){ io.observe(f); });
+
+      var countEl = document.getElementById('landpages-count');
+      if(countEl && LAND_GALLERY.length){
+        var n = LAND_GALLERY.length;
+        countEl.textContent = n === 1 ? '1 imagem' : n + ' imagens';
+      }
+      var heroFrame = document.querySelector('[data-gallery="landpages"]');
+      if(heroFrame && LAND_GALLERY.length){
+        var nn = LAND_GALLERY.length;
+        heroFrame.setAttribute('aria-label', 'Abrir galeria de landing pages — ' + nn + (nn === 1 ? ' imagem' : ' imagens'));
+      }
+
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightboxImg');
+      var lbTitle = document.getElementById('lightboxCaptionTitle');
+      var lbCount = document.getElementById('lightboxCaptionCount');
+      var lbClose = document.getElementById('lightboxClose');
+      var lbPrev = document.getElementById('lightboxPrev');
+      var lbNext = document.getElementById('lightboxNext');
+      var lbSources = [];
+      var lbIndex = 0;
+      var lbCaseTitle = '';
+
+      function syncLbUi(){
+        var src = lbSources[lbIndex];
+        if(!src) return;
+        lbImg.src = src;
+        lbTitle.textContent = lbCaseTitle || 'Galeria';
+        var total = lbSources.length;
+        if(total < 2){
+          lbImg.alt = lbCaseTitle || 'Visualização ampliada';
+          lbCount.textContent = '';
+          lb.setAttribute('aria-label', (lbCaseTitle || 'Imagem') + ' — vista ampliada');
+        } else {
+          lbImg.alt = (lbCaseTitle ? lbCaseTitle + ' — ' : '') + 'Imagem ' + (lbIndex + 1) + ' de ' + total;
+          lbCount.textContent = (lbIndex + 1) + ' / ' + total;
+          lb.setAttribute('aria-label', 'Galeria landings · imagem ' + (lbIndex + 1) + ' de ' + total);
+        }
+      }
+
+      function openLbFromFrame(frame){
+        var src = frame.getAttribute('data-src');
+        var title = frame.getAttribute('data-title') || '';
+        if(frame.getAttribute('data-gallery') === 'landpages'){
+          lbSources = LAND_GALLERY.slice();
+          var i = lbSources.indexOf(src);
+          lbIndex = i >= 0 ? i : 0;
+        } else {
+          lbSources = src ? [src] : [];
+          lbIndex = 0;
+        }
+        lbCaseTitle = title;
+        if(!lbSources.length) return;
+        syncLbUi();
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+        lbPrev.hidden = lbSources.length < 2;
+        lbNext.hidden = lbSources.length < 2;
+      }
+
+      function closeLb(){
+        lb.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+        lbSources = [];
+      }
+
+      function stepLb(delta){
+        if(lbSources.length < 2) return;
+        lbIndex = (lbIndex + delta + lbSources.length) % lbSources.length;
+        syncLbUi();
+      }
+
+      frames.forEach(function(f){
+        f.addEventListener('click', function(){ openLbFromFrame(f); });
+        f.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLbFromFrame(f); }
+        });
+      });
+      lbClose.addEventListener('click', closeLb);
+      lbPrev.addEventListener('click', function(e){ e.stopPropagation(); stepLb(-1); });
+      lbNext.addEventListener('click', function(e){ e.stopPropagation(); stepLb(1); });
+      lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+      document.addEventListener('keydown', function(e){
+        if(!lb.classList.contains('is-open')) return;
+        if(e.key === 'Escape') closeLb();
+        else if(e.key === 'ArrowLeft'){ e.preventDefault(); stepLb(-1); }
+        else if(e.key === 'ArrowRight'){ e.preventDefault(); stepLb(1); }
+      });
     })();
   </script>
 </body>
