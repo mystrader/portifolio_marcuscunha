@@ -44,6 +44,11 @@
     .page-divider{display:flex;align-items:center;gap:1rem;margin:2rem 0;color:var(--orange)}
     .page-divider__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(224,91,26,.4),transparent)}
     .page-divider svg{width:20px;height:20px;flex-shrink:0}
+    .page-embed-wrap{margin:1.1rem 0 0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0c0c0f;box-shadow:0 6px 28px rgba(0,0,0,.08)}
+    .page-embed-loom{position:relative;width:100%;aspect-ratio:16/9;background:#0c0c0f}
+    .page-embed-loom iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+    .page-embed-stack{display:flex;flex-direction:column;gap:1.25rem;margin-top:.75rem}
+    .page-embed-stack .page-embed-wrap{margin-top:0}
     .work-list{display:flex;flex-direction:column;gap:.85rem;margin-top:1rem}
     .work-card{display:flex;align-items:flex-start;gap:1rem;padding:1.15rem 1.25rem;border:1px solid var(--line);border-radius:10px;background:#fff;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s,transform .18s var(--ease)}
     .work-card:hover{border-color:rgba(224,91,26,.45);box-shadow:0 4px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
@@ -174,6 +179,51 @@
       <span class="page-chip">Design Sprint</span>
       <span class="page-chip">UI Design</span>
       <span class="page-chip">Esteira Ágil</span>
+    </div>
+
+    <div class="page-divider" aria-hidden="true">
+      <span class="page-divider__line"></span><i data-feather="video" aria-hidden="true"></i><span class="page-divider__line"></span>
+    </div>
+
+    <div class="sec-label"><i data-feather="film" aria-hidden="true"></i> Vídeo</div>
+    <h2>Walkthrough no Loom</h2>
+    <p>Apresentação em vídeo do contexto Spassu · Petrobras e do material de interface desta página.</p>
+    <div class="page-embed-wrap">
+      <div class="page-embed-loom">
+        <iframe src="https://www.loom.com/embed/42952f619ab947739009ea59ea16d3d6"
+                title="Loom — Spassu e Petrobras (portfólio)"
+                loading="lazy"
+                allowfullscreen
+                allow="fullscreen; picture-in-picture"></iframe>
+      </div>
+    </div>
+
+    <div class="page-divider" aria-hidden="true">
+      <span class="page-divider__line"></span><i data-feather="package" aria-hidden="true"></i><span class="page-divider__line"></span>
+    </div>
+
+    <div class="sec-label"><i data-feather="video" aria-hidden="true"></i> Sistema Pandora</div>
+    <h2>Loom — Pandora (parte 1 e 2)</h2>
+    <p>Parte 1 em cima, parte 2 abaixo — mesma ordem dos embeds que enviaste.</p>
+    <div class="page-embed-stack">
+      <div class="page-embed-wrap">
+        <div class="page-embed-loom">
+          <iframe src="https://www.loom.com/embed/8ff6ad8230d64968bec981ba0d54ccae"
+                  title="Loom — Sistema Pandora (1)"
+                  loading="lazy"
+                  allowfullscreen
+                  allow="fullscreen; picture-in-picture"></iframe>
+        </div>
+      </div>
+      <div class="page-embed-wrap">
+        <div class="page-embed-loom">
+          <iframe src="https://www.loom.com/embed/2d673512d2904f3da9759c20321ef7af"
+                  title="Loom — Sistema Pandora (2)"
+                  loading="lazy"
+                  allowfullscreen
+                  allow="fullscreen; picture-in-picture"></iframe>
+        </div>
+      </div>
     </div>
 
     </div>

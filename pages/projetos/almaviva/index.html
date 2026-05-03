@@ -60,6 +60,35 @@
     .page-divider__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(224,91,26,.4),transparent)}
     .page-divider svg{width:20px;height:20px;flex-shrink:0}
 
+    .sd-section{background:var(--warm);padding:clamp(2.25rem,5vw,3.5rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid var(--line)}
+    .sd-inner{max-width:720px;margin:0 auto}
+    .sd-eyebrow{font-size:.58rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem}
+    .sd-section h2{font-size:clamp(1.15rem,2.4vw,1.45rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.2;margin-bottom:.65rem}
+    .sd-lead{font-size:clamp(.92rem,1.1vw,1.02rem);color:#5c5854;margin-bottom:1.25rem;line-height:1.65}
+    .sd-fig{margin:0 0 1rem;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+    .sd-fig--zoom .sd-fig-btn{display:block;width:100%;margin:0;padding:0;border:0;background:transparent;cursor:zoom-in;line-height:0;position:relative}
+    .sd-fig--zoom .sd-fig-btn:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+    .sd-fig--zoom .sd-fig-btn img{width:100%;height:auto;display:block;pointer-events:none}
+    .sd-fig-zoom-hint{position:absolute;bottom:.5rem;right:.55rem;z-index:1;font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(26,26,32,.45);pointer-events:none;background:rgba(255,255,255,.75);padding:.2rem .45rem;border-radius:4px}
+    .sd-fig img{width:100%;height:auto;display:block;vertical-align:top}
+    .sd-fig figcaption{font-size:.68rem;color:var(--muted);padding:.55rem .85rem;border-top:1px solid var(--line)}
+    .sd-acc{border:1px solid var(--line);border-radius:10px;margin-bottom:.75rem;background:#fff;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+    .sd-acc > summary{list-style:none;cursor:pointer;padding:.9rem 1rem;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:.75rem;font-size:.85rem;color:var(--ink);letter-spacing:-.01em;transition:background .2s}
+    .sd-sum-main{display:inline-flex;align-items:center;gap:.55rem;min-width:0;text-align:left}
+    .sd-sum-main > span:last-child{line-height:1.35}
+    .sd-sum-ico{width:18px;height:18px;flex-shrink:0;color:var(--orange);stroke-width:1.75}
+    .sd-acc > summary::-webkit-details-marker{display:none}
+    .sd-acc > summary::after{content:'+';font-weight:400;color:var(--orange);font-size:1.15rem;line-height:1;flex-shrink:0}
+    .sd-acc[open] > summary::after{content:'−'}
+    .sd-acc > summary:hover{background:var(--orange-s)}
+    .sd-acc > summary:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+    .sd-acc-body{padding:0 1rem 1.05rem;font-size:.9rem;color:#5c5854;line-height:1.62}
+    .sd-acc-body p{margin-bottom:.85rem}
+    .sd-acc-body p:last-child{margin-bottom:0}
+    .sd-acc-body ul{margin:.35rem 0 .85rem 1.15rem;padding:0}
+    .sd-acc-body li{margin-bottom:.35rem}
+    .sd-acc-body h3{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin:1rem 0 .4rem}
+    .sd-acc-body h3:first-child{margin-top:0}
 
     /* ════════════════════════════════
        PROJECT GALLERY
@@ -588,6 +617,79 @@
 
     </div><!-- /page-main -->
 
+    <section class="sd-section" aria-labelledby="sd-heading">
+      <div class="sd-inner">
+        <p class="sd-eyebrow">System design · PCS</p>
+        <h2 id="sd-heading">Arquitetura frontend escalável — Almaviva</h2>
+        <p class="sd-lead">Case técnico do portal portuário: base preparada para evolução contínua, crescimento de equipa e integração com sistemas complexos — além das telas da galeria, o desenho de camadas e de estado foi documentado de forma explícita.</p>
+
+        <details class="sd-acc" open>
+          <summary><span class="sd-sum-main"><i data-feather="image" class="sd-sum-ico" aria-hidden="true"></i><span>Visão geral e diagrama</span></span></summary>
+          <div class="sd-acc-body">
+            <figure class="sd-fig sd-fig--zoom">
+              <button type="button" class="sd-fig-btn" id="sdArchDiagramOpen" aria-label="Ampliar diagrama de arquitetura PCS em ecrã inteiro">
+                <img src="PCS/design_arquitetura_pcs.jpeg" width="1280" height="853" alt="" loading="lazy" decoding="async">
+                <span class="sd-fig-zoom-hint" aria-hidden="true">Clique · ampliar</span>
+              </button>
+              <figcaption>Diagrama de arquitetura (PCS) — referência para alinhar equipa e stakeholders. Clica na imagem para ver em tamanho real.</figcaption>
+            </figure>
+            <p>O trabalho não foi só construir interfaces: estruturar uma base sólida inspirada em <strong>Clean Architecture</strong> e <strong>DDD</strong>, com camadas bem definidas — Presentation, Application, Domain e Infrastructure.</p>
+          </div>
+        </details>
+
+        <details class="sd-acc">
+          <summary><span class="sd-sum-main"><i data-feather="layers" class="sd-sum-ico" aria-hidden="true"></i><span>Decisões de arquitetura</span></span></summary>
+          <div class="sd-acc-body">
+            <p>A estrutura responde a problemas típicos de aplicações grandes:</p>
+            <ul>
+              <li>Reduzir acoplamento entre UI e regras de negócio</li>
+              <li>Estado previsível e testável</li>
+              <li>Manutenção e evolução de features em paralelo</li>
+            </ul>
+            <p><strong>Abordagens:</strong> arquitetura em camadas; <em>feature-first</em> (vertical slices); separação de estados (global, servidor e UI); hooks como orquestração.</p>
+          </div>
+        </details>
+
+        <details class="sd-acc">
+          <summary><span class="sd-sum-main"><i data-feather="sliders" class="sd-sum-ico" aria-hidden="true"></i><span>Gestão de estado</span></span></summary>
+          <div class="sd-acc-body">
+            <ul>
+              <li><strong>Server state</strong> — APIs, cache e revalidação</li>
+              <li><strong>Global state</strong> — autenticação, preferências partilhadas</li>
+              <li><strong>UI state</strong> — comportamento e controlo visual</li>
+              <li><strong>Local / URL state</strong> — filtros e navegação persistidos</li>
+            </ul>
+            <p>Esta separação reduz complexidade e evita conflitos comuns em SPAs de grande porte.</p>
+          </div>
+        </details>
+
+        <details class="sd-acc">
+          <summary><span class="sd-sum-main"><i data-feather="share-2" class="sd-sum-ico" aria-hidden="true"></i><span>Estrutura e fluxo de dados</span></span></summary>
+          <div class="sd-acc-body">
+            <h3>Feature-first</h3>
+            <p>Cada funcionalidade com a sua árvore: hooks, schemas, componentes, tipagens e regras de negócio — para squads paralelos sem perder organização.</p>
+            <h3>Fluxo</h3>
+            <p><strong>Interface → hooks → camada de aplicação → APIs → persistência.</strong> Interceptors para autenticação, erros e padronização de pedidos.</p>
+          </div>
+        </details>
+
+        <details class="sd-acc">
+          <summary><span class="sd-sum-main"><i data-feather="cpu" class="sd-sum-ico" aria-hidden="true"></i><span>Stack e visão IA-ready</span></span></summary>
+          <div class="sd-acc-body">
+            <p><strong>Stack:</strong> React, TypeScript, TanStack Query, Zustand, Zod, Vite — foco em performance, escalabilidade e DX.</p>
+            <p><strong>IA-ready:</strong> domínio desacoplado da infraestrutura facilita integrações futuras (automação de fluxos, recomendações, análise em tempo real) sem reescritas traumáticas.</p>
+          </div>
+        </details>
+
+        <details class="sd-acc">
+          <summary><span class="sd-sum-main"><i data-feather="check-circle" class="sd-sum-ico" aria-hidden="true"></i><span>Resultado e conclusão</span></span></summary>
+          <div class="sd-acc-body">
+            <p><strong>Resultado:</strong> escalar funcionalidades com menos risco, reduzir complexidade ao longo do tempo, melhorar testabilidade e velocidade de entrega.</p>
+            <p>Em suma: preocupação explícita com engenharia, organização e sustentabilidade do código — o tipo de decisão que sustenta ambientes corporativos e sistemas críticos.</p>
+          </div>
+        </details>
+      </div>
+    </section>
 
     <!-- ════ PROJECT GALLERY ════ -->
     <section class="proj-gallery-section" aria-label="Projetos e cases">
@@ -713,10 +815,27 @@
         const src = lbSources[lbIndex];
         if(!src) return;
         lbImg.src = src;
-        lbImg.alt = (lbCaseTitle ? lbCaseTitle + ' — ' : '') + 'Imagem ' + (lbIndex + 1) + ' de ' + lbSources.length;
+        const n = lbSources.length;
         lbTitle.textContent = lbCaseTitle || 'Galeria';
-        lbCount.textContent = (lbIndex + 1) + ' / ' + lbSources.length;
-        lb.setAttribute('aria-label', 'Galeria PCS · imagem ' + (lbIndex + 1) + ' de ' + lbSources.length);
+        if(n < 2){
+          lbImg.alt = lbCaseTitle || 'Visualização ampliada';
+          lbCount.textContent = '';
+          lb.setAttribute('aria-label', (lbCaseTitle || 'Imagem') + ' — vista ampliada');
+        } else {
+          lbImg.alt = (lbCaseTitle ? lbCaseTitle + ' — ' : '') + 'Imagem ' + (lbIndex + 1) + ' de ' + n;
+          lbCount.textContent = (lbIndex + 1) + ' / ' + n;
+          lb.setAttribute('aria-label', 'Galeria PCS · imagem ' + (lbIndex + 1) + ' de ' + n);
+        }
+      }
+
+      function openLbApply(){
+        if(!lbSources.length) return;
+        syncLbUi();
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+        lbPrev.hidden = lbSources.length < 2;
+        lbNext.hidden = lbSources.length < 2;
       }
 
       function openLbFromFrame(frame){
@@ -731,13 +850,7 @@
           lbIndex = 0;
         }
         lbCaseTitle = title;
-        if(!lbSources.length) return;
-        syncLbUi();
-        lb.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-        lbClose.focus();
-        lbPrev.hidden = lbSources.length < 2;
-        lbNext.hidden = lbSources.length < 2;
+        openLbApply();
       }
 
       function closeLb(){
@@ -759,6 +872,16 @@
           if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLbFromFrame(f); }
         });
       });
+
+      const sdArchOpen = document.getElementById('sdArchDiagramOpen');
+      if(sdArchOpen){
+        sdArchOpen.addEventListener('click', ()=>{
+          lbSources = ['PCS/design_arquitetura_pcs.jpeg'];
+          lbIndex = 0;
+          lbCaseTitle = 'Diagrama de arquitetura PCS';
+          openLbApply();
+        });
+      }
       lbClose.addEventListener('click', closeLb);
       lbPrev.addEventListener('click', e=>{ e.stopPropagation(); stepLb(-1); });
       lbNext.addEventListener('click', e=>{ e.stopPropagation(); stepLb(1); });
