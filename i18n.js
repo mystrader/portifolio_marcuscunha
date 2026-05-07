@@ -1803,11 +1803,13 @@
     if (!el) return;
     var b = STR[lang];
     var pageUrl = window.location.href.split('#')[0].split('?')[0];
+    var shareImg = window.location.origin + '/imagens/avatar_marcus.jpeg';
     var data = {
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Marcus Cunha',
       url: pageUrl,
+      image: shareImg,
       jobTitle: b.jsonld_job,
       description: b.jsonld_desc,
       email: 'mystrader@gmail.com',
@@ -1880,6 +1882,13 @@
     if (ogurl) {
       ogurl.setAttribute('content', window.location.href.split('#')[0]);
     }
+
+    var shareImg = origin + '/imagens/avatar_marcus.jpeg';
+    document.querySelectorAll('meta[property="og:image"], meta[property="og:image:secure_url"]').forEach(function (m) {
+      m.setAttribute('content', shareImg);
+    });
+    var twImg = document.querySelector('meta[name="twitter:image"]');
+    if (twImg) twImg.setAttribute('content', shareImg);
   }
 
   function updateLangSwitchUI(lang) {
