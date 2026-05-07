@@ -78,6 +78,9 @@
       labs_tjbooks_h2_stack: 'Código no GitHub',
       labs_tjbooks_p_stack:
         'API REST em Laravel e interface em Angular — dois repositórios; o README do backend descreve Docker, migrations, seeds e testes.',
+      labs_tjbooks_install_notice:
+        '<strong>ATENÇÃO.:</strong> As instruções de instalação e execução estão nos README dos repositórios (backend e frontend).',
+      labs_tjbooks_install_notice_aria: 'Aviso: como instalar e rodar o projeto está documentado nos README do GitHub',
       labs_tjbooks_repo_backend_kicker: 'Backend',
       labs_tjbooks_repo_frontend_kicker: 'Frontend',
       labs_tjbooks_repo_backend_aria: 'Abrir no GitHub — books-service (README)',
@@ -901,6 +904,9 @@
       labs_tjbooks_h2_stack: 'Code on GitHub',
       labs_tjbooks_p_stack:
         'REST API in Laravel and UI in Angular — two repos; the backend README covers Docker, migrations, seeders, and tests.',
+      labs_tjbooks_install_notice:
+        '<strong>ATTENTION:</strong> Setup and run instructions are in each repository’s README (backend and frontend).',
+      labs_tjbooks_install_notice_aria: 'Note: install and run steps are documented in the GitHub READMEs',
       labs_tjbooks_repo_backend_kicker: 'Backend',
       labs_tjbooks_repo_frontend_kicker: 'Frontend',
       labs_tjbooks_repo_backend_aria: 'Open on GitHub — books-service (README)',
