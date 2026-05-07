@@ -3,6 +3,16 @@
 
   var STORAGE_KEY = 'mc-portfolio-lang';
 
+  function publicSiteBasePath() {
+    var raw = document.documentElement.getAttribute('data-public-base') || '';
+    raw = String(raw).trim().replace(/^\/+|\/+$/g, '');
+    return raw ? '/' + raw + '/' : '/';
+  }
+
+  function absoluteAvatarUrl() {
+    return window.location.origin + publicSiteBasePath() + 'imagens/avatar_marcus.jpeg';
+  }
+
   var STR = {
     pt: {
       meta_title_index: 'Marcus Cunha — Senior Frontend Engineer, UX/UI & IA aplicada ao produto',
@@ -1803,7 +1813,7 @@
     if (!el) return;
     var b = STR[lang];
     var pageUrl = window.location.href.split('#')[0].split('?')[0];
-    var shareImg = window.location.origin + '/imagens/avatar_marcus.jpeg';
+    var shareImg = absoluteAvatarUrl();
     var data = {
       '@context': 'https://schema.org',
       '@type': 'Person',
@@ -1883,7 +1893,7 @@
       ogurl.setAttribute('content', window.location.href.split('#')[0]);
     }
 
-    var shareImg = origin + '/imagens/avatar_marcus.jpeg';
+    var shareImg = absoluteAvatarUrl();
     document.querySelectorAll('meta[property="og:image"], meta[property="og:image:secure_url"]').forEach(function (m) {
       m.setAttribute('content', shareImg);
     });
