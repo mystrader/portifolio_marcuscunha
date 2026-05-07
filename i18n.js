@@ -38,11 +38,119 @@
       a11y_libras_aria: 'Abrir o tradutor VLibras (Libras)',
 
       nav_sobre: 'Sobre',
+      nav_labs: 'Labs',
       nav_timeline: 'Trajetória',
       nav_skills: 'Arquitetura',
       nav_contato: 'Contato',
 
       nav_id: 'Portfólio',
+
+      labs_meta_title: 'Labs · Projetos pessoais · Marcus Cunha',
+      labs_meta_desc:
+        'Experimentos e projetos pessoais de Marcus Cunha — incluindo TJBOOKS e outras explorações fora da trajetória corporativa.',
+      labs_hero_tag: 'Projetos pessoais',
+      labs_hero_title_html: '<strong>Labs</strong>',
+      labs_hero_sub: 'Experimentos, ideias e produtos fora da trajetória corporativa.',
+      labs_list_eyebrow: 'Explorar',
+      labs_card_tjbooks_title: 'TJBOOKS',
+      labs_card_tjbooks_sub:
+        'UX, performance e acervo literário — API Laravel, SPA Angular e código no GitHub.',
+      labs_card_tjbooks_cta: 'Ver projeto',
+      labs_card_tjbooks_aria: 'TJBOOKS — abrir página do projeto',
+      labs_nav_hub: 'Labs',
+      labs_crumb_aria: 'Trilha de navegação',
+      proj_labs_tjbooks_doc_title: 'Labs / TJBOOKS · Marcus Cunha',
+      proj_labs_tjbooks_meta_desc:
+        'TJBOOKS — experiência do usuário, performance e organização de acervo literário. Laravel, Angular, GitHub.',
+      labs_tjbooks_hero_tag: 'Projeto pessoal',
+      labs_tjbooks_hero_title_html: '<strong>TJBOOKS</strong>',
+      labs_tjbooks_hero_role:
+        'SPA Angular e API Laravel — inventário, relatórios e fluxos pensados para clareza na tela.',
+      labs_tjbooks_quote:
+        'Projeto focado em experiência do usuário, performance e organização de conteúdo literário.',
+      labs_tjbooks_sec_label: 'Visão geral',
+      labs_tjbooks_h2: 'Sobre o projeto',
+      labs_tjbooks_p1:
+        'O TJBOOKS reúne dois repositórios: uma API REST para livros, autores e assuntos, e uma interface com dashboard, listagens, detalhe e relatório por autor — com foco em usabilidade, responsividade e desempenho.',
+      labs_tjbooks_p2:
+        'Metadados e relações N:N sustentam um catálogo coerente; relatórios apoiam-se em views versionadas. O conjunto foi desenhado para ser simples de executar (Docker, README) e evoluir com testes e código legível.',
+      labs_tjbooks_sec_stack: 'Repositórios',
+      labs_tjbooks_h2_stack: 'Código no GitHub',
+      labs_tjbooks_p_stack:
+        'API REST em Laravel e interface em Angular — dois repositórios; o README do backend descreve Docker, migrations, seeds e testes.',
+      labs_tjbooks_repo_backend_kicker: 'Backend',
+      labs_tjbooks_repo_frontend_kicker: 'Frontend',
+      labs_tjbooks_repo_backend_aria: 'Abrir no GitHub — books-service (README)',
+      labs_tjbooks_repo_frontend_aria: 'Abrir no GitHub — books-frontend',
+      labs_tjbooks_design_sec: 'Guia de design',
+      labs_tjbooks_design_h2: 'Identidade visual (Figma)',
+      labs_tjbooks_design_p:
+        'Paletas por tema de livro (oceano, místico, esmeralda, rubi, âmbar, sakura) e tokens de sistema — fundo claro, texto #030213, bordas suaves. Referência para o app Angular/Tailwind.',
+      labs_tjbooks_design_cta: 'Abrir guia no Figma Site',
+      labs_tjbooks_design_aria: 'Abrir o guia de design TJBOOKS no Figma Site em nova aba',
+      labs_tjbooks_figma_embed_title: 'Arquivo Figma — protótipo TJBOOKS (incorporado)',
+      labs_tjbooks_figma_disclosure_summary:
+        'Mostrar Figma incorporado (carrega ao abrir — pode demorar)',
+      labs_tjbooks_figma_disclosure_aria:
+        'Secção retrátil: a incorporação do Figma só carrega depois de expandir',
+      labs_tjbooks_palette_legend:
+        'Cores de tema por livro descritas no guia — o mesmo sistema aparece ao abrir o Figma Site no botão acima.',
+      labs_hub_quote:
+        '“Projetos pessoais no mesmo rigor visual dos cases da trajetória — com liberdade para experimentar.”',
+      labs_tjbooks_sd_eyebrow: 'System design',
+      labs_tjbooks_sd_h2: 'Arquitetura frontend — padrões e decisões',
+      labs_tjbooks_sd_lead:
+        'Organização modular, estado e o papel de Strategy, Policy, Use-case e Facade no módulo TJBooks (Angular 21).',
+      labs_tjbooks_sd_sum1: 'Patterns, pastas e síntese',
+      labs_tjbooks_sd_body1_html:
+        '<p>Registro objetivo da adoção de <strong>Strategy</strong>, <strong>Policy</strong>, <strong>Use-case</strong> e <strong>Facade</strong>, com organização de código e fronteira com a API (<a href="https://github.com/mystrader/books-service" target="_blank" rel="noopener noreferrer">books-service</a>). UI: <a href="https://github.com/mystrader/books-frontend" target="_blank" rel="noopener noreferrer">books-frontend</a>.</p><h3>Patterns</h3><p><strong>Strategy.</strong> Variação de <strong>comportamento</strong> em tempo de execução, sem árvores gigantes de <code>if</code>. Exemplos: validação por tipo de campo; formatos de exportação; adaptação entre versões de contrato. No Angular: serviço injetado, <code>Record&lt;tipo, handler&gt;</code> ou família de implementações.</p><p><strong>Policy.</strong> Regras de <strong>negócio, autorização ou validação</strong> (o que é permitido). Diferente da Strategy: esta define <em>como</em> executar; a Policy define <em>se</em> a ação é válida ou qual regra vence. Ex.: <code>canEditBook(user, book)</code>, composição <code>all</code> / <code>any</code>.</p><p><strong>Use-case.</strong> Orquestra um <strong>fluxo de aplicação</strong> (HTTP, cache, policies) e expõe à UI uma operação coesa. Dependências explícitas; retorno tipado. Facilita testar sem renderizar tela.</p><p><strong>Facade.</strong> Interface <strong>estreita e estável</strong> sobre infraestrutura (cliente HTTP, retries, normalização). Ex.: módulo de API com métodos de alto nível em vez de espalhar detalhes de transporte.</p><h3>Organização modular (referência)</h3><pre class="sd-tree">features/books/\n  ui/\n  application/    # use-cases\n  domain/         # tipos, policies, invariantes\n  infrastructure/\nshared/           # HTTP, logger, utilitários</pre><p>A view consome <strong>use-cases</strong>; estes combinam <strong>policies</strong> e <strong>strategies</strong> quando necessário; rede e persistência passam por <strong>facades</strong>.</p><h3>Módulo TJBooks (<code>src/app/tjbooks/</code>)</h3><ul><li><strong>pages/</strong> — rotas e telas do acervo.</li><li><strong>shell/</strong> — layout e navegação.</li><li><strong>services/</strong> — HTTP, cache, orquestração (facades, use-cases).</li><li><strong>types/</strong> — contratos e domínio tipado.</li><li><strong>directives/</strong> — comportamento reutilizável no DOM.</li><li><strong>utils/</strong> — BRL, formatação, helpers.</li></ul><p>O pacote <code>modules/books/</code> segue evolução em camadas no monorepo; a prova principal vive no módulo TJBooks. Uso coordenado de <strong>HttpClientService</strong>, <strong>CacheService</strong> e <strong>query keys</strong> para dados alinhados ao domínio e cache previsível.</p><h3>Síntese</h3><p><strong>Use-cases</strong> coordenam fluxos; <strong>policies</strong> e invariantes no domínio; <strong>strategy</strong> onde o algoritmo varia; <strong>facades</strong> isolam infraestrutura da aplicação.</p>',
+      labs_tjbooks_sd_sum2: 'Estado, signals e entrega',
+      labs_tjbooks_sd_body2_html:
+        '<h3>Estado</h3><ul><li><strong>Dados remotos / cache</strong> (query keys, invalidação): listagens, detalhe, loading de rede.</li><li><strong>UI local</strong> (signals de componente, estado efêmero, URL): modais, filtros transitórios, passos de fluxo.</li><li><strong>Global mínimo</strong> (só o que atravessa rotas: sessão, preferências).</li></ul><p>Regras de negócio densas permanecem no <strong>domínio</strong> (policies). Use-cases coordenam efeitos colaterais (ex.: invalidar cache), sem centralizar lógica pura em stores monolíticas.</p><h3>Signal (termo no frontend)</h3><p>Não é um único padrão GoF: (1) primitivo reativo no Angular (<code>signal</code>, <code>computed</code>, <code>effect</code>); (2) sinônimo de <strong>evento</strong> na UI ou em canal (WebSocket, <code>BroadcastChannel</code>); (3) em desenhos event-driven, a notificação que dispara handlers — às vezes com <strong>Strategy</strong> para escolher o tratamento. A escolha de estado ou reatividade segue manutenção, tipagem e integração com o ciclo de vida do framework.</p><h3>Policy no código</h3><p>Policies no <strong>domain</strong> como funções puras favorecem teste e reuso. Componentes não repetem condicionais de papel ou status; consultam policy ou use-case que já aplica a policy.</p><h3>PWA, ambiente e rotas</h3><ul><li>PWA com <code>ngsw</code>, logo e assets.</li><li>Node 20+, <code>npm start</code> em <code>:4200</code>; backend Docker conforme README.</li><li><strong>Rotas:</strong> <code>/dashboard</code>, <code>/livros</code>, <code>/livros/:id</code>, <code>/autores</code>, <code>/assuntos</code>, <code>/relatorio</code></li></ul><p><strong>Testes e trade-offs:</strong> Vitest nos fluxos críticos; prioridade a CRUD, dashboard e relatório no prazo; refinamentos e mais cobertura em iterações seguintes.</p>',
+      labs_tjbooks_gallery_aria: 'Galeria do projeto TJBOOKS',
+      labs_tjbooks_gallery_eyebrow: 'Preview',
+      labs_tjbooks_gallery_h2: 'Telas & artefatos',
+      labs_tjbooks_gallery_count: '10 artefatos',
+      labs_tjbooks_gif_kind: 'GIF · GitHub',
+      labs_tjbooks_png_kind: 'PNG · portfolio',
+      labs_tjbooks_local_open_cta: 'Abrir imagem',
+      labs_tjbooks_local_open_aria: 'Abrir a imagem em nova aba',
+      labs_tjbooks_git_asset_cta: 'Abrir no GitHub',
+      labs_tjbooks_git_asset_aria: 'Abrir o arquivo no GitHub em nova aba',
+      labs_tjbooks_gif1_cap: 'Fluxos — painel, busca, cadastro e relatório',
+      labs_tjbooks_gif1_alt:
+        'GIF animado do TJ Books: painel, busca com gaveta, validação de formulário e relatório com tema escuro.',
+      labs_tjbooks_gif1_aria: 'Abrir na galeria — visão geral dos fluxos da interface',
+      labs_tjbooks_gif2_cap: 'Inventário — busca global',
+      labs_tjbooks_gif2_alt: 'GIF animado da listagem de inventário com busca por “clean” na barra superior.',
+      labs_tjbooks_gif2_aria: 'Abrir na galeria — inventário e busca',
+      labs_tjbooks_gif3_cap: 'Inventário — tabela e ações',
+      labs_tjbooks_gif3_alt:
+        'GIF animado da tabela de livros com foco nos botões Detalhes, Editar e Remover.',
+      labs_tjbooks_gif3_aria: 'Abrir na galeria — tabela e ações do inventário',
+      labs_tjbooks_gif4_cap: 'Mobile — painel e ficha do livro',
+      labs_tjbooks_gif4_alt:
+        'GIF animado em viewport estreito: dashboard, livro em destaque e transição para a ficha do livro.',
+      labs_tjbooks_gif4_aria: 'Abrir na galeria — experiência mobile',
+      labs_tjbooks_png_pagina_cap: 'Página inicial — dashboard',
+      labs_tjbooks_png_pagina_alt: 'Captura estática da página inicial do TJ Books com painel e destaques do acervo.',
+      labs_tjbooks_png_pagina_aria: 'Abrir na galeria — página inicial',
+      labs_tjbooks_png_swagger_cap: 'API — Swagger',
+      labs_tjbooks_png_swagger_alt: 'Documentação OpenAPI / Swagger do backend do acervo.',
+      labs_tjbooks_png_swagger_aria: 'Abrir na galeria — Swagger',
+      labs_tjbooks_png_cobertura_cap: 'Cobertura de testes',
+      labs_tjbooks_png_cobertura_alt: 'Relatório de cobertura de testes do frontend (Vitest).',
+      labs_tjbooks_png_cobertura_aria: 'Abrir na galeria — cobertura de testes',
+      labs_tjbooks_png_guia_cap: 'Guia de design',
+      labs_tjbooks_png_guia_alt: 'Referência visual ou guia de design do projeto TJ Books.',
+      labs_tjbooks_png_guia_aria: 'Abrir na galeria — guia de design',
+      labs_tjbooks_png_contraste_cap: 'Usabilidade — contraste',
+      labs_tjbooks_png_contraste_alt: 'Mapeamento ou teste de usabilidade focado em contraste de interface.',
+      labs_tjbooks_png_contraste_aria: 'Abrir na galeria — teste de contraste',
+      labs_tjbooks_png_atencao_cap: 'Usabilidade — atenção',
+      labs_tjbooks_png_atencao_alt: 'Mapeamento ou teste de usabilidade focado em atenção e hierarquia visual.',
+      labs_tjbooks_png_atencao_aria: 'Abrir na galeria — teste de atenção',
+      labs_btn_top_aria: 'Voltar ao topo',
 
       hero_label: 'Engenheiro Frontend · UX/UI Designer · IA aplicada (LLMs & automação)',
       hero_cred_heading: 'Formação acadêmica',
@@ -753,11 +861,118 @@
       a11y_libras_aria: 'Open VLibras (Brazilian Sign Language)',
 
       nav_sobre: 'About',
+      nav_labs: 'Labs',
       nav_timeline: 'Career',
       nav_skills: 'Architecture',
       nav_contato: 'Contact',
 
       nav_id: 'Portfólio',
+
+      labs_meta_title: 'Labs · Personal projects · Marcus Cunha',
+      labs_meta_desc:
+        'Experiments and personal projects by Marcus Cunha — including TJBOOKS and other explorations outside the corporate track.',
+      labs_hero_tag: 'Personal projects',
+      labs_hero_title_html: '<strong>Labs</strong>',
+      labs_hero_sub: 'Experiments, ideas, and products outside the corporate career path.',
+      labs_list_eyebrow: 'Explore',
+      labs_card_tjbooks_title: 'TJBOOKS',
+      labs_card_tjbooks_sub:
+        'UX, performance, and a literary catalog — Laravel API, Angular SPA, code on GitHub.',
+      labs_card_tjbooks_cta: 'View project',
+      labs_card_tjbooks_aria: 'TJBOOKS — open project page',
+      labs_nav_hub: 'Labs',
+      labs_crumb_aria: 'Breadcrumb',
+      proj_labs_tjbooks_doc_title: 'Labs / TJBOOKS · Marcus Cunha',
+      proj_labs_tjbooks_meta_desc:
+        'TJBOOKS — user experience, performance, and organizing a literary catalog. Laravel, Angular, GitHub.',
+      labs_tjbooks_hero_tag: 'Personal project',
+      labs_tjbooks_hero_title_html: '<strong>TJBOOKS</strong>',
+      labs_tjbooks_hero_role:
+        'Angular SPA and Laravel API — inventory, reports, and flows built for on-screen clarity.',
+      labs_tjbooks_quote:
+        'Project focused on user experience, performance, and organizing literary content.',
+      labs_tjbooks_sec_label: 'Overview',
+      labs_tjbooks_h2: 'About the project',
+      labs_tjbooks_p1:
+        'TJBOOKS spans two repos: a REST API for books, authors, and subjects, and a UI with dashboard, listings, detail views, and per-author reports — emphasizing usability, responsiveness, and performance.',
+      labs_tjbooks_p2:
+        'Metadata and many-to-many relationships keep the catalog coherent; reports lean on versioned database views. The whole thing is meant to be easy to run (Docker, README) and to grow with tests and readable code.',
+      labs_tjbooks_sec_stack: 'Repositories',
+      labs_tjbooks_h2_stack: 'Code on GitHub',
+      labs_tjbooks_p_stack:
+        'REST API in Laravel and UI in Angular — two repos; the backend README covers Docker, migrations, seeders, and tests.',
+      labs_tjbooks_repo_backend_kicker: 'Backend',
+      labs_tjbooks_repo_frontend_kicker: 'Frontend',
+      labs_tjbooks_repo_backend_aria: 'Open on GitHub — books-service (README)',
+      labs_tjbooks_repo_frontend_aria: 'Open on GitHub — books-frontend',
+      labs_tjbooks_design_sec: 'Design guide',
+      labs_tjbooks_design_h2: 'Visual identity (Figma)',
+      labs_tjbooks_design_p:
+        'Per-book theme palettes (ocean, mystic, emerald, ruby, amber, sakura) plus system tokens — light background, #030213 text, soft borders. Reference for the Angular/Tailwind app.',
+      labs_tjbooks_design_cta: 'Open guide on Figma Site',
+      labs_tjbooks_design_aria: 'Open the TJBOOKS design guide on Figma Site in a new tab',
+      labs_tjbooks_figma_embed_title: 'Figma file — TJBOOKS prototype (embedded)',
+      labs_tjbooks_figma_disclosure_summary:
+        'Show embedded Figma (loads when opened — may take a moment)',
+      labs_tjbooks_figma_disclosure_aria:
+        'Collapsible section: Figma embed loads only after you expand',
+      labs_tjbooks_palette_legend:
+        'Per-book theme colors from the guide — same system as on the Figma Site button above.',
+      labs_hub_quote:
+        '“Personal projects with the same visual rigor as career case studies — room to experiment.”',
+      labs_tjbooks_sd_eyebrow: 'System design',
+      labs_tjbooks_sd_h2: 'Frontend architecture — patterns and decisions',
+      labs_tjbooks_sd_lead:
+        'Modular layout, state, and the role of Strategy, Policy, Use-case, and Facade in the TJBooks module (Angular 21).',
+      labs_tjbooks_sd_sum1: 'Patterns, folders, and synthesis',
+      labs_tjbooks_sd_body1_html:
+        '<p>Objective record of adopting <strong>Strategy</strong>, <strong>Policy</strong>, <strong>Use-case</strong>, and <strong>Facade</strong>, with code organization and a clear API boundary (<a href="https://github.com/mystrader/books-service" target="_blank" rel="noopener noreferrer">books-service</a>). UI: <a href="https://github.com/mystrader/books-frontend" target="_blank" rel="noopener noreferrer">books-frontend</a>.</p><h3>Patterns</h3><p><strong>Strategy.</strong> Swap <strong>behavior</strong> at runtime without huge <code>if</code> trees. Examples: validation by field type; export formats; adapting across API contract versions. In Angular: injected service, <code>Record&lt;type, handler&gt;</code>, or a family of implementations.</p><p><strong>Policy.</strong> <strong>Business, authorization, or validation</strong> rules (what is allowed). Unlike Strategy: Strategy is <em>how</em> to run; Policy is <em>whether</em> the action is valid or which rule wins. E.g. <code>canEditBook(user, book)</code>, <code>all</code> / <code>any</code> composition.</p><p><strong>Use-case.</strong> Orchestrates an <strong>application flow</strong> (HTTP, cache, policies) and exposes one cohesive operation to the UI. Explicit dependencies; typed results. Easier to test without rendering.</p><p><strong>Facade.</strong> A <strong>narrow, stable</strong> surface over infrastructure (HTTP client, retries, normalization). E.g. a high-level API module instead of scattering transport details.</p><h3>Modular layout (reference)</h3><pre class="sd-tree">features/books/\n  ui/\n  application/    # use-cases\n  domain/         # types, policies, invariants\n  infrastructure/\nshared/           # HTTP client, logger, utilities</pre><p>The view consumes <strong>use-cases</strong>; they combine <strong>policies</strong> and <strong>strategies</strong> as needed; network and persistence go through <strong>facades</strong>.</p><h3>TJBooks module (<code>src/app/tjbooks/</code>)</h3><ul><li><strong>pages/</strong> — routed collection screens.</li><li><strong>shell/</strong> — layout and navigation.</li><li><strong>services/</strong> — HTTP, cache, orchestration (facades, use-cases).</li><li><strong>types/</strong> — contracts and typed domain.</li><li><strong>directives/</strong> — reusable DOM behavior.</li><li><strong>utils/</strong> — BRL, formatting, helpers.</li></ul><p>The <code>modules/books/</code> package keeps evolving in layers; the main challenge UI lives in TJBooks. Coordinated use of <strong>HttpClientService</strong>, <strong>CacheService</strong>, and <strong>query keys</strong> keeps data aligned with the domain and caching predictable.</p><h3>Synthesis</h3><p><strong>Use-cases</strong> coordinate flows; <strong>policies</strong> and invariants stay in the domain; <strong>strategy</strong> where algorithms vary; <strong>facades</strong> isolate infrastructure from the app.</p>',
+      labs_tjbooks_sd_sum2: 'State, signals, and shipping',
+      labs_tjbooks_sd_body2_html:
+        '<h3>State</h3><ul><li><strong>Remote data / cache</strong> (query keys, invalidation): lists, detail, network loading.</li><li><strong>Local UI</strong> (component signals, ephemeral state, URL): modals, transient filters, flow steps.</li><li><strong>Minimal global</strong> (only what crosses routes: session, preferences).</li></ul><p>Heavy business rules stay in the <strong>domain</strong> (policies). Use-cases coordinate side effects (e.g. cache invalidation) without stuffing pure logic into monolithic stores.</p><h3>Signal (frontend term)</h3><p>Not one classic GoF pattern: (1) reactive primitive in Angular (<code>signal</code>, <code>computed</code>, <code>effect</code>); (2) shorthand for a UI or channel <strong>event</strong> (WebSocket, <code>BroadcastChannel</code>); (3) in event-driven designs, the notification that fires handlers — sometimes with <strong>Strategy</strong> to pick handling. Picking state/reativity tooling follows maintainability, typing, and framework lifecycle fit.</p><h3>Policy in code</h3><p>Domain <strong>policies</strong> as pure functions aid unit tests and reuse. Components avoid repeating role/status conditionals; they call a policy or a use-case that already applies it.</p><h3>PWA, environment, and routes</h3><ul><li>PWA with <code>ngsw</code>, logo, and assets.</li><li>Node 20+, <code>npm start</code> on <code>:4200</code>; Docker-backed backend per README.</li><li><strong>Routes:</strong> <code>/dashboard</code>, <code>/livros</code>, <code>/livros/:id</code>, <code>/autores</code>, <code>/assuntos</code>, <code>/relatorio</code></li></ul><p><strong>Tests and trade-offs:</strong> Vitest on critical flows; ship CRUD, dashboard, and report on time; polish and coverage in later iterations.</p>',
+      labs_tjbooks_gallery_aria: 'TJBOOKS project gallery',
+      labs_tjbooks_gallery_eyebrow: 'Preview',
+      labs_tjbooks_gallery_h2: 'Screens & artifacts',
+      labs_tjbooks_gallery_count: '10 artifacts',
+      labs_tjbooks_gif_kind: 'GIF · GitHub',
+      labs_tjbooks_png_kind: 'PNG · portfolio',
+      labs_tjbooks_local_open_cta: 'Open image',
+      labs_tjbooks_local_open_aria: 'Open the image in a new tab',
+      labs_tjbooks_git_asset_cta: 'Open on GitHub',
+      labs_tjbooks_git_asset_aria: 'Open the file on GitHub in a new tab',
+      labs_tjbooks_gif1_cap: 'Flows — dashboard, search, forms, and reports',
+      labs_tjbooks_gif1_alt:
+        'Animated GIF of TJ Books: dashboard, search drawer, form validation, and dark-theme reports.',
+      labs_tjbooks_gif1_aria: 'Open in gallery — overview of interface flows',
+      labs_tjbooks_gif2_cap: 'Inventory — global search',
+      labs_tjbooks_gif2_alt: 'Animated GIF of the inventory list with “clean” typed in the top search bar.',
+      labs_tjbooks_gif2_aria: 'Open in gallery — inventory and search',
+      labs_tjbooks_gif3_cap: 'Inventory — table and actions',
+      labs_tjbooks_gif3_alt: 'Animated GIF of the book table highlighting Details, Edit, and Remove actions.',
+      labs_tjbooks_gif3_aria: 'Open in gallery — inventory table actions',
+      labs_tjbooks_gif4_cap: 'Mobile — dashboard and book detail',
+      labs_tjbooks_gif4_alt:
+        'Animated GIF in a narrow viewport: dashboard, featured book, and transition to book detail.',
+      labs_tjbooks_gif4_aria: 'Open in gallery — mobile experience',
+      labs_tjbooks_png_pagina_cap: 'Home — dashboard',
+      labs_tjbooks_png_pagina_alt: 'Static screenshot of the TJ Books home screen with dashboard highlights.',
+      labs_tjbooks_png_pagina_aria: 'Open in gallery — home page',
+      labs_tjbooks_png_swagger_cap: 'API — Swagger',
+      labs_tjbooks_png_swagger_alt: 'OpenAPI / Swagger documentation for the catalog backend.',
+      labs_tjbooks_png_swagger_aria: 'Open in gallery — Swagger',
+      labs_tjbooks_png_cobertura_cap: 'Test coverage',
+      labs_tjbooks_png_cobertura_alt: 'Frontend test coverage report (Vitest).',
+      labs_tjbooks_png_cobertura_aria: 'Open in gallery — test coverage',
+      labs_tjbooks_png_guia_cap: 'Design guide',
+      labs_tjbooks_png_guia_alt: 'Visual reference or design guide for the TJ Books project.',
+      labs_tjbooks_png_guia_aria: 'Open in gallery — design guide',
+      labs_tjbooks_png_contraste_cap: 'Usability — contrast',
+      labs_tjbooks_png_contraste_alt: 'Usability mapping or test focused on UI contrast.',
+      labs_tjbooks_png_contraste_aria: 'Open in gallery — contrast test',
+      labs_tjbooks_png_atencao_cap: 'Usability — attention',
+      labs_tjbooks_png_atencao_alt: 'Usability mapping or test focused on attention and visual hierarchy.',
+      labs_tjbooks_png_atencao_aria: 'Open in gallery — attention test',
+      labs_btn_top_aria: 'Back to top',
 
       hero_label: 'Frontend Engineer · UX/UI Designer · Applied AI (LLMs & automation)',
       hero_cred_heading: 'Education',
@@ -1522,7 +1737,9 @@
       sefaz_rj: { titleKey: 'proj_sefaz_doc_title', descKey: 'proj_sefaz_meta_desc' },
       par_perfeito: { titleKey: 'proj_par_doc_title', descKey: 'proj_par_meta_desc' },
       instant_solutions: { titleKey: 'proj_inst_doc_title', descKey: 'proj_inst_meta_desc' },
-      tjrj_pje: { titleKey: 'proj_tjrj_doc_title', descKey: 'proj_tjrj_meta_desc' }
+      tjrj_pje: { titleKey: 'proj_tjrj_doc_title', descKey: 'proj_tjrj_meta_desc' },
+      labs: { titleKey: 'labs_meta_title', descKey: 'labs_meta_desc' },
+      labs_tjbooks: { titleKey: 'proj_labs_tjbooks_doc_title', descKey: 'proj_labs_tjbooks_meta_desc' }
     };
     if (projectMeta[page]) {
       var pm = projectMeta[page];
