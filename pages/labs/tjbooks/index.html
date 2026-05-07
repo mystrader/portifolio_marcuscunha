@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-i18n-page="labs_tjbooks">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TJBOOKS — experiência do usuário, performance e organização de acervo literário. Laravel, Angular, GitHub.">
+  <title>Labs / TJBOOKS · Marcus Cunha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <style>
+    :root{
+      --void:#0c0c0f;--void-2:#13131a;--page:#f6f3ee;--ink:#1a1a20;
+      --muted:#918d88;--orange:#e05b1a;--orange-d:#b34714;--orange-s:#fbf0e9;
+      --line:#ddd9d1;--blue:#1a5cc8;--warm:#ede9e2;
+      --font-disp:'Nunito',system-ui,sans-serif;
+      --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-disp);background:var(--page);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+
+    .skip-link{position:absolute;left:-9999px;top:.75rem;z-index:200;padding:.6rem 1rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--void);background:#fff;border:2px solid var(--orange);border-radius:6px}
+    .skip-link:focus{left:.75rem;outline:none}
+
+    /* ── NAV BAR ── */
+    .page-bar{position:sticky;top:0;z-index:100;background:rgba(12,12,15,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);padding:.85rem clamp(1.25rem,4vw,2.75rem);display:flex;align-items:center;justify-content:space-between}
+    .page-voltar{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff;padding:.55rem .85rem .55rem .35rem;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);transition:background .2s,border-color .2s}
+    .page-voltar svg{width:18px;height:18px;flex-shrink:0}
+    .page-voltar:hover{background:rgba(224,91,26,.25);border-color:rgba(224,91,26,.55)}
+    .page-voltar:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+    .page-period{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+    .page-bar-right{display:flex;align-items:center;gap:.85rem}
+    .lang-switch{display:inline-flex;align-items:center;gap:.2rem;padding:.2rem;border-radius:100px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.2)}
+    .lang-btn{font-family:var(--font-disp);font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);background:transparent;border:none;border-radius:100px;padding:.32rem .55rem .32rem .45rem;cursor:pointer;transition:color .2s,background .2s;display:inline-flex;align-items:center;gap:.38rem}
+    .lang-flag{flex-shrink:0;display:block;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.25);line-height:0}
+    .lang-flag svg{display:block;width:1.05rem;height:.72rem}
+    .lang-btn:hover{color:#fff}
+    .lang-btn.is-active{color:var(--void);background:#fff}
+
+    /* ── HERO ── */
+    .page-hero{background:var(--orange);padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,3rem);position:relative;overflow:hidden}
+    .page-hero::before{content:'TJBOOKS';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-size:clamp(3.25rem,11vw,9rem);font-weight:300;line-height:1;color:rgba(255,255,255,.07);letter-spacing:-.04em;pointer-events:none;white-space:nowrap}
+    .page-hero-inner{position:relative;z-index:1;max-width:720px}
+    .page-hero-tag{display:inline-block;margin-bottom:.7rem;font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.88);background:rgba(255,255,255,.18);padding:.22rem .7rem;border-radius:100px}
+    .page-hero h1{font-weight:300;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em;color:#fff;line-height:1.1;text-wrap:balance}
+    .page-hero h1 strong{font-weight:800}
+    .page-hero-role{margin-top:.65rem;font-size:clamp(.88rem,1.2vw,1rem);color:rgba(255,255,255,.88);font-weight:600}
+    .page-crumb{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:1rem;display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;line-height:1.45;max-width:720px}
+    .page-crumb a{color:rgba(255,255,255,.92);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);transition:color .15s,border-color .15s}
+    .page-crumb a:hover{color:#fff;border-bottom-color:#fff}
+    .page-crumb a:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:2px}
+    .page-crumb [aria-current="page"]{color:#fff;font-weight:800;letter-spacing:.06em}
+    .page-crumb-sep{color:rgba(255,255,255,.4);font-weight:600;user-select:none}
+
+    /* ── QUOTE BAND ── */
+    .page-band{background:var(--void);padding:clamp(2rem,4vw,3rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .page-band-inner{max-width:720px;margin:0 auto}
+    .page-quote{margin:0;padding:0 0 0 clamp(1rem,3vw,1.35rem);border-left:3px solid rgba(255,255,255,.28)}
+    .page-quote p{font-size:clamp(1rem,2vw,1.35rem);font-weight:500;line-height:1.5;letter-spacing:-.02em;color:rgba(255,255,255,.92)}
+
+    /* ── MAIN CONTENT ── */
+    .page-main{max-width:720px;margin:0 auto;padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,2rem) clamp(1.5rem,4vw,2.5rem)}
+    .sec-label{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;margin-top:2.5rem;font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+    .sec-label:first-child{margin-top:0}
+    .sec-label svg{width:16px;height:16px;flex-shrink:0}
+    .page-main h2{font-size:clamp(1.2rem,2.5vw,1.55rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.25;margin-bottom:.75rem}
+    .page-main p{font-size:clamp(.92rem,1.1vw,1.02rem);margin-bottom:1.2rem;color:#5c5854}
+    .page-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0 1.5rem}
+    .page-chip{font-size:.7rem;font-weight:600;letter-spacing:.03em;padding:.28rem .72rem;border-radius:100px;background:var(--warm);color:var(--muted);border:1px solid var(--line)}
+    .tjbooks-design{margin:0 0 1.75rem;padding:1.15rem 1.2rem;border-radius:12px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(147,51,234,.05) 40%,rgba(236,72,153,.05));box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
+    .tjbooks-design--lead{margin-bottom:.65rem}
+    .tjbooks-design>p{font-size:.9rem;color:var(--muted);margin:.5rem 0 0;line-height:1.55}
+    .page-embed-shell{width:min(1280px,calc(100vw - 1.5rem));margin:1rem auto;position:relative;left:50%;transform:translateX(-50%)}
+    .page-embed{margin:0;width:100%;max-width:none;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.06);aspect-ratio:800/450;position:relative}
+    .page-embed iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:0}
+    .tjbooks-design--actions{display:flex;flex-direction:column;align-items:stretch}
+    .tjbooks-design--actions .tjbooks-design-cta{align-self:center}
+    .tjbooks-design-cta{display:inline-flex;align-items:center;gap:.55rem;font-size:.82rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:#fff;background:#030213;padding:.65rem 1.2rem .65rem 1rem;border-radius:8px;border:1px solid rgba(0,0,0,.12);transition:transform .2s var(--ease),box-shadow .2s}
+    .tjbooks-design-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(3,2,19,.18)}
+    .tjbooks-design-cta:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    .tjbooks-design-cta svg{width:18px;height:18px;flex-shrink:0;opacity:.9}
+    .tjbooks-palette-legend{font-size:.72rem;font-weight:600;color:var(--muted);line-height:1.45;text-align:center;max-width:26rem;margin:.35rem auto 0;align-self:center}
+    .tjbooks-swatch-row{display:flex;flex-wrap:wrap;gap:.38rem;margin-top:.5rem;padding-top:.65rem;border-top:1px dashed rgba(0,0,0,.08);justify-content:center;width:100%}
+    .tjbooks-swatch{width:1.28rem;height:1.28rem;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.1),0 0 0 1px rgba(0,0,0,.05) inset}
+    .tjbooks-figma-details{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.92);margin:1rem 0 1.75rem;box-shadow:0 1px 0 rgba(255,255,255,.55) inset}
+    .tjbooks-figma-details > summary.tjbooks-figma-summary{list-style:none;cursor:pointer;padding:.85rem 1rem;font-weight:700;font-size:.78rem;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:.75rem;letter-spacing:-.01em;transition:background .2s;border-radius:10px}
+    .tjbooks-figma-details > summary::-webkit-details-marker{display:none}
+    .tjbooks-figma-summary::after{content:'+';font-weight:400;color:var(--orange);font-size:1.1rem;line-height:1;flex-shrink:0}
+    .tjbooks-figma-details[open] > summary.tjbooks-figma-summary{border-radius:10px 10px 0 0}
+    .tjbooks-figma-details[open] .tjbooks-figma-summary::after{content:'−'}
+    .tjbooks-figma-summary:hover{background:var(--orange-s)}
+    .tjbooks-figma-summary:focus-visible{outline:2px solid var(--orange);outline-offset:2px;border-radius:10px}
+    .tjbooks-figma-details .page-embed-shell{margin:.15rem auto 1rem}
+    .page-divider{display:flex;align-items:center;gap:1rem;margin:2rem 0;color:var(--orange)}
+    .page-divider__line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(224,91,26,.4),transparent)}
+    .page-divider svg{width:20px;height:20px;flex-shrink:0}
+
+    .labs-repo-list{display:flex;flex-direction:column;gap:.75rem;margin:1rem 0 1.25rem}
+    .labs-repo-link{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;border:1px solid var(--line);border-radius:10px;background:#fff;text-decoration:none;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+    .labs-repo-link:hover{border-color:rgba(224,91,26,.45);box-shadow:0 4px 16px rgba(224,91,26,.1)}
+    .labs-repo-link:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    .labs-repo-gh-wrap{flex-shrink:0;width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+    .labs-repo-gh{width:22px;height:22px;display:block}
+    .labs-repo-text{display:flex;flex-direction:column;gap:.12rem;min-width:0;flex:1;text-align:left}
+    .labs-repo-kicker{font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+    .labs-repo-slug{font-size:.82rem;font-weight:700;color:var(--ink);word-break:break-word}
+    .labs-repo-link .labs-repo-ext{flex-shrink:0;width:16px;height:16px;color:var(--muted)}
+
+    .sd-section{background:var(--warm);padding:clamp(2.25rem,5vw,3.5rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid var(--line)}
+    .sd-inner{max-width:720px;margin:0 auto}
+    .sd-eyebrow{font-size:.58rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem}
+    .sd-section h2{font-size:clamp(1.15rem,2.4vw,1.45rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.2;margin-bottom:.65rem}
+    .sd-lead{font-size:clamp(.92rem,1.1vw,1.02rem);color:#5c5854;margin-bottom:1.25rem;line-height:1.65}
+    .sd-fig{margin:0 0 1rem;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+    .sd-fig--zoom .sd-fig-btn{display:block;width:100%;margin:0;padding:0;border:0;background:transparent;cursor:zoom-in;line-height:0;position:relative}
+    .sd-fig--zoom .sd-fig-btn:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+    .sd-fig--zoom .sd-fig-btn img{width:100%;height:auto;display:block;pointer-events:none}
+    .sd-fig-zoom-hint{position:absolute;bottom:.5rem;right:.55rem;z-index:1;font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(26,26,32,.45);pointer-events:none;background:rgba(255,255,255,.75);padding:.2rem .45rem;border-radius:4px}
+    .sd-fig img{width:100%;height:auto;display:block;vertical-align:top}
+    .sd-fig figcaption{font-size:.68rem;color:var(--muted);padding:.55rem .85rem;border-top:1px solid var(--line)}
+    .sd-acc{border:1px solid var(--line);border-radius:10px;margin-bottom:.75rem;background:#fff;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+    .sd-acc > summary{list-style:none;cursor:pointer;padding:.9rem 1rem;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:.75rem;font-size:.85rem;color:var(--ink);letter-spacing:-.01em;transition:background .2s}
+    .sd-sum-main{display:inline-flex;align-items:center;gap:.55rem;min-width:0;text-align:left}
+    .sd-sum-main > span:last-child{line-height:1.35}
+    .sd-sum-ico{width:18px;height:18px;flex-shrink:0;color:var(--orange);stroke-width:1.75}
+    .sd-acc > summary::-webkit-details-marker{display:none}
+    .sd-acc > summary::after{content:'+';font-weight:400;color:var(--orange);font-size:1.15rem;line-height:1;flex-shrink:0}
+    .sd-acc[open] > summary::after{content:'−'}
+    .sd-acc > summary:hover{background:var(--orange-s)}
+    .sd-acc > summary:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+    .sd-acc-body{padding:0 1rem 1.05rem;font-size:.9rem;color:#5c5854;line-height:1.62}
+    .sd-acc-body p{margin-bottom:.85rem}
+    .sd-acc-body p:last-child{margin-bottom:0}
+    .sd-acc-body ul{margin:.35rem 0 .85rem 1.15rem;padding:0}
+    .sd-acc-body li{margin-bottom:.35rem}
+    .sd-acc-body h3{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin:1rem 0 .4rem}
+    .sd-acc-body h3:first-child{margin-top:0}
+    .sd-acc-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;background:var(--warm);padding:.12em .38em;border-radius:4px;color:var(--ink);font-weight:600}
+    .sd-acc-body a{color:var(--orange-d);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+    .sd-acc-body a:hover{color:var(--orange)}
+    .sd-acc-body pre.sd-tree{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.68rem;line-height:1.55;background:#fff;border:1px solid var(--line);padding:.85rem 1rem;border-radius:8px;overflow-x:auto;margin:.45rem 0 1rem;color:var(--ink);white-space:pre}
+    .sd-acc-body em{font-style:italic;color:#6b6560}
+
+    /* ════════════════════════════════
+       PROJECT GALLERY
+    ════════════════════════════════ */
+    .proj-gallery-section {
+      background: #080810;
+      padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 2.75rem);
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .proj-gallery-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Section header */
+    .proj-gallery-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .proj-gallery-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+    .proj-gallery-eyebrow svg { width:14px;height:14px;flex-shrink:0; }
+    .proj-gallery-head h2 {
+      font-size: clamp(1.1rem,2.2vw,1.35rem);
+      font-weight: 700;
+      color: rgba(255,255,255,.9);
+      letter-spacing: -.02em;
+      line-height: 1.2;
+      margin-top: .35rem;
+    }
+    .proj-gallery-count {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.22);
+      flex-shrink: 0;
+      align-self: flex-end;
+      padding-bottom: .15rem;
+    }
+
+    /* ── Browser Frame ── */
+    .proj-frame {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      background: #14141e;
+      box-shadow:
+        0 24px 64px rgba(0,0,0,.65),
+        0 0 0 1px rgba(255,255,255,.04) inset;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+      cursor: pointer;
+    }
+    .proj-frame:hover {
+      transform: translateY(-5px);
+      box-shadow:
+        0 36px 80px rgba(0,0,0,.75),
+        0 0 0 1px rgba(255,255,255,.07) inset,
+        0 0 0 2px rgba(224,91,26,.18);
+    }
+    .proj-frame:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+    }
+
+    /* chrome bar */
+    .proj-frame-chrome {
+      background: #1e1e2a;
+      padding: .6rem .85rem;
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      user-select: none;
+    }
+    .proj-frame-dots {
+      display: flex;
+      gap: .32rem;
+      flex-shrink: 0;
+    }
+    .proj-frame-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+    }
+    .proj-frame-dot:nth-child(1){ background:#ff5f57; }
+    .proj-frame-dot:nth-child(2){ background:#febc2e; }
+    .proj-frame-dot:nth-child(3){ background:#28c840; }
+    .proj-frame-url {
+      flex: 1;
+      min-width: 0;
+      background: rgba(255,255,255,.05);
+      border-radius: 5px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      padding: 0 .6rem;
+      font-size: .58rem;
+      font-family: 'SF Mono','Fira Code','Fira Mono',monospace;
+      color: rgba(255,255,255,.28);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    /* screen area */
+    .proj-frame-screen-wrap {
+      overflow: hidden;
+      line-height: 0;
+      position: relative;
+    }
+    .proj-frame-screen-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(224,91,26,0);
+      transition: background .3s;
+      pointer-events: none;
+    }
+    .proj-frame:hover .proj-frame-screen-wrap::after {
+      background: rgba(224,91,26,.04);
+    }
+
+    .proj-frame-screen-wrap--contain {
+      background: #0a0a12;
+      height: clamp(200px, 34vw, 340px);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .proj-frame-img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: top;
+      transform: scale(1);
+      transition: transform .5s var(--ease);
+    }
+    .proj-frame-img--contain {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+      aspect-ratio: unset;
+      object-fit: contain;
+      object-position: top center;
+    }
+    .proj-frame:hover .proj-frame-img {
+      transform: scale(1.03);
+    }
+    .proj-frame:hover .proj-frame-img--contain {
+      transform: scale(1);
+    }
+
+    .proj-frame-hint {
+      position: absolute;
+      bottom: .5rem;
+      right: .55rem;
+      z-index: 2;
+      font-size: .52rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      pointer-events: none;
+    }
+
+    /* placeholder screen when no real image */
+    .proj-frame-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-frame-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 30% 40%, rgba(224,91,26,.12) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 80% at 80% 70%, rgba(26,92,200,.08) 0%, transparent 50%),
+        linear-gradient(160deg, #0f1625 0%, #090910 100%);
+    }
+    /* fake UI bars */
+    .proj-frame-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 48px 32px;
+    }
+    .proj-frame-placeholder-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .55rem;
+    }
+    .proj-frame-placeholder-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(224,91,26,.15);
+      border: 1px solid rgba(224,91,26,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      opacity: .75;
+    }
+    .proj-frame-placeholder-icon svg { width:18px;height:18px; }
+    .proj-frame-placeholder-label {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.2);
+    }
+
+    /* caption bar */
+    .proj-frame-caption {
+      padding: .75rem .9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      background: #14141e;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .proj-frame-caption-info { min-width: 0; }
+    .proj-frame-caption-title {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.75);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .proj-frame-caption-type {
+      font-size: .6rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.28);
+      margin-top: .1rem;
+    }
+    .proj-frame-caption-link {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--orange);
+      padding: .35rem .75rem;
+      border-radius: 6px;
+      border: 1px solid rgba(224,91,26,.35);
+      background: rgba(224,91,26,.08);
+      transition: background .18s, border-color .18s, color .18s;
+      white-space: nowrap;
+    }
+    .proj-frame-caption-link svg { width:11px;height:11px; }
+    .proj-frame-caption-link:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+    }
+    .proj-frame-caption-link:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
+    }
+
+    /* ── Layout: 1 hero + 2-col grid ── */
+    .proj-gallery-hero {
+      margin-bottom: 1rem;
+    }
+    .proj-gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 561px) {
+      .proj-gallery-grid--gifs > .proj-frame:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+    @media (max-width: 560px) {
+      .proj-gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* stagger entry animation */
+    .proj-frame {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity .55s var(--ease),
+        transform .55s var(--ease),
+        box-shadow .35s var(--ease);
+    }
+    .proj-frame.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .proj-frame:hover {
+      transform: translateY(-5px) !important;
+    }
+    .proj-frame[data-placeholder="true"]{
+      cursor:default;
+      pointer-events:none;
+    }
+    .proj-frame[data-placeholder="true"]:hover{
+      transform:translateY(0)!important;
+      box-shadow:0 24px 64px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.04) inset;
+    }
+    .proj-gallery-hero .proj-frame { transition-delay: 0s; }
+    .proj-gallery-grid .proj-frame:nth-child(1) { transition-delay: .1s; }
+    .proj-gallery-grid .proj-frame:nth-child(2) { transition-delay: .18s; }
+    .proj-gallery-grid .proj-frame:nth-child(3) { transition-delay: .26s; }
+    .proj-gallery-grid .proj-frame:nth-child(4) { transition-delay: .34s; }
+    .proj-gallery-grid--more { margin-top: 1rem; }
+    .proj-gallery-grid--more .proj-frame:nth-child(1) { transition-delay: .34s; }
+    .proj-gallery-grid--more .proj-frame:nth-child(2) { transition-delay: .4s; }
+    .proj-gallery-grid--more .proj-frame:nth-child(3) { transition-delay: .46s; }
+    .proj-gallery-grid--more .proj-frame:nth-child(4) { transition-delay: .52s; }
+    .proj-gallery-grid--more .proj-frame:nth-child(5) { transition-delay: .58s; }
+    .proj-gallery-grid--more .proj-frame:nth-child(6) { transition-delay: .64s; }
+
+    /* ════════════════════════════════
+       LIGHTBOX
+    ════════════════════════════════ */
+    .proj-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(0,0,0,.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s var(--ease);
+    }
+    .proj-lightbox.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .proj-lightbox-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: min(94vw, 1180px);
+      max-height: calc(85vh - 3rem);
+    }
+    .proj-lightbox-img {
+      max-width: min(92vw, 1120px);
+      max-height: calc(85vh - 3rem);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow:
+        0 40px 100px rgba(0,0,0,.85),
+        0 0 0 1px rgba(255,255,255,.08);
+      transform: scale(.94);
+      transition: transform .4s var(--ease);
+      display: block;
+    }
+    .proj-lightbox.is-open .proj-lightbox-img {
+      transform: scale(1);
+    }
+    .proj-lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(12,12,18,.75);
+      color: rgba(255,255,255,.9);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .proj-lightbox-nav svg { width: 20px; height: 20px; }
+    .proj-lightbox-nav:hover {
+      background: rgba(224,91,26,.4);
+      border-color: rgba(224,91,26,.65);
+      color: #fff;
+    }
+    .proj-lightbox-nav:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 3px;
+    }
+    .proj-lightbox-nav--prev { left: 0.35rem; }
+    .proj-lightbox-nav--next { right: 0.35rem; }
+    @media (max-width: 720px) {
+      .proj-lightbox-nav { width: 40px; height: 40px; }
+    }
+    .proj-lightbox-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.85);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, border-color .2s;
+    }
+    .proj-lightbox-close svg { width:18px;height:18px; }
+    .proj-lightbox-close:hover {
+      background: rgba(224,91,26,.35);
+      border-color: rgba(224,91,26,.55);
+      color: #fff;
+    }
+    .proj-lightbox-close:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
+    }
+    .proj-lightbox-caption {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      max-width: 90vw;
+    }
+    .proj-lightbox-caption-title {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+    .proj-lightbox-caption-count {
+      display: block;
+      margin-top: .35rem;
+      font-size: .58rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.28);
+    }
+
+    /* ── FOOTER ── */
+    .page-foot{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--line);background:var(--page)}
+    .page-foot a{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);text-decoration:none}
+    .page-foot a:hover{text-decoration:underline}
+    .page-foot a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .proj-frame,.proj-lightbox-img{ transition:none!important; }
+    }
+  
+    /* ── Mobile page-bar ── */
+    @media(max-width:480px){
+      .page-period{display:none}
+      .page-bar{padding:.65rem 1rem}
+    }
+    /* ── Scroll-to-top ── */
+    .btn-top{position:fixed;bottom:2rem;right:2rem;z-index:9000;width:2.75rem;height:2.75rem;border-radius:50%;border:none;cursor:pointer;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(224,91,26,.38),0 1px 4px rgba(0,0,0,.18);opacity:0;pointer-events:none;transform:translateY(.75rem) scale(.88);transition:opacity .35s var(--ease),transform .35s var(--ease),background .2s,box-shadow .2s}
+    .btn-top.visible{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}
+    .btn-top:hover{background:var(--orange-d);box-shadow:0 6px 22px rgba(224,91,26,.5),0 2px 6px rgba(0,0,0,.22);transform:translateY(-2px) scale(1.06)}
+    .btn-top:active{transform:scale(.95)}
+    .btn-top:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    @media(max-width:600px){.btn-top{bottom:1.5rem;right:1.25rem;width:2.5rem;height:2.5rem}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo" data-i18n="a11y_skip">Pular para o conteúdo</a>
+
+  <header class="page-bar">
+    <a class="page-voltar" href="../index.html">
+      <i data-feather="arrow-left" aria-hidden="true"></i>
+      <span data-i18n="labs_nav_hub">Labs</span>
+    </a>
+    <div class="page-bar-right">
+      <div class="lang-switch" role="group" data-i18n-aria="lang_switch_aria" aria-label="Idioma do site">
+        <button type="button" class="lang-btn" data-lang-btn="pt" aria-pressed="true" data-i18n-aria="proj_lang_pt_aria" aria-label="Português">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.2 17.8 7 10 12.8 2.2 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="2.6" fill="#002776"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_pt_label">PT</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false" data-i18n-aria="proj_lang_en_aria" aria-label="English">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10"><rect width="19" height="10" fill="#b22234"/><path fill="#fff" d="M0 1.54h19v1.54H0zm0 3.08h19v1.54H0zm0 3.08h12.35v1.54H0z"/><rect width="7.65" height="5.38" fill="#3c3b6e"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_en_label">EN</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <nav class="page-crumb" aria-label="Trilha de navegação" data-i18n-aria="labs_crumb_aria">
+        <a href="../../../index.html#timeline" data-i18n="proj_nav_portfolio">Portfólio</a>
+        <span class="page-crumb-sep" aria-hidden="true">/</span>
+        <a href="../index.html" data-i18n="nav_labs">Labs</a>
+        <span class="page-crumb-sep" aria-hidden="true">/</span>
+        <span aria-current="page" data-i18n="labs_card_tjbooks_title">TJBOOKS</span>
+      </nav>
+      <span class="page-hero-tag" data-i18n="labs_tjbooks_hero_tag">Projeto pessoal</span>
+      <h1 data-i18n-html="labs_tjbooks_hero_title_html"><strong>TJBOOKS</strong></h1>
+      <p class="page-hero-role" data-i18n="labs_tjbooks_hero_role">SPA Angular e API Laravel — inventário, relatórios e fluxos pensados para clareza na tela.</p>
+    </div>
+  </div>
+
+  <div class="page-band">
+    <div class="page-band-inner">
+      <blockquote class="page-quote">
+        <p data-i18n="labs_tjbooks_quote">Projeto focado em experiência do usuário, performance e organização de conteúdo literário.</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <main id="conteudo">
+
+    <div class="page-main">
+
+      <div class="sec-label"><i data-feather="book-open" aria-hidden="true"></i> <span data-i18n="labs_tjbooks_sec_label">Visão geral</span></div>
+      <h2 data-i18n="labs_tjbooks_h2">Sobre o projeto</h2>
+      <p data-i18n="labs_tjbooks_p1">O TJBOOKS reúne dois repositórios: uma API REST para livros, autores e assuntos, e uma interface com dashboard, listagens, detalhe e relatório por autor — com foco em usabilidade, responsividade e desempenho.</p>
+      <p data-i18n="labs_tjbooks_p2">Metadados e relações N:N sustentam um catálogo coerente; relatórios apoiam-se em views versionadas. O conjunto foi desenhado para ser simples de executar (Docker, README) e evoluir com testes e código legível.</p>
+
+      <div class="page-divider" aria-hidden="true">
+        <span class="page-divider__line"></span><i data-feather="cpu"></i><span class="page-divider__line"></span>
+      </div>
+
+      <div class="sec-label"><i data-feather="folder" aria-hidden="true"></i> <span data-i18n="labs_tjbooks_sec_stack">Repositórios</span></div>
+      <h2 data-i18n="labs_tjbooks_h2_stack">Código no GitHub</h2>
+      <p data-i18n="labs_tjbooks_p_stack">API REST em Laravel e interface em Angular — monorepo mental em dois repositórios; README do backend documenta Docker, migrations e testes.</p>
+
+      <div class="labs-repo-list">
+        <a class="labs-repo-link" href="https://github.com/mystrader/books-service/blob/main/README.md" target="_blank" rel="noopener noreferrer" data-i18n-aria="labs_tjbooks_repo_backend_aria" aria-label="GitHub — backend books-service (README)">
+          <span class="labs-repo-gh-wrap" aria-hidden="true">
+            <svg class="labs-repo-gh" viewBox="0 0 24 24" role="img"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.72 1.26 3.38.96.1-.75.41-1.26.74-1.55-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.3-.51-1.52.11-3.18 0 0 .97-.31 3.18 1.2a10.9 10.9 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.51 3.17-1.2 3.17-1.2.62 1.66.23 2.88.11 3.18.74.8 1.18 1.83 1.18 3.08 0 4.42-2.69 5.38-5.26 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.67.8.56A10.98 10.98 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          </span>
+          <span class="labs-repo-text">
+            <span class="labs-repo-kicker" data-i18n="labs_tjbooks_repo_backend_kicker">Backend</span>
+            <span class="labs-repo-slug">mystrader/books-service</span>
+          </span>
+          <i data-feather="external-link" class="labs-repo-ext" aria-hidden="true"></i>
+        </a>
+        <a class="labs-repo-link" href="https://github.com/mystrader/books-frontend" target="_blank" rel="noopener noreferrer" data-i18n-aria="labs_tjbooks_repo_frontend_aria" aria-label="GitHub — frontend books-frontend">
+          <span class="labs-repo-gh-wrap" aria-hidden="true">
+            <svg class="labs-repo-gh" viewBox="0 0 24 24" role="img"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.43 7.86 10.96.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.72 1.26 3.38.96.1-.75.41-1.26.74-1.55-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.3-.51-1.52.11-3.18 0 0 .97-.31 3.18 1.2a10.9 10.9 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.51 3.17-1.2 3.17-1.2.62 1.66.23 2.88.11 3.18.74.8 1.18 1.83 1.18 3.08 0 4.42-2.69 5.38-5.26 5.66.41.35.78 1.05.78 2.12 0 1.53-.02 2.76-.02 3.14 0 .31.21.67.8.56A10.98 10.98 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          </span>
+          <span class="labs-repo-text">
+            <span class="labs-repo-kicker" data-i18n="labs_tjbooks_repo_frontend_kicker">Frontend</span>
+            <span class="labs-repo-slug">mystrader/books-frontend</span>
+          </span>
+          <i data-feather="external-link" class="labs-repo-ext" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="page-chips">
+        <span class="page-chip">Laravel 11</span>
+        <span class="page-chip">PHP 8.4</span>
+        <span class="page-chip">Angular 21</span>
+        <span class="page-chip">TypeScript</span>
+        <span class="page-chip">Tailwind v4</span>
+        <span class="page-chip">Docker</span>
+      </div>
+
+      <div class="sec-label"><i data-feather="pen-tool" aria-hidden="true"></i> <span data-i18n="labs_tjbooks_design_sec">Guia de design</span></div>
+      <h2 data-i18n="labs_tjbooks_design_h2">Identidade visual (Figma)</h2>
+      <div class="tjbooks-design tjbooks-design--lead">
+        <p data-i18n="labs_tjbooks_design_p">Paletas por tema de livro (oceano, místico, esmeralda, rubi, âmbar, sakura) e tokens de sistema — fundo claro, texto #030213, bordas suaves. Referência para o app Angular/Tailwind.</p>
+      </div>
+      <div class="tjbooks-design tjbooks-design--actions">
+        <a class="tjbooks-design-cta" href="https://veto-clump-39113998.figma.site/" target="_blank" rel="noopener noreferrer" data-i18n-aria="labs_tjbooks_design_aria" aria-label="Abrir o guia de design TJBOOKS no Figma Site em nova aba">
+          <i data-feather="external-link" aria-hidden="true"></i>
+          <span data-i18n="labs_tjbooks_design_cta">Abrir guia no Figma Site</span>
+        </a>
+        <p class="tjbooks-palette-legend" data-i18n="labs_tjbooks_palette_legend">Cores de tema por livro descritas no guia — o mesmo sistema aparece ao abrir o Figma Site no botão acima.</p>
+        <div class="tjbooks-swatch-row" aria-hidden="true">
+          <span class="tjbooks-swatch" style="background:#3B82F6;box-shadow:0 2px 8px rgba(59,130,246,.3),0 0 0 1px rgba(0,0,0,.05) inset"></span>
+          <span class="tjbooks-swatch" style="background:#9333EA;box-shadow:0 2px 8px rgba(147,51,234,.3),0 0 0 1px rgba(0,0,0,.05) inset"></span>
+          <span class="tjbooks-swatch" style="background:#10B981;box-shadow:0 2px 8px rgba(16,185,129,.3),0 0 0 1px rgba(0,0,0,.05) inset"></span>
+          <span class="tjbooks-swatch" style="background:#EF4444;box-shadow:0 2px 8px rgba(239,68,68,.3),0 0 0 1px rgba(0,0,0,.05) inset"></span>
+          <span class="tjbooks-swatch" style="background:#F59E0B;box-shadow:0 2px 8px rgba(245,158,11,.3),0 0 0 1px rgba(0,0,0,.05) inset"></span>
+          <span class="tjbooks-swatch" style="background:#EC4899;box-shadow:0 2px 8px rgba(236,72,153,.3),0 0 0 1px rgba(0,0,0,.05) inset"></span>
+        </div>
+      </div>
+      <details class="tjbooks-figma-details" data-i18n-aria="labs_tjbooks_figma_disclosure_aria" aria-label="Secção retrátil: a incorporação do Figma só carrega depois de expandir">
+        <summary class="tjbooks-figma-summary"><span data-i18n="labs_tjbooks_figma_disclosure_summary">Mostrar Figma incorporado (carrega ao abrir — pode demorar)</span></summary>
+        <div class="page-embed-shell">
+          <div class="page-embed">
+            <iframe data-figma-src="https://embed.figma.com/design/bTpwr6Tlr6z4AiP6WpO4ck/%F0%9F%8E%A8-TJRJ---prova?node-id=0-1&amp;embed-host=share" data-i18n-title="labs_tjbooks_figma_embed_title" title="Arquivo Figma — protótipo TJBOOKS (incorporado)" allowfullscreen allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+        </div>
+      </details>
+
+    </div><!-- /page-main -->
+
+    <section class="sd-section" aria-labelledby="sd-heading">
+      <div class="sd-inner">
+        <p class="sd-eyebrow" data-i18n="labs_tjbooks_sd_eyebrow">System design</p>
+        <h2 id="sd-heading" data-i18n="labs_tjbooks_sd_h2">Arquitetura frontend — padrões e decisões</h2>
+        <p class="sd-lead" data-i18n="labs_tjbooks_sd_lead">Organização modular, estado e o papel de Strategy, Policy, Use-case e Facade no módulo TJBooks (Angular 21).</p>
+
+        <details class="sd-acc" open>
+          <summary><span class="sd-sum-main"><i data-feather="book" class="sd-sum-ico" aria-hidden="true"></i><span data-i18n="labs_tjbooks_sd_sum1">Patterns, pastas e síntese</span></span></summary>
+          <div class="sd-acc-body" data-i18n-html="labs_tjbooks_sd_body1_html"></div>
+        </details>
+
+        <details class="sd-acc">
+          <summary><span class="sd-sum-main"><i data-feather="layers" class="sd-sum-ico" aria-hidden="true"></i><span data-i18n="labs_tjbooks_sd_sum2">Estado, signals e entrega</span></span></summary>
+          <div class="sd-acc-body" data-i18n-html="labs_tjbooks_sd_body2_html"></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ════ PROJECT GALLERY ════ -->
+    <section class="proj-gallery-section" data-i18n-aria="labs_tjbooks_gallery_aria" aria-label="Galeria do projeto">
+      <div class="proj-gallery-inner">
+
+        <div class="proj-gallery-head">
+          <div>
+            <div class="proj-gallery-eyebrow">
+              <i data-feather="layers" aria-hidden="true"></i>
+              <span data-i18n="labs_tjbooks_gallery_eyebrow">Preview</span>
+            </div>
+            <h2 data-i18n="labs_tjbooks_gallery_h2">Telas & artefatos</h2>
+          </div>
+          <span class="proj-gallery-count" data-i18n="labs_tjbooks_gallery_count">10 artefatos</span>
+        </div>
+
+        <div class="proj-gallery-hero">
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="https://github.com/user-attachments/assets/d80d934f-8205-4736-bb1b-138c350767cf" data-title="Fluxos — painel, busca, cadastro e relatório" data-title-i18n="labs_tjbooks_gif1_cap" data-i18n-aria="labs_tjbooks_gif1_aria" aria-label="Abrir na galeria — visão geral dos fluxos da interface">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots">
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+              </div>
+              <div class="proj-frame-url">tjbooks · fluxos · dashboard · inventário · relatório</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="https://github.com/user-attachments/assets/d80d934f-8205-4736-bb1b-138c350767cf" width="800" height="450" alt="" data-i18n-alt="labs_tjbooks_gif1_alt" loading="eager" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_gif1_cap">Fluxos — painel, busca, cadastro e relatório</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_gif_kind">GIF · GitHub</div>
+              </div>
+              <a class="proj-frame-caption-link" href="https://github.com/user-attachments/assets/d80d934f-8205-4736-bb1b-138c350767cf" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_git_asset_aria" aria-label="Abrir o arquivo no GitHub em nova aba"><span data-i18n="labs_tjbooks_git_asset_cta">Abrir no GitHub</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-gallery-grid proj-gallery-grid--gifs">
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="https://github.com/user-attachments/assets/29c228c5-67c4-4e93-810e-943fffcc4bff" data-title="Inventário — busca global" data-title-i18n="labs_tjbooks_gif2_cap" data-i18n-aria="labs_tjbooks_gif2_aria" aria-label="Abrir na galeria — inventário e busca">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots">
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+              </div>
+              <div class="proj-frame-url">tjbooks · inventário · busca</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="https://github.com/user-attachments/assets/29c228c5-67c4-4e93-810e-943fffcc4bff" width="800" height="450" alt="" data-i18n-alt="labs_tjbooks_gif2_alt" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_gif2_cap">Inventário — busca global</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_gif_kind">GIF · GitHub</div>
+              </div>
+              <a class="proj-frame-caption-link" href="https://github.com/user-attachments/assets/29c228c5-67c4-4e93-810e-943fffcc4bff" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_git_asset_aria" aria-label="Abrir o arquivo no GitHub em nova aba"><span data-i18n="labs_tjbooks_git_asset_cta">Abrir no GitHub</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="https://github.com/user-attachments/assets/c8fce98e-71e4-4b75-bfe3-a8436299f2fa" data-title="Inventário — tabela e ações" data-title-i18n="labs_tjbooks_gif3_cap" data-i18n-aria="labs_tjbooks_gif3_aria" aria-label="Abrir na galeria — tabela e ações do inventário">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots">
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+              </div>
+              <div class="proj-frame-url">tjbooks · inventário · ações</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="https://github.com/user-attachments/assets/c8fce98e-71e4-4b75-bfe3-a8436299f2fa" width="800" height="450" alt="" data-i18n-alt="labs_tjbooks_gif3_alt" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_gif3_cap">Inventário — tabela e ações</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_gif_kind">GIF · GitHub</div>
+              </div>
+              <a class="proj-frame-caption-link" href="https://github.com/user-attachments/assets/c8fce98e-71e4-4b75-bfe3-a8436299f2fa" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_git_asset_aria" aria-label="Abrir o arquivo no GitHub em nova aba"><span data-i18n="labs_tjbooks_git_asset_cta">Abrir no GitHub</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="https://github.com/user-attachments/assets/c3b1dcda-f85c-4a3e-aacb-190de6b8e270" data-title="Mobile — painel e ficha do livro" data-title-i18n="labs_tjbooks_gif4_cap" data-i18n-aria="labs_tjbooks_gif4_aria" aria-label="Abrir na galeria — experiência mobile">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots">
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+                <span class="proj-frame-dot"></span>
+              </div>
+              <div class="proj-frame-url">tjbooks · mobile · ficha</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="https://github.com/user-attachments/assets/c3b1dcda-f85c-4a3e-aacb-190de6b8e270" width="800" height="450" alt="" data-i18n-alt="labs_tjbooks_gif4_alt" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_gif4_cap">Mobile — painel e ficha do livro</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_gif_kind">GIF · GitHub</div>
+              </div>
+              <a class="proj-frame-caption-link" href="https://github.com/user-attachments/assets/c3b1dcda-f85c-4a3e-aacb-190de6b8e270" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_git_asset_aria" aria-label="Abrir o arquivo no GitHub em nova aba"><span data-i18n="labs_tjbooks_git_asset_cta">Abrir no GitHub</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-gallery-grid proj-gallery-grid--more">
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="../../../imagens/LABS/TJBooks/Pagina%20inicial.png" data-title="Página inicial — dashboard" data-title-i18n="labs_tjbooks_png_pagina_cap" data-i18n-aria="labs_tjbooks_png_pagina_aria" aria-label="Abrir na galeria — página inicial">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots"><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span></div>
+              <div class="proj-frame-url">tjbooks · png · página inicial</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="../../../imagens/LABS/TJBooks/Pagina%20inicial.png" width="1200" height="800" alt="" data-i18n-alt="labs_tjbooks_png_pagina_alt" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_png_pagina_cap">Página inicial — dashboard</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_png_kind">PNG · portfolio</div>
+              </div>
+              <a class="proj-frame-caption-link" href="../../../imagens/LABS/TJBooks/Pagina%20inicial.png" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_local_open_aria" aria-label="Abrir a imagem em nova aba"><span data-i18n="labs_tjbooks_local_open_cta">Abrir imagem</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="../../../imagens/LABS/TJBooks/swagger_tjbooks.png" data-title="API — Swagger" data-title-i18n="labs_tjbooks_png_swagger_cap" data-i18n-aria="labs_tjbooks_png_swagger_aria" aria-label="Abrir na galeria — Swagger">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots"><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span></div>
+              <div class="proj-frame-url">tjbooks · png · swagger</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="../../../imagens/LABS/TJBooks/swagger_tjbooks.png" width="1200" height="800" alt="" data-i18n-alt="labs_tjbooks_png_swagger_alt" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_png_swagger_cap">API — Swagger</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_png_kind">PNG · portfolio</div>
+              </div>
+              <a class="proj-frame-caption-link" href="../../../imagens/LABS/TJBooks/swagger_tjbooks.png" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_local_open_aria" aria-label="Abrir a imagem em nova aba"><span data-i18n="labs_tjbooks_local_open_cta">Abrir imagem</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="../../../imagens/LABS/TJBooks/cobertura_testes.png" data-title="Cobertura de testes" data-title-i18n="labs_tjbooks_png_cobertura_cap" data-i18n-aria="labs_tjbooks_png_cobertura_aria" aria-label="Abrir na galeria — cobertura de testes">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots"><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span></div>
+              <div class="proj-frame-url">tjbooks · png · cobertura</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="../../../imagens/LABS/TJBooks/cobertura_testes.png" width="1200" height="800" alt="" data-i18n-alt="labs_tjbooks_png_cobertura_alt" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_png_cobertura_cap">Cobertura de testes</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_png_kind">PNG · portfolio</div>
+              </div>
+              <a class="proj-frame-caption-link" href="../../../imagens/LABS/TJBooks/cobertura_testes.png" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_local_open_aria" aria-label="Abrir a imagem em nova aba"><span data-i18n="labs_tjbooks_local_open_cta">Abrir imagem</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="../../../imagens/LABS/TJBooks/guiaDesign.png" data-title="Guia de design" data-title-i18n="labs_tjbooks_png_guia_cap" data-i18n-aria="labs_tjbooks_png_guia_aria" aria-label="Abrir na galeria — guia de design">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots"><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span></div>
+              <div class="proj-frame-url">tjbooks · png · guia design</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="../../../imagens/LABS/TJBooks/guiaDesign.png" width="1200" height="800" alt="" data-i18n-alt="labs_tjbooks_png_guia_alt" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_png_guia_cap">Guia de design</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_png_kind">PNG · portfolio</div>
+              </div>
+              <a class="proj-frame-caption-link" href="../../../imagens/LABS/TJBooks/guiaDesign.png" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_local_open_aria" aria-label="Abrir a imagem em nova aba"><span data-i18n="labs_tjbooks_local_open_cta">Abrir imagem</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="../../../imagens/LABS/TJBooks/teste_contraste.png" data-title="Usabilidade — contraste" data-title-i18n="labs_tjbooks_png_contraste_cap" data-i18n-aria="labs_tjbooks_png_contraste_aria" aria-label="Abrir na galeria — teste de contraste">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots"><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span></div>
+              <div class="proj-frame-url">tjbooks · png · contraste</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="../../../imagens/LABS/TJBooks/teste_contraste.png" width="1200" height="800" alt="" data-i18n-alt="labs_tjbooks_png_contraste_alt" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_png_contraste_cap">Usabilidade — contraste</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_png_kind">PNG · portfolio</div>
+              </div>
+              <a class="proj-frame-caption-link" href="../../../imagens/LABS/TJBooks/teste_contraste.png" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_local_open_aria" aria-label="Abrir a imagem em nova aba"><span data-i18n="labs_tjbooks_local_open_cta">Abrir imagem</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="proj-frame" tabindex="0" role="button" data-gallery="tjbooks" data-src="../../../imagens/LABS/TJBooks/teste_atencao.png" data-title="Usabilidade — atenção" data-title-i18n="labs_tjbooks_png_atencao_cap" data-i18n-aria="labs_tjbooks_png_atencao_aria" aria-label="Abrir na galeria — teste de atenção">
+            <div class="proj-frame-chrome">
+              <div class="proj-frame-dots"><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span><span class="proj-frame-dot"></span></div>
+              <div class="proj-frame-url">tjbooks · png · atenção</div>
+            </div>
+            <div class="proj-frame-screen-wrap proj-frame-screen-wrap--contain">
+              <img class="proj-frame-img proj-frame-img--contain" src="../../../imagens/LABS/TJBooks/teste_atencao.png" width="1200" height="800" alt="" data-i18n-alt="labs_tjbooks_png_atencao_alt" loading="lazy" decoding="async">
+              <span class="proj-frame-hint" aria-hidden="true" data-i18n="proj_gallery_hint">Clique · galeria</span>
+            </div>
+            <div class="proj-frame-caption">
+              <div class="proj-frame-caption-info">
+                <div class="proj-frame-caption-title" data-i18n="labs_tjbooks_png_atencao_cap">Usabilidade — atenção</div>
+                <div class="proj-frame-caption-type" data-i18n="labs_tjbooks_png_kind">PNG · portfolio</div>
+              </div>
+              <a class="proj-frame-caption-link" href="../../../imagens/LABS/TJBooks/teste_atencao.png" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n-aria="labs_tjbooks_local_open_aria" aria-label="Abrir a imagem em nova aba"><span data-i18n="labs_tjbooks_local_open_cta">Abrir imagem</span> <i data-feather="external-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /proj-gallery-inner -->
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="proj-lightbox" id="lightbox" role="dialog" aria-modal="true" data-i18n-aria="proj_lb_dialog" aria-label="Galeria de imagens">
+    <button type="button" class="proj-lightbox-close" id="lightboxClose" data-i18n-aria="proj_lb_close" aria-label="Fechar galeria">
+      <i data-feather="x" aria-hidden="true"></i>
+    </button>
+    <div class="proj-lightbox-stage">
+      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--prev" id="lightboxPrev" data-i18n-aria="proj_lb_prev" aria-label="Imagem anterior">
+        <i data-feather="chevron-left" aria-hidden="true"></i>
+      </button>
+      <img class="proj-lightbox-img" id="lightboxImg" src="" alt="" />
+      <button type="button" class="proj-lightbox-nav proj-lightbox-nav--next" id="lightboxNext" data-i18n-aria="proj_lb_next" aria-label="Próxima imagem">
+        <i data-feather="chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="proj-lightbox-caption" id="lightboxCaption">
+      <span class="proj-lightbox-caption-title" id="lightboxCaptionTitle"></span>
+      <span class="proj-lightbox-caption-count" id="lightboxCaptionCount"></span>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <a href="../../../index.html#timeline" data-i18n="proj_foot_back">← Voltar ao portfólio</a>
+  </footer>
+
+  <script>
+    (function(){
+      'use strict';
+      if(typeof feather!=='undefined') feather.replace({'stroke-width':1.75});
+
+      // ── Scroll-reveal ──
+      const frames = document.querySelectorAll('.proj-frame');
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); }
+        });
+      },{threshold:.15});
+      frames.forEach(f=>{
+        if(f.getAttribute('data-placeholder')==='true'){ f.classList.add('vis'); return; }
+        io.observe(f);
+      });
+
+      const lb       = document.getElementById('lightbox');
+      const lbImg    = document.getElementById('lightboxImg');
+      const lbTitle  = document.getElementById('lightboxCaptionTitle');
+      const lbCount  = document.getElementById('lightboxCaptionCount');
+      const lbClose  = document.getElementById('lightboxClose');
+      const lbPrev   = document.getElementById('lightboxPrev');
+      const lbNext   = document.getElementById('lightboxNext');
+
+      let lbSources = [];
+      let lbTitles = [];
+      let lbIndex = 0;
+      let lbCaseTitle = '';
+
+      function tr(key){
+        var L = window.MCI18N && MCI18N.detectLang ? MCI18N.detectLang() : 'pt';
+        var v = window.MCI18N && MCI18N.t ? MCI18N.t(L, key) : '';
+        return v || '';
+      }
+      function tpl(key, o){
+        var s = tr(key);
+        if(o){ Object.keys(o).forEach(function(k){ s = s.split('{'+k+'}').join(o[k]); }); }
+        return s;
+      }
+      function frameCaptionI18n(frame){
+        var key = frame.getAttribute('data-title-i18n');
+        if(key && window.MCI18N && MCI18N.t){
+          var L = MCI18N.detectLang ? MCI18N.detectLang() : 'pt';
+          var v = MCI18N.t(L, key);
+          if(v) return v;
+        }
+        return frame.getAttribute('data-title') || '';
+      }
+      function syncLbUi(){
+        const src = lbSources[lbIndex];
+        if(!src) return;
+        lbImg.src = src;
+        const n = lbSources.length;
+        const cap = (lbTitles.length > lbIndex && lbTitles[lbIndex]) ? lbTitles[lbIndex] : (lbCaseTitle || '');
+        const titleForLb = cap || tr('proj_lb_gallery_fallback');
+        lbTitle.textContent = titleForLb;
+        if(n < 2){
+          lbImg.alt = cap || tr('proj_lb_zoom_alt');
+          lbCount.textContent = '';
+          lb.setAttribute(
+            'aria-label',
+            tpl('proj_lb_aria_single', { title: titleForLb })
+          );
+        } else {
+          const imgW = tr('proj_lb_image_word');
+          const ofW = tr('proj_lb_of');
+          lbImg.alt = (cap ? cap + ' — ' : '') + imgW + ' ' + (lbIndex + 1) + ' ' + ofW + ' ' + n;
+          lbCount.textContent = (lbIndex + 1) + ' / ' + n;
+          lb.setAttribute('aria-label', tpl('proj_lb_aria_pcs', { i: String(lbIndex + 1), n: String(n) }));
+        }
+      }
+
+      function openLbApply(){
+        if(!lbSources.length) return;
+        syncLbUi();
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+        lbPrev.hidden = lbSources.length < 2;
+        lbNext.hidden = lbSources.length < 2;
+      }
+
+      function openLbFromFrame(frame){
+        const gid = frame.getAttribute('data-gallery');
+        if(gid){
+          const gfs = Array.prototype.slice.call(document.querySelectorAll('.proj-frame[data-gallery="'+gid+'"]'));
+          lbSources = gfs.map(function(f){ return f.dataset.src; }).filter(Boolean);
+          lbTitles = gfs.map(frameCaptionI18n);
+          lbIndex = Math.max(0, gfs.indexOf(frame));
+        } else {
+          const src = frame.dataset.src;
+          lbSources = src ? [src] : [];
+          lbTitles = [frameCaptionI18n(frame)];
+          lbIndex = 0;
+        }
+        lbCaseTitle = lbTitles[lbIndex] || '';
+        openLbApply();
+      }
+
+      function closeLb(){
+        lb.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+        lbSources = [];
+        lbTitles = [];
+      }
+
+      function stepLb(delta){
+        if(lbSources.length < 2) return;
+        lbIndex = (lbIndex + delta + lbSources.length) % lbSources.length;
+        syncLbUi();
+      }
+
+      frames.forEach(f=>{
+        if(f.getAttribute('data-placeholder')==='true') return;
+        f.addEventListener('click', ()=> openLbFromFrame(f));
+        f.addEventListener('keydown', e=>{
+          if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLbFromFrame(f); }
+        });
+      });
+      document.addEventListener('i18n:applied', function(){
+        if(typeof feather !== 'undefined') feather.replace({ 'stroke-width': 1.75 });
+        if(lb.classList.contains('is-open') && lbSources.length > 1){
+          var gfs = document.querySelectorAll('.proj-frame[data-gallery="tjbooks"]');
+          if(gfs.length === lbSources.length){
+            lbTitles = Array.prototype.slice.call(gfs).map(frameCaptionI18n);
+          }
+        }
+        if(lb.classList.contains('is-open')) syncLbUi();
+      });
+      lbClose.addEventListener('click', closeLb);
+      lbPrev.addEventListener('click', e=>{ e.stopPropagation(); stepLb(-1); });
+      lbNext.addEventListener('click', e=>{ e.stopPropagation(); stepLb(1); });
+      lb.addEventListener('click', e=>{ if(e.target===lb) closeLb(); });
+      document.addEventListener('keydown', e=>{
+        if(!lb.classList.contains('is-open')) return;
+        if(e.key==='Escape') closeLb();
+        else if(e.key==='ArrowLeft'){ e.preventDefault(); stepLb(-1); }
+        else if(e.key==='ArrowRight'){ e.preventDefault(); stepLb(1); }
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      var det = document.querySelector('.tjbooks-figma-details');
+      if (!det) return;
+      var iframe = det.querySelector('iframe[data-figma-src]');
+      if (!iframe) return;
+      function loadFigma(){
+        if (iframe.getAttribute('src')) return;
+        var u = iframe.getAttribute('data-figma-src');
+        if (u) iframe.setAttribute('src', u);
+      }
+      det.addEventListener('toggle', function(){ if (det.open) loadFigma(); });
+    })();
+  </script>
+  <script src="../../../i18n.js"></script>
+  <script>if(window.MCI18N) MCI18N.init();</script>
+<button type="button" class="btn-top" id="btnTop" data-i18n-aria="labs_btn_top_aria" aria-label="Voltar ao topo">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+<script>
+  (function(){
+    var btn=document.getElementById('btnTop');
+    if(!btn)return;
+    window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300)},{passive:true});
+    btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+  })();
+</script>
+</body>
+</html>

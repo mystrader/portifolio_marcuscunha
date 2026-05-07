@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-i18n-page="labs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Labs — projetos pessoais e experimentos · Marcus Cunha">
+  <title>Labs · Marcus Cunha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <style>
+    :root{
+      --void:#0c0c0f;--void-2:#13131a;--page:#f6f3ee;--ink:#1a1a20;
+      --muted:#918d88;--orange:#e05b1a;--orange-d:#b34714;--orange-s:#fbf0e9;
+      --line:#ddd9d1;--blue:#1a5cc8;--warm:#ede9e2;
+      --font-disp:'Nunito',system-ui,sans-serif;
+      --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-disp);background:var(--page);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+    .skip-link{position:absolute;left:-9999px;top:.75rem;z-index:200;padding:.6rem 1rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--void);background:#fff;border:2px solid var(--orange);border-radius:6px}
+    .skip-link:focus{left:.75rem;outline:none}
+    .page-bar{position:sticky;top:0;z-index:100;background:rgba(12,12,15,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);padding:.85rem clamp(1.25rem,4vw,2.75rem);display:flex;align-items:center;justify-content:space-between}
+    .page-voltar{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff;padding:.55rem .85rem .55rem .35rem;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);transition:background .2s,border-color .2s,color .2s}
+    .page-voltar svg{width:18px;height:18px;flex-shrink:0}
+    .page-voltar:hover{background:rgba(224,91,26,.25);border-color:rgba(224,91,26,.55);color:#fff}
+    .page-voltar:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+    .page-bar-right{display:flex;align-items:center;gap:.85rem}
+    .lang-switch{display:inline-flex;align-items:center;gap:.2rem;padding:.2rem;border-radius:100px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.2)}
+    .lang-btn{font-family:var(--font-disp);font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);background:transparent;border:none;border-radius:100px;padding:.32rem .55rem .32rem .45rem;cursor:pointer;transition:color .2s,background .2s;display:inline-flex;align-items:center;gap:.38rem}
+    .lang-flag{flex-shrink:0;display:block;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.25);line-height:0}
+    .lang-flag svg{display:block;width:1.05rem;height:.72rem}
+    .lang-btn:hover{color:#fff}
+    .lang-btn.is-active{color:var(--void);background:#fff}
+    .page-hero{background:var(--orange);padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,3rem);position:relative;overflow:hidden}
+    .page-hero::before{content:'Labs';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-size:clamp(5rem,14vw,11rem);font-weight:300;line-height:1;color:rgba(255,255,255,.07);letter-spacing:-.04em;pointer-events:none;white-space:nowrap}
+    .page-hero-inner{position:relative;z-index:1;max-width:720px}
+    .page-hero-tag{display:inline-block;margin-bottom:.7rem;font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.88);background:rgba(255,255,255,.18);padding:.22rem .7rem;border-radius:100px}
+    .page-hero h1{font-weight:300;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em;color:#fff;line-height:1.1;text-wrap:balance}
+    .page-hero h1 strong{font-weight:800}
+    .page-hero-role{margin-top:.65rem;font-size:clamp(.88rem,1.2vw,1rem);color:rgba(255,255,255,.88);font-weight:600}
+    .page-crumb{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:1rem;display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;line-height:1.45;max-width:720px}
+    .page-crumb a{color:rgba(255,255,255,.92);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);transition:color .15s,border-color .15s}
+    .page-crumb a:hover{color:#fff;border-bottom-color:#fff}
+    .page-crumb a:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:2px}
+    .page-crumb [aria-current="page"]{color:#fff;font-weight:800;letter-spacing:.06em}
+    .page-crumb-sep{color:rgba(255,255,255,.4);font-weight:600;user-select:none}
+    .page-band{background:var(--void);padding:clamp(2rem,4vw,3rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .page-band-inner{max-width:720px;margin:0 auto}
+    .page-quote{margin:0;padding:0 0 0 clamp(1rem,3vw,1.35rem);border-left:3px solid rgba(255,255,255,.28)}
+    .page-quote p{font-size:clamp(1rem,2vw,1.35rem);font-weight:500;line-height:1.5;letter-spacing:-.02em;color:rgba(255,255,255,.92)}
+    .page-main{max-width:720px;margin:0 auto;padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,2rem) clamp(1.5rem,4vw,2.5rem)}
+    .labs-list-eyebrow{font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem}
+    .labs-grid{display:grid;gap:1rem;grid-template-columns:1fr}
+    @media(min-width:540px){.labs-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}}
+    .labs-card{display:flex;flex-direction:column;gap:.65rem;padding:1.35rem 1.25rem;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.85);text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s,transform .2s var(--ease)}
+    .labs-card:hover{border-color:rgba(224,91,26,.45);box-shadow:0 10px 28px rgba(224,91,26,.12);transform:translateY(-2px)}
+    .labs-card:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-color:rgba(224,91,26,.55)}
+    .labs-card-icon{width:40px;height:40px;border-radius:10px;background:var(--orange-s);color:var(--orange-d);display:flex;align-items:center;justify-content:center}
+    .labs-card-icon svg{width:20px;height:20px}
+    .labs-card-title{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+    .labs-card-sub{font-size:.88rem;color:var(--muted);line-height:1.45}
+    .labs-card-cta{margin-top:.15rem;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-d)}
+    .page-foot{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--line);background:var(--page)}
+    .page-foot a{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);text-decoration:none}
+    .page-foot a:hover{text-decoration:underline}
+    .page-foot a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.labs-card{transition:none}.labs-card:hover{transform:none}}
+    @media(max-width:480px){.page-bar{padding:.65rem 1rem}}
+    .btn-top{position:fixed;bottom:2rem;right:2rem;z-index:9000;width:2.75rem;height:2.75rem;border-radius:50%;border:none;cursor:pointer;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(224,91,26,.38),0 1px 4px rgba(0,0,0,.18);opacity:0;pointer-events:none;transform:translateY(.75rem) scale(.88);transition:opacity .35s var(--ease),transform .35s var(--ease),background .2s,box-shadow .2s}
+    .btn-top.visible{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}
+    .btn-top:hover{background:var(--orange-d);box-shadow:0 6px 22px rgba(224,91,26,.5),0 2px 6px rgba(0,0,0,.22);transform:translateY(-2px) scale(1.06)}
+    .btn-top:active{transform:scale(.95)}
+    .btn-top:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    @media(max-width:600px){.btn-top{bottom:1.5rem;right:1.25rem;width:2.5rem;height:2.5rem}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo" data-i18n="a11y_skip">Pular para o conteúdo</a>
+
+  <header class="page-bar">
+    <a class="page-voltar" href="../../index.html#timeline">
+      <i data-feather="arrow-left" aria-hidden="true"></i>
+      <span data-i18n="proj_nav_portfolio">Portfólio</span>
+    </a>
+    <div class="page-bar-right">
+      <div class="lang-switch" role="group" data-i18n-aria="lang_switch_aria" aria-label="Idioma do site">
+        <button type="button" class="lang-btn" data-lang-btn="pt" aria-pressed="true" data-i18n-aria="proj_lang_pt_aria" aria-label="Português">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.2 17.8 7 10 12.8 2.2 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="2.6" fill="#002776"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_pt_label">PT</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false" data-i18n-aria="proj_lang_en_aria" aria-label="English">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10"><rect width="19" height="10" fill="#b22234"/><path fill="#fff" d="M0 1.54h19v1.54H0zm0 3.08h19v1.54H0zm0 3.08h12.35v1.54H0z"/><rect width="7.65" height="5.38" fill="#3c3b6e"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_en_label">EN</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <nav class="page-crumb" aria-label="Trilha de navegação" data-i18n-aria="labs_crumb_aria">
+        <a href="../../index.html#timeline" data-i18n="proj_nav_portfolio">Portfólio</a>
+        <span class="page-crumb-sep" aria-hidden="true">/</span>
+        <span aria-current="page" data-i18n="nav_labs">Labs</span>
+      </nav>
+      <span class="page-hero-tag" data-i18n="labs_hero_tag">Projetos pessoais</span>
+      <h1 data-i18n-html="labs_hero_title_html"><strong>Labs</strong></h1>
+      <p class="page-hero-role" data-i18n="labs_hero_sub">Experimentos, ideias e produtos fora da trajetória corporativa.</p>
+    </div>
+  </div>
+
+  <div class="page-band">
+    <div class="page-band-inner">
+      <blockquote class="page-quote">
+        <p data-i18n="labs_hub_quote">“Projetos pessoais no mesmo rigor visual dos cases da trajetória — com liberdade para experimentar.”</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <main id="conteudo">
+    <div class="page-main">
+      <p class="labs-list-eyebrow" data-i18n="labs_list_eyebrow">Explorar</p>
+
+      <div class="labs-grid">
+        <a class="labs-card" href="tjbooks/index.html" data-i18n-aria="labs_card_tjbooks_aria" aria-label="TJBOOKS — abrir página do projeto">
+          <span class="labs-card-icon"><i data-feather="book" aria-hidden="true"></i></span>
+          <span class="labs-card-title" data-i18n="labs_card_tjbooks_title">TJBOOKS</span>
+          <span class="labs-card-sub" data-i18n="labs_card_tjbooks_sub">UX, performance e acervo literário — API Laravel, SPA Angular e código no GitHub.</span>
+          <span class="labs-card-cta" data-i18n="labs_card_tjbooks_cta">Ver projeto</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-foot">
+    <a href="../../index.html#timeline" data-i18n="proj_foot_back">← Voltar ao portfólio</a>
+  </footer>
+
+  <script>
+    (function(){
+      'use strict';
+      if(typeof feather!=='undefined') feather.replace({'stroke-width':1.75});
+    })();
+  </script>
+  <script src="../../i18n.js"></script>
+  <script>if(window.MCI18N) MCI18N.init();</script>
+  <button type="button" class="btn-top" id="btnTop" data-i18n-aria="labs_btn_top_aria" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+  <script>
+    (function(){
+      var btn=document.getElementById('btnTop');
+      if(!btn)return;
+      window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300)},{passive:true});
+      btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+    })();
+  </script>
+</body>
+</html>
