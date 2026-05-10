@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-i18n-page="labs_incomparavel" data-public-base="portfolio_marcuscunha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Incomparável Eventos — organização e produção de eventos no Rio de Janeiro.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Marcus Cunha — Portfolio">
+  <meta property="og:title" content="Labs / Incomparável Eventos · Marcus Cunha">
+  <meta property="og:description" content="Incomparável Eventos — organização e produção de eventos no Rio de Janeiro.">
+  <meta property="og:image" content="https://mystrader.github.io/portfolio_marcuscunha/imagens/avatar_marcus.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Labs / Incomparável Eventos · Marcus Cunha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  <style>
+    :root{--void:#0c0c0f;--page:#f6f3ee;--ink:#1a1a20;--muted:#918d88;--orange:#e05b1a;--orange-d:#b34714;--orange-s:#fbf0e9;--line:#ddd9d1;--warm:#ede9e2;--font-disp:'Nunito',system-ui,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--font-disp);background:var(--page);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+    .skip-link{position:absolute;left:-9999px;top:.75rem;z-index:200;padding:.6rem 1rem;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--void);background:#fff;border:2px solid var(--orange);border-radius:6px}
+    .skip-link:focus{left:.75rem;outline:none}
+    .page-bar{position:sticky;top:0;z-index:100;background:rgba(12,12,15,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);padding:.85rem clamp(1.25rem,4vw,2.75rem);display:flex;align-items:center;justify-content:space-between}
+    .page-voltar{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff;padding:.55rem .85rem .55rem .35rem;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);transition:background .2s,border-color .2s}
+    .page-voltar svg{width:18px;height:18px;flex-shrink:0}
+    .page-voltar:hover{background:rgba(224,91,26,.25);border-color:rgba(224,91,26,.55)}
+    .page-voltar:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+    .page-bar-right{display:flex;align-items:center;gap:.85rem}
+    .lang-switch{display:inline-flex;align-items:center;gap:.2rem;padding:.2rem;border-radius:100px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.2)}
+    .lang-btn{font-family:var(--font-disp);font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);background:transparent;border:none;border-radius:100px;padding:.32rem .55rem .32rem .45rem;cursor:pointer;transition:color .2s,background .2s;display:inline-flex;align-items:center;gap:.38rem}
+    .lang-flag{flex-shrink:0;display:block;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.25);line-height:0}
+    .lang-flag svg{display:block;width:1.05rem;height:.72rem}
+    .lang-btn:hover{color:#fff}
+    .lang-btn.is-active{color:var(--void);background:#fff}
+    .page-hero{background:var(--orange);padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,3rem);position:relative;overflow:hidden}
+    .page-hero::before{content:'INCOMPARÁVEL';position:absolute;right:-3rem;top:50%;transform:translateY(-50%);font-size:clamp(1.75rem,7vw,5rem);font-weight:300;line-height:1;color:rgba(255,255,255,.07);letter-spacing:-.04em;pointer-events:none;white-space:nowrap}
+    .page-hero-inner{position:relative;z-index:1;max-width:720px}
+    .page-hero-tag{display:inline-block;margin-bottom:.7rem;font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.88);background:rgba(255,255,255,.18);padding:.22rem .7rem;border-radius:100px}
+    .page-hero h1{font-weight:300;font-size:clamp(1.65rem,4.5vw,2.85rem);letter-spacing:-.03em;color:#fff;line-height:1.12;text-wrap:balance}
+    .page-hero h1 strong{font-weight:800}
+    .page-hero-role{margin-top:.65rem;font-size:clamp(.88rem,1.2vw,1rem);color:rgba(255,255,255,.88);font-weight:600}
+    .page-crumb{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:1rem;display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;line-height:1.45;max-width:720px}
+    .page-crumb a{color:rgba(255,255,255,.92);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);transition:color .15s,border-color .15s}
+    .page-crumb a:hover{color:#fff;border-bottom-color:#fff}
+    .page-crumb a:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:2px}
+    .page-crumb [aria-current="page"]{color:#fff;font-weight:800;letter-spacing:.06em}
+    .page-crumb-sep{color:rgba(255,255,255,.4);font-weight:600;user-select:none}
+    .page-band{background:var(--void);padding:clamp(2rem,4vw,3rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .page-band-inner{max-width:720px;margin:0 auto}
+    .page-quote{margin:0;padding:0 0 0 clamp(1rem,3vw,1.35rem);border-left:3px solid rgba(255,255,255,.28)}
+    .page-quote p{font-size:clamp(1rem,2vw,1.35rem);font-weight:500;line-height:1.5;letter-spacing:-.02em;color:rgba(255,255,255,.92);font-style:italic}
+    .page-main{max-width:720px;margin:0 auto;padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,2rem) clamp(1.5rem,4vw,2.5rem)}
+    .sec-label{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+    .sec-label svg{width:16px;height:16px;flex-shrink:0}
+    .page-main h2{font-size:clamp(1.2rem,2.5vw,1.55rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.25;margin-bottom:.75rem}
+    .page-main p{font-size:clamp(.92rem,1.1vw,1.02rem);margin-bottom:1.2rem;color:#5c5854}
+    .labs-gallery-section{background:var(--void);padding:clamp(2rem,5vw,3.25rem) clamp(1.5rem,5vw,2.75rem);border-top:1px solid rgba(255,255,255,.06)}
+    .labs-gallery-inner{max-width:720px;margin:0 auto}
+    .labs-gallery-eyebrow{font-size:.58rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:.45rem;display:flex;align-items:center;gap:.45rem}
+    .labs-gallery-eyebrow svg{width:14px;height:14px}
+    .labs-gallery-head h2{font-size:clamp(1.1rem,2.2vw,1.35rem);font-weight:700;color:rgba(255,255,255,.92);letter-spacing:-.02em;margin-top:.25rem}
+    .labs-stills{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.25rem}
+    @media(min-width:520px){.labs-stills{grid-template-columns:repeat(2,1fr)}}
+    .labs-still:first-child{grid-column:1/-1}
+    .labs-still{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#14141e}
+    .labs-still img{width:100%;height:auto;display:block;vertical-align:top}
+    .labs-still figcaption{font-size:.68rem;color:rgba(255,255,255,.45);padding:.55rem .75rem;border-top:1px solid rgba(255,255,255,.08)}
+    .page-foot{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--line);background:var(--page)}
+    .page-foot a{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-d);text-decoration:none}
+    .page-foot a:hover{text-decoration:underline}
+    .page-foot a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    .btn-top{position:fixed;bottom:2rem;right:2rem;z-index:9000;width:2.75rem;height:2.75rem;border-radius:50%;border:none;cursor:pointer;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(224,91,26,.38);opacity:0;pointer-events:none;transform:translateY(.75rem) scale(.88);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+    .btn-top.visible{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}
+    .btn-top:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media(max-width:480px){.page-bar{padding:.65rem 1rem}}
+    @media(max-width:600px){.btn-top{bottom:1.5rem;right:1.25rem;width:2.5rem;height:2.5rem}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo" data-i18n="a11y_skip">Pular para o conteúdo</a>
+
+  <header class="page-bar">
+    <a class="page-voltar" href="../index.html">
+      <i data-feather="arrow-left" aria-hidden="true"></i>
+      <span data-i18n="labs_nav_hub">Labs</span>
+    </a>
+    <div class="page-bar-right">
+      <div class="lang-switch" role="group" data-i18n-aria="lang_switch_aria" aria-label="Idioma do site">
+        <button type="button" class="lang-btn" data-lang-btn="pt" aria-pressed="true" data-i18n-aria="proj_lang_pt_aria" aria-label="Português">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.2 17.8 7 10 12.8 2.2 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="2.6" fill="#002776"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_pt_label">PT</span>
+        </button>
+        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false" data-i18n-aria="proj_lang_en_aria" aria-label="English">
+          <span class="lang-flag" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10"><rect width="19" height="10" fill="#b22234"/><path fill="#fff" d="M0 1.54h19v1.54H0zm0 3.08h19v1.54H0zm0 3.08h12.35v1.54H0z"/><rect width="7.65" height="5.38" fill="#3c3b6e"/></svg></span>
+          <span class="lang-btn-text" data-i18n="lang_en_label">EN</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <nav class="page-crumb" aria-label="Trilha de navegação" data-i18n-aria="labs_crumb_aria">
+        <a href="../../../index.html#timeline" data-i18n="proj_nav_portfolio">Portfólio</a>
+        <span class="page-crumb-sep" aria-hidden="true">/</span>
+        <a href="../index.html" data-i18n="nav_labs">Labs</a>
+        <span class="page-crumb-sep" aria-hidden="true">/</span>
+        <span aria-current="page" data-i18n="labs_card_incomparavel_title">Incomparável Eventos</span>
+      </nav>
+      <span class="page-hero-tag" data-i18n="labs_incomparavel_hero_tag">Marca & narrativa</span>
+      <h1 data-i18n-html="labs_incomparavel_hero_title_html"><strong>Incomparável Eventos</strong></h1>
+      <p class="page-hero-role" data-i18n="labs_incomparavel_hero_role">Posicionamento, texto institucional e experiências memoráveis.</p>
+    </div>
+  </div>
+
+  <div class="page-band">
+    <div class="page-band-inner">
+      <blockquote class="page-quote">
+        <p data-i18n="labs_incomparavel_quote">“Ir além é o mínimo que podemos fazer por você.”</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <main id="conteudo">
+    <div class="page-main">
+      <div class="sec-label"><i data-feather="heart" aria-hidden="true"></i> <span data-i18n="labs_incomparavel_sec_label">Contexto</span></div>
+      <h2 data-i18n="labs_incomparavel_h2">Sobre a marca</h2>
+      <p data-i18n="labs_incomparavel_p1">A Incomparável Eventos é uma empresa especializada em organização, produção e decoração de eventos, reconhecida pela excelência na criação de experiências sofisticadas e memoráveis. Atua em casamentos, festas de debutantes, eventos corporativos e comemorações sociais, oferecendo soluções completas e personalizadas para cada cliente.</p>
+      <p data-i18n="labs_incomparavel_p2">A empresa pertence à Eucilena Turismóloga, formada em Gestão Estratégica de Eventos, que conhece profundamente as necessidades e expectativas de cada celebração por também ter vivenciado a experiência de planejar o próprio casamento. Seu olhar detalhista, aliado à experiência no setor de eventos, garante atendimento diferenciado, criatividade e alto padrão de qualidade em cada projeto realizado.</p>
+    </div>
+
+    <section class="labs-gallery-section" aria-labelledby="inc-gal-h">
+      <div class="labs-gallery-inner">
+        <p class="labs-gallery-eyebrow" id="inc-gal-eyebrow"><i data-feather="image" aria-hidden="true"></i> <span data-i18n="labs_incomparavel_gallery_eyebrow">Referências</span></p>
+        <div class="labs-gallery-head">
+          <h2 id="inc-gal-h" data-i18n="labs_incomparavel_gallery_h2">Identidade visual</h2>
+        </div>
+        <div class="labs-stills">
+          <figure class="labs-still">
+            <img src="../../../imagens/BEHANCE/LABS/incomparavelEventos/c78c6557555205.59dad7ea47768.webp" alt="" width="1600" height="900" loading="lazy" decoding="async" data-i18n-alt="labs_incomparavel_alt1">
+            <figcaption data-i18n="labs_incomparavel_cap1">Comunicação da marca</figcaption>
+          </figure>
+          <figure class="labs-still">
+            <img src="../../../imagens/BEHANCE/LABS/incomparavelEventos/d3fc4257555205.59dad8d8b8e5a.webp" alt="" width="1200" height="800" loading="lazy" decoding="async" data-i18n-alt="labs_incomparavel_alt2">
+            <figcaption data-i18n="labs_incomparavel_cap2">Ambiente & decoração</figcaption>
+          </figure>
+          <figure class="labs-still">
+            <img src="../../../imagens/BEHANCE/LABS/incomparavelEventos/6707e757555205.59dad7ea47257.webp" alt="" width="1200" height="800" loading="lazy" decoding="async" data-i18n-alt="labs_incomparavel_alt3">
+            <figcaption data-i18n="labs_incomparavel_cap3">Experiência do evento</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-foot">
+    <a href="../../../index.html#timeline" data-i18n="proj_foot_back">← Voltar ao portfólio</a>
+  </footer>
+
+  <script>
+    (function(){ if(typeof feather!=='undefined') feather.replace({'stroke-width':1.75}); })();
+  </script>
+  <script src="../../../i18n.js"></script>
+  <script>if(window.MCI18N) MCI18N.init();</script>
+  <button type="button" class="btn-top" id="btnTop" data-i18n-aria="labs_btn_top_aria" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+  <script>
+    (function(){
+      var btn=document.getElementById('btnTop');
+      if(!btn)return;
+      window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>300)},{passive:true});
+      btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+    })();
+  </script>
+</body>
+</html>
